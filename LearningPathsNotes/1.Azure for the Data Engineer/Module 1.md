@@ -61,6 +61,7 @@ Data systems should be complient with:
 <li> Storage </li>
 <li> Power, cooling and periodic maintenance by qualified personnel. </li>
 <li> A server needs at least one operating system installed. </li>
+</ul>
 
 <b> Maintenance </b>
 <p>On-premis systems require maintenance for the hardware, firmware (software to perform specific task on hardware), drivers, BIOS (basic input/output system), operating system
@@ -112,13 +113,12 @@ When an on-premises server is at maximum capacity, even an incremental increase 
 
 <p> Costs for on-premis server systems are often capitalized while cost for cloud is expensed. </p>
 
-
 <h3> Cloud Environemnt </h3>
 <p> Cloud environments require no capital investment. Pays only for what is used. 
 Moving servers and services to the cloud also reduces operational costs.
 Storage types include Azure Blob storage, Azure Files storage and Azure Disk storage. </p>
 
-<b>Maintenance </b>
+<b> Maintenance </b>
 <p> Microsoft manages physical hardware, computer networking, firewalls and network security
 datacenter fault tolerance, compliance, physical security of the buildings. </p>
 
