@@ -142,15 +142,18 @@ to Azure Virtual Machines. This strategy is known as lift and shift. </p>
 
 <h3> Check Your knowledge </h3>
 1. Which data processing framework will a data engineer use to ingest data onto
-cloud data platforms in Azure<pre>- Online transaction processing (OLTP)
+cloud data platforms in Azure
+<pre>- Online transaction processing (OLTP)
 - Extract, transform, and load (ETL) 
 - EXTRACT, LOAD, AND TRANSFORM (ELT) </pre>
 
-2. The schema of what data type can be defined at query time?<pre>- Structured data
+2. The schema of what data type can be defined at query time?
+<pre>- Structured data
 - Azure Cosmos DB
 - UNSTRUCTURED DATA </pre>
  
 3. Duplicating customer content for redundancy and meeting service-level agreements (SLAs) in Azure 
-meets which cloud technical requirement?<pre>- Maintainability
+meets which cloud technical requirement?
+<pre>- Maintainability
 - HIGH AVAILABILITY
 - Multilingual support</pre>
