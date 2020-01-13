@@ -56,6 +56,7 @@ Data systems should be complient with:
 
 <h3> On-premises Environemnt </h3>
 <ul>
+<p> On prem environment requires </p>
 <li> Physical equipment, Physical servers </li> 
 <li> Network infrastructure </li>
 <li> Storage </li>
