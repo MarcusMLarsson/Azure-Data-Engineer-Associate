@@ -99,28 +99,25 @@ might be hard to find to hire. </p>
 
 <b> Total cost of ownership (TCO) </b>
 <p> Total cost of ownership (TCO) describes the final cost of owning a given technology.
-Total cost of ownership for a on-premises systems includes cost for </p>
+Total cost of ownership for an on-premises systems includes cost for </p>
 <ul>
 <li> Hardware </li>
 <li>Software licensing </li>
 <li>Labor (installtion, upgrades, maintenance) </li>
 <li>Datacenter overhead (power, telecommunications, building, heating and cooling) </li>
 </ul>
-
 <p>
-Normally difficult to aling on-premis expenses with actual usage. Organizations buy servers that have extra 
-capacity so they can accomodate future growth. Excess capacity is to be expected.
+It's normally difficult to aling on-premis expenses with actual usage. Organizations tend to buy servers that have extra 
+capacity so they can accomodate future growth. Hence, excess capacity is to be expected.
 When an on-premises server is at maximum capacity, even an incremental increase in resource demand will require the purchase of more hardware. </p>
 
 <p> Costs for on-premis server systems are often capitalized while cost for cloud is expensed. </p>
 
-<h3> Cloud Environemnt </h3>
-<p> Cloud environments require no capital investment. Pays only for what is used. 
-Moving servers and services to the cloud also reduces operational costs.
-Storage types include Azure Blob storage, Azure Files storage and Azure Disk storage. </p>
+<h3> Cloud Environment </h3>
+<p> Cloud environments require no capital investment (pay as you go). Storage types include Azure Blob storage, Azure Files storage and Azure Disk storage. </p>
 
 <b> Maintenance </b>
-<p> Microsoft manages physical hardware, computer networking, firewalls and network security
+<p> Microsoft manages the physical hardware, computer networking, firewalls and network security
 datacenter fault tolerance, compliance, physical security of the buildings. </p>
 
 <b> Scalability </b>
@@ -130,22 +127,17 @@ is typically measured in compute units. </p>
 <b> Availaiblity </b>
 <p> Many services uses SLAs (service level agreements) to ensure that customers know the capabilities. </p>
 
-<b> Support </b>
-<p> When Microsoft updates a proudct, the update applies to all consumer of the product. </p>
-
 <b> Multilingual support </b>
-<p> Cloud system often store data as a JSON file that includes the language code identifier (LCID) </p>
+<p> Cloud systems often store data as a JSON file that includes the language code identifier (LCID) </p>
 
 <b> Total cost of ownership </b>
-<p> Track costs by subscriptions. A subscription can be based on usage that's measured in compute
+<p> It's normal to track costs by subscriptions. A subscription can be based on usage that's measured in compute
 units, hours, or transactions. The cost includes hardware, software, disk storage and labor.
-Due to economices of scale, on-premises system can rarely compete with the cloud
-in terms of the measurement of the service usage. </p>
+Due to economices of scale, on-premises system can rarely compete with the cloud. </p>
 
 <b> Lift and shift </b>
 <p> When moving to the cloud, many customers migrate from physical or virtualized on-premises servers
-to Azure Virtual Machines. This strategy is known as lift and shift. 
-Server adminst lift and shift an application from physical environment to Azure Virtual Machines. </p>
+to Azure Virtual Machines. This strategy is known as lift and shift. </p>
 
 
 <h3> Check Your knowledge </h3>
