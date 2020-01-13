@@ -83,7 +83,7 @@ System uptime can be expressed as three nines, four nines and five nines.
 These expressions indicate system uptimes of 99.9 percent, 99.99 percent or 99.999 percent.
 For on-premises servers, the more uptime the SLA requires, the higher cost.
 To calculate system uptime in terms of hours, 
-multpliy these percentages by number of hours in a year (8760) </p>
+multiply these percentages by number of hours in a year (8760) </p>
 <ul>
 <li> 99.9%, uptime: 8,751.24, downtime: 8.76h </li>
 <li>99.99% uptime: 8,759.12 downtime: 0.88h </li>
@@ -91,11 +91,11 @@ multpliy these percentages by number of hours in a year (8760) </p>
 </ul>
 
 <b> Support </b>
-<p> Hundred of vendors sell physical server hardware. Server admins might need to know different platforms
-Might be hard to find server admin to hire. </p>
+<p> Hundred of vendors sell physical server hardware. Server admins might need to know different platforms and
+might be hard to find to hire. </p>
 
 <b> Multilingual support </b>
-<p> Multilingual support might be difficult and expensive for On-premis SQL Server system. </p>
+<p> Multilingual support might be difficult and expensive for on-premis SQL Server system. </p>
 
 <b> Total cost of ownership (TCO) </b>
 <p> Total cost of ownership (TCO) describes the final cost of owning a given technology.
