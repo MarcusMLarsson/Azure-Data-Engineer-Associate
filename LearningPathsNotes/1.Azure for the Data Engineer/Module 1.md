@@ -86,7 +86,7 @@ multpliy these percentages by number of hours in a year (8760) </p>
 <li> 99.9%, uptime: 8,751.24, downtime: 8.76h </li>
 <li>99.99% uptime: 8,759.12 downtime: 0.88h </li>
 <li>99.999% uptime: 8,759.91 downtime: 0.09h </li>
-<ul>
+</ul>
 
 <b> Support </b>
 <p> Hundred of vendors sell physical server hardware. Server admins might need to know different platforms
