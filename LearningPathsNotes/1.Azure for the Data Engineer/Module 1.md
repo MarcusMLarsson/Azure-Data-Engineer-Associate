@@ -69,15 +69,15 @@ Data systems should be complient with:
 software, and antivirus software. </p>
 
 <b> Scalability </b>
-<p> To scale on-premis server horizontally, server administrators adds another server node to a cluster.
+<p> To scale server horizontally, server administrators adds another server to node cluster.
 Clustering uses either a hardware load balancer or a software load balancer to distribute 
-incomming network requests to a node of the cluster A limitation of server clustering is that the hardware for each server in the cluster
+incomming network requests to a node of the cluster. A limitation of server clustering is that the hardware for each server in the cluster
 must be identical. When the server cluster reaches maximum capacity, a server administrator
 must replace or upgrade each node in the cluster. </p>
 
 <b> Availability </b>
 <p> High-availability systems must be available most of the time. 
-Service-level agreements (SLAs) specify your organization's availability expecations.
+Service-level agreements (SLAs) specifies your organization's availability expecations.
 
 System uptime can be expressed as three nines, four nines and five nines.
 These expressions indicate system uptimes of 99.9 percent, 99.99 percent or 99.999 percent.
