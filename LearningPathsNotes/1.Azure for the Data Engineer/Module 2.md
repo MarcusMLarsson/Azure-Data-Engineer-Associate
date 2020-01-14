@@ -70,14 +70,14 @@ that helps them process big-data analyitcs solutions. In Gen2, developers can ac
 the Data Lake file API. Gen2 can also act as a storage layer for a wide range of compute platforms,
 including Azure Databricks, Hadoop, Azure HDInsight. </p>
 
-<h3> Where to use Data Lake Storage Gen2? <h3>
+<h3> Where to use Data Lake Storage Gen2? </h3>
 <p> Data Lake Storage is designed to store massive amounts of data for big-data analytics.
 The compute aspec that sits above this storage can vary. The aspec can include platforms like HDInsight, Hadoop,
 Cloudera, Azure Databricks, and Hortonworks. </p>
 
 <h3> Key Features </h3>
 <ul>
-<li>Unlimited scalability </li>  
+<li> Unlimited scalability </li>  
 <li> Hadoop compatibility</li> 
 <li> Security support for both access control lists (ACL) </li> 
 <li> POSIX compliance </li>
@@ -115,4 +115,11 @@ Hadoop file system. </p>
 </ul>  
 
 
+<h3> Linus vs Unix vs POSIX </h3>
 
+<p> Unix and Linus has same command lines. Operating systems considered Unix: Solaris (Oracle), BSD, macOS. Systems
+considered Linux: Ubuntu, Fedora, Debian, Android.
+
+Neither Linux and Unix refer to an operating system today. Back in the 60s and 70s Unix was an operating system. However, when we call an operatingsystem Unix, what we are really saying is that it's Unix standard compliant. For Linux this story is slightly different. Linux is defined by the kernel. The kernel is the software that lives closes to the hardware. The kernel translates instructions from applications to low-level information, to be read by hardware. The kernel is common to all distributions of Linux. 
+Many Unix operating system are proprietary. Linux created for liberty (GPL, general public license), open-source, free, derivate of Unix. </p>  
+</p>
