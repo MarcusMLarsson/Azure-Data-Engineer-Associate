@@ -61,7 +61,7 @@
 <p> Azure Storage encrypts all data that's written to it. Azure Storage also provides you with fine-grained control over who has acces to your data. You'll secure the data by using keys or shared access signatures. Azure Resource Manager provides a permissions model that uses role-based access control (RBAC). Use this functionality to set permission and assign roles to users, groups, or applications. </p>
 
 <h3> Azure Data Lake Storage </h3>
-<p> Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
+<p> Azure Data Lake is a data storage solution designed for <b> big data analytics </b>. Each data like has a container (file system) underneath. Just like any filesystem it has folders and files within it. Because the service is designed for data analytics, the file system is called Azure Blob File System (ABFS). The file system is Hadoop compatible. Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
 The storage service is available as Generation 1 (Gen1) or Generation 2 (Gen2). Gen1 users are not required to
 upgrade to Gen2, but they forgo some benifits. </p>
 
@@ -141,3 +141,15 @@ Many Unix operating system are proprietary. Linux created for liberty (GPL, gene
 
 <p> POSIX vs SUS </p>
 <p> POSIX = Portable Operaing Systems Interface, formal standard to uniform Linux system. </p>
+
+
+<h3> Memory Size </h3>
+<p> Computers stores data with the binary system (0,1). Bit = Binary digit, smallest unit of data (1 or 0). The number of Bits we use determines how much we can store. 8 Bits (e.g. 01011011) is equal to 1 Byte. 1 Byte is equal to store one letter in the alphabet. </p>
+<ul>
+<li> Bits </li>  
+<li> Bytes </li> 
+<li> Kilobytes (1k) ~Two pages of text </li> 
+<li> MegaBytes (1M) ~5 large books or one photo, or one minute of music</li> 
+<li> GigaBytes (9Z ~400 books, 1000 photos, 16 hours music, one very short film, low resolution, 1GB flash drive ~5 dollars) </li> 
+<li> TeraBytes (12Z, 1 million pictures, 2 year of music, 10 4-k movies, </li> 
+</ul>
