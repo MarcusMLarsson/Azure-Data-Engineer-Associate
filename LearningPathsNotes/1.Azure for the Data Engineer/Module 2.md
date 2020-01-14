@@ -2,11 +2,13 @@
 
 <h3> Introduction </h3>
 <ul>
-<li> Learn about Azure technologies </li>
+<i> <li> Learn about Azure technologies </li>
 <li> Explore common Azure data platform technologies and identify when to use them. </li>
 <li> Learn how engineers can choose technologies to meet their business needs </li>
-</li>
+</li> </i>
 </ul>
+
+---
 
 <h3> Structured data: Review </h3>
 <ul>
