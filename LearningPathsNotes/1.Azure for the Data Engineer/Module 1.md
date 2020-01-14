@@ -32,12 +32,6 @@
 <li> Azure Cosmos DB, Azure HDInsight, MongoDB </li>
 </ul>
 
-<p> Schema: All columns have to follow the Schema in relation database. 
-A schema is a collection of database tables (objects) associated
-with one particular database username. 
-This username is the so called the schema owner. Based on a user's privileges within the database, the user has control over 
-objects that are created, manipulated, and deleted. </p>
-
 <h3> Compliance </h3>
 Data systems should be complient with:
 
@@ -165,3 +159,13 @@ meets which cloud technical requirement?
 <pre>- Maintainability
 - HIGH AVAILABILITY
 - <b>Multilingual support</b></pre>
+
+---
+
+<h3> Notes </h3>
+
+<p> Schema: All columns have to follow the Schema in relation database. 
+A schema is a collection of database tables (objects) associated
+with one particular database username. 
+This username is the so called the schema owner. Based on a user's privileges within the database, the user has control over 
+objects that are created, manipulated, and deleted. </p>
