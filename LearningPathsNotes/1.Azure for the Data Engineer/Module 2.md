@@ -86,6 +86,10 @@ Cloudera, Azure Databricks, and Hortonworks. </p>
 <li> Geo-redundant storage</li>
 </ul>
 
+
+---
+<h3> Notes </h3>
+
 <h3> Hadoop </h3> 
 <p> Hadoop can be thought of a set of open source programs and procedures which anyone can use
 as the backbone of their big data operations.
@@ -113,7 +117,6 @@ Hadoop file system. </p>
 <li> 4. -YARN </li>
 <p> Manages resources of the systems storing the data and running the analyisis </p>
 </ul>  
-
 
 <h3> Linus vs Unix vs POSIX </h3>
 
