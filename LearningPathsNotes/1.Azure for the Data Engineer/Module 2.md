@@ -37,7 +37,7 @@
 
 <h3> Azure Storage </h3>
 <ul>
-<li> <b> Azure Blob: </b>  A scalable object store for text and binary data</li> 
+<li> <b> Azure Blob: </b>  A scalable object store for text and binary data (any kind of file) </li> 
 <li> <b> Azure Files: </b> Managed file shares for cloud or on-premises deployments</li> 
 <li> <b> Azure Queue: </b> Graph database: A messaging store for reliable messaging between application components</li> 
 <li> <b> Azure Table: </b> A NoSQL store for no-schema storage of structured data </li> 
@@ -60,8 +60,59 @@
 <h3> Data security </h3>
 <p> Azure Storage encrypts all data that's written to it. Azure Storage also provides you with fine-grained control over who has acces to your data. You'll secure the data by using keys or shared access signatures. Azure Resource Manager provides a permissions model that uses role-based access control (RBAC). Use this functionality to set permission and assign roles to users, groups, or applications. </p>
 
+<h3> Azure Data Lake Storage </h3>
+<p> Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data.
+The storage service is available as Generation 1 (Gen1) or Generation 2 (Gen2). Gen1 users are not required to
+upgrade to Gen2, but they forgo some benifits. </p>
 
-  
-  
-  
+<p> Data Lake Storage Gen2 users take advantage of Azure Blob storage, a hierarchical file system, and performance tuning
+that helps them process big-data analyitcs solutions. In Gen2, developers can access data trough either the Blob API or
+the Data Lake file API. Gen2 can also act as a storage layer for a wide range of compute platforms,
+including Azure Databricks, Hadoop, Azure HDInsight. </p>
+
+<h3> Where to use Data Lake Storage Gen2? <h3>
+<p> Data Lake Storage is designed to store massive amounts of data for big-data analytics.
+The compute aspec that sits above this storage can vary. The aspec can include platforms like HDInsight, Hadoop,
+Cloudera, Azure Databricks, and Hortonworks. </p>
+
+<h3> Key Features </h3>
+<ul>
+<li>Unlimited scalability </li>  
+<li> Hadoop compatibility</li> 
+<li> Security support for both access control lists (ACL) </li> 
+<li> POSIX compliance </li>
+<li> An optimized Azure Blob File System (ABFS) driver that's desinged for big-data analyitcs</li>
+<li> Zone-redundant storage</li>
+<li> Geo-redundant storage</li>
+</ul>
+
+<h3> Hadoop </p>
+<p> Hadoop can be thought of a set of open source programs and procedures which anyone can use
+as the backbone of their big data operations.
+
+<p> Hadoop is developed for anybody to be able to store and analyze datasets far larger than can be
+practically be stored and accessed on one physical storage device (such as a hard disk). Hadoop
+is based on the idea that many smaller devices working in parallel are more efficient that
+one larger one. Released in 2005 by the Apache Software Foundation, a non-profit organization
+which produces open source software. </p>
+
+<ul>
+<p> Hadoop is made up of "modules", each of which carries out particular task essential for a computer
+  system designed for big data analytics. </p>
+
+<li> 1. -Distributed File-System </li>
+<p> A file system is the method used by a computer to store data. Normally this is determined by the 
+OS, however Hadoop system uses its own file system which sits "above" the file system of the host
+computer, meaning it can be accessed using any computer running any supported OS </p>
+<li> 2. -MapReduce </li>
+<p> Two basic operations, Reading data from the database, putting it 
+into a format suitable for analysis (map) and performing mathematical operations </p>
+<li> 3. -Hadoop Common </li>
+<p> Provides the tools (in Java) needed for the user's computer system to read data stored under the
+Hadoop file system. </p>
+<li> 4. -YARN </li>
+<p> Manages resources of the systems storing the data and running the analyisis </p>
+</ul>  
+
+
 
