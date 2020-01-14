@@ -1,10 +1,16 @@
 <h1> Survey the services on the Azure Data platform </h1>
 
 <h3> Introduction </h3>
+<p> This module will cover the following Azure technologies </p>
 <ul>
-<i> <li> Learn about Azure technologies </li>
-<li> Explore common Azure data platform technologies and identify when to use them. </li>
-<li> Learn how engineers can choose technologies to meet their business needs </li>
+<i> <li> Azure Storage </li>
+<li> Azure Data Lake Storage </li>
+  <li> Azure Cosmos DB </li>
+  <li> Azure SQL Database </li>
+  <li> Azure SQL Data Warehouse </li>
+  <li> Azure Stream Analytics </li>
+  <li> Azure HDInsight </li>
+  <li> Other Azure services </li>
 </li> </i>
 </ul>
 
