@@ -230,6 +230,13 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
   nonstreaming systems. You can use Stream Analytics for Internet of Things (IoT) monitoring, web logs, remote patient monitoring and 
   point of sale (POS) systems. </p>
   
+ <p> IoT Hub, Event Hub. Designed for large scale data ingestion either from IoT device or application. Primary difference between IoT 
+Hub and Event Hub is that event hub only take in data while IoT hub can also send data (e.g. firmware updates). </p>
+  
+<p> Data is still in motion. You can contrast this to tradditional mode of loading data into a database, usually at a regular
+interval (for example once a night). One example is fraud detection. If you can get to the transaction that is fraudulant immediately you have the abillity to do something. Another example is an overheating engine. Prevent catashropic event if you can do something immediately. 
+</p>
+  
 <b> When to use Stream Analytics </b>
 <p> If your organization must respond to data events in real time or analyze large batches of data in a continous time-bound stream. Your organization must decide whether to work with streaming data or batch data</p>
 
@@ -256,6 +263,46 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 ---
 
 <h3> Azure HDInsight </h3>
+
+<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. </p>
+
+<ul>
+  <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
+  data in memory. This difference in storage makes Spark about 100 times faster. </li>
+  <li> <b> HBase </b> is a NoSQL database built on Hadoop. It's commonly used for search engines. HBase offers automatic failover.</li>
+  <li> <b> Storm </b> is a distributed real-time streamlining analytics solution. </li>
+  <li> <b> Kafka </b> is an open-source platform that's used to compose data pipelines. It offers message queue functionality, 
+  which allows users to publish or subscribe to real-time data streams. </li>
+ </ul>
+
+<b> Ingesting data </b> 
+
+<p> As a data engineer, use Hive to run ETL operations on the data you're ingesting. Or orchestrate Hive queries in Azure Data Factory. </p>
+
+
+<b> Data processing </b> 
+<p> In Hadoop, use Java and Python to process big data. Mapper consumes and analyzes input data. It then emits tuples that Reducer can analyze. Reducer runs summary operations to create a smaller combined result set.
+  
+<b> Queries </b> 
+<p>In Hadoop supports Pig and HiveQL languages. In Spark, data engineers use Spark SQL. </p> 
+
+
+<b> Data security </b>
+<p> Hadoop supports encryption, Secure Shell (SSH), shared access signatures, and Azure Active Directory security.</p>
+  
+
+Spark processes streams by using Spark Streaming. For machine learning, use the 200 preloaded Anaconda libraries with Python. Use GraphX for graph computations.
+
+Developers can remotely submit and monitor jobs from Spark. Storm supports common programming languages like Java, C#, and Python.</p>
+
+<b> Computer Memory vs Computer Storage </b>
+<p> 
+Memory is used in the computer to tempory store information (tempory stored in RAM, random access memory) until you click save.
+And then its saved to your harddrive were its keept. 
+  
+
+</p>
+
 
 ---
 
