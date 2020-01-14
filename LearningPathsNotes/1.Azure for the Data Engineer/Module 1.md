@@ -145,8 +145,10 @@ Due to economices of scale, on-premises system can rarely compete with the cloud
 <p> When moving to the cloud, many customers migrate from physical or virtualized on-premises servers
 to Azure Virtual Machines. This strategy is known as lift and shift. </p>
 
+---
 
-<h3> Check Your knowledge </h3>
+<h3>Check Your knowledge </h3>
+
 1. Which data processing framework will a data engineer use to ingest data onto
 cloud data platforms in Azure
 <pre>- Online transaction processing (OLTP)
