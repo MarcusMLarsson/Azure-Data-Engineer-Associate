@@ -99,6 +99,122 @@ familiar Active Directory Security Groups. Role-based access control (RBAC) is a
 Built in security groups include ReadOnlyUsers, WriteAccessUsers, and FUllAccessUsers.Data Lake Storage
 automatically encrypts data at rest, protecting data privacy. </p>
 
+<h3> Azure Cosmos DB </h3>
+
+<ul>
+<p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models </p>
+<li> SQL API (a core API) </li>
+<li> MongoDB API </li>
+<li> Cassandra API </li>
+<li> Gremlin API (Graphs!) </li>
+<li> Azure Table Storage API </li>
+</ul>
+
+<p> Multimodel database puts alla data into one database. You can query as a graph, as a document or SQL. You can also match
+these in the same query. 
+
+Threee different datastores, swift, cassandra and hannah, now you need to interface with three different system, three different
+SQL syntaxes. What a multi-model database are the one that can serve all these different kind of data but with one integrated enginge. 
+</p>
+
+
+<h3> Key Features </h3>
+<ul>
+<li> Global Distribution </li>
+<li> Regional presence - available in 54+ regions </li>
+<li> Always On 99.999% </li>
+<li> Elastic Scale - from thousands to hundreds of millions of requests/sec </li>
+<li> Low latency guarantee - under 10ms read/write for 99 percentile </li>
+<li> Consistency options </li>
+<li> No Schema or index management </li>
+</ul>
+
+
+
+<p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API. (these would be
+"documents" in "collections" using MongoDB). Cosmos DB is a NoSQL Database as a Service (higher SLA 99.999% Service Level Agreement). Cosmos DB supports 99.999 percent uptime.  </p>
+
+<h3> Data ingestion </h3>
+<p> To ingest data into Azure Cosmos DB, use Azure Data Factory, create an application that writes data into Azure Cosmos DB
+through its API, upload JSON documents, or directly edit the document. </p>
+
+<h3> Queries </h3>
+<p> You can create stored procedures, triggers and user-defined functions (UDFs). Or use the JavaScript query API </p>
+
+<h3> Data security </h3>
+<p> Azure Cosmos DB support data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
+
+<h3> Azure SQL Database </h3>
+
+
+
+
+
+
+
+
+
+
+<h3> Data security </h3> 
+<ul> 
+<p> Azure SQL Database provides a range of built-in secuirty and compliance features. </p>
+<li> Advanced Threat Protection </li>
+<li> SQL Database auditing </li>
+<li> Data encryption </li>
+<li> Azure Active Directory Authentication </li>
+<li> Multifator authentication </li>
+<li> Compliance certification </li>
+</ul>
+
+
+
+
+
+
+<h3> SQL Data Warehouse </h3>
+
+<p>Azure SQL Data Warehouse is a cloud-based enterprise data warehouse. It can process massive amounts of data and answer complex business questions. </p>
+
+<h3> When to use SQL Data Warehouse </h3>
+
+<p> 
+Data loads can increase the processing time for on-premises data warehousing solutions. Organizations that face this issue might look to a cloud-based alternative to reduce processing time and release business intelligence reports faster. But many organizations first consider scaling up on-premises servers. As this approach reaches its physical limits, they look for a solution on a petabyte scale that doesn't involve complex installations and configurations.
+</p>
+
+<h3> Key features</h3>
+<ul>
+  <li> SQL Data Warehouse uses massively parallel processing (MPP) to quickly run queries across petabytes of data.  </li>  
+  <li> Storage is separated from the compute nodes, you can scale the compute nodes independently </li>  
+  <li> Data Movement Service (DMS) coordinates and transports data between compute nodes </li>  
+  <li> QL Data Warehouse supports two types of distributed tables: hash and round-robin. </li>  
+  <li> can also pause and resume the compute layer, you pay only for the computation you use. </li>  
+</ul>
+
+
+<h3> Ingesting and processing data </h3>
+<p> SQL Data Warehouse uses the extract, load, and transform (ELT) approach for bulk data. 
+SQL professionals are already familiar with bulk-copy tools such as bcp and the SQLBulkCopy API.
+Data engineers who work with SQL Data Warehouse will soon learn how quickly PolyBase can load data.
+Developers use PolyBase to apply stored procedures, labels, views, and SQL to their applications.</p>
+
+<h3> Queries </h3>
+<p> ou can use the familiar Transact-SQL to query the contents of SQL Data Warehouse 
+Load data fast by using PolyBase with additional Transact-SQL constructs such as CREATE TABLE and AS SELECT.</p>
+
+<h3> Data security </h3> 
+<p>  supports both SQL Server authentication and Azure Active Directory. </p>
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 <h3> Notes </h3>
 
