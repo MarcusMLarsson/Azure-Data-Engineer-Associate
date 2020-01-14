@@ -266,6 +266,11 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 
 <p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. </p>
 
+<p> Simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). 
+  
+  
+  https://www.youtube.com/watch?v=phKiAIHMLAI
+
 <ul>
   <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
   data in memory. This difference in storage makes Spark about 100 times faster. </li>
