@@ -61,7 +61,7 @@
 <p> Azure Storage encrypts all data that's written to it. Azure Storage also provides you with fine-grained control over who has acces to your data. You'll secure the data by using keys or shared access signatures. Azure Resource Manager provides a permissions model that uses role-based access control (RBAC). Use this functionality to set permission and assign roles to users, groups, or applications. </p>
 
 <h3> Azure Data Lake Storage </h3>
-<p> Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data.
+<p> Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
 The storage service is available as Generation 1 (Gen1) or Generation 2 (Gen2). Gen1 users are not required to
 upgrade to Gen2, but they forgo some benifits. </p>
 
@@ -71,7 +71,7 @@ the Data Lake file API. Gen2 can also act as a storage layer for a wide range of
 including Azure Databricks, Hadoop, Azure HDInsight. </p>
 
 <h3> Where to use Data Lake Storage Gen2? </h3>
-<p> Data Lake Storage is designed to store massive amounts of data for big-data analytics.
+<p> Data Lake Storage is designed to store massive amounts of data for big-data analytics. Data Lake Store allows you to store unstructured, semi-structured and structured data and does not require a schema to be defined before the data is loaded.
 The compute aspec that sits above this storage can vary. The aspec can include platforms like HDInsight, Hadoop,
 Cloudera, Azure Databricks, and Hortonworks. </p>
 
