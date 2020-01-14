@@ -7,6 +7,8 @@
 <li> Azure provides a rich set of data technologies. As data formats evolve, Microsoft releases new technologies to the Azure platform. </li> </i>
 </ul>
 
+---
+
 <h3> Structured or Unstructured</h3>
 <ul>
 <p> <b>  Structured Data  </b> </p>
@@ -53,6 +55,8 @@ Data systems should be complient with:
 <li> Organisations that handle card payment must comply or risk financial penalties </li>
 <li> Launched in 2004, result of collaboration between American Express, Mastercard, Visa, JCV, Discover</li>
 </ul>
+
+---
 
 <h3> On-premises Environemnt </h3>
 <ul>
@@ -112,6 +116,8 @@ capacity so they can accomodate future growth. Hence, excess capacity is to be e
 When an on-premises server is at maximum capacity, even an incremental increase in resource demand will require the purchase of more hardware. </p>
 
 <p> Costs for on-premis server systems are often capitalized while cost for cloud is expensed. </p>
+
+---
 
 <h3> Cloud Environment </h3>
 <p> Cloud environments require no capital investment (pay as you go). Storage types include Azure Blob storage, Azure Files storage and Azure Disk storage. </p>
