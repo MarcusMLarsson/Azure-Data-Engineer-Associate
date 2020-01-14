@@ -8,9 +8,8 @@
 </li> </i>
 </ul>
 
----
-
-<h3> Structured data: Review </h3>
+<h3> Review </h3>
+<p> <b> Structured data </b> <p>
 <ul>
 <li> Relational databases: Microsoft SQL Server, Azure SQL Database and Azure SQL Data Warehouse </li> 
 <li> Data structure defined at design time, before data is loaded into the system </li> 
@@ -20,7 +19,7 @@
 <li> Typically uses a query language such as Transact-SQL </li>   
 </ul>
 
-<h3> Nonstructured data: Review </h3>
+<p> <b> Nonstructured data</b> </p>
 <ul>
 <li> Examples of nonstructured data include binary, audio and image files. </li> 
 <li> Nonrelational systems, commonly called NoSQL systems. </li> 
@@ -29,13 +28,15 @@
 <li> Nonrelatonal systems can also support semistructured data such as JSON file formats</li>
 </ul>
 
-<h3> Four types of open-source NoSQL databases </h3>
+<p> <b> Four types of open-source NoSQL databases </b> </p>
 <ul>
 <li> <b> Key-value store: </b> Stores key-value pairs of data in a table structure. </li> 
 <li> <b> Document database: </b> Stores documents that are tagged with metadata to aid document searches.</li> 
 <li> <b> Graph database: </b> Graph database: Find relationship between data points by using a structure that's composed of vertices and edges.</li> 
 <li> <b> Column database: </b> Stores data based on columns rather than rows. Columns can be defined at the query's runtime, allowing flexibility in the data that's returned performantly. </li> 
 </ul>
+
+---
 
 <h3> Azure Storage </h3>
 <ul>
@@ -50,17 +51,19 @@
 <h3> Azure Blob storage </h3>
 <p> If you need to provision a data store that will store but not query data, your cheapest option is to set up a storage account as a Blob store. Blob storage works well with images and unstructured data, and it's the cheapest way to store data in Azure. </p>
 
-<h3> Key features </h3>
+<b> Key features </b>
 <p> Scalable, secure, durable and highly available. Provides REST (Representational state transfer) APIs and SDKs for Azure Storage in various languages. Supported languages include .NET, Java, Node.js, Python, PHP, Ruby, and Go. 
   
-<h3> Data ingestion </h3>
+<b> Data ingestion </b>
 <p> To ingest data into your system, use Azure Data Factory, Storage Explorer, the AzCopy toll, PowerShell or Visual Studio. If you use the File Upload feature to import file sizes above 2 GB, use PowerShell or Visual Studio. AzCopy supports a maximum file size of 1 TB and automatically splits data files that exceed 200 GB. </p>
 
-<h3> Queries </h3>
+<b> Queries </b>
 <p> If you create a storage account as a Blol store, you <b> can't </b> query the data directly. To query it, either move the data to a store that supports queries or set up the Azure Storage account for a data lake storage account. </p>
 
-<h3> Data security </h3>
+<b> Data security </b>
 <p> Azure Storage encrypts all data that's written to it. Azure Storage also provides you with fine-grained control over who has acces to your data. You'll secure the data by using keys or shared access signatures. Azure Resource Manager provides a permissions model that uses role-based access control (RBAC). Use this functionality to set permission and assign roles to users, groups, or applications. </p>
+
+---
 
 <h3> Azure Data Lake Storage </h3>
 <p> Azure Data Lake is a data storage solution designed for <b> big data analytics </b>. Each data like has a container (file system) underneath. Just like any filesystem it has folders and files within it. Because the service is designed for data analytics, the file system is called Azure Blob File System (ABFS). The file system is Hadoop compatible. Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
@@ -72,12 +75,12 @@ that helps them process big-data analyitcs solutions. In Gen2, developers can ac
 the Data Lake file API. Gen2 can also act as a storage layer for a wide range of compute platforms,
 including Azure Databricks, Hadoop, Azure HDInsight. </p>
 
-<h3> Where to use Data Lake Storage Gen2? </h3>
+<b> Where to use Data Lake Storage Gen2? </b>
 <p> Data Lake Storage is designed to store massive amounts of data for big-data analytics. Data Lake Store allows you to store unstructured, semi-structured and structured data and does not require a schema to be defined before the data is loaded.
 The compute aspec that sits above this storage can vary. The aspec can include platforms like HDInsight, Hadoop,
 Cloudera, Azure Databricks, and Hortonworks. </p>
 
-<h3> Key Features </h3>
+<b> Key Features </b>
 <ul>
 <li> Unlimited scalability </li>  
 <li> Hadoop compatibility</li> 
@@ -88,18 +91,20 @@ Cloudera, Azure Databricks, and Hortonworks. </p>
 <li> Geo-redundant storage</li>
 </ul>
 
-<h3> Data ingestion </h3>
+<b> Data ingestion </b>
 <p>To ingest data into your system, use Azure Data Factory, Apache Sqoop, Azure Storage Explorer, the AzCopy tool, PowerShell or Visual Studio. </p>
 
-<h3> Queries </h3>
+<b> Queries </b>
 <p> In Data Lake storage Gen1, data enginerers query data with U-SQL language.
 In Gen2, Azure Blob Storage API or Azure Data Lake System (ADLS) API. </p>
 
-<h3> Data security </h3>
+<b> Data security </b>
 <p> Data Lake Storage supports Azure Active Directory ACLs, security administrators can control data access by using the
 familiar Active Directory Security Groups. Role-based access control (RBAC) is available in Gen1.
 Built in security groups include ReadOnlyUsers, WriteAccessUsers, and FUllAccessUsers.Data Lake Storage
 automatically encrypts data at rest, protecting data privacy. </p>
+
+---
 
 <h3> Azure Cosmos DB </h3>
 
@@ -120,7 +125,7 @@ SQL syntaxes. What a multi-model database are the one that can serve all these d
 </p>
 
 
-<h3> Key Features </h3>
+<b> Key Features </b>
 <ul>
 <li> Global Distribution </li>
 <li> Regional presence - available in 54+ regions </li>
@@ -131,20 +136,20 @@ SQL syntaxes. What a multi-model database are the one that can serve all these d
 <li> No Schema or index management </li>
 </ul>
 
-
-
 <p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API. (these would be
 "documents" in "collections" using MongoDB). Cosmos DB is a NoSQL Database as a Service (higher SLA 99.999% Service Level Agreement). Cosmos DB supports 99.999 percent uptime.  </p>
 
-<h3> Data ingestion </h3>
+<b> Data ingestion </b>
 <p> To ingest data into Azure Cosmos DB, use Azure Data Factory, create an application that writes data into Azure Cosmos DB
 through its API, upload JSON documents, or directly edit the document. </p>
 
-<h3> Queries </h3>
+<b> Queries </b>
 <p> You can create stored procedures, triggers and user-defined functions (UDFs). Or use the JavaScript query API </p>
 
-<h3> Data security </h3>
+<b> Data security </b>
 <p> Azure Cosmos DB support data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
+
+---
 
 <h3> Azure SQL Database </h3>
 
@@ -154,18 +159,18 @@ through its API, upload JSON documents, or directly edit the document. </p>
 
 <p> Use SQL Database when you need to scale up and scale down OLTP systems on demand. SQL Database is a good solution when your organization wants to take advantage of Azure security and availability features. Organizations that choose SQL Database also avoid the risks of capital expenditures and of increasing operational spending on complex on-premises systems. SQL Database is backed up by the Azure service-level agreement (SLA). </p>
 
-<h3> Key features </h3>
+<b> Key features </b>
 <p> SQL Database delivers predictable performance for multiple resource types, service tiers, and compute sizes. Requiring almost no administration, it provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options. You no longer have to devote precious time and resources to managing virtual machines and infrastructure.</p>
 
 
-<h3> Ingesting and processing data </h3>
+<b> Ingesting and processing data </b>
 <p> SQL Database can ingest data through application integration from a wide range of developer SDKs. Allowed programming languages include .NET, Python, Java, and Node.js. Beyond applications, you can also ingest data through Transact-SQL (T-SQL) techniques and from the movement of data using Azure Data Factory.</p>
 
 
-<h3> Queries</h3>
+<b> Queries</b>
 <p> Use T-SQL to query the contents of a SQL Database.</p>
 
-<h3> Data security </h3> 
+<b> Data security </b> 
 <ul> 
 <p> Azure SQL Database provides a range of built-in secuirty and compliance features. </p>
 <li> Advanced Threat Protection </li>
@@ -176,22 +181,19 @@ through its API, upload JSON documents, or directly edit the document. </p>
 <li> Compliance certification </li>
 </ul>
 
-
-
-
-
+---
 
 <h3> SQL Data Warehouse </h3>
 
 <p>Azure SQL Data Warehouse is a cloud-based enterprise data warehouse. It can process massive amounts of data and answer complex business questions. </p>
 
-<h3> When to use SQL Data Warehouse </h3>
+<b> When to use SQL Data Warehouse </b>
 
 <p> 
 Data loads can increase the processing time for on-premises data warehousing solutions. Organizations that face this issue might look to a cloud-based alternative to reduce processing time and release business intelligence reports faster. But many organizations first consider scaling up on-premises servers. As this approach reaches its physical limits, they look for a solution on a petabyte scale that doesn't involve complex installations and configurations.
 </p>
 
-<h3> Key features</h3>
+<b> Key features</b>
 <ul>
   <li> SQL Data Warehouse uses massively parallel processing (MPP) to quickly run queries across petabytes of data.  </li>  
   <li> Storage is separated from the compute nodes, you can scale the compute nodes independently </li>  
@@ -201,17 +203,17 @@ Data loads can increase the processing time for on-premises data warehousing sol
 </ul>
 
 
-<h3> Ingesting and processing data </h3>
+<b> Ingesting and processing data </b>
 <p> SQL Data Warehouse uses the extract, load, and transform (ELT) approach for bulk data. 
 SQL professionals are already familiar with bulk-copy tools such as bcp and the SQLBulkCopy API.
 Data engineers who work with SQL Data Warehouse will soon learn how quickly PolyBase can load data.
 Developers use PolyBase to apply stored procedures, labels, views, and SQL to their applications.</p>
 
-<h3> Queries </h3>
+<b> Queries </b>
 <p> ou can use the familiar Transact-SQL to query the contents of SQL Data Warehouse 
 Load data fast by using PolyBase with additional Transact-SQL constructs such as CREATE TABLE and AS SELECT.</p>
 
-<h3> Data security </h3> 
+<b> Data security </b> 
 <p>  supports both SQL Server authentication and Azure Active Directory. </p>
 
 
@@ -228,7 +230,7 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
 ---
 <h3> Notes </h3>
 
-<h3> Hadoop </h3> 
+<b> Hadoop </b> 
 <p> Hadoop can be thought of a set of open source programs and procedures which anyone can use
 as the backbone of their big data operations.
 
@@ -256,7 +258,7 @@ Hadoop file system. </p>
 <p> Manages resources of the systems storing the data and running the analyisis </p>
 </ul>  
 
-<h3> Linus vs Unix </h3>
+<b> Linus vs Unix </b>
 
 <p> Unix and Linus has same command lines. Operating systems considered Unix: Solaris (Oracle), BSD, macOS. Systems
 considered Linux: Ubuntu, Fedora, Debian, Android.
@@ -265,11 +267,11 @@ Neither Linux and Unix refer to an operating system today. Back in the 60s and 7
 Many Unix operating system are proprietary. Linux created for liberty (GPL, general public license), open-source, free, derivate of Unix. </p>  
 </p>
 
-<p> POSIX vs SUS </p>
+<b> POSIX vs SUS </b>
 <p> POSIX = Portable Operaing Systems Interface, formal standard to uniform Linux system. </p>
 
 
-<h3> Memory Size </h3>
+<b> Memory Size </b>
 <p> Computers stores data with the binary system (0,1). Bit = Binary digit, smallest unit of data (1 or 0). The number of Bits we use determines how much we can store. 8 Bits (e.g. 01011011) is equal to 1 Byte. 1 Byte is equal to store one letter in the alphabet. </p>
 <ul>
 <li> Bits </li>  
