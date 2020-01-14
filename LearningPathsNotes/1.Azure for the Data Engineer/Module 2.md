@@ -86,6 +86,18 @@ Cloudera, Azure Databricks, and Hortonworks. </p>
 <li> Geo-redundant storage</li>
 </ul>
 
+<h3> Data ingestion </h3>
+<p>To ingest data into your system, use Azure Data Factory, Apache Sqoop, Azure Storage Explorer, the AzCopy tool, PowerShell or Visual Studio. </p>
+
+<h3> Queries </h3>
+<p> In Data Lake storage Gen1, data enginerers query data with U-SQL language.
+In Gen2, Azure Blob Storage API or Azure Data Lake System (ADLS) API. </p>
+
+<h3> Data security </h3>
+<p> Data Lake Storage supports Azure Active Directory ACLs, security administrators can control data access by using the
+familiar Active Directory Security Groups. Role-based access control (RBAC) is available in Gen1.
+Built in security groups include ReadOnlyUsers, WriteAccessUsers, and FUllAccessUsers.Data Lake Storage
+automatically encrypts data at rest, protecting data privacy. </p>
 
 ---
 <h3> Notes </h3>
@@ -118,7 +130,7 @@ Hadoop file system. </p>
 <p> Manages resources of the systems storing the data and running the analyisis </p>
 </ul>  
 
-<h3> Linus vs Unix vs POSIX </h3>
+<h3> Linus vs Unix </h3>
 
 <p> Unix and Linus has same command lines. Operating systems considered Unix: Solaris (Oracle), BSD, macOS. Systems
 considered Linux: Ubuntu, Fedora, Debian, Android.
@@ -126,3 +138,6 @@ considered Linux: Ubuntu, Fedora, Debian, Android.
 Neither Linux and Unix refer to an operating system today. Back in the 60s and 70s Unix was an operating system. However, when we call an operatingsystem Unix, what we are really saying is that it's Unix standard compliant. For Linux this story is slightly different. Linux is defined by the kernel. The kernel is the software that lives closes to the hardware. The kernel translates instructions from applications to low-level information, to be read by hardware. The kernel is common to all distributions of Linux. 
 Many Unix operating system are proprietary. Linux created for liberty (GPL, general public license), open-source, free, derivate of Unix. </p>  
 </p>
+
+<p> POSIX vs SUS </p>
+<p> POSIX = Portable Operaing Systems Interface, formal standard to uniform Linux system. </p>
