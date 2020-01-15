@@ -313,10 +313,25 @@ And then its saved to your harddrive were its keept.
 
 <h3> other Azure data services </h3>
 
+<ul>
+  <li> Azure Databricks </li>  
+  <li> Data Factory </li>
+  <li> Data Catalog</li>
+</ul>
 
+<b> Databricks </b>
 
+<p> Databricks is a serverless platform that's optimized for Azure. It provides one-click setup, streamlined workflows, and an interactive workspace for Spark-based applications.
 
+Databricks adds capabilities to Apache Spark, including fully managed Spark clusters and an interactive workspace. You can use REST APIs to program clusters. In Databricks notebooks you'll use familiar programming tools such as R, Python, Scala, and SQL. Role-based security in Azure Active Directory and Databricks provides enterprise-grade security.</p>
 
+<b> Data Factory </b>
+
+<p> Data Factory is a cloud-integration service. It orchestrates the movement of data between various data stores. You can create data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. Use Data Factory to create and schedule data-driven workflows (called pipelines) that can ingest data from data stores. Data Factory processes and transforms data by using compute services such as Azure HDInsight, Hadoop, Spark, and Azure Machine Learning. Publish output data to data stores such as Azure SQL Data Warehouse so that business intelligence applications can consume the data.  </p>
+
+<b> Data Catalog </b>
+
+<p> Data Catalog features a crowdsourcing model of metadata and annotations. In this central location, an organization's users contribute their knowledge to build a community of data sources that are owned by the organization.Data Catalog is a fully managed cloud service. </p>
 
 ---
 <h3> Notes </h3>
@@ -348,6 +363,9 @@ Hadoop file system. </p>
 <li> 4. -YARN </li>
 <p> Manages resources of the systems storing the data and running the analyisis </p>
 </ul>  
+
+<b> Spark </b>
+
 
 <b> Linus vs Unix </b>
 
