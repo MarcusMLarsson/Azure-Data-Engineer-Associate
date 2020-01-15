@@ -373,6 +373,12 @@ which produces open source software. </p>
 <ul>
 <p> Hadoop is made up of "modules", each of which carries out particular task essential for a computer
   system designed for big data analytics. </p>
+  
+ <p> HDFS (Hadoop Distributed File System) is the filesystem of the Hadoop framework. HDFS is designed to store and manage big data
+  in a efficient manner. Developed by people at Google. HDFS is a Userspace File System. HDFS is not embedded within the operating system
+  kernel. On a traditional file system, the block size is of 4-8kbytes. On HDFS the default block size is 64MB. HDFS is not suitable for files which are small in size. Not suitable for reading data from a random position in the file.    
+  
+<p> <a href="https://www.youtube.com/watch?v=aNeEsfOI5cU"> Video Explanation </a> </p> 
 
 <li> 1. -Distributed File-System </li>
 <p> A file system is the method used by a computer to store data. Normally this is determined by the 
