@@ -45,11 +45,14 @@
 ---
 
 <h3> Azure Storage </h3>
+<p> <a href="https://www.youtube.com/watch?v=UzTtastcBsk"> Video Explanation </a> </p>
 <ul>
-<li> <b> Azure Blob: </b>  A scalable object store for text and binary data (any kind of file) </li> 
-<li> <b> Azure Files: </b> Managed file shares for cloud or on-premises deployments</li> 
-<li> <b> Azure Queue: </b> Graph database: A messaging store for reliable messaging between application components</li> 
-<li> <b> Azure Table: </b> A NoSQL store for no-schema storage of structured data </li> 
+<li> <b> Azure Blob: </b>  A scalable object store for text and binary data (any kind of file). Blog storage
+  is seprated into containers which contains files </li> 
+<li> <b> Azure Files: </b> Managed file shares for cloud or on-premises deployments. File storage is separated into different shares which contains files and folders. </li> 
+<li> <b> Azure Queue: </b> is a service for storing large numbers of messages. Storage Queues are separated into Queues and each queue contain multiples messages. Simple messaging service.</li> 
+<li> <b> Azure Table: </b> A NoSQL store database in the cloud (for no-schema storage). Storage tables are seperated into tables,
+  which each contains rows of data. </li> 
 </ul>
 
 <p> You can use Azure Storage as the storage basis when provisioning a data platform such as Azure Data Lake Storage and HDInsight. But you can also provision Azure Storage for standalone use. For example, you provision an Azure Blob store as a standard storage in the form of magnetic disk storage or as premium storage in the form of solid-state drivers (SSDs)
@@ -64,10 +67,11 @@
 <p> To ingest data into your system, use Azure Data Factory, Storage Explorer, the AzCopy toll, PowerShell or Visual Studio. If you use the File Upload feature to import file sizes above 2 GB, use PowerShell or Visual Studio. AzCopy supports a maximum file size of 1 TB and automatically splits data files that exceed 200 GB. </p>
 
 <b> Queries </b>
-<p> If you create a storage account as a Blol store, you <b> can't </b> query the data directly. To query it, either move the data to a store that supports queries or set up the Azure Storage account for a data lake storage account. </p>
+<p> If you create a storage account as a Blob store, you <b> can't </b> query the data directly. To query it, either move the data to a store that supports queries or set up the Azure Storage account for a data lake storage account. </p>
 
 <b> Data security </b>
 <p> Azure Storage encrypts all data that's written to it. Azure Storage also provides you with fine-grained control over who has acces to your data. You'll secure the data by using keys or shared access signatures. Azure Resource Manager provides a permissions model that uses role-based access control (RBAC). Use this functionality to set permission and assign roles to users, groups, or applications. </p>
+
 
 ---
 
@@ -85,6 +89,7 @@ including Azure Databricks, Hadoop, Azure HDInsight. </p>
 <p> Data Lake Storage is designed to store massive amounts of data for big-data analytics. Data Lake Store allows you to store unstructured, semi-structured and structured data and does not require a schema to be defined before the data is loaded.
 The compute aspec that sits above this storage can vary. The aspec can include platforms like HDInsight, Hadoop,
 Cloudera, Azure Databricks, and Hortonworks. </p>
+</p>
 
 <b> Key Features </b>
 <ul>
@@ -408,3 +413,25 @@ Many Unix operating system are proprietary. Linux created for liberty (GPL, gene
 <li> GigaBytes (9Z ~400 books, 1000 photos, 16 hours music, one very short film, low resolution, 1GB flash drive ~5 dollars) </li> 
 <li> TeraBytes (12Z, 1 million pictures, 2 year of music, 10 4-k movies, </li> 
 </ul>
+
+
+<b> Graph database </b>
+
+<p> Relational databse use a ledger-style structure. A thing (level of entity) is a row in a table. Foreign key constraint represent
+a relationship. Multilevel joins are slow and complex. Graph are much simpler. Things are nodes. Nodes have properties (often key: "values" pairs). Nodes have labels (similar to table name). This node is person
+
+Example of node: n: Person, id: 1234, first_name: "Ed", last_name: "Finkler". Nodes are connected by relationships or edges. Relationship have a type, direction and can have properties. Typicall graph database dont enforce schema. Summarizing it's only dots and lines. </p>
+
+
+<b> Filesystem: </b>
+
+<p> There exist text files, music files, video files etc. How does files works and how do computer keep files order with file system.
+ File formats are a huge list of numbers stored as a binary. Meta data is stored at the front of the file, ahead of the actual data.
+ 
+ Let's think of storage as a long line of little buckets that store values. It's possible to store more than one file at a time. 
+ The simplest option is to store files back to back. E.g. Directory file, File A, File B, File C, File D. How does the computer know where files begin and end. Storage devices have no notion of files. They are just a mechanism to store alot of bits. Therefore we need a speciall file, which record where other ones are located. A good general term is directory file. The directory files stores Name, "todo.txt", "theme.wav", "script.doc", where the files begin and end and how long they are and meta data (when they were created and last modified). The directory file and the maintanance of it is an example of a very simple file system. The part of the operating system that manages and tracks stored files. This particular example is called a flat file system.  
+ 
+Moderns file system stores files in blocks and uses slack space. All file system are aligned to a common size, which simplifies management.
+
+ </p>     
+
