@@ -334,6 +334,24 @@ Databricks adds capabilities to Apache Spark, including fully managed Spark clus
 <p> Data Catalog features a crowdsourcing model of metadata and annotations. In this central location, an organization's users contribute their knowledge to build a community of data sources that are owned by the organization.Data Catalog is a fully managed cloud service. </p>
 
 ---
+
+<h3>Check Your knowledge </h3>
+
+1. Which data platform technology is a globally distributed, multimodel database that can perform queries in less than a second?
+<pre>- Azure SQL Database (OLTP)
+- <b>AZURE COSMOS DB</b> </pre>
+- Azure SQL Data Warehouse (ETL) 
+
+2. Which data store is the least expensive choice when you want to store data but don't need to query it?
+<pre>- Azure Stream Analytics
+- Azure Databricks
+- <b>AZURE STORAGE</b> </pre>
+ 
+3. Which Azure service is the best choice to store documentation about a data source?
+<pre>- Azure Data Factory
+- <b>AZURE DATA CATALOG</b></pre>
+- Azure Data Lake Storage
+---
 <h3> Notes </h3>
 
 <b> Hadoop </b> 
