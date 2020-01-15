@@ -13,4 +13,4 @@
 <p> </p>
 
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png
+![alt text](https://github.com/MarcusMLarsson/Azure-Data-Engineer-Associate/tree/master/Images/parallel.JPG)
