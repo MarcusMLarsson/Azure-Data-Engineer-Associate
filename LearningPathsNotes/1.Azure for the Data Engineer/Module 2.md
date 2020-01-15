@@ -76,7 +76,8 @@
 ---
 
 <h3> Azure Data Lake Storage </h3>
-<p> Azure Data Lake is a data storage solution designed for <b> big data analytics </b>. Each data like has a container (file system) underneath. Just like any filesystem it has folders and files within it. Because the service is designed for data analytics, the file system is called Azure Blob File System (ABFS). The file system is Hadoop compatible. Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
+<p> <a href="https://www.youtube.com/watch?v=2uSkjBEwwq0"> Video Explanation </a> </p>
+<p> Azure Data Lake is a data storage solution designed for <b> big data analytics </b>. Each data lake has a container (file system) underneath. Just like any filesystem it has folders and files within it. Because the service is designed for data analytics, the file system is called Azure Blob File System (ABFS). The file system is Hadoop compatible. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
 The storage service is available as Generation 1 (Gen1) or Generation 2 (Gen2). Gen1 users are not required to
 upgrade to Gen2, but they forgo some benifits. </p>
 
@@ -106,33 +107,30 @@ Cloudera, Azure Databricks, and Hortonworks. </p>
 <p>To ingest data into your system, use Azure Data Factory, Apache Sqoop, Azure Storage Explorer, the AzCopy tool, PowerShell or Visual Studio. </p>
 
 <b> Queries </b>
-<p> In Data Lake storage Gen1, data enginerers query data with U-SQL language.
+<p> In Data Lake storage Gen1, data engineers query data with U-SQL language.
 In Gen2, Azure Blob Storage API or Azure Data Lake System (ADLS) API. </p>
 
 <b> Data security </b>
 <p> Data Lake Storage supports Azure Active Directory ACLs, security administrators can control data access by using the
 familiar Active Directory Security Groups. Role-based access control (RBAC) is available in Gen1.
-Built in security groups include ReadOnlyUsers, WriteAccessUsers, and FUllAccessUsers.Data Lake Storage
+Built in security groups include ReadOnlyUsers, WriteAccessUsers, and FUllAccessUsers. Data Lake Storage
 automatically encrypts data at rest, protecting data privacy. </p>
 
 ---
 
 <h3> Azure Cosmos DB </h3>
-
+<p><a href ="https://www.youtube.com/watch?v=R_Fi59j6BMo"> Video Explanation </a> </p>
 <ul>
-<p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models </p>
+<p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models) </p>
 <li> SQL API (a core API) </li>
-<li> MongoDB API </li>
-<li> Cassandra API </li>
-<li> Gremlin API (Graphs!) </li>
-<li> Azure Table Storage API </li>
+<li> MongoDB API (NoSQL) </li>
+<li> Cassandra API (NoSQL)</li>
+<li> Gremlin API (Graph) </li>
+<li> Azure Table Storage API (NoSQL) </li>
 </ul>
 
 <p> Multimodel database puts alla data into one database. You can query as a graph, as a document or SQL. You can also match
-these in the same query. 
-
-Threee different datastores, swift, cassandra and hannah, now you need to interface with three different system, three different
-SQL syntaxes. What a multi-model database are the one that can serve all these different kind of data but with one integrated enginge. 
+these in the same query. Imagen you have three different datastores; Swift (SQlite), Cassandra (NoSQL) and SAP HANA (Relational), now you need to interface with three different system, meaning three different SQL syntaxes. A multi-model database  can serve all these with one integrated enginge. 
 </p>
 
 
@@ -147,23 +145,23 @@ SQL syntaxes. What a multi-model database are the one that can serve all these d
 <li> No Schema or index management </li>
 </ul>
 
-<p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API. (these would be
+<p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API (these would be
 "documents" in "collections" using MongoDB). Cosmos DB is a NoSQL Database as a Service (higher SLA 99.999% Service Level Agreement). Cosmos DB supports 99.999 percent uptime.  </p>
 
 <b> Data ingestion </b>
-<p> To ingest data into Azure Cosmos DB, use Azure Data Factory, create an application that writes data into Azure Cosmos DB
+<p> To ingest data into Azure Cosmos DB you can either use Azure Data Factory, create an application that writes data into Azure Cosmos DB
 through its API, upload JSON documents, or directly edit the document. </p>
 
 <b> Queries </b>
 <p> You can create stored procedures, triggers and user-defined functions (UDFs). Or use the JavaScript query API </p>
 
 <b> Data security </b>
-<p> Azure Cosmos DB support data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
+<p> Azure Cosmos DB supports data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
 
 ---
 
-<h3> Azure SQL Database </h3>
-
+<h3> Azure SQL Database (Azure Synapse Analytics) </h3>
+<p><a href = "https://www.youtube.com/watch?v=BgvEOkcR0Wk"> Video Explanation </a></p>
 <p>This unit focuses on Azure SQL Database, the platform as a service (PaaS) database offering. Azure SQL Database is a managed relational database service. It supports structures such as relational data and unstructured formats such as spatial and XML data. SQL Database provides online transaction processing (OLTP) that can scale on demand. </p>
 
 <b> When to use SQL Database </b>
@@ -173,10 +171,8 @@ through its API, upload JSON documents, or directly edit the document. </p>
 <b> Key features </b>
 <p> SQL Database delivers predictable performance for multiple resource types, service tiers, and compute sizes. Requiring almost no administration, it provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options. You no longer have to devote precious time and resources to managing virtual machines and infrastructure.</p>
 
-
 <b> Ingesting and processing data </b>
 <p> SQL Database can ingest data through application integration from a wide range of developer SDKs. Allowed programming languages include .NET, Python, Java, and Node.js. Beyond applications, you can also ingest data through Transact-SQL (T-SQL) techniques and from the movement of data using Azure Data Factory.</p>
-
 
 <b> Queries</b>
 <p> Use T-SQL to query the contents of a SQL Database.</p>
@@ -195,7 +191,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 ---
 
 <h3> SQL Data Warehouse </h3>
-
+<p> <a href="https://www.youtube.com/watch?v=wjIuWBvD4_I"> Video Explanation </a> </p>
 <p>Azure SQL Data Warehouse is a cloud-based enterprise data warehouse. It can process massive amounts of data and answer complex business questions. </p>
 
 <b> When to use SQL Data Warehouse </b>
@@ -231,26 +227,18 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
 
 <h3> Azure Stream Analytics </h3>
 
-<p> Broadcasting continous event data is known as data streaming. Streaming data is high volume and has a ligther payload that
+<p> <a href ="https://www.youtube.com/watch?v=rrODKaB7XSY"> Video Explanation </a> </p>
+<p> Broadcasting continous event data is known as data streaming. Streaming data is high volume and has a ligther payload (Payload is the part of transmitted data that is the actual intended message. Headers and metadata are sent only to enable payload delivery.) than
   nonstreaming systems. You can use Stream Analytics for Internet of Things (IoT) monitoring, web logs, remote patient monitoring and 
   point of sale (POS) systems. </p>
   
- <p> IoT Hub, Event Hub. Designed for large scale data ingestion either from IoT device or application. Primary difference between IoT 
-Hub and Event Hub is that event hub only take in data while IoT hub can also send data (e.g. firmware updates). </p>
-  
-<p> Data is still in motion. You can contrast this to tradditional mode of loading data into a database, usually at a regular
-interval (for example once a night). One example is fraud detection. If you can get to the transaction that is fraudulant immediately you have the abillity to do something. Another example is an overheating engine. Prevent catashropic event if you can do something immediately. 
-</p>
-  
 <b> When to use Stream Analytics </b>
-<p> If your organization must respond to data events in real time or analyze large batches of data in a continous time-bound stream. Your organization must decide whether to work with streaming data or batch data</p>
+<p> UJse Steram Analyitcs if your organization must respond to data events in real time or analyze large batches of data in a continous time-bound stream. Your organization must decide whether to work with streaming data or batch data</p>
 
-<p> Data is ingested from IoT devices and gateways into an event hub or IoT hub. The event hub or IoT hub then streams data into Steam Analytics for real-time analysis. Batch systems process groups of data that are stored in Azure Blob store. They do this in a single job that runs at a predefined interval. Don't use batch systems for business intelligence systems that can't tolerate the predefined interval. For example, an autonomous vehicle can't wait for a batch system to adjust its driving. Similarly, a fraud-detection system must decline a questionable financial transaction in real time. </p>
+<p> Data is ingested from IoT devices and gateways into an event hub or IoT hub. The difference between an IoT Hub and a Event Hub is that Event Hub only take in data while IoT hub can also send data (e.g. firmware updates). The Event / IoT hub then streams data into Steam Analytics for real-time analysis. Batch systems (Non-Streaming) process groups of data that are stored in Azure Blob store. They do this in a single job that runs at a predefined interval. Don't use batch systems for business intelligence systems that can't tolerate the predefined interval. An autonomous vehicle can't wait for a batch system to adjust its driving. Similarly, a fraud-detection system must decline a questionable financial transaction in real time and therefore needs stream data. </p>
 
 <b> Data ingestion </b>
-
-<p> To set up data ingestion in Stream Analytics by configuring data inputs from first-class integration sources. These sources include Azure Event Hubs, Azure IoT Hub, and Azure Blob storage. An IoT hub is the cloud gateway that connects IoT devices. IoT hubs gather data to drive business insights and automation. Azure Event Hubs provides big-data streaming services. It's designed for high data throughput, allowing customers to send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your data stream. This service is integrated into the big-data and analytics services of Azure. These include Databricks, Stream Analytics, Azure Data Lake Storage, and HDInsight. Event Hubs provides authentication through a shared key.
-
+<p> Set up data ingestion in Stream Analytics by configuring data inputs from first-class integration sources. These sources include Azure Event Hubs, Azure IoT Hub, and Azure Blob storage. An IoT hub is the cloud gateway that connects IoT devices. IoT hubs gather data to drive business insights and automation. Azure Event Hubs provides big-data streaming services. It's designed for high data throughput, allowing customers to send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your data stream. This service is integrated into the big-data and analytics services of Azure. These include Databricks, Stream Analytics, Azure Data Lake Storage, and HDInsight. Event Hubs provides authentication through a shared key.
 </p> 
 
 <b> Data processing </b>
@@ -268,13 +256,13 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 ---
 
 <h3> Azure HDInsight </h3>
+<p> <a href="https://www.youtube.com/watch?v=phKiAIHMLAI"> Video Explanation </a> </p>
+<p> <a href ="https://www.youtube.com/watch?v=x3o7aG9kyxg"> Video Explanation </a> </p>
 
-<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. </p>
-
-<p> Simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). 
+<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. <b> Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop).</b>Azure HDInsight can also be described as Apache Haddop running on Microsoft Azure.
   
-  
-  https://www.youtube.com/watch?v=phKiAIHMLAI
+ Azure will create cluster for us. Azure is creating the cluster with help of configurations from HortonWorks platform.  
+  </p>
 
 <ul>
   <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
@@ -283,13 +271,11 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
   <li> <b> Storm </b> is a distributed real-time streamlining analytics solution. </li>
   <li> <b> Kafka </b> is an open-source platform that's used to compose data pipelines. It offers message queue functionality, 
   which allows users to publish or subscribe to real-time data streams. </li>
- </ul>
+</ul>
 
 <b> Ingesting data </b> 
 
 <p> As a data engineer, use Hive to run ETL operations on the data you're ingesting. Or orchestrate Hive queries in Azure Data Factory. </p>
-
-
 <b> Data processing </b> 
 <p> In Hadoop, use Java and Python to process big data. Mapper consumes and analyzes input data. It then emits tuples that Reducer can analyze. Reducer runs summary operations to create a smaller combined result set.
   
@@ -372,6 +358,12 @@ which produces open source software. </p>
 <ul>
 <p> Hadoop is made up of "modules", each of which carries out particular task essential for a computer
   system designed for big data analytics. </p>
+  
+ <p> HDFS (Hadoop Distributed File System) is the filesystem of the Hadoop framework. HDFS is designed to store and manage big data
+  in a efficient manner. Developed by people at Google. HDFS is a Userspace File System. HDFS is not embedded within the operating system
+  kernel. On a traditional file system, the block size is of 4-8kbytes. On HDFS the default block size is 64MB. HDFS is not suitable for files which are small in size. Not suitable for reading data from a random position in the file.    
+  
+<p> <a href="https://www.youtube.com/watch?v=aNeEsfOI5cU"> Video Explanation </a> </p> 
 
 <li> 1. -Distributed File-System </li>
 <p> A file system is the method used by a computer to store data. Normally this is determined by the 
