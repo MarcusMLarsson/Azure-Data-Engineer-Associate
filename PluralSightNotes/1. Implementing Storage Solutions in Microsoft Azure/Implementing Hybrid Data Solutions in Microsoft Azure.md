@@ -68,13 +68,30 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 <p> Creating a table with to many partitions can hurt performance under some circumstances. Usually you talk around 10 to few hundreds. For clustered columnstore tables, it is important to consider how many rows belong to each partions. Before paritions are created SQL Data Warehouse already divides each table into 60 distributed databases. 
   
   ---
-
+ <h3> Deploying a Data Warehouse in Microsoft Azure Synapse Analytics </h3>
+  
+  <p> We are going to deploy a data warehouse in Microsoft Azure Synapse Analytics (Formerly SQL Data Warehouse). </p>
+<ul>
+  <li> Connect to data warehouse</li>
+  <li> Prepare the data warehouse to load data</li>
+  <li> Load data into the data warehouse</li>
+  <li> Examine configuration settings and tasks in the portal </li>
+ </ul>
+ </p>
+  
+  ---
 <h3> Notes </h3>
 
+<b>Database vs Data warehouse </b>
+<p> Database is a structured place to store data. Data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
+
+<b> Computing  </b>
 <p> Computing is any activity that uses computers to manage, process and communicate information </p>
 
+<b> Processing</b>
 <p> Processing is the actual execution of instructions or the instance. </p>
 
+<b>Cache </b>
 <p> Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
 
 <a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
