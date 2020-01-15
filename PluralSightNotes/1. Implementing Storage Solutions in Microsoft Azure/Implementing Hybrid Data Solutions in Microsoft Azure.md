@@ -13,15 +13,15 @@
 
 <p> However, Azure SQL Data Warehouse and Azure Synapse Analytics uses interchangeable. Azure SQL Data Warehouse is a cloud based enterprise data warehouse (EDW) that uses <b> massiveley parallel processing (MPP)</b>. SQL Data Warehouse is appropriate when you need to keep historical data seperate from transaction. That is, when the data is not necessary there for transactional purposes. It's reasonable to use Azure SQL Data Warehouse when you have a warehouse of all your data. And it's sitting there and waiting for analyitcs to happen to it. </p>
 
-<b> Understanding massively parallel processing (MMP) </b>
+<b> Understanding massively parallel processing (MPP) </b>
 
-<p> Have processing acting in parallel with different nodes that you have of your storage. At the bottom is the Azure storage that we keep our data. It is seperate from the compute power that will cost the most money </p>
+<p> Multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. Each computer has its own memory, disk-space, operating system and IO.  </p>
 
 <p> <b> Control Node </b> The front end that interacts with all applications and connections. The MPP enginge runs on the control node to optimize and coordinate parallel queries.  </p>
 
-<p> <b> Compute Node </b> Provide the computational power for analytics. Separated from storage nodes. These are scaled using data warehouse units (DWU)  </p>
+<p> <b> Compute Node </b> Provides the computational power for analytics. The compute nodes are separated from storage nodes and scaled using the data warehouse units (DWU)  </p>
 
-<p> <b> Storage Node </b> Separate from Compute in order to keep data at rest. This is cheaper than data that is being analyzed.  </p>
+<p> <b> Storage Node </b> The storage nodes are separateed from the compute nodes in order to keep data at rest. Storage is cheaper than data that is being analyzed.  </p>
 
 <p> <b> Data Warehouse unit </b> A collection of analytic resources that are provisioned. This is a combination of CPU, memory and IO (Input/output). These can be scaled to up or down to meet needs. </p>
 
@@ -29,12 +29,23 @@
 
 <img src="Images/parallel.JPG" width="700">
 
+  <p> At the bottom of the picture is the Azure storage where we keep our data. It is seperate from the compute power that will cost the most money </p>
 
 <b> Implementing Data Distribution for an SQL Data Warehouse </b> </p> 
-<p> A distribution is the basic unit of storage and processing for parallel queries. Rows are stored across 60 distributions which are run in parallel. Each Compute node manages one or more of the 60 distributions.</p>
+<p> When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.
+  </p>
 
-<p> Three types of distribution. Replicated Table, this cache is a full copy of each compute node. Extra storage is requried but has the fastet query time. Next table is the Round Robin. Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash. Joins require shuffeling of data. Hash distributed table uses a hash function to assign each row to one distribution deterministicly.    </p>
-
+<p> Three types of distributions.</p>
+<ul>
+  <li> Replicated Table</li>
+  <p>  A replicated table provides the fastest query performance for small tables. Replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical. </p>
+  <li> Round Robin</li>
+  <p> Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash. </p> 
+  <li> Hash Table </li>
+  <p> A hash distributed table can deliver the highest query performance for joins and aggregations on large tables.
+To shard data into a hash-distributed table, SQL Analytics uses a hash function to deterministically assign each row to one distribution.</p>
+</ul>
+  
 <img src="Images/table.JPG" width="700">
 
 <b> Implemening Partitions for an SQL Data Warehouse </b>
@@ -57,6 +68,7 @@
 
 <p> Computing is any activity that uses computers to manage, process and communicate information </p>
 
+<p> Processing is the actual execution of instructions or the instance. </p>
 
 <p> Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
 
