@@ -259,11 +259,10 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 <p> <a href="https://www.youtube.com/watch?v=phKiAIHMLAI"> Video Explanation </a> </p>
 <p> <a href ="https://www.youtube.com/watch?v=x3o7aG9kyxg"> Video Explanation </a> </p>
 
-<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. <b> Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). Azure HDInsight can also be described as Apache Haddop running on Microsoft Azure.
+<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. <b> Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop).</b>Azure HDInsight can also be described as Apache Haddop running on Microsoft Azure.
   
  Azure will create cluster for us. Azure is creating the cluster with help of configurations from HortonWorks platform.  
-  
-  </b> </p>
+  </p>
 
 <ul>
   <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
