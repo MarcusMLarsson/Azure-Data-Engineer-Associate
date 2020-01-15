@@ -14,3 +14,6 @@
 
 
 ![alt text](https://github.com/MarcusMLarsson/Azure-Data-Engineer-Associate/tree/master/Images/parallel.JPG)
+
+
+<img src="Images/parallel.JPG" width="700">
