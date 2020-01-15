@@ -160,7 +160,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 
 ---
 
-<h3> Azure SQL Database </h3>
+<h3> Azure SQL Database (Azure Synapse Analytics) </h3>
 <p><a href = "https://www.youtube.com/watch?v=BgvEOkcR0Wk"> Video Explanation </a></p>
 <p>This unit focuses on Azure SQL Database, the platform as a service (PaaS) database offering. Azure SQL Database is a managed relational database service. It supports structures such as relational data and unstructured formats such as spatial and XML data. SQL Database provides online transaction processing (OLTP) that can scale on demand. </p>
 
