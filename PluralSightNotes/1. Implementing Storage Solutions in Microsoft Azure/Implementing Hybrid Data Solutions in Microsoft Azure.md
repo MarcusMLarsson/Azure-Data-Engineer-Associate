@@ -12,8 +12,4 @@
 
 <p> </p>
 
-
-<img src="https://github.com/MarcusMLarsson/Azure-Data-Engineer-Associate/tree/master/Images/parallel.JPG" width="700">
-
-
 <img src="Images/parallel.JPG" width="700">
