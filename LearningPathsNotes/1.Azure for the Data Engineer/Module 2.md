@@ -227,7 +227,7 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
 
 <h3> Azure Stream Analytics </h3>
 
-<p> Broadcasting continous event data is known as data streaming. Streaming data is high volume and has a ligther payload that
+<p> Broadcasting continous event data is known as data streaming. Streaming data is high volume and has a ligther payload (Payload is the part of transmitted data that is the actual intended message. Headers and metadata are sent only to enable payload delivery.) than
   nonstreaming systems. You can use Stream Analytics for Internet of Things (IoT) monitoring, web logs, remote patient monitoring and 
   point of sale (POS) systems. </p>
   
