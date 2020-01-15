@@ -25,12 +25,28 @@
 <img src="Images/parallel.JPG" width="700">
 
 
-<b> Implementing Data Distribution for an SQL Data Warehouse </p> 
+<b> Implementing Data Distribution for an SQL Data Warehouse </b> </p> 
 <p> A distribution is the basic unit of storage and processing for parallel queries. Rows are stored across 60 distributions which are run in parallel. Each Compute node manages one or more of the 60 distributions.</p>
 
-<p> Three types of distribution. Replicated Table
+<p> Three types of distribution. Replicated Table, this cache is a full copy of each compute node. Extra storage is requried but has the fastet query time. Next table is the Round Robin. Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash. Joins require shuffeling of data. Hash distributed table uses a hash function to assign each row to one distribution deterministicly.    </p>
 
----
+<img src="Images/table.JPG" width="700">
+
+<b> Implemening Partitions for an SQL Data Warehouse </b>
+
+<p> Table partitions enable you to divide your data into samller groups of data. Improve the efficiency and performance of loading data by use of partition deletion, switching and merging </p>
+
+<p> Improve the efficiency and performance of loading data by use of pration deletion, switching and mering </p>
+
+<p> Usually data is partitioned on a date columns tied to when the data is loaded into the database </p>
+
+<p> Can also be used to improve the query performance </p>
+
+<p> Table Partitions, Clustered columnstore, clustered index, heap  </p>
+
+<p> Sizing partitions, dont use to many table and to many partitions because it take up processing power, usually you talk around 10 to few hundreds. For clustered columnstore tables, it is important to consider how many rows belong to each partions. Before paritions are created SQL Data Warehouse already divides each table into 60 distributed databases. 
+  
+  ---
 
 <h3> </h3>
 
