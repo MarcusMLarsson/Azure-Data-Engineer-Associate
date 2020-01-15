@@ -161,7 +161,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 ---
 
 <h3> Azure SQL Database </h3>
-
+<a href = "https://www.youtube.com/watch?v=BgvEOkcR0Wk"> Video Explanation </a>
 <p>This unit focuses on Azure SQL Database, the platform as a service (PaaS) database offering. Azure SQL Database is a managed relational database service. It supports structures such as relational data and unstructured formats such as spatial and XML data. SQL Database provides online transaction processing (OLTP) that can scale on demand. </p>
 
 <b> When to use SQL Database </b>
@@ -171,10 +171,8 @@ through its API, upload JSON documents, or directly edit the document. </p>
 <b> Key features </b>
 <p> SQL Database delivers predictable performance for multiple resource types, service tiers, and compute sizes. Requiring almost no administration, it provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options. You no longer have to devote precious time and resources to managing virtual machines and infrastructure.</p>
 
-
 <b> Ingesting and processing data </b>
 <p> SQL Database can ingest data through application integration from a wide range of developer SDKs. Allowed programming languages include .NET, Python, Java, and Node.js. Beyond applications, you can also ingest data through Transact-SQL (T-SQL) techniques and from the movement of data using Azure Data Factory.</p>
-
 
 <b> Queries</b>
 <p> Use T-SQL to query the contents of a SQL Database.</p>
