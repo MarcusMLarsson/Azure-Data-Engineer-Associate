@@ -4,4 +4,4 @@
 
 ---
 
-These are my study notes for the Azure Data Engineering Certification.
+My journey to becomming Azure certified.
