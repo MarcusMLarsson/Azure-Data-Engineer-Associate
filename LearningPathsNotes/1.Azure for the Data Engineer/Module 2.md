@@ -191,7 +191,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 ---
 
 <h3> SQL Data Warehouse </h3>
-
+<a href="https://www.youtube.com/watch?v=wjIuWBvD4_I"> Video Explanation </a>
 <p>Azure SQL Data Warehouse is a cloud-based enterprise data warehouse. It can process massive amounts of data and answer complex business questions. </p>
 
 <b> When to use SQL Data Warehouse </b>
