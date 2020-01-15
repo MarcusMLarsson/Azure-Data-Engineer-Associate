@@ -107,7 +107,7 @@ Cloudera, Azure Databricks, and Hortonworks. </p>
 <p>To ingest data into your system, use Azure Data Factory, Apache Sqoop, Azure Storage Explorer, the AzCopy tool, PowerShell or Visual Studio. </p>
 
 <b> Queries </b>
-<p> In Data Lake storage Gen1, data enginerers query data with U-SQL language.
+<p> In Data Lake storage Gen1, data engineers query data with U-SQL language.
 In Gen2, Azure Blob Storage API or Azure Data Lake System (ADLS) API. </p>
 
 <b> Data security </b>
