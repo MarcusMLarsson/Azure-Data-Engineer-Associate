@@ -256,9 +256,14 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 ---
 
 <h3> Azure HDInsight </h3>
-<a href="https://www.youtube.com/watch?v=phKiAIHMLAI> Video Explanation </a>
+<p> <a href="https://www.youtube.com/watch?v=phKiAIHMLAI"> Video Explanation </a> </p>
+<p> <a href ="https://www.youtube.com/watch?v=x3o7aG9kyxg"> Video Explanation </a> </p>
 
-<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). </p>
+<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. <b> Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). Azure HDInsight can also be described as Apache Haddop running on Microsoft Azure.
+  
+ Azure will create cluster for us. Azure is creating the cluster with help of configurations from HortonWorks platform.  
+  
+  </b> </p>
 
 <ul>
   <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
@@ -267,7 +272,7 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
   <li> <b> Storm </b> is a distributed real-time streamlining analytics solution. </li>
   <li> <b> Kafka </b> is an open-source platform that's used to compose data pipelines. It offers message queue functionality, 
   which allows users to publish or subscribe to real-time data streams. </li>
- </ul>
+</ul>
 
 <b> Ingesting data </b> 
 
