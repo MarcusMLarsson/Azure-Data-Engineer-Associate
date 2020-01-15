@@ -50,21 +50,26 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 
 <b> Implemening Partitions for a SQL Data Warehouse </b>
 
-<p> Table partitions enable you to divide your data into samller groups of data. Improve the efficiency and performance of loading data by use of partition deletion, switching and merging </p>
+<p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by use of partition deletion, switching and merging </p>
 
-<p> Improve the efficiency and performance of loading data by use of pration deletion, switching and mering </p>
 
-<p> Usually data is partitioned on a date columns tied to when the data is loaded into the database </p>
+<p> There are three types of table partitions </p>
+<ul>
+  <li> Clustered columnstore </li>
+  <p> Updateable primary storage method. Great for read-only </p> 
+  <li> Clustured index</li>
+  <p> An index that is physically stored in the same order as the data being indexed. </p>
+  <li> Heap </li>
+  <p> Data is not in any particular order. Use when data has no natural order. </p>
+  
+</ul>
+</p>
 
-<p> Can also be used to improve the query performance </p>
-
-<p> Table Partitions, Clustered columnstore, clustered index, heap  </p>
-
-<p> Sizing partitions, dont use to many table and to many partitions because it take up processing power, usually you talk around 10 to few hundreds. For clustered columnstore tables, it is important to consider how many rows belong to each partions. Before paritions are created SQL Data Warehouse already divides each table into 60 distributed databases. 
+<p> Creating a table with to many partitions can hurt performance under some circumstances. Usually you talk around 10 to few hundreds. For clustered columnstore tables, it is important to consider how many rows belong to each partions. Before paritions are created SQL Data Warehouse already divides each table into 60 distributed databases. 
   
   ---
 
-<h3> </h3>
+<h3> Notes </h3>
 
 <p> Computing is any activity that uses computers to manage, process and communicate information </p>
 
