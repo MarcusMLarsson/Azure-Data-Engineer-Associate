@@ -31,7 +31,7 @@
 
   <p> At the bottom of the picture is the Azure storage where we keep our data. It is seperate from the compute power that will cost the most money </p>
 
-<b> Implementing Data Distribution for an SQL Data Warehouse </b> </p> 
+<b> Implementing Data Distribution for a SQL Data Warehouse </b> </p> 
 <p> When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.
   </p>
 
@@ -48,7 +48,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   
 <img src="Images/table.JPG" width="700">
 
-<b> Implemening Partitions for an SQL Data Warehouse </b>
+<b> Implemening Partitions for a SQL Data Warehouse </b>
 
 <p> Table partitions enable you to divide your data into samller groups of data. Improve the efficiency and performance of loading data by use of partition deletion, switching and merging </p>
 
