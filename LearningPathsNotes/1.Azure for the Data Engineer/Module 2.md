@@ -238,7 +238,7 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
 <p> Data is ingested from IoT devices and gateways into an event hub or IoT hub. The difference between an IoT Hub and a Event Hub is that Event Hub only take in data while IoT hub can also send data (e.g. firmware updates). The Event / IoT hub then streams data into Steam Analytics for real-time analysis. Batch systems (Non-Streaming) process groups of data that are stored in Azure Blob store. They do this in a single job that runs at a predefined interval. Don't use batch systems for business intelligence systems that can't tolerate the predefined interval. An autonomous vehicle can't wait for a batch system to adjust its driving. Similarly, a fraud-detection system must decline a questionable financial transaction in real time and therefore needs stream data. </p>
 
 <b> Data ingestion </b>
-<p> To set up data ingestion in Stream Analytics by configuring data inputs from first-class integration sources. These sources include Azure Event Hubs, Azure IoT Hub, and Azure Blob storage. An IoT hub is the cloud gateway that connects IoT devices. IoT hubs gather data to drive business insights and automation. Azure Event Hubs provides big-data streaming services. It's designed for high data throughput, allowing customers to send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your data stream. This service is integrated into the big-data and analytics services of Azure. These include Databricks, Stream Analytics, Azure Data Lake Storage, and HDInsight. Event Hubs provides authentication through a shared key.
+<p> Set up data ingestion in Stream Analytics by configuring data inputs from first-class integration sources. These sources include Azure Event Hubs, Azure IoT Hub, and Azure Blob storage. An IoT hub is the cloud gateway that connects IoT devices. IoT hubs gather data to drive business insights and automation. Azure Event Hubs provides big-data streaming services. It's designed for high data throughput, allowing customers to send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your data stream. This service is integrated into the big-data and analytics services of Azure. These include Databricks, Stream Analytics, Azure Data Lake Storage, and HDInsight. Event Hubs provides authentication through a shared key.
 </p> 
 
 <b> Data processing </b>
@@ -256,13 +256,9 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 ---
 
 <h3> Azure HDInsight </h3>
+<a href="https://www.youtube.com/watch?v=phKiAIHMLAI> Video Explanation </a>
 
-<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. </p>
-
-<p> Simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). 
-  
-  
-  https://www.youtube.com/watch?v=phKiAIHMLAI
+<p> Azure HDInsight provides technologies to help you ingest, process, and analyze big data. It supports batch processing, data warehousing, IoT, and data science. Azure HDInsight is simply a cloud version of Hoortonworkds data platform (100 % Apache Hadoop). </p>
 
 <ul>
   <li><b> Hadoop </b> includes Apache Hive, HBase, Spark and Kafka. Hadoop stores data in a file system (HDFS). Spark stores 
@@ -276,8 +272,6 @@ After storing the data, run batch analytics in Azure HDInsight. Or send the outp
 <b> Ingesting data </b> 
 
 <p> As a data engineer, use Hive to run ETL operations on the data you're ingesting. Or orchestrate Hive queries in Azure Data Factory. </p>
-
-
 <b> Data processing </b> 
 <p> In Hadoop, use Java and Python to process big data. Mapper consumes and analyzes input data. It then emits tuples that Reducer can analyze. Reducer runs summary operations to create a smaller combined result set.
   
