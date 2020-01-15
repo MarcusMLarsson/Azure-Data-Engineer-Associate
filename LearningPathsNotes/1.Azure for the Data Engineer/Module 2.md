@@ -119,14 +119,14 @@ automatically encrypts data at rest, protecting data privacy. </p>
 ---
 
 <h3> Azure Cosmos DB </h3>
-
+<a href ="https://www.youtube.com/watch?v=R_Fi59j6BMo"> Video Explanation </a>
 <ul>
-<p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models </p>
+<p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models) </p>
 <li> SQL API (a core API) </li>
-<li> MongoDB API </li>
-<li> Cassandra API </li>
-<li> Gremlin API (Graphs!) </li>
-<li> Azure Table Storage API </li>
+<li> MongoDB API (NoSQL) </li>
+<li> Cassandra API (NoSQL)</li>
+<li> Gremlin API (Graph) </li>
+<li> Azure Table Storage API (NoSQL) </li>
 </ul>
 
 <p> Multimodel database puts alla data into one database. You can query as a graph, as a document or SQL. You can also match
