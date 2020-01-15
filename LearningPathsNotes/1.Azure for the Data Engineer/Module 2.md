@@ -76,6 +76,7 @@
 ---
 
 <h3> Azure Data Lake Storage </h3>
+<p> <a href="https://www.youtube.com/watch?v=2uSkjBEwwq0"> Video Explanation </a> </p>
 <p> Azure Data Lake is a data storage solution designed for <b> big data analytics </b>. Each data like has a container (file system) underneath. Just like any filesystem it has folders and files within it. Because the service is designed for data analytics, the file system is called Azure Blob File System (ABFS). The file system is Hadoop compatible. Azure Data Lake Storage is a Hadoop-compatible data repository that can store any size or type of data. Azure Data Lake is built from the ground up as naitive Hadoop distributed file system or HDFS, working out of the box with the Hadoop echo system. 
 The storage service is available as Generation 1 (Gen1) or Generation 2 (Gen2). Gen1 users are not required to
 upgrade to Gen2, but they forgo some benifits. </p>
