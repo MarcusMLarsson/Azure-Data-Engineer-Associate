@@ -11,3 +11,6 @@
 <h3> Understanding massively parallel processing (MMP) </h3>
 
 <p> </p>
+
+
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png
