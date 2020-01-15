@@ -130,10 +130,7 @@ automatically encrypts data at rest, protecting data privacy. </p>
 </ul>
 
 <p> Multimodel database puts alla data into one database. You can query as a graph, as a document or SQL. You can also match
-these in the same query. 
-
-Threee different datastores, swift, cassandra and hannah, now you need to interface with three different system, three different
-SQL syntaxes. What a multi-model database are the one that can serve all these different kind of data but with one integrated enginge. 
+these in the same query. Imagen you have three different datastores; Swift (SQlite), Cassandra (NoSQL) and SAP HANA (Relational), now you need to interface with three different system, meaning three different SQL syntaxes. A multi-model database  can serve all these with one integrated enginge. 
 </p>
 
 
@@ -148,18 +145,18 @@ SQL syntaxes. What a multi-model database are the one that can serve all these d
 <li> No Schema or index management </li>
 </ul>
 
-<p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API. (these would be
+<p> Cosmos DB stores "items" in "containers", with these two concepts being surfaced differentyl depending on the API (these would be
 "documents" in "collections" using MongoDB). Cosmos DB is a NoSQL Database as a Service (higher SLA 99.999% Service Level Agreement). Cosmos DB supports 99.999 percent uptime.  </p>
 
 <b> Data ingestion </b>
-<p> To ingest data into Azure Cosmos DB, use Azure Data Factory, create an application that writes data into Azure Cosmos DB
+<p> To ingest data into Azure Cosmos DB you can either use Azure Data Factory, create an application that writes data into Azure Cosmos DB
 through its API, upload JSON documents, or directly edit the document. </p>
 
 <b> Queries </b>
 <p> You can create stored procedures, triggers and user-defined functions (UDFs). Or use the JavaScript query API </p>
 
 <b> Data security </b>
-<p> Azure Cosmos DB support data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
+<p> Azure Cosmos DB supports data encryption, IP firewall configurations, and access from virtual networks. Data is encrypted automatically. User authentication is based on tokens, and Azure Active Directory provides role-based security. </p>
 
 ---
 
