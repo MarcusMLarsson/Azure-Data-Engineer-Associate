@@ -25,8 +25,20 @@
 <img src="Images/parallel.JPG" width="700">
 
 
+<b> Implementing Data Distribution for an SQL Data Warehouse </p> 
+<p> A distribution is the basic unit of storage and processing for parallel queries. Rows are stored across 60 distributions which are run in parallel. Each Compute node manages one or more of the 60 distributions.</p>
+
+<p> Three types of distribution. Replicated Table
+
 ---
 
 <h3> </h3>
 
 <p> Computing is any activity that uses computers to manage, process and communicate information </p>
+
+
+<p> Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
+
+<a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
+
+CPU Cache: A computer have two different types of memory. Dynamic RAM, SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. The CPU Cache is the CPU internal memory. It's job is to store copy of data from RAM which is wainting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first. </p>
