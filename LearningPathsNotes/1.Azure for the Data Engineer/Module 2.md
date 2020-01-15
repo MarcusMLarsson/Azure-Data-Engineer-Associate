@@ -119,7 +119,7 @@ automatically encrypts data at rest, protecting data privacy. </p>
 ---
 
 <h3> Azure Cosmos DB </h3>
-<a href ="https://www.youtube.com/watch?v=R_Fi59j6BMo"> Video Explanation </a>
+<p><a href ="https://www.youtube.com/watch?v=R_Fi59j6BMo"> Video Explanation </a> </p>
 <ul>
 <p> Azure Cosmos DB is a globally distributed, multimodel database. It's simply a document data base. Document is a JSON format (Key: Value pair. An open standard for transfering data. You can deploy it by using several API models) </p>
 <li> SQL API (a core API) </li>
@@ -161,7 +161,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 ---
 
 <h3> Azure SQL Database </h3>
-<a href = "https://www.youtube.com/watch?v=BgvEOkcR0Wk"> Video Explanation </a>
+<p><a href = "https://www.youtube.com/watch?v=BgvEOkcR0Wk"> Video Explanation </a></p>
 <p>This unit focuses on Azure SQL Database, the platform as a service (PaaS) database offering. Azure SQL Database is a managed relational database service. It supports structures such as relational data and unstructured formats such as spatial and XML data. SQL Database provides online transaction processing (OLTP) that can scale on demand. </p>
 
 <b> When to use SQL Database </b>
@@ -191,7 +191,7 @@ through its API, upload JSON documents, or directly edit the document. </p>
 ---
 
 <h3> SQL Data Warehouse </h3>
-<a href="https://www.youtube.com/watch?v=wjIuWBvD4_I"> Video Explanation </a>
+<p> <a href="https://www.youtube.com/watch?v=wjIuWBvD4_I"> Video Explanation </a> </p>
 <p>Azure SQL Data Warehouse is a cloud-based enterprise data warehouse. It can process massive amounts of data and answer complex business questions. </p>
 
 <b> When to use SQL Data Warehouse </b>
