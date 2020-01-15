@@ -5,3 +5,6 @@
 ---
 
 My journey to becomming Azure certified.
+
+
+https://www.youtube.com/watch?v=ohya6zTa1Hg
