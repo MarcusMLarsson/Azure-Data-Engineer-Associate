@@ -1,14 +1,19 @@
+<h1> Implementing a Cloud Data Warehouse in Microsoft Azure Synapse Analytics </h1>
+
+---
+
 <h3> Understanding Azure Synapse Analytics </h3>
 
-<p> Synapse Analytics is a combination of Azure Data Lake Storage, Azure SQL Data Warehouse and Azure Analytics </p>
+<p> Synapse Analytics is a combination of: </p>
+<ul>
+  <li>Azure Data Lake Storage </li> 
+  <li>Azure SQL Data Warehouse</li>
+  <li>Azure Analytics</li>
+</ul>
 
-<p> Clouse base enterprise data warehouse (EDW) that uses massiveley parallel processing (MPP) </p>
+<p> However, Azure SQL Data Warehouse and Azure Synapse Analytics uses interchangeable. Azure SQL Data Warehouse is a cloud based enterprise data warehouse (EDW) that uses <b> massiveley parallel processing (MPP)</b>. SQL Data Warehouse is appropriate when you need to keep historical data seperate from transaction. That is, when the data is not necessary there for transactional purposes. It's reasonable to use Azure SQL Data Warehouse when you have a warehouse of all your data. And it's sitting there and waiting for analyitcs to happen to it. </p>
 
-<p> SQL Data Warehouse is most appropriate when you need to keep historical data seperate from transaction </p>
-
-<p> The data is not necessary there for transactional purposes. You have a warehouse of all your data. And it's sitting there for waiting for analyitcs to happen to it. </p>
-
-<h3> Understanding massively parallel processing (MMP) </h3>
+<b> Understanding massively parallel processing (MMP) </b>
 
 <p> Have processing acting in parallel with different nodes that you have of your storage. At the bottom is the Azure storage that we keep our data. It is seperate from the compute power that will cost the most money </p>
 
