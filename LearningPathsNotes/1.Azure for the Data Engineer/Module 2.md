@@ -227,26 +227,18 @@ Load data fast by using PolyBase with additional Transact-SQL constructs such as
 
 <h3> Azure Stream Analytics </h3>
 
+<p> <a href ="https://www.youtube.com/watch?v=rrODKaB7XSY"> Video Explanation </a> </p>
 <p> Broadcasting continous event data is known as data streaming. Streaming data is high volume and has a ligther payload (Payload is the part of transmitted data that is the actual intended message. Headers and metadata are sent only to enable payload delivery.) than
   nonstreaming systems. You can use Stream Analytics for Internet of Things (IoT) monitoring, web logs, remote patient monitoring and 
   point of sale (POS) systems. </p>
   
- <p> IoT Hub, Event Hub. Designed for large scale data ingestion either from IoT device or application. Primary difference between IoT 
-Hub and Event Hub is that event hub only take in data while IoT hub can also send data (e.g. firmware updates). </p>
-  
-<p> Data is still in motion. You can contrast this to tradditional mode of loading data into a database, usually at a regular
-interval (for example once a night). One example is fraud detection. If you can get to the transaction that is fraudulant immediately you have the abillity to do something. Another example is an overheating engine. Prevent catashropic event if you can do something immediately. 
-</p>
-  
 <b> When to use Stream Analytics </b>
-<p> If your organization must respond to data events in real time or analyze large batches of data in a continous time-bound stream. Your organization must decide whether to work with streaming data or batch data</p>
+<p> UJse Steram Analyitcs if your organization must respond to data events in real time or analyze large batches of data in a continous time-bound stream. Your organization must decide whether to work with streaming data or batch data</p>
 
-<p> Data is ingested from IoT devices and gateways into an event hub or IoT hub. The event hub or IoT hub then streams data into Steam Analytics for real-time analysis. Batch systems process groups of data that are stored in Azure Blob store. They do this in a single job that runs at a predefined interval. Don't use batch systems for business intelligence systems that can't tolerate the predefined interval. For example, an autonomous vehicle can't wait for a batch system to adjust its driving. Similarly, a fraud-detection system must decline a questionable financial transaction in real time. </p>
+<p> Data is ingested from IoT devices and gateways into an event hub or IoT hub. The difference between an IoT Hub and a Event Hub is that Event Hub only take in data while IoT hub can also send data (e.g. firmware updates). The Event / IoT hub then streams data into Steam Analytics for real-time analysis. Batch systems (Non-Streaming) process groups of data that are stored in Azure Blob store. They do this in a single job that runs at a predefined interval. Don't use batch systems for business intelligence systems that can't tolerate the predefined interval. An autonomous vehicle can't wait for a batch system to adjust its driving. Similarly, a fraud-detection system must decline a questionable financial transaction in real time and therefore needs stream data. </p>
 
 <b> Data ingestion </b>
-
 <p> To set up data ingestion in Stream Analytics by configuring data inputs from first-class integration sources. These sources include Azure Event Hubs, Azure IoT Hub, and Azure Blob storage. An IoT hub is the cloud gateway that connects IoT devices. IoT hubs gather data to drive business insights and automation. Azure Event Hubs provides big-data streaming services. It's designed for high data throughput, allowing customers to send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your data stream. This service is integrated into the big-data and analytics services of Azure. These include Databricks, Stream Analytics, Azure Data Lake Storage, and HDInsight. Event Hubs provides authentication through a shared key.
-
 </p> 
 
 <b> Data processing </b>
