@@ -333,13 +333,24 @@ WITH
  </ul>
  
  
+  <b> Loading NYC Taxi Data into an SQL Pool in Azure Synapse Analytics </b>
+  <ul>
+  <p> Examine external tables. We are going to load data into these tables. We are going to view that data being loaded. and then examine the details on that loading data </p>
+	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you going to load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import this data into a relational table. It has a distribution type that is round robin. It has en index which is a clustered column store index. Other than that its basically a select from... </p>
+	<li> </li>
+	<li> </li>
+	<li> </li>
+	<li> </li>
  
+ </ul>
+  ---
+<h3> Notes </h3>
+
  
  <b> Resource Group </b>
  <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share a unified lifecycle from creation to usage and finally, de-provisioning. he underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
- 
-  ---
-<h3> Notes </h3>
+
+
 
 <b> Database vs Data warehouse </b>
 <p> Database is a structured place to store data. Data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
