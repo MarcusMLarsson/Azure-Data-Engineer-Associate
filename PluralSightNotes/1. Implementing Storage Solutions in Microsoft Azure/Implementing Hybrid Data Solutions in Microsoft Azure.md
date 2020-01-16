@@ -78,6 +78,16 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> Examine configuration settings and tasks in the portal </li>
  </ul>
  </p>
+ 
+   <p> Steps </p>
+<ul>
+  <li> Create a resource </li>
+  <li> Databases </li>
+  <li> Azure Synapse Analytics (formerly SQL DW)</li>
+  <li>  </li>
+ </ul>
+ </p>
+ 
   
   ---
 <h3> Notes </h3>
