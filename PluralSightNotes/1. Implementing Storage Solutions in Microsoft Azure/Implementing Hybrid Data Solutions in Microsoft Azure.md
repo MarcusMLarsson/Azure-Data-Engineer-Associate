@@ -112,13 +112,6 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  <b> Resource Group </b>
  <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share a unified lifecycle from creation to usage and finally, de-provisioning. he underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
  
- 
- 
- 
- 
- 
- 
-  
   ---
 <h3> Notes </h3>
 
