@@ -99,13 +99,14 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
    <b> Setting a Firewall Rule and Connecting to an SQL Data Warehouse </b>
    <p> We are going to resume the compute node, create firewall rule, connect with Microsoft SQL Server Management Studio. </p>
 <ul>
-  <li> Resume Compute Node</li>
+  <li> Click resume </li>
   <li> Create firewall rule</li>
   <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server that host our data warehouse we need to add a firewall rule. And this rule is going to enable connectivity for one specific ip address or a range of ip addresses. SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your firewall. And you are going to open up that port. </p>
-  <li> </li>
-  <li> </li>
-  <li> </li>
-  <li> </li>
+  <li> To add firewall rule start with copying and clicking on servername. Needed to connect to database. </li>
+  <li> Click on firewall and virtual networks </li>
+  <li> Add client IP, add's it automatically under rule name. Than press save</li>
+  <p> Now we have added a firewall rule, we have an admin with the password and we can connect to this datbase. </p>
+  <li> Microsoft SQL Server Management Studio </li>
  </ul>
  
  
@@ -146,4 +147,10 @@ Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
 
 <b> Firewall </b>
 <p> System that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally firewalls allow data to go out.  </p>
+
+<b> SQL Server Management Studio(SSMS)</b>
+<p> Integrated environment for managing any SQL infrastructure, from SQL Server to Azure SQL Database </p>
+
+
+
 
