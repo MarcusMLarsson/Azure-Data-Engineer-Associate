@@ -106,8 +106,235 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> Click on firewall and virtual networks </li>
   <li> Add client IP, add's it automatically under rule name. Than press save</li>
   <p> Now we have added a firewall rule, we have an admin with the password and we can connect to this datbase. </p>
-  <li> Microsoft SQL Server Management Studio </li>
+  <li> Download and open Microsoft SQL Server Management Studio </li>
+  <li> In object explorer, connect, Database enginge, Server name (copied from before) </li>
+  <li> Authentication: SQL Server Authentication, login details </li>
+  <li> Expand database, We have TestDataWareHouse and master database. 
  </ul>
+ 
+ 
+  <b> Preparing an SQL Pool in Azure Synapse Analyitcs to Load Data </b>
+   <p> We are going to create a login and a user to load data into our warehouse. We are going to link into NYC Taxi Source Data. We are than going to create tables to hold data inside our data warehouse. </p>
+   <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power, it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. Login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
+<ul>
+  <li> Rightclick master database and select new query. </li>
+  <li> <pre> LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
+CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> </li>
+  <li> Rightclick TestDataWarehous
+    <pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
+GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson1;
+EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> /li>
+  <li> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </li>
+  <li> Create master key for database. Now we are ready to connect to external datasource.
+    <pre> CREATE MASTER_KEY; </pre> </li>
+  <p> This is one of the more poorly named objects in the SQL Server platform. Or perhaps the “master” database is the one that is not named well. In any case, the DMK has nothing to do with the master database. Instead, the DMK is the base encryption key inside of a database. This is the key that secures all other keys.  </p>
+  <li> 
+<pre> CREATE MASTER KEY;
+CREATE EXTERNAL DATA SOURCE NYTPublic
+WITH
+(
+	TYPE = Hadoop,
+	LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
+);  </pre> 
+ </li>
+  <li> <p>
+  Now we need to create an external file store statement. And this is going to specify the formatinng charactaristics and the options for our external data file. In order for us to load the data into our data warehouse. This statement specifies that the external data is
+stored as text. We use a pipe variable in order to separate the values. This file is compressed with gzip.     
+ </p>
+  
+  <pre>
+  CREATE EXTERNAL FILE FORMAT uncompressedcsv
+WITH (
+	FORMAT_TYPE = DELIMITEDTEXT,
+	FORMAT_OPTIONS (
+		FIELD_TERMINATOR =',',
+		STRING_DELIMITER = '',
+		DATE_FORMAT = '',
+		USE_TYPE_DEFAULT = False
+	)
+);
+CREATE EXTERNAL FILE FORMAT compressedcsv
+WITH (
+	FORMAT_TYPE = DELIMITEDTEXT,
+	FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
+		STRING_DELIMITER = '',
+	DATE_FORMAT = '',
+		USE_TYPE_DEFAULT = FALSE
+	),
+	DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+	);
+  </pre>
+  <p> Now our external file format is set and we are ready to create the schema. </p>
+  <pre> CREATE SCHEMA ext; </pre>
+  </li>
+  
+  <li>  </li>
+  <p> Now we will create several external tables, and these tables will point to the azure blob that we defined previously. </p>
+  <li>  <pre> CREATE EXTERNAL TABLE [ext].[Date] 
+(
+    [DateID] int NOT NULL,
+    [Date] datetime NULL,
+    [DateBKey] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DaySuffix] varchar(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfWeek] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfWeekInMonth] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfWeekInYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfQuarter] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DayOfYear] varchar(3) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [WeekOfMonth] varchar(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [WeekOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [WeekOfYear] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [Month] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [MonthName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [MonthOfQuarter] varchar(2) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [Quarter] char(1) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [QuarterName] varchar(9) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [Year] char(4) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [YearName] char(7) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [MonthYear] char(10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [MMYYYY] char(6) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [FirstDayOfMonth] date NULL,
+    [LastDayOfMonth] date NULL,
+    [FirstDayOfQuarter] date NULL,
+    [LastDayOfQuarter] date NULL,
+    [FirstDayOfYear] date NULL,
+    [LastDayOfYear] date NULL,
+    [IsHolidayUSA] bit NULL,
+    [IsWeekday] bit NULL,
+    [HolidayUSA] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+WITH
+(
+    LOCATION = 'Date',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+); 
+CREATE EXTERNAL TABLE [ext].[Geography]
+(
+    [GeographyID] int NOT NULL,
+    [ZipCodeBKey] varchar(10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    [County] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [City] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [State] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [Country] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [ZipCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+WITH
+(
+    LOCATION = 'Geography',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0 
+);      
+CREATE EXTERNAL TABLE [ext].[HackneyLicense]
+(
+    [HackneyLicenseID] int NOT NULL,
+    [HackneyLicenseBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    [HackneyLicenseCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+WITH
+(
+    LOCATION = 'HackneyLicense',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+);
+CREATE EXTERNAL TABLE [ext].[Medallion]
+(
+    [MedallionID] int NOT NULL,
+    [MedallionBKey] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    [MedallionCode] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+)
+WITH
+(
+    LOCATION = 'Medallion',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+)
+;  
+CREATE EXTERNAL TABLE [ext].[Time]
+(
+    [TimeID] int NOT NULL,
+    [TimeBKey] varchar(8) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    [HourNumber] tinyint NOT NULL,
+    [MinuteNumber] tinyint NOT NULL,
+    [SecondNumber] tinyint NOT NULL,
+    [TimeInSecond] int NOT NULL,
+    [HourlyBucket] varchar(15) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+    [DayTimeBucketGroupKey] int NOT NULL,
+    [DayTimeBucket] varchar(100) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+)
+WITH
+(
+    LOCATION = 'Time',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+);
+CREATE EXTERNAL TABLE [ext].[Trip]
+(
+    [DateID] int NOT NULL,
+    [MedallionID] int NOT NULL,
+    [HackneyLicenseID] int NOT NULL,
+    [PickupTimeID] int NOT NULL,
+    [DropoffTimeID] int NOT NULL,
+    [PickupGeographyID] int NULL,
+    [DropoffGeographyID] int NULL,
+    [PickupLatitude] float NULL,
+    [PickupLongitude] float NULL,
+    [PickupLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [DropoffLatitude] float NULL,
+    [DropoffLongitude] float NULL,
+    [DropoffLatLong] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [PassengerCount] int NULL,
+    [TripDurationSeconds] int NULL,
+    [TripDistanceMiles] float NULL,
+    [PaymentType] varchar(50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+    [FareAmount] money NULL,
+    [SurchargeAmount] money NULL,
+    [TaxAmount] money NULL,
+    [TipAmount] money NULL,
+    [TollsAmount] money NULL,
+    [TotalAmount] money NULL
+)
+WITH
+(
+    LOCATION = 'Trip2013',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = compressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+);
+CREATE EXTERNAL TABLE [ext].[Weather]
+(
+    [DateID] int NOT NULL,
+    [GeographyID] int NOT NULL,
+    [PrecipitationInches] float NOT NULL,
+    [AvgTemperatureFahrenheit] float NOT NULL
+)
+WITH
+(
+    LOCATION = 'Weather',
+    DATA_SOURCE = NYTPublic,
+    FILE_FORMAT = uncompressedcsv,
+    REJECT_TYPE = value,
+    REJECT_VALUE = 0
+)
+;</pre></li>
+  
+  
+ </ul>
+ 
+ 
  
  
  <b> Resource Group </b>
@@ -116,7 +343,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   ---
 <h3> Notes </h3>
 
-<b>Database vs Data warehouse </b>
+<b> Database vs Data warehouse </b>
 <p> Database is a structured place to store data. Data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
 
 <b> Computing  </b>
@@ -125,7 +352,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 <b> Processing</b>
 <p> Processing is the actual execution of instructions or the instance. </p>
 
-<b>Cache </b>
+<b> Cache </b>
 <p> Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
 
 <a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
@@ -152,5 +379,13 @@ Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
 <p> Integrated environment for managing any SQL infrastructure, from SQL Server to Azure SQL Database </p>
 
 
-
+<b> Syste databases in SQL Server </b>
+<ul>
+  <li> <b> master </b> keeps and manages all system level information. Such as system configuration, logins, linked servers, credentials etc. Take master data backup because if it becomes corrupted/deleted you won't be able to start sql server. </li>
+  <li> <b> model </b> The model database acts as a template for all the data bases. Used in the creation of any new user database created in this instance (store procedures, database configurations) </li>
+  <li> <b> msdb </b> SQL Server agent information is managed by msdb. Will hold backup, log_shipping. li>
+  <li> <b> tempdb </b> holds temporary data, tables like locally temporary tables.</li>
+  <li> <b> resource </b> not accessable by the user </li>
+  <li> <b> distribution </b> not accessable by the user </li>
+</ul>
 
