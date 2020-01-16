@@ -79,14 +79,29 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  </ul>
  </p>
  
-   <p> Steps </p>
+   <p> Steps to Create a SQL Data Warehouse </p>
 <ul>
   <li> Create a resource </li>
-  <li> Databases </li>
-  <li> Azure Synapse Analytics (formerly SQL DW)</li>
-  <li>  </li>
+  <li> Click Databases </li>
+  <li> Click Azure Synapse Analytics (formerly SQL DW)</li>
+  <li> Select subscription and resource group </li>
+  <li> Give the Data Warehouse a name </li>
+  <li> Create a Azure SQL server </li>
+  <li> Performance level, välj lägsta</li>
+  <li> Additioanl settings: Collation</li>
+  <p> It's important to pick the right collation when you install SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European etc). UTF8 allows for like a million characters. What a collation does, it tells how to organize these variables (ABCabc123). An example of collasions UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
  </ul>
  </p>
+ 
+ 
+ <b> Resource Group </b>
+ <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share a unified lifecycle from creation to usage and finally, de-provisioning. he underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
+ 
+ 
+ 
+ 
+ 
+ 
  
   
   ---
