@@ -121,14 +121,15 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> <pre> LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
 CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> </li>
   <li> Rightclick TestDataWarehous
-    <pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
+    </li>
+<pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
 GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson1;
-EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> /li>
+EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> 
   <li> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </li>
   <li> Create master key for database. Now we are ready to connect to external datasource.
-    <pre> CREATE MASTER_KEY; </pre> </li>
+    </li>
+ <pre> CREATE MASTER_KEY; </pre>	
   <p> This is one of the more poorly named objects in the SQL Server platform. Or perhaps the “master” database is the one that is not named well. In any case, the DMK has nothing to do with the master database. Instead, the DMK is the base encryption key inside of a database. This is the key that secures all other keys.  </p>
-  <li> 
 <pre> CREATE MASTER KEY;
 CREATE EXTERNAL DATA SOURCE NYTPublic
 WITH
@@ -136,7 +137,6 @@ WITH
 	TYPE = Hadoop,
 	LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
 );  </pre> 
- </li>
   <li> <p>
   Now we need to create an external file store statement. And this is going to specify the formatinng charactaristics and the options for our external data file. In order for us to load the data into our data warehouse. This statement specifies that the external data is
 stored as text. We use a pipe variable in order to separate the values. This file is compressed with gzip.     
