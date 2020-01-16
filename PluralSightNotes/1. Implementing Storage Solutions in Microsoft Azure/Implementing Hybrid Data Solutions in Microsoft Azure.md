@@ -118,8 +118,8 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
    <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power, it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. Login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
 <ul>
   <li> Rightclick master database and select new query. </li>
-  <li> <pre> LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
-CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> </li>
+	<pre> LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
+CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> 
   <li> Rightclick TestDataWarehous
     </li>
 <pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
@@ -170,7 +170,7 @@ WITH (
   
   <li>  </li>
   <p> Now we will create several external tables, and these tables will point to the azure blob that we defined previously. </p>
-  <li>  <pre> CREATE EXTERNAL TABLE [ext].[Date] 
+ <pre> CREATE EXTERNAL TABLE [ext].[Date] 
 (
     [DateID] int NOT NULL,
     [Date] datetime NULL,
@@ -329,9 +329,7 @@ WITH
     REJECT_TYPE = value,
     REJECT_VALUE = 0
 )
-;</pre></li>
-  
-  
+;</pre> 
  </ul>
  
  
