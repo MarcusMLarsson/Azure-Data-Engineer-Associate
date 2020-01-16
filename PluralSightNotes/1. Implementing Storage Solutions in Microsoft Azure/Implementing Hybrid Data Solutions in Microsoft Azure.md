@@ -79,7 +79,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  </ul>
  </p>
  
-   <p> Steps to Create a SQL Data Warehouse </p>
+   <b> Steps to Create a SQL Data Warehouse </b>
 <ul>
   <li> Create a resource </li>
   <li> Click Databases </li>
@@ -90,8 +90,23 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> Performance level, välj lägsta</li>
   <li> Additioanl settings: Collation</li>
   <p> It's important to pick the right collation when you install SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European etc). UTF8 allows for like a million characters. What a collation does, it tells how to organize these variables (ABCabc123). An example of collasions UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
+  <li> Always review settings </li>
+  <li> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </li>
+  <li> Pause the compute node so you dont get charged (If you were running a query, not a good idea to pause).</li>
+  <li> We will still be charged for the storage? </li> 
  </ul>
- </p>
+ 
+   <b> Setting a Firewall Rule and Connecting to an SQL Data Warehouse </b>
+   <p> We are going to resume the compute node, create firewall rule, connect with Microsoft SQL Server Management Studio. </p>
+<ul>
+  <li> Resume Compute Node</li>
+  <li> Create firewall rule</li>
+  <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server that host our data warehouse we need to add a firewall rule. And this rule is going to enable connectivity for one specific ip address or a range of ip addresses. SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your firewall. And you are going to open up that port. </p>
+  <li> </li>
+  <li> </li>
+  <li> </li>
+  <li> </li>
+ </ul>
  
  
  <b> Resource Group </b>
@@ -122,3 +137,20 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 <a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
 
 CPU Cache: A computer have two different types of memory. Dynamic RAM, SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. The CPU Cache is the CPU internal memory. It's job is to store copy of data from RAM which is wainting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first. </p>
+
+
+<b> Ports & IP Addressing </b>
+
+<a href ="https://www.youtube.com/watch?v=AXrFCbD4-fU"> Video Explanation </a>
+
+<p> You can think of ports as exact house or appartment number. IP Address represents the city or street number. And port number represents the exact house number. When a computer is trying to connect and talk with another computer, it needs both IP address and port. How do you find port numbers on a computer. If you are using windows open command and type netstat -a -b -n with admin privelage. 
+
+Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
+
+<b> TCP traffic </b>
+
+<p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. </p> 
+
+<b> Firewall </b>
+<p> System that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally firewalls allow data to go out.  </p>
+
