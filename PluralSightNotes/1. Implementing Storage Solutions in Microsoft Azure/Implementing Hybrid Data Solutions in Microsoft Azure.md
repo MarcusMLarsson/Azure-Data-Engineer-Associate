@@ -337,12 +337,126 @@ WITH
   <ul>
   <p> Examine external tables. We are going to load data into these tables. We are going to view that data being loaded. and then examine the details on that loading data </p>
 	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you going to load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import this data into a relational table. It has a distribution type that is round robin. It has en index which is a clustered column store index. Other than that its basically a select from... </p>
-	<li> </li>
-	<li> </li>
-	<li> </li>
-	<li> </li>
- 
+<pre> 
+CREATE TABLE [dbo].[Date]
+WITH
+( 
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[Date]
+OPTION (LABEL = 'CTAS : Load [dbo].[Date]')
+;
+CREATE TABLE [dbo].[Geography]
+WITH
+( 
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS
+SELECT * FROM [ext].[Geography]
+OPTION (LABEL = 'CTAS : Load [dbo].[Geography]')
+;
+CREATE TABLE [dbo].[HackneyLicense]
+WITH
+( 
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[HackneyLicense]
+OPTION (LABEL = 'CTAS : Load [dbo].[HackneyLicense]')
+;
+CREATE TABLE [dbo].[Medallion]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[Medallion]
+OPTION (LABEL = 'CTAS : Load [dbo].[Medallion]')
+;
+CREATE TABLE [dbo].[Time]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[Time]
+OPTION (LABEL = 'CTAS : Load [dbo].[Time]')
+;
+CREATE TABLE [dbo].[Weather]
+WITH
+( 
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[Weather]
+OPTION (LABEL = 'CTAS : Load [dbo].[Weather]')
+;
+CREATE TABLE [dbo].[Trip]
+WITH
+(
+    DISTRIBUTION = ROUND_ROBIN,
+    CLUSTERED COLUMNSTORE INDEX
+)
+AS SELECT * FROM [ext].[Trip]
+OPTION (LABEL = 'CTAS : Load [dbo].[Trip]')
+;
+</pre>
+
+<p> Daynamic Management View </p>
+
+<pre>
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files,
+    sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
+FROM 
+    sys.dm_pdw_exec_requests r
+    INNER JOIN sys.dm_pdw_dms_external_work s
+    ON r.request_id = s.request_id
+WHERE
+    r.[label] = 'CTAS : Load [dbo].[Date]' OR
+    r.[label] = 'CTAS : Load [dbo].[Geography]' OR
+    r.[label] = 'CTAS : Load [dbo].[HackneyLicense]' OR
+    r.[label] = 'CTAS : Load [dbo].[Medallion]' OR
+    r.[label] = 'CTAS : Load [dbo].[Time]' OR
+    r.[label] = 'CTAS : Load [dbo].[Weather]' OR
+    r.[label] = 'CTAS : Load [dbo].[Trip]'
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc, 
+    gb_processed desc;
+
+</pre>
+
+<p> View System Queries </p> 
+
+<pre>
+
+SELECT * FROM sys.dm_pdw_exec_requests;
+
+</pre>
  </ul>
+ 
+ <b> Examining Configuration Options for an SQL Pool in Azure Synapse Analytics</b>
+ <p> Start with an overview of the data warehouse. We are going to learn how to scale the compute node. We are going to view acitivities that are on our log for the SQL data warehouse. How to apply tags and locks and take alook at various settings.   </p>
+ 
+ <ul>
+	<li><b> Scale </b> bottom is next to pause. Here we can scale system (will be more expensive). </li>
+	<li> <b> Activity log </b>: A log file is a file that records either events that occur in an operating system or other software runs </li>
+	<li> <b> Tags </b>: All resources in Azure can recieve a tag. A tag is a descriptive charactarization that you put on any kind of resource so you can search by category. If you have certain clients that are responsible for paying for certain resources, then that would be an example of the use of a tag.</li>
+	<li> <b> Geo-backup policy</b>: What policy do Azure have for backing up data information. On Gen2 backup is taken care off. </li>
+		<li> <b> Connecting strings</b>: If you have different applications and coding to look at this datbase (api?) </li>
+	<li> <b> Export template</b>: Alot of things in Azure, the resources are available thrue a template. You can recreate the resource from scratch and have all the configurations from your original resource.  </li>
+</ul>
+ 
+ 
   ---
 <h3> Notes </h3>
 
