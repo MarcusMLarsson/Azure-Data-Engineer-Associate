@@ -1,4 +1,4 @@
-<h1> Understand the evolving world of data </h1>
+<h1> Implementing Storage Solutions in Microsoft Azure </h1>
 
 <h3> Introduction </h3>
 <ul>
