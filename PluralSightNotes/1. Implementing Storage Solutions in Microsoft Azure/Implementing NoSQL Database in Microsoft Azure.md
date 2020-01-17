@@ -53,3 +53,9 @@
  <li> IaaS: Provision VMs and install database engines of your choice. </li>
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course. </li>
 </ul>
+
+<b> Demo </b>
+
+<p> Start by provisioning Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 are used normally. Locally redundant storage is the cheapest one. Cool are for archiving. Choose hot. After creating you can choose 4 different storage types under the storage account umbrella. </p>
+
+<p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
