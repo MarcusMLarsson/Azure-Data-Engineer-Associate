@@ -454,8 +454,49 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li> <b> Geo-backup policy</b>: What policy do Azure have for backing up data information. On Gen2 backup is taken care off. </li>
 		<li> <b> Connecting strings</b>: If you have different applications and coding to look at this datbase (api?) </li>
 	<li> <b> Export template</b>: Alot of things in Azure, the resources are available thrue a template. You can recreate the resource from scratch and have all the configurations from your original resource.  </li>
+	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs. A collection of data comming from a for example IoT device streaming into our data warehouse. Sometime you need to monitor to look for certain triggers. </li>
+	<li> <b> Load data </b>: Here you find <b> Azure Data Factory </b> which allows you to store and integrate your information into your data warehouse. </li>
+	<li> <b> Query editor </b>: We connect to the database and can run queries inside here without using SQL server management studio. </li>
 </ul>
- 
+
+
+<b> Tuning and Optimizing a Data Warehouse in Microsoft Azure Synapse Analytics </b>
+
+<ul>
+	<li> Backing up and restoring a Data warehouse </li>
+	<p> Snapshots offers a time when your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (in alot of different places). Automatic restore point, taken several times a day <b> when your data warehouse is not paused </b>. Overview => New Restore Point to create your own one. </p>
+	<b> Restoring: Restoring to a certain part. Restor points are deleted after 7 days. Will not be available when DW is paused. To restore go to over => next to scale </b>
+	<li> Managing cost of a Data warehouse </li>
+	<p> Pricing page is available at Microsoft website. How much does the storage cost and how much does the computing cost? Service level DWU </p>
+	<li> Workload management </li>
+	<p> Include the process of loading data, running analysis and reporting, managing the data in the data warehouse, exporting data from the data warehouse </p>
+	<p> Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
+	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
+	<p> Isolation: Guarantees implicit level of concurrency with the MIN_PERCENTAGE_RESOURCE paramter.</p>
+	<li> Implementing security </li>
+	<p> How to secure Azure SQL Data Warehouse </p>  
+	<ul>
+		<li> <b> Connection Security (who has access) </b> is done mainly with Firewall rules. Firewall rules allow or block IP addresses. Uses port 1433. Firewall rules are only available at the server level (not at the database level). Connections are encrypted by default. </li>
+	<li> <b> Authentication security (Once the user is logged in. What can they do?) </b> Based on priviliged determined by role memeberhsip and permissions. Granual permissions on individual columns, views, tables is available.
+		Will dictate who has access to the data warehouse. For this you can use two different types. SQL Server Authentication and Azure Active Directory Authentication. </li>
+	<li> <b> Transparent data encryption (encrypt and decrypt your data at rest) </b>: Encrypts the storage of an entire database and uses a symmetric key (data base encryption key). Uses AES-256 encryption algorithm.  </li>
+		<p> Scroll down to security in Azure portal.</p>
+	<ul>
+		<li> Advanced data security: 15$/month. </li>
+		<li> Auditing: </li>
+		<li> Transparent data encryption: encrypts your database, logs etc </li>
+		<li> </li>
+	</ul>
+		<p> Scroll down Monitoring </p>
+	<ul>
+		<li> Query Activity: You can see failed and completed queries etc. </li>
+		<li> Alerts: Are trigged by an event triggered from inside your data warehouse. set alerts for example on DWU (data warehouse units) used (what you pay for) </li>
+		<li> Metrics: What is happening with our database? </li>
+		<li> Diagnostic settings: What is happening internally inside of our database. </li>
+	</ul>
+	<p> Delete data warehouse: This is permanent. Overview = delete. </p>
+</p>
+</ul>
  
   ---
 <h3> Notes </h3>
