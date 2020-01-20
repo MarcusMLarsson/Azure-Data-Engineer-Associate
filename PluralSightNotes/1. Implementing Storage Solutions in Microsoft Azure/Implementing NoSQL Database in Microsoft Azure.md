@@ -268,3 +268,61 @@ If I only need my clients to see the data, not update it I give them Read-only k
  <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
  
  <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
+ 
+ 
+ <b> Working with Azure Cosmos DB - SQL (Core) API </b>
+ 
+ <p> Each Cosmos API has its own terminology for the container concepts. You might expect Azure Cosmos DB SQL API to support the SQL syntax, and you are correct. We are going to take a look at a few SQL queries, which you can use to work with your data in Cosmos DB. After that, we are going to talk about Azure Cosmos DB .NET SDK. We will see which NuGet Packages you need to install to be able to use the latest and greatest version of the Azure Cosmos DB .NET SDK.  </p>
+ 
+ <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
+ 
+ <ul>
+ <li> SQL API: Collection</li>
+ <li> Table API: Table</li>
+ <li> MongoDB API: Collection</li>
+ <li> Cassandra API: Table</li>
+ <li> Gremlin API: Graph</li>
+ </ul>
+ 
+ <p> Use Data Explorer: Azure Cosmos DB SQL API supports querying JSON items using SQL.
+<pre>
+"firstname": "Marcus",
+"lastname": "Larsson,
+"email": "mla@ocean.se",
+"address": { 
+    "streetAdress": "gatan",
+    "city": "Gothenburg",
+    "country": "Sweden",
+},
+"phone": "+46703 ....."
+</pre>
+
+<pre>
+SELECT *
+FROM People as p
+WHERE p.givenname = "John"
+</pre>
+
+<p> You can also query nested properties </p>
+<pre>
+SELECT *
+FROM People as p
+WHERE p.address.city = "Gothenburg"
+</pre>
+
+<p> I can select fields of of my itmems into new JSON objects</p>
+
+<pre>
+SELECT {"Name":p.id, "City":p.address.city} AS Person
+FROM People AS p
+WHERE p.address.city = "Gothenburg"
+</pre>
+
+<b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
+
+<b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
+
+<b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
+
+
+ 
