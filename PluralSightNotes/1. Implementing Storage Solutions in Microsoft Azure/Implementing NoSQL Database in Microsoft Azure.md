@@ -96,6 +96,19 @@
  <p> When a web browser running in one domain makes an HTTP request for a different domain, this is called a cross-origin HTTP request. When calling the Azure Table Storage API that return JSON data to be processed by JavaScript client. You can allow origins, methods and headers. </p>
  </ul>
  
+ <b> Demo: Provisioning Table Storage in the Azure Portal </b>
+ <ul>
+ <li> We are going to provision a storage account in the Azure Portal. We will also configure security. More services => Storage accounts => Add. Account kind: StorageV2 (general purpose v2). Choose locally-redundant storage (LRS) for replication. </li>
+ <li> Go to resource => Access keys (under settings). Shared access signature (SAS token)? I can define if the token is only going to be used as a Blob, file storage for example. I can allow user permissions (can they read, write, delete, add, update etc). You can put a time frame on SAS token.</li>
+ <li> Generate SAS and connection string (generates a token, a connection string), url for choosen storage type (blob/file/table/queue) </li>
+ <li> Encryption: Option to use your own key stored in Azure Key Vault for encryption </li>
+ <li> Firewalls and virtual networks: By default all the services within all virtual networks can access my storage account. You can change that by specifying a few selected virtual networks (selected networks). Here I can whitelist IPs which are allowed to access my storage account or even access existing virtual network or create a new virtual network and assign it to my storage account.</li>
+ <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, QUeues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
+ </ul>
+ 
+ 
+ 
+ 
  ---
  
  <b> Notes </b>
