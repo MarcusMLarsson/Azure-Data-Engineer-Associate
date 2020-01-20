@@ -103,10 +103,71 @@
  <li> Generate SAS and connection string (generates a token, a connection string), url for choosen storage type (blob/file/table/queue) </li>
  <li> Encryption: Option to use your own key stored in Azure Key Vault for encryption </li>
  <li> Firewalls and virtual networks: By default all the services within all virtual networks can access my storage account. You can change that by specifying a few selected virtual networks (selected networks). Here I can whitelist IPs which are allowed to access my storage account or even access existing virtual network or create a new virtual network and assign it to my storage account.</li>
- <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, QUeues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
+ <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, Queues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
  </ul>
  
+<b> Demo: Working with Azure Storage Explorer</b>
+<p> Two different versions (desktop version and the online version). You can download the desktop version of Azure Storage Explorer from Microsoft's website. After that, you can view and edit blob, queues, tables and files. On top of that, you will be able to work with your Cosmos DB Storage. You can also obtain shared access signatures (SAS keys). Also, in the Azure Portal, you have access to the online version of the Storage Explorer (preview). Here I have the option to create a blob, file, queue or tables storage. Add a new entity to the table. RowKey and PartionKey are created automatically. Remember, there are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. It's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Put Sweden for the PartionKey and for the RowKey I'm going to put 1. Now when the system properties are defined, press add property. Add Name: Marcus, Email: mla. Press insert  </p>
+
+
+<b> Demo: Working with Azure Table Storage .NET SDK</b>
+ <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables =>.. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
  
+ <pre> using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+
+namespace AzureStorageSDK
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
+
+            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+
+            CloudTableClient serviceClient = account.CreateCloudTableClient();
+
+
+            CloudTable table = serviceClient.GetTableReference("TableTest");
+
+            var opperation = TableOperation.Retrieve<TableTest>("Sweden", "1");
+
+            var jobResult = table.ExecuteAsync(opperation);
+
+            var entity = jobResult.Result;
+        }
+    }
+}
+</pre>
+
+<pre> using Microsoft.WindowsAzure.Storage.Table;
+
+namespace AzureStorageSDK
+{
+    internal class TableTest : TableEntity
+    {
+
+        public TableTest()
+        {
+
+        }
+
+        public TableTest(string pk, string rk)
+        {
+            PartitionKey = pk;
+            RowKey = rk;
+        }
+
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        /* */
+        public string Phone { get; set; }
+    }
+}</pre>
  
  
  ---
