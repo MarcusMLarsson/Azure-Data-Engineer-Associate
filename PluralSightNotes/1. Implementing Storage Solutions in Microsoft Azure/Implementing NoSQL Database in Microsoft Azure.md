@@ -170,9 +170,76 @@ namespace AzureStorageSDK
 }</pre>
  
  
+ <b> Azure Cosmos DB Overview </b>
+ <ul>
+ <li> Global distribution & multi-homing </li>
+ <li> Consistency levels </li>
+ <li> Auto-expire using time-to-live (TTL) </li>
+  <li> Data partitioning & best practices </li>
+ </ul>
+ 
+ <b> Cosmos DB Concepts - Global Distribution and Multi-homing </b>
+ <p> Multi-homing APIs </p> 
+ <ul>
+ <li> Your application is aware of the nearest region and can send requests to that region </li>
+ <li> Nearest region is identified without any configuration changes. </li>
+ <li> When a new region is added or removed, the connection string stays the same. </li>
+ </ul>
+ 
+<p> Imagine you have two regions for your Cosmos DB account, one instance in West US and another instance in East US. You have created two versions of your web application and deployed on to an app service in West US and another app service in the East US region so your users can experience the least amount of latency. Now let's see what happends when there is a request for your application. You must probably have a traffic manager accepting the requests from the clients. The traffic managers knows the location of the client. In this case, the request is originated from Los Angeles, so the traffic manager is going to redirect the request to the app service located in the West US region, and my app service is using a connection string to connect to the Cosmos DB. So the question is, how my app service knows to which instance of Cosmos DB it should connect, the West US or the East US. I don't have different connection strings for West US Cosmos DB and East US Cosmos DB, so this is the job of the multi-homing API. The multi-homing API is going to figure out which instance of Cosmos DB is closest to my app service and redirect the data request to that instance, and this is the idea behind the multi-homing API </p>
+
+
+ <b> Cosmos DB Concepts - Time-to-live and Database Consistency </b>
+ <p> With time-to-live (TTL) you can set an expire date on some of your objects saved into the database. You don't need to clean up your database and delete when the time has come. You can set the expiry time on Cosmos DB data items; the setting is called TTL and is set as seconds. Cosmos DB will automatically remove the items after this time period, since the last modififed time. </p>'
+
+<p> Imagen you have a distributed database. One replica exist  in West US, and the other replica exists in East US, and therre is a global replication going on between these two. So every 5 seconds, the data in West US will be replicated to East US. This database holds information of a few bank clients, and the information we are interest in is the credit score of these clients. Let's say credit score goes from 750 to 700 for on customer in West US database. 
+<pre> UPDATE History Set
+CreditScore = 750
+WHERE ID = 10 </pre>
+
+Now someone in the East US need to access the credit score of the customer updated in West US (id = 10). So he runs the query. 
+<pre> query SELECT CreditScore FROM History,
+WHERE ID = 10 </pre>
+
+What score do the observer get? 700 or 750? The observer should not see the old credit score (lag 5 second). This is the concept around data consistency. Relational Databases make sure you always get the consistent version of the data, even if you have to wait for some time. Azure Cosmos DB gives the option to add consistency to your database. 
+</p>
+ 
+ 
+ <b> Cosmos DB Concepts - Multi-writes and Consistent Prefix Reads </b>
+ 
+<ul>
+ <li> Data consistency versus data availability & latency </li>
+ <li> Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. </li>
+ <li> Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. </li>
+ <li> Strong, bounded staleness, session, consistent prefix, eventual</li>
+ </ul>
+ 
+ <p> Multiple writes and consistent prefix. Imagine I have a record in my Cosmos DB database. This is a person record and has five properties. givenname, lastname, email, phone, spouse. My Cosmos DB is distributed to East-US and West-US region. At 10 AM my East-US replica is going to update the email address to john@test.com. Two mintues later, the West-US replica goes ahead and updates the phone number. So far, I have two distinguished writes to the same record. At 10:04 AM., my observer queries my Cosmos DB instance for this record, and let's say this database instance guarantees consistent prefix rates. Now let's see which version of the data in the database this observer will se. So is my observer going to see only the first update, meaning, the email address? Or is he going to see both updates side by side? So having in mind that this database guarantees consistent prefix of the list, it is okey for my observer to see either email, the new email, and the new phone, or none of them. So you might ask, what is not okay for this observer to see having in mind that we have consistent prefix consistency level guaranteed? It is not okay to see the second update, but not the first update.   </p>
+ 
+ <b> Cosmos DB Concepts - Consistency Levels (Strong, Session, Eventual, and Others) </b>
+ 
+ <p> Strong, Bounded Staleness, Session, Consistent Prefix, Eventual</p>
+ <p> Moving from left to right you get higher latency and throughput put at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are guaranteed only consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistnecy level, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix, meaning they are going to see in order writes only. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the currect order of updates. If they see update N, they are going to see all the ones before as well, but does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. You might see out of order updates.   </p>
+ 
+ 
+ 
+ <b> Cosmos DB Concepts - Data Partitioning </b>
+ 
+ 
+  <b> Cosmos DB APIs and Security </b>
+ 
+ 
+  <b> Demo: Cosmos DB Database, Containers, and TTL </b>
+ 
+ <b> Demo: Cosmos DB Security </b>
+ 
  ---
  
  <b> Notes </b>
  
- <p> REST api </p>
+ <b> REST api </b>
  
+ <b> Latency </b>
+ <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
+ 
+ <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
