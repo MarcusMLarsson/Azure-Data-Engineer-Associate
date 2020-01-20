@@ -225,14 +225,39 @@ What score do the observer get? 700 or 750? The observer should not see the old 
  
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
+ <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's dadded to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partations. </p>
  
-  <b> Cosmos DB APIs and Security </b>
+ <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is almost spread evenly among different logical partitions if the cities you are choosing have almost the same amount of population. For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
  
+ <p> A partition key can be used by Azure Cosmos DB to divide my data into logical partitions. These logical partitions later will be mapped to physical partition and will be saved onto different machines around the globe.    </p>
  
-  <b> Demo: Cosmos DB Database, Containers, and TTL </b>
+ <b> Cosmos DB APIs and Security </b>
+ <ul>
+ <li> SQL API </li>
+  <li> MongoDB API</li>
+  <li> Table API </li>
+  <li> Cassandra API</li>
+  <li> Gremlin API</li>
+ </ul>
+ 
+ <b> Security </b>
+ <ul>
+ <li> RBAC (Roll based account?) to grant access to users, groups or applications. </li>
+ <li> Use firewall to limit clients who can access Cosmos DB </li>
+ <li> Deploy Cosmos DB into a VNet & use NSGs: Azure Cosmos DB can be integrated with a virtual network. This way, you can use network security groups to control inbound and outbound traffic for your Cosmos DB </li>
+ <li> CORS (Cross-origin requests) can be whitelisted for Azure Cosmos DB as well. So if you have a client-side application which is directly calling Cosmos DB APIs to get data back, you can whitelist those applications in Azure Cosmos DB so those requestscan be made from the browser.  </li>
+ <li> Read-only and read-write keys </li>
+</ul>
+ 
+ <b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
+ <p> More Services => Cosmos Db. Overview => Add container (multiple options). Database is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container People and /City as partinione key. Add a new item (under people). Add to JSON file. When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
+  
+
  
  <b> Demo: Cosmos DB Security </b>
  
+ <p> => Keys 
+If I only need my clients to see the data, not update it I give them Read-only keys, not Read-write keys. Under fiewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resourcesharing (CORS) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
  ---
  
  <b> Notes </b>
