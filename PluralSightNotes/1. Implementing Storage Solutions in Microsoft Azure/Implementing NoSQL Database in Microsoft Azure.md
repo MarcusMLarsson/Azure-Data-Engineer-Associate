@@ -320,9 +320,19 @@ WHERE p.address.city = "Gothenburg"
 
 <b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
 
+
+
 <b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
 
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
 
+---
 
+<h3> notes </h3>
+
+<b> Instance </b>
+<p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
+
+<b> Provisioning </b>
+<p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. </p> 
  
