@@ -320,9 +320,33 @@ WHERE p.address.city = "Gothenburg"
 
 <b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
 
+<p> Create CosmosDB => Create container => add items </p>
+
+<pre>
+{
+    "id": "1000",
+    "name" : "Reza",
+    "email" : "reza@test.com",
+    "city" : "Toronto"
+}
+</pre> 
+
+<pre>
+{
+    "id": "1001",
+    "name": "John",
+    "email": "John@test.com",
+    "city": "Boston",
+}
 
 
 <b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
+
+<p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
+
+<a href ="https://docs.microsoft.com/en-us/azure/cosmos-db/import-data"> Link </a>
+
+<a href ="https://github.com/azure/azure-documentdb-datamigrationtool"> GitHub </a>
 
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
 
@@ -333,6 +357,9 @@ WHERE p.address.city = "Gothenburg"
 <b> Instance </b>
 <p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
 
+<b> Azure Container Instance </b>
+<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. </p>
+
 <b> Provisioning </b>
-<p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. </p> 
+<p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources. </p> 
  
