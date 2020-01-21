@@ -83,20 +83,20 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  </ul>
  </p>
  
-   <b> Steps to Create a SQL Data Warehouse </b>
+   <b> Steps to Create a SQL Data Warehouse in Azure </b>
 <ul>
-  <li> Create a resource </li>
-  <li> Click Databases </li>
-  <li> Click Azure Synapse Analytics (formerly SQL DW)</li>
+  <li> Create a Resource </li>
+  <li> Choose Databases </li>
+  <li> Click Azure Synapse Analytics (formerly SQL DW) </li>
   <li> Select subscription and resource group </li>
   <li> Give the Data Warehouse a name </li>
   <li> Create a Azure SQL server </li>
-  <li> Performance level, välj lägsta</li>
-  <li> Additioanl settings: Collation</li>
-  <p> It's important to pick the right collation when you install SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European etc). UTF8 allows for like a million characters. What a collation does, it tells how to organize these variables (ABCabc123). An example of collasions UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
-  <li> Always review settings </li>
-  <li> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </li>
-  <li> Pause the compute node so you dont get charged (If you were running a query, not a good idea to pause).</li>
+  <li> Put the Performance level to the lowest </li>
+  <li> Additional settings: Collation</li>
+  <p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European, UTF8 allows for like a million characters etc). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
+  <li> Always review settings and click create</li>
+  <p> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </p>
+  <li> Pause the Compute Node so you dont get charged (If you were running a query, it's not a good idea to pause).</li>
   <li> We will still be charged for the storage? </li> 
  </ul>
  
