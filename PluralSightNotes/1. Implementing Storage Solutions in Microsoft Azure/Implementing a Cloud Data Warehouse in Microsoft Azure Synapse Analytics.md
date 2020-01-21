@@ -448,7 +448,7 @@ SELECT * FROM sys.dm_pdw_exec_requests;
  </ul>
  
  <b> Examining Configuration Options for an SQL Pool in Azure Synapse Analytics</b>
- <p> Start with an overview of the data warehouse. We are going to learn how to scale the compute node. We are going to view acitivities that are on our log for the SQL data warehouse. How to apply tags and locks and take alook at various settings.   </p>
+ <p> In this section we are going to examine configuration options for the data warehouse.  </p>
  
  <ul>
 	<li><b> Scale </b> bottom is next to pause. Here we can scale system (will be more expensive). </li>
