@@ -53,7 +53,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 
 <b> Implemening Partitions for a SQL Data Warehouse </b>
 
-<p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by use of partition deletion, switching and merging </p>
+<p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by the use of partition, deletion, switching and merging </p>
 
 
 <p> There are three types of table partitions </p>
