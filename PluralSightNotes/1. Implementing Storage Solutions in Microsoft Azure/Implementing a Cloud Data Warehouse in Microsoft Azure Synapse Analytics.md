@@ -115,20 +115,24 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  </ul>
  
   <b> Preparing an SQL Pool in Azure Synapse Analyitcs to Load Data </b>
-   <p> We are going to create a login and a user to load data into our warehouse. We are going to link into NYC Taxi Source Data. We are than going to create tables to hold data inside our data warehouse. </p>
-   <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power, it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. Login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
-<ul>
-  <li> Rightclick master database and select new query. </li>
+  <p> In this section;</p>
+  <ul>
+	<li> We are going to create a login and a user to load data into our warehouse.</li>
+	<li> We are going to link into NYC Taxi Source Data.   </li>
+	<li>  We are than going to create tables to hold data inside our data warehouse. </li>
+</ul>
+   <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
+
+  <p> Rightclick master database and select new query. </p>
 	<pre> CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
 CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> 
-  <li> Rightclick TestDataWarehous
-    </li>
+  <p> Rightclick TestDataWarehous</p>
 <pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
 GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson1;
 EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> 
-  <li> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </li>
-  <li> Create master key for database. Now we are ready to connect to external datasource.
-    </li>
+  <p> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </p>
+  <p> Create master key for database. Now we are ready to connect to external datasource.
+    </p>
  <pre> CREATE MASTER_KEY; </pre>	
   <p> This is one of the more poorly named objects in the SQL Server platform. Or perhaps the “master” database is the one that is not named well. In any case, the DMK has nothing to do with the master database. Instead, the DMK is the base encryption key inside of a database. This is the key that secures all other keys.  </p>
 <pre> CREATE MASTER KEY;
@@ -138,7 +142,7 @@ WITH
 	TYPE = Hadoop,
 	LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
 );  </pre> 
-  <li> <p>
+  <p>
   Now we need to create an external file store statement. And this is going to specify the formatinng charactaristics and the options for our external data file. In order for us to load the data into our data warehouse. This statement specifies that the external data is
 stored as text. We use a pipe variable in order to separate the values. This file is compressed with gzip.     
  </p>
@@ -167,9 +171,8 @@ WITH (
   </pre>
   <p> Now our external file format is set and we are ready to create the schema. </p>
   <pre> CREATE SCHEMA ext; </pre>
-  </li>
+
   
-  <li>  </li>
   <p> Now we will create several external tables, and these tables will point to the azure blob that we defined previously. </p>
  <pre> CREATE EXTERNAL TABLE [ext].[Date] 
 (
