@@ -451,102 +451,75 @@ SELECT * FROM sys.dm_pdw_exec_requests;
  <p> In this section we are going to examine configuration options for the data warehouse.  </p>
  
  <ul>
-	<li><b> Scale </b> bottom is next to pause. Here we can scale system (will be more expensive). </li>
-	<li> <b> Activity log </b>: A log file is a file that records either events that occur in an operating system or other software runs </li>
+	<li><b> Scale </b> botton is next to pause. Here we can scale the system (will be more expensive). </li>
+	<li> <b> Activity log </b>: A log file is a file that records either events that occur in an operating system or other software runs. To query log information use KQL. </li>
 	<li> <b> Tags </b>: All resources in Azure can recieve a tag. A tag is a descriptive charactarization that you put on any kind of resource so you can search by category. If you have certain clients that are responsible for paying for certain resources, then that would be an example of the use of a tag.</li>
 	<li> <b> Geo-backup policy</b>: What policy do Azure have for backing up data information. On Gen2 backup is taken care off. </li>
-		<li> <b> Connecting strings</b>: If you have different applications and coding to look at this datbase (api?) </li>
-	<li> <b> Export template</b>: Alot of things in Azure, the resources are available thrue a template. You can recreate the resource from scratch and have all the configurations from your original resource.  </li>
-	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs. A collection of data comming from a for example IoT device streaming into our data warehouse. Sometime you need to monitor to look for certain triggers. </li>
+		<li> <b> Connecting strings</b>: If you need to load/connect data from different applications </li>
+	<li> <b> Export template</b>: Alot of resources in Azure are available thrue a template. With export templates or Azure Resource Manager (ARM) You can recreate the resources from scratch and have all the configurations from your original resource. </li>
+	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs. A collection of data comming from, for example, IoT devices streaming into our data warehouse. Sometimes you need to monitor to look for certain triggers. </li>
 	<li> <b> Load data </b>: Here you find <b> Azure Data Factory </b> which allows you to store and integrate your information into your data warehouse. </li>
-	<li> <b> Query editor </b>: We connect to the database and can run queries inside here without using SQL server management studio. </li>
+	<li> <b> Query editor </b>: We can connect to the database and run queries inside here without using SQL server management studio. </li>
 </ul>
 
 
 <b> Tuning and Optimizing a Data Warehouse in Microsoft Azure Synapse Analytics </b>
 
 <ul>
-	<li> Backing up and restoring a Data warehouse </li>
-	<p> Snapshots offers a time when your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (in alot of different places). Automatic restore point, taken several times a day <b> when your data warehouse is not paused </b>. Overview => New Restore Point to create your own one. </p>
-	<b> Restoring: Restoring to a certain part. Restor points are deleted after 7 days. Will not be available when DW is paused. To restore go to over => next to scale </b>
+	<li> Backing up a Data warehouse </li>
+	<p> Snapshots offers a time wen your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (in alot of different places). Automatic restore points are taken several times a day <b> when your data warehouse is not paused </b>. Overview => New Restore Point (to create your own restore point). </p>
+	<li> Restoring a Data warehouse</li> 
+	<<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
 	<li> Managing cost of a Data warehouse </li>
 	<p> Pricing page is available at Microsoft website. How much does the storage cost and how much does the computing cost? Service level DWU </p>
 	<li> Workload management </li>
-	<p> Include the process of loading data, running analysis and reporting, managing the data in the data warehouse, exporting data from the data warehouse </p>
-	<p> Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
+	<p> Include the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
 	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
-	<p> Isolation: Guarantees implicit level of concurrency with the MIN_PERCENTAGE_RESOURCE paramter.</p>
 	<li> Implementing security </li>
 	<p> How to secure Azure SQL Data Warehouse </p>  
-	<ul>
-		<li> <b> Connection Security (who has access) </b> is done mainly with Firewall rules. Firewall rules allow or block IP addresses. Uses port 1433. Firewall rules are only available at the server level (not at the database level). Connections are encrypted by default. </li>
-	<li> <b> Authentication security (Once the user is logged in. What can they do?) </b> Based on priviliged determined by role memeberhsip and permissions. Granual permissions on individual columns, views, tables is available.
-		Will dictate who has access to the data warehouse. For this you can use two different types. SQL Server Authentication and Azure Active Directory Authentication. </li>
-	<li> <b> Transparent data encryption (encrypt and decrypt your data at rest) </b>: Encrypts the storage of an entire database and uses a symmetric key (data base encryption key). Uses AES-256 encryption algorithm.  </li>
-		<p> Scroll down to security in Azure portal.</p>
-	<ul>
-		<li> Advanced data security: 15$/month. </li>
-		<li> Auditing: </li>
-		<li> Transparent data encryption: encrypts your database, logs etc </li>
-		<li> </li>
-	</ul>
-		<p> Scroll down Monitoring </p>
-	<ul>
-		<li> Query Activity: You can see failed and completed queries etc. </li>
-		<li> Alerts: Are trigged by an event triggered from inside your data warehouse. set alerts for example on DWU (data warehouse units) used (what you pay for) </li>
-		<li> Metrics: What is happening with our database? </li>
-		<li> Diagnostic settings: What is happening internally inside of our database. </li>
-	</ul>
-	<p> Delete data warehouse: This is permanent. Overview = delete. </p>
-</p>
-</ul>
  
   ---
 <h3> Notes </h3>
 
  
  <b> Resource Group </b>
- <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share a unified lifecycle from creation to usage and finally, de-provisioning. he underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
-
-
+ <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share an unified lifecycle from creation to usage and finally, de-provisioning. The underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
 
 <b> Database vs Data warehouse </b>
-<p> Database is a structured place to store data. Data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
+<p> Database is a structured place to store data. A data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
 
 <b> Computing  </b>
-<p> Computing is any activity that uses computers to manage, process and communicate information </p>
+<p> Computing is any activity that uses computers to manage, process and communicate information. </p>
 
 <b> Processing</b>
 <p> Processing is the actual execution of instructions or the instance. </p>
 
 <b> Cache </b>
-<p> Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
+<p> 
+CPU Cache: A computer have two different types of memory. Dynamic RAM and SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. The CPU Cache is the CPU internal memory. It's job is to store copy of data from RAM which is wainting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first.
+
+Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
 
 <a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
-
-CPU Cache: A computer have two different types of memory. Dynamic RAM, SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. The CPU Cache is the CPU internal memory. It's job is to store copy of data from RAM which is wainting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first. </p>
+ </p>
 
 
 <b> Ports & IP Addressing </b>
 
 <a href ="https://www.youtube.com/watch?v=AXrFCbD4-fU"> Video Explanation </a>
 
-<p> You can think of ports as exact house or appartment number. IP Address represents the city or street number. And port number represents the exact house number. When a computer is trying to connect and talk with another computer, it needs both IP address and port. How do you find port numbers on a computer. If you are using windows open command and type netstat -a -b -n with admin privelage. 
 
-Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
-
-<b> TCP traffic </b>
-
-<p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. </p> 
+<p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. How do you find port numbers on a computer. If you are using windows open command and type netstat -a -b -n with admin privelage. Common port numbers: HTTP 80, FTP (File transfer) 20 </p> 
 
 <b> Firewall </b>
-<p> System that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally firewalls allow data to go out.  </p>
+<p> A Firewall is a system that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally firewalls allow data to go out.  </p>
 
 <b> SQL Server Management Studio(SSMS)</b>
 <p> Integrated environment for managing any SQL infrastructure, from SQL Server to Azure SQL Database </p>
 
 
-<b> Syste databases in SQL Server </b>
+<b> System databases in SQL Server </b>
+<p>
 <ul>
   <li> <b> master </b> keeps and manages all system level information. Such as system configuration, logins, linked servers, credentials etc. Take master data backup because if it becomes corrupted/deleted you won't be able to start sql server. </li>
   <li> <b> model </b> The model database acts as a template for all the data bases. Used in the creation of any new user database created in this instance (store procedures, database configurations) </li>
@@ -555,6 +528,7 @@ Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
   <li> <b> resource </b> not accessable by the user </li>
   <li> <b> distribution </b> not accessable by the user </li>
 </ul>
+</p>
 
 <b> Collation</b>
 <p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European, UTF8 allows for like a million characters etc). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
