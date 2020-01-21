@@ -102,18 +102,17 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
    <p> We are going to resume the compute node, create firewall rule, connect with Microsoft SQL Server Management Studio. </p>
 <ul>
   <li> Click resume </li>
-  <li> Create firewall rule</li>
-  <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server that host our data warehouse we need to add a firewall rule. And this rule is going to enable connectivity for one specific ip address or a range of ip addresses. SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your firewall. And you are going to open up that port. </p>
-  <li> To add firewall rule start with copying and clicking on servername. Needed to connect to database. </li>
-  <li> Click on firewall and virtual networks </li>
+  <li> Create Firewall rules</li>
+  <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server (that host our data warehouse) we need to add a Firewall rule. This rule is going to enable connectivity for one specific ip address or a range of ip addresses. Azure SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your Firewall, meaning that you are going to need to open up that port. </p>
+  <li> To add Firewall rules start with copying and clicking on the Servername. </li>
+  <li> Click on Firewall and virtual networks </li>
   <li> Add client IP, add's it automatically under rule name. Than press save</li>
-  <p> Now we have added a firewall rule, we have an admin with the password and we can connect to this datbase. </p>
-  <li> Download and open Microsoft SQL Server Management Studio </li>
-  <li> In object explorer, connect, Database enginge, Server name (copied from before) </li>
-  <li> Authentication: SQL Server Authentication, login details </li>
-  <li> Expand database, We have TestDataWareHouse and master database. 
+  <p> Now we have added a Firewall rule, we have an admin with the password and we can connect to the datbase. </p>
+  <li> Open Microsoft SQL Server Management Studio </li>
+  <li> Object explorer => Connect => Database enginge => Server name (copied from before) </li>
+  <li> SQL Server Authentication => Login details </li>
+  <li> Expand database => TestDataWareHouse & master database. 
  </ul>
- 
  
   <b> Preparing an SQL Pool in Azure Synapse Analyitcs to Load Data </b>
    <p> We are going to create a login and a user to load data into our warehouse. We are going to link into NYC Taxi Source Data. We are than going to create tables to hold data inside our data warehouse. </p>
