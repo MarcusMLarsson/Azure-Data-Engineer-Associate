@@ -99,7 +99,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  </ul>
  
    <b> Setting a Firewall Rule and Connecting to an SQL Data Warehouse </b>
-   <p> We are going to resume the compute node, create firewall rule, connect with Microsoft SQL Server Management Studio. </p>
+   <p> We are going to resume the Compute Node, create a Firewall rule, connect with Microsoft SQL Server Management Studio. </p>
 <ul>
   <li> Click resume </li>
   <li> Create Firewall rules</li>
