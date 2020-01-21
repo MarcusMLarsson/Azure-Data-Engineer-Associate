@@ -92,8 +92,6 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> Give the Data Warehouse a name </li>
   <li> Create a Azure SQL server </li>
   <li> Put the Performance level to the lowest </li>
-  <li> Additional settings: Collation</li>
-  <p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European, UTF8 allows for like a million characters etc). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
   <li> Always review settings and click create</li>
   <p> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </p>
   <li> Pause the Compute Node so you dont get charged (If you were running a query, it's not a good idea to pause).</li>
@@ -557,3 +555,5 @@ Common port numbers: HTTP 80, FTP (File transfer) 20 </p>
   <li> <b> distribution </b> not accessable by the user </li>
 </ul>
 
+<b> Collation</b>
+<p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European, UTF8 allows for like a million characters etc). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
