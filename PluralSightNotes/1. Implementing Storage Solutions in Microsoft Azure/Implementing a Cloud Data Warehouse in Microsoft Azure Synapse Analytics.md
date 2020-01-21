@@ -469,7 +469,7 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li> Backing up a Data warehouse </li>
 	<p> Snapshots offers a time wen your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (in alot of different places). Automatic restore points are taken several times a day <b> when your data warehouse is not paused </b>. Overview => New Restore Point (to create your own restore point). </p>
 	<li> Restoring a Data warehouse</li> 
-	<<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
+	<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
 	<li> Managing cost of a Data warehouse </li>
 	<p> Pricing page is available at Microsoft website. How much does the storage cost and how much does the computing cost? Service level DWU </p>
 	<li> Workload management </li>
