@@ -105,12 +105,12 @@ You can enable Azure Storage Analytics to log the authentication method used by 
 <p> There are two different options (desktop version and the online version) to work with Azure Storage Explorer. You can download the desktop version of Azure Storage Explorer from Microsoft's website. After that, you can view and edit blob, queues, tables and files. On top of that, you will be able to work with your Cosmos DB Storage. You can also obtain shared access signatures (SAS keys). Also, in the Azure Portal, you have access to the online version of the Storage Explorer (preview). Here I have the option to create a blob, file, queue or tables storage. Add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Put Sweden for the PartionKey and for the RowKey I'm going to put 1. Now when the system properties are defined, press add property. Add Name: Marcus, Email: mla. Press insert  </p>
 
 <b> Demo: Working with Azure Table Storage .NET SDK (Software development kit)</b>
-<a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a>
-<a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a>
+<p><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a></p>
+<p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
  <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables =>.. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
  
-<pre>using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
+<pre>using Microsoft.WindowsAzure.Storage;    //importing package from SDK
+using Microsoft.WindowsAzure.Storage.Table;             
 
 namespace AzureStorageSDK
 {
