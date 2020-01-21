@@ -338,8 +338,8 @@ WITH
  
   <b> Loading NYC Taxi Data into an SQL Pool in Azure Synapse Analytics </b>
   <ul>
-  <p> Examine external tables. We are going to load data into these tables. We are going to view that data being loaded. and then examine the details on that loading data </p>
-	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you going to load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import this data into a relational table. It has a distribution type that is round robin. It has en index which is a clustered column store index. Other than that its basically a select from... </p>
+  <p> Examine external tables. We are now going to load data into these tables. We are going to view that data being loaded and then examine the details on that loading data </p>
+	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you normallly load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import this data into a relational table. It has a distribution type that is Round Robin. It has en index which is a clustered column store index. Other than that its basically a select from... </p>
 <pre> 
 CREATE TABLE [dbo].[Date]
 WITH
