@@ -109,14 +109,14 @@ You can enable Azure Storage Analytics to log the authentication method used by 
 <p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
  <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables =>.. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
  
-<pre>using Microsoft.WindowsAzure.Storage;    //importing package from SDK
+<pre>using Microsoft.WindowsAzure.Storage;                  <i> //importing package from SDK </i>
 using Microsoft.WindowsAzure.Storage.Table;             
 
-namespace AzureStorageSDK
+namespace AzureStorageSDK                                   <i> //namespaces are used to organize classes </i>             
 {
-    class Program
-    {
-        static void Main(string[] args)
+    class Program                                           <i> //A class is a blueprint for creating objects </i> 
+    {                                                            
+      static void Main(string[] args)    <i> // Void returns nothing, static means that there's only one (don't belong to an object) </i>                         
         {
             string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
 
@@ -413,4 +413,59 @@ Vary: Accept-Encoding, Cookie, User-Agent
 <!-- ... rest of the html ... --> </pre> 
  
  <p>The first line is the "Status Line", followed by "HTTP headers", until the blank line. After that, the "content" starts (in this case, an HTML output). When you look at the source code of a web page in your browser, you will only see the HTML portion and not the HTTP headers, even though they actually have been transmitted together as you see above.</p>
+
+<b> Classes, Objects, Instance </b>
+
+<p>A car is a class, different cars has different features, cars with similar features can be grouped as objects (car with this color, how takes this many passanges, can reach this speed). An instance is a specific object created from a particular class. </p>
+
+---
+
+<h3> C# Code </h3>
+
+<b> Static in c# </b>
+
+<p> Use the static modifier to declare a static member, which belongs to the type itself rather than to a specific object. The static modifier can be used with classes, fields, methods, properties, operators, events, and constructors, but it cannot be used with indexers, finalizers, or types other than classes. A constant or type declaration is implicitly a static member. A static member cannot be referenced through an instance. Instead, it is referenced through the type name.</p>
+ 
+<p> <b> To demonstrate static members, consider a class that represents a company employee. Assume that the class contains a method to count employees and a field to store the number of employees. Both the method and the field do not belong to any instance employee. Instead they belong to the company class. Therefore, they should be declared as static members of the class. </b> </p>
+
+<pre>
+using System; 
+  
+class GFG { 
+  
+    // Main Method 
+    static public void Main(String[] args) 
+    { 
+  
+        Console.WriteLine("Main Method"); 
+    } 
+} 
+ </pre>
+ 
+ <p> C# applications have an entry point called Main Method. It is the first method which gets invoked whenever an application started and it is present in every C# executable file. The application may be Console Application or Windows Application. The most common entry point of a C# program is static void Main() or static void Main(String []args). Main must be static and it need not be public. </p>
+ 
+ <p> Console applications are light weight programs run inside the command prompt (DOS) window. They are commonly used for test applications. Console-based applications include Alpine (an e-mail client), cmus (an audio player), Irssi (an IRC client), Lynx (a web browser), nano (a text editor), ne (a text editor), newsbeuter (an RSS reader), and ranger (a file manager).</p>
+
+<p> 
+Windows Applications are form based standard Windows desktop applications for common day to day tasks. Microsoft word is an example of a Windows application.
+</p>
+
+ 
+ <ul>
+ <li> <b>static: </b> It means Main Method can be called without an object.</li>
+ <li> <b> public: </b> It is access modifiers which means the compiler can execute this from anywhere. </li>
+ <li> <b> void: </b> The Main method doesn’t return anything. </li>
+ <li> <b> Main():</b> It is the configured name of the Main method </li>
+  <li> <b>String []args: </b> We access a string array called "args." This array is populated with command-line arguments from the operating system. </li>
+ </ul>
+
+<p> To declare an array, define the variable type with square brackets:  
+
+string[] cars;
+
+
+string[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+
+  </p>
 
