@@ -348,7 +348,14 @@ WHERE p.address.city = "Gothenburg"
 
 <a href ="https://github.com/azure/azure-documentdb-datamigrationtool"> GitHub </a>
 
+<a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
+
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
+
+<p> </p>
+
+
+
 
 ---
 
