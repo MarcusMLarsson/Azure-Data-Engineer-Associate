@@ -74,9 +74,9 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   ---
  <h3> Deploying a Data Warehouse in Microsoft Azure Synapse Analytics </h3>
   
-  <p> We are going to deploy a data warehouse in Microsoft Azure Synapse Analytics (Formerly SQL Data Warehouse). </p>
+  <p> In this exercise we are going to deploy a data warehouse in Microsoft Azure Synapse Analytics (Formerly SQL Data Warehouse). In the exercise we are going to </p>
 <ul>
-  <li> Connect to data warehouse</li>
+  <li> Connect to a data warehouse</li>
   <li> Prepare the data warehouse to load data</li>
   <li> Load data into the data warehouse</li>
   <li> Examine configuration settings and tasks in the portal </li>
