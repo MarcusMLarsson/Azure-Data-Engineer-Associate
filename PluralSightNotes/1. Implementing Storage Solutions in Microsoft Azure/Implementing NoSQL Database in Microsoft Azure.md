@@ -334,7 +334,7 @@ WHERE p.address.city = "Gothenburg"
     "email": "John@test.com",
     "city": "Boston",
 }
-
+</pre>
 
 <b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
 
