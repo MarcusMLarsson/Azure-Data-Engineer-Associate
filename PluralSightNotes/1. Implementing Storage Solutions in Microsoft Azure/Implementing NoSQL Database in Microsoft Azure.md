@@ -146,9 +146,9 @@ namespace AzureStorageSDK                                   <i> //namespaces are
 
 <pre> using Microsoft.WindowsAzure.Storage.Table;
 
-namespace AzureStorageSDK
+namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
 {
-    internal class TableTest : TableEntity
+    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity
     {
 
         public TableTest()
