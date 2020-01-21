@@ -17,7 +17,7 @@
 <b> Understanding massively parallel processing (MPP) </b>
 
 <ul>
-<li> Multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. Each computer has its own memory, disk-space, operating system and IO.  </li>
+<p> Massively parallel processing can be described as multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. Each computer has its own memory, disk-space, operating system and IO.  </p>
 
 <li> <b> Control Node </b> The front end that interacts with all applications and connections. The MPP enginge runs on the control node to optimize and coordinate parallel queries.  </li>
 
