@@ -125,8 +125,8 @@ namespace AzureStorageSDK                                   <i> //namespaces are
             CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
             
             <i> //CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
-            <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string.
-            <i> // <a href ="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet"> CloudStorageAccount </a>
+            <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
+            <i> // <a href ="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet"> CloudStorageAccount </a> </i>
 
             CloudTableClient serviceClient = account.CreateCloudTableClient();       
             <i> //CloudTableClient is a class, serviceClient is an object </i>
