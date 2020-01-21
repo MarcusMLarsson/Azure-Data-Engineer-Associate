@@ -126,14 +126,14 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <p> Rightclick master database and select new query. </p>
 	<pre> CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
 CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> 
-  <p> Rightclick TestDataWarehous</p>
-<pre> CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
+<p> Rightclick TestDataWarehous</p>
+<pre>CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
 GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson1;
 EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> 
   <p> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </p>
   <p> Create master key for database. Now we are ready to connect to external datasource.
     </p>
- <pre> CREATE MASTER_KEY; </pre>	
+ <pre>CREATE MASTER_KEY; </pre>	
   <p> This is one of the more poorly named objects in the SQL Server platform. Or perhaps the “master” database is the one that is not named well. In any case, the DMK has nothing to do with the master database. Instead, the DMK is the base encryption key inside of a database. This is the key that secures all other keys.  </p>
 <pre> CREATE MASTER KEY;
 CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -147,8 +147,7 @@ WITH
 stored as text. We use a pipe variable in order to separate the values. This file is compressed with gzip.     
  </p>
   
-  <pre>
-  CREATE EXTERNAL FILE FORMAT uncompressedcsv
+  <pre>CREATE EXTERNAL FILE FORMAT uncompressedcsv
 WITH (
 	FORMAT_TYPE = DELIMITEDTEXT,
 	FORMAT_OPTIONS (
@@ -168,13 +167,13 @@ WITH (
 	),
 	DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
 	);
-  </pre>
+  </pre> 
   <p> Now our external file format is set and we are ready to create the schema. </p>
-  <pre> CREATE SCHEMA ext; </pre>
+  <pre>CREATE SCHEMA ext; </pre>
 
   
   <p> Now we will create several external tables, and these tables will point to the azure blob that we defined previously. </p>
- <pre> CREATE EXTERNAL TABLE [ext].[Date] 
+ <pre>CREATE EXTERNAL TABLE [ext].[Date] 
 (
     [DateID] int NOT NULL,
     [Date] datetime NULL,
