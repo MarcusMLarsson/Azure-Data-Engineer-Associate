@@ -53,8 +53,9 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 
 <b> Implemening Partitions for a SQL Data Warehouse </b>
 
-<p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by the use of partition, deletion, switching and merging </p>
+<p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by the use of partition deletion, switching and merging </p>
 
+<p> For example, a sales fact table might contain just data for the past 36 months. At the end of every month, the oldest month of sales data is deleted from the table. This data could be deleted by using a delete statement to delete the data for the oldest month. However, deleting a large amount of data row-by-row with a delete statement can take too much time, as well as create the risk of large transactions that take a long time to rollback if something goes wrong. A more optimal approach is to drop the oldest partition of data. Where deleting the individual rows could take hours, deleting an entire partition could take seconds.</p>
 
 <p> There are three types of table partitions </p>
 <ul>
@@ -63,7 +64,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
   <li> Clustured index</li>
   <p> An index that is physically stored in the same order as the data being indexed. </p>
   <li> Heap </li>
-  <p> Data is not in any particular order. Use when data has no natural order. </p>
+  <p> Data is not in any particular order. Use when data has no natural order (no time series) </p>
   
 </ul>
 </p>
