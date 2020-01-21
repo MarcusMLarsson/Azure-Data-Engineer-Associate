@@ -124,7 +124,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
    <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
 
   <p> Rightclick master database and select new query. </p>
-	<pre> CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
+	<pre>CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
 CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> 
 <p> Rightclick TestDataWarehous</p>
 <pre>CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
