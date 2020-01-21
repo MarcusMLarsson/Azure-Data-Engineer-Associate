@@ -41,7 +41,7 @@
 <p> There are three types of distributions.</p>
 <ul>
   <li> Replicated Table</li>
-  <p>  A replicated table provides the fastest query performance for small tables. Replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical. </p>
+  <p>  A replicated table provides the fastest query performance for small tables (full data consistency). Replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical. </p>
   <li> Round Robin</li>
   <p> Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash. </p> 
   <li> Hash Table </li>
