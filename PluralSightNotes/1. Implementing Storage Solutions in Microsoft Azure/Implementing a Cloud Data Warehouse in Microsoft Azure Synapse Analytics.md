@@ -8,7 +8,7 @@
 <p> Synapse Analytics is a combination of: </p>
 <ul>
   <li>Azure Data Lake Storage </li> 
-  <li>Azure SQL Data Warehouse</li>
+  <li> <b> Azure SQL Data Warehouse </b> </li>
   <li>Azure Analytics</li>
 </ul>
 
