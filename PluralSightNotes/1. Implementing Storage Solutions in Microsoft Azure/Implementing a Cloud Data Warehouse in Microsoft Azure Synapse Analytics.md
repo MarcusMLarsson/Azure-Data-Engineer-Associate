@@ -35,7 +35,7 @@
 <p> At the bottom of the picture is the Azure storage where the data is keept. It is seperate from the compute power that will cost the most of money </p>
 
 <b> Implementing Data Distribution for a SQL Data Warehouse </b> </p> 
-<p> When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.
+<p> When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute Node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute node. A SQL pool with minimum compute resources has all the distributions on one compute node.
   </p>
 
 <p> Three types of distributions.</p>
