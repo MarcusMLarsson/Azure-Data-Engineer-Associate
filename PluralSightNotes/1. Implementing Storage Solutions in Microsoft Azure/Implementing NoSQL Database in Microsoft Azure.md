@@ -258,22 +258,21 @@ What score do the observer get? 700 or 750? The observer should not see the old 
  <p> More Services => Cosmos Db. Overview => Add container (multiple options). Database is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container People and /City as partinione key. Add a new item (under people). Add to JSON file. When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
    
  <b> Demo: Cosmos DB Security </b>
- <p> => Keys 
-If I only need my clients to see the data, not update it I give them Read-only keys, not Read-write keys. Under fiewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resourcesharing (CORS) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
+ <p>
+If I only need my clients to see the data, not update it, I give them Read-only keys, not Read-write keys. Under Firewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
 
  <b> Working with Azure Cosmos DB - SQL (Core) API </b>
- 
- <p> Each Cosmos API has its own terminology for the container concepts. You might expect Azure Cosmos DB SQL API to support the SQL syntax, and you are correct. We are going to take a look at a few SQL queries, which you can use to work with your data in Cosmos DB. After that, we are going to talk about Azure Cosmos DB .NET SDK. We will see which NuGet Packages you need to install to be able to use the latest and greatest version of the Azure Cosmos DB .NET SDK.  </p>
  
  <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
  
  <ul>
- <li> SQL API: Collection</li>
- <li> Table API: Table</li>
- <li> MongoDB API: Collection</li>
- <li> Cassandra API: Table</li>
- <li> Gremlin API: Graph</li>
+ <li> <b> SQL API:</b> Collection</li>
+ <li> <b>Table API:</b> Table</li>
+ <li> <b>MongoDB API:</b> Collection</li>
+ <li> <b>Cassandra API:</b> Table</li>
+ <li> <b>Gremlin API:</b> Graph</li>
  </ul>
+ <br>
  
  <p> Use Data Explorer: Azure Cosmos DB SQL API supports querying JSON items using SQL.
 <pre>
@@ -301,7 +300,7 @@ FROM People as p
 WHERE p.address.city = "Gothenburg"
 </pre>
 
-<p> I can select fields of of my itmems into new JSON objects</p>
+<p> I can select fields of of my items into new JSON objects</p>
 
 <pre>
 SELECT {"Name":p.id, "City":p.address.city} AS Person
@@ -432,3 +431,19 @@ Latency and throughput are the two most fundamental measures of network performa
  <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
  
  <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
+
+
+<b> Setup LocalDB server using sqllocaldb (Microsoft SQL Server Management Studio</b>
+
+<a href="https://www.youtube.com/playlist?list=PLWsYJ2ygHmWgGDLIGe0w5nA5QyMDB3-OU"> Youtube playlisy </a>
+
+<pre> sqllocaldb
+
+sqllocaldb info
+
+sqllocaldb create "LocalDBDemo" </pre>
+
+<p> Servername: (LocalDb)\LocalDBDemo
+ Authentication: Windows Authentication
+ </p> 
+
