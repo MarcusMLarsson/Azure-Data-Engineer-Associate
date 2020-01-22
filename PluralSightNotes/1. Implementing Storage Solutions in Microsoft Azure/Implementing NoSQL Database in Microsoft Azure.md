@@ -148,7 +148,7 @@ namespace AzureStorageSDK                                   <i> //namespaces are
 
 namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
 {
-    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity
+    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity </i>
     {
 
         public TableTest()
