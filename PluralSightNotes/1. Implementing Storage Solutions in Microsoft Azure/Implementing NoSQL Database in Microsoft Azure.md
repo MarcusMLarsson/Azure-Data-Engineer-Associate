@@ -410,6 +410,36 @@ namespace ConsoleApp1
 
 </pre>
 
+<b> Working with Azure Cosmos DB - MongoDB API</b>
+
+<p>
+ MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed SLAs (service level agreement) for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the worl and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
+ </p>
+<ul> 
+ <p> Let's take alook at the pre-migrating steps before migrating your data. 
+</p>
+ <li> Create an Azure Cosmos AB account </li>
+ <p> See demo </p>
+ <li> Estimate the throughput needed for your workload (you can change this later) </li>
+ <p> Throughput can be provisioned on both collection & database. You can choose database-level throughput if not sure. Throughput is measured in Request Units (RUs) / second. RU is an abstraction of physical resources (Memory, CPU, IOPs). The concept of RUs is very similar to the concept of DTUs in Azure SQL Database.  </p>
+ <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item icreases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
+ 
+ <li> Pick an optimal partition key for your data (can't be changed if you don't recreate the collection)</li>
+ <p> Cosmos DB uses partitioning to scale individualcontainers in a database to meet the scalability and performance needs of the application. Follow best practices to avoid "hot" partitions. Choose a partition key so your data is divided equally.</p>
+ 
+ <li> Understand the indexing policy that you can set on your data </li>
+ <p> Azure Cosmos DB indexes all the data field upon ingestion. However, it is recommended to turn off indexing when migrating data. We are going to use Azure Data Migration Service (DMS) to migrate data from MongoDB to Cosmos DB. This services can migrate MongoDB indexes with unique indexes. However, the unique indexes must be created in destination before the migration. It's important to note that you can not create unique indexes, when there is already data in collections. We are going to use Azure Database Migration service to migrate a MongoDB  collection to Azure Cosmos DB.  </p>
+</ul>
+
+<p>
+ Post-migration steps. After your data is migrated to the destination you need to connect your application with the connection string. The other three steps are optional steps. You can optimize the indexing policy, you can globally distribute your data and you can set concistency level of your choice.
+ </p>
+ 
+ 
+ <b> Demo: Create a sample MongoDB database in MongoDB Atlas </b>
+<p> MongoDB Atlas: Create free tier (M0 Sandbox). Clikc on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user.  </p>
+
+<p> Studio 3T mongoDB client? </p> 
 
 ---
 
