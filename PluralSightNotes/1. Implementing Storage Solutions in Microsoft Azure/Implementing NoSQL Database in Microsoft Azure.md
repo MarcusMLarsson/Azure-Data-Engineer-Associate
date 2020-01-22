@@ -334,6 +334,9 @@ WHERE p.address.city = "Gothenburg"
 
 <p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
 
+<p> Create SQL server & Database in Azure. Populate with data.
+
+
 <a href ="https://docs.microsoft.com/en-us/azure/cosmos-db/import-data"> Link </a>
 
 <a href ="https://github.com/azure/azure-documentdb-datamigrationtool"> GitHub </a>
@@ -341,6 +344,9 @@ WHERE p.address.city = "Gothenburg"
 <a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
 
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
+
+
+
 
 <p> </p>
 
