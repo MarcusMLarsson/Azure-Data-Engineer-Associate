@@ -345,14 +345,75 @@ WHERE p.address.city = "Gothenburg"
 
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
 
+<pre> using System;
+using System.Collections.Generic;
+using Microsoft.Azure.Cosmos;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CosmosClient cosmosClient;                
+            Database database;
+            Container container;
+
+            cosmosClient = new CosmosClient("AccountEndpoint=https://mlacosmos.documents.azure.com:443/;AccountKey=x73LhWDOWB4zDSoMUlqQUaJHWpB2cSURpnm1DyXvtl79hXlsuHNYJDIVggnnngE4O5mHnw8D9Uj5mcM22PGH4A==;");                 // Create a cosmosClient object by passing connection string
+            database = cosmosClient.GetDatabase("db01");             // Using the cosmosClient object, create a database object (getting a refrence to the database)  
+            container = database.GetContainer("Items");               // Access the container I need inside this database.   
+
+            var sqlQueryText = "SELECT * FROM dbo.Product";          // Sql query
+            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);          // create object queryDefinition with the help of QueryDefinition class (pass query to a constructor)
+            FeedIterator<Product> queryResultSetIterator = container.GetItemQueryIterator<Product>(queryDefinition);   // create object queryResultSetIterator (create a query result iterator)
+
+            List<Product> redProducts = new List<Product>();                   // an empty list of the product object that I'm going to fetch
 
 
+            while (queryResultSetIterator.HasMoreResults)  // as long as we have data to fetch =>
+            {
+                FeedResponse<Product> currentResultSet = queryResultSetIterator.ReadNextAsync().Result;  // => it is going to fetch the data =>
+                foreach(Product product in currentResultSet)
+                {
+                    redProducts.Add(product);                                 // => add them to the result list =>
+                    Console.WriteLine("\tRead {0}\n", product.ProductNumber); // => and also put the product console into the consol
+                }
 
-<p> </p>
+            }
+        }
+    }
+}
+</pre>
 
-<h3> notes </h3>
+<pre> 
+namespace ConsoleApp1
+{
+    internal class Product
+    {
+
+        public int ProductID { get; set; }
+        
+        public string Name { get; set;  }
+
+        public string ProductNumber { get; set; }
+
+        public Category Category { get; set; }
+
+    }
+
+    public class Category
+    {
+        public int CategoryId { get; set; }
+    }
+
+}
+
+</pre>
+
 
 ---
+
+<h3> notes </h3>
 
 <b> Instance </b>
 <p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
