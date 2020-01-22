@@ -260,18 +260,7 @@ What score do the observer get? 700 or 750? The observer should not see the old 
  <b> Demo: Cosmos DB Security </b>
  <p> => Keys 
 If I only need my clients to see the data, not update it I give them Read-only keys, not Read-write keys. Under fiewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resourcesharing (CORS) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
- ---
- 
- <b> Notes </b>
- 
- <b> REST api </b>
- 
- <b> Latency </b>
- <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
- 
- <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
- 
- 
+
  <b> Working with Azure Cosmos DB - SQL (Core) API </b>
  
  <p> Each Cosmos API has its own terminology for the container concepts. You might expect Azure Cosmos DB SQL API to support the SQL syntax, and you are correct. We are going to take a look at a few SQL queries, which you can use to work with your data in Cosmos DB. After that, we are going to talk about Azure Cosmos DB .NET SDK. We will see which NuGet Packages you need to install to be able to use the latest and greatest version of the Azure Cosmos DB .NET SDK.  </p>
@@ -433,7 +422,12 @@ Latency depends on the speed of the transmission medium (e.g., copper wire, opti
 
 Latency and throughput are the two most fundamental measures of network performance. They are closely related, but whereas latency measures the amount of time between the start of an action and its completion, throughput is the total number of such actions that occur in a given amount of time. </p>
 
-
-
 <b> Containers </b>
 <p>Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. With a container framework, you specify the dependencies that your code needs, and let the framework handle the legwork of managing different execution environments. Docker is the defacto standard for containers, and there is substantial tooling built around Docker. </p>
+
+<b> REST api </b>
+ 
+ <b> Latency </b>
+ <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
+ 
+ <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
