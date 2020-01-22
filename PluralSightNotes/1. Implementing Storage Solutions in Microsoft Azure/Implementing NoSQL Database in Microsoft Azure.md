@@ -441,6 +441,69 @@ namespace ConsoleApp1
 
 <p> Studio 3T mongoDB client? </p> 
 
+<pre> 
+using MongoDB.Driver;
+using System;
+
+namespace MongoDBAPI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IMongoCollection<Company> companiesCollection;
+
+            MongoClient client = new MongoClient("mongodb+srv://marcuslarsson:Britney123@cluster0-rmtx6.azure.mongodb.net/test?retryWrites=true&w=majority"); 
+
+            // Create an instance of MongoClient object using MongoDB connection string to this constructure.
+
+            var database = client.GetDatabase("sample_training"); // get a reference to the database that we are going to work with. 
+
+            companiesCollection = database.GetCollection<Company>("companies"); //name of the collection
+
+            var myCompanies = companiesCollection.Find<Company>(company => company.founded_year > 2000).Limit(100).ToList();
+
+
+            foreach (var company in myCompanies)
+            {
+                Console.WriteLine($"{company.name} founded in { company.founded_year}.");
+                    
+            }
+
+            Console.WriteLine("press a key to exit ...");
+            Console.ReadKey();
+        }
+    }
+}
+
+</pre>
+
+<pre>
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace MongoDBAPI
+{
+    internal class Company
+    {
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+
+        public int founded_year { get; set; }
+
+        public string name { get; set; }
+
+        public string homepage_url { get; set; }
+    }
+}
+</pre>
+
+<b> Migrate a Mongo DB database to Azure Cosmos DB using Data Migration Service (DMS) </b>
+
+<p>UnsupportedSourceVersion: The version of the source server is 4.2.2 but must be at least 3.0.0 and less than 4.1.0. </p>
+
 ---
 
 <h3> notes </h3>
