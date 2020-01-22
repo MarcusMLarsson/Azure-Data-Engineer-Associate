@@ -225,12 +225,10 @@ What score do the observer get? 700 or 750? The observer should not see the old 
  
  <p> Strong, Bounded Staleness, Session, Consistent Prefix, Eventual</p>
  <p> Moving from left to right you get higher latency and throughput put at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are guaranteed only consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistnecy level, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix, meaning they are going to see in order writes only. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. You might see out of order updates.   </p>
- 
- 
- 
+  
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
- <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's dadded to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partations. </p>
+ <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partations. </p>
  
  <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is almost spread evenly among different logical partitions if the cities you are choosing have almost the same amount of population. For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
  
@@ -244,23 +242,22 @@ What score do the observer get? 700 or 750? The observer should not see the old 
   <li> Cassandra API</li>
   <li> Gremlin API</li>
  </ul>
+ <br>
  
  <b> Security </b>
  <ul>
- <li> RBAC (Roll based account?) to grant access to users, groups or applications. </li>
+ <li> RBAC (Roll based access control) to grant access to users, groups or applications. </li>
  <li> Use firewall to limit clients who can access Cosmos DB </li>
  <li> Deploy Cosmos DB into a VNet & use NSGs: Azure Cosmos DB can be integrated with a virtual network. This way, you can use network security groups to control inbound and outbound traffic for your Cosmos DB </li>
- <li> CORS (Cross-origin requests) can be whitelisted for Azure Cosmos DB as well. So if you have a client-side application which is directly calling Cosmos DB APIs to get data back, you can whitelist those applications in Azure Cosmos DB so those requestscan be made from the browser.  </li>
+ <li> CORS (Cross-origin resource control) can be whitelisted for Azure Cosmos DB as well. So if you have a client-side application which is directly calling Cosmos DB APIs to get data back, you can whitelist those applications in Azure Cosmos DB so those requests can be made from the browser.  </li>
  <li> Read-only and read-write keys </li>
 </ul>
- 
+<br>
+
  <b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
  <p> More Services => Cosmos Db. Overview => Add container (multiple options). Database is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container People and /City as partinione key. Add a new item (under people). Add to JSON file. When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
-  
-
- 
+   
  <b> Demo: Cosmos DB Security </b>
- 
  <p> => Keys 
 If I only need my clients to see the data, not update it I give them Read-only keys, not Read-write keys. Under fiewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resourcesharing (CORS) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
  ---
@@ -359,12 +356,9 @@ WHERE p.address.city = "Gothenburg"
 
 <p> </p>
 
-
-
+<h3> notes </h3>
 
 ---
-
-<h3> notes </h3>
 
 <b> Instance </b>
 <p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
