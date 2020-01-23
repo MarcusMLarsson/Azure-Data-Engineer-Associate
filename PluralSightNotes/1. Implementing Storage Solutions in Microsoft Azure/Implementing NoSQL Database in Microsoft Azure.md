@@ -504,9 +504,122 @@ namespace MongoDBAPI
 
 <p>UnsupportedSourceVersion: The version of the source server is 4.2.2 but must be at least 3.0.0 and less than 4.1.0. </p>
 
+<b> Working with Azure Cosmos DB - Table API </b>
+
+<p> So you already have your data in Azure Table Storage. Why would you migrate to Cosmos DB Table API? Azutr Cosmos DB offers turnkey global distribution. Azure Table Storage is fast but you dont get SLAs around latency. Azure Cosmos DB provides less than 10 millisecond latency for reads. Azure Table Storage has a maximum throughput of 20,000 operations/s which is not the limit for Azure Cosmos DB (more operations/s). Azure Table Storage only provide primary index on partition key and row key. There are no secondary index. For Azure Cosmos DB you get automatic and complete indexing on all properties by default. Meaning queries will run faster as they can utilize these indexes. Azure Table Storage you get strong consistency within primary region and eventual consistency within secondary region. For Azure Cosmos DB you have five well-defined consistency level. Higher SLAs with Azure Cosmos DB.
+ 
+
+Azure Cosmos DB containers are named table for Azure Table API. If you have your data migrated to Azure Cosmos DB Table API there are multiple ways for you to query your data. You can query data using partition key and row key. Alternativly you can query your data by using an OData filter. Finally, you can query by using LINQ (.NET SDK).
+
+<pre> 
+
+Using PartitionKey and Rowkey. The combination of PartitionKey and Rowkey forms an entity's primary key.
+
+https://<table-endpoint>/People(PartitionKey='Boston', RowKey='1000')
+ 
+OData Filter, looking for an item, with the PartitionKey of Boston and the Email address of Reza@test.com. The property name, operator and constant value must be separated by URL-encoded spaces (%20). All parts of the filter string are case-sensitive. 
+
+https://<endpoint>/People()?$filter=PartitionKey%20eq%20'Boston'%20and%20Email%20eq%20'Reza@test.com'
+ 
+Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install the correct version of .NET Framework SDK (using Microsoft.Azure.Cosmos.Table).
+</pre>
+
+<p> The first step is to go ahead and create an Azure Cosmos DB Table API instance. Choose Azure Table API. Now we can migrate our data into Azure Cosmos DB (Table API). There are two tools to migrate the data (Cosmos DB Data Migration Tool, AzCopy) </p>
+
+<p> Demo: Provisioning a Cosmos DB Table API instance. </p>
+
+<pre>
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+
+namespace TableAPI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=mlacosmosdb;AccountKey=3DUoTtcwo7whnUkawB7DuejVEL7HWkCwR3Y2erou891Caa6O0Fd2sQimMBPgrXAaCUDIA3DOwKTClRjvUzHhWw==;TableEndpoint=https://mlacosmosdb.table.cosmos.azure.com:443/;";
+
+
+            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+
+            CloudTableClient serviceClient = account.CreateCloudTableClient();
+
+            CloudTable table = serviceClient.GetTableReference("people");
+
+            var opperation = TableOperation.Retrieve<Person>("canada", "1");
+
+
+            var jobResult = table.ExecuteAsync(opperation);
+
+
+            var entity = jobResult.Result;
+        }
+    }
+}
+
+</pre>
+
+<b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
+
+<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
+
+<p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices and the edges (?), e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
+
+<p> Apache Gremlin is a graph traversal (query) language. You can use Gremlin to add, update, delete and query graph items. These items include vertices, edges and properties. There are multiple ways to interact with your graphs in Azure Cosmos DB Gremlin API. You can use the Gremlin SDK, which is available for .NEt, Java, Node.js, Python or you can use Gremlin to interact with your graph. You can download the Apache Gremlin console and use that, or alternatively, run your Gremlin queries from within the Azure Portal. </p>
+
+<p> Graph is the entity for container. Use a partition key. </p>
+
+<pre> 
+
+<p> Imperative traversal</p>
+
+g.V().has("name", "gremlin").    // Get the vertex with name "gremlin"
+   out("knows").                 // Traverse to the people that Gremlin knows.
+   out("knows).                  // Traverse to the people those people know.
+   values("name")                // Get those people's names.
+     </pre>
+     
+<pre>
+
+<p> Declarative traversal</p>
+
+g.V().match(
+  as("a").out("knows").as("b"),        // there exists some "a" who knows "b"
+  as("a").out("created").as("c"),        // there exists some "a" who created "c"
+  as("b").out("created").as("c"),      // there exists some "b" who created "c"
+  as("c").in("created").count().is(2)) // there exists some "c" created by 2 people.
+     select("c").by("name")
+</pre>
+
+<b> Demo: Working with Azure Cosmos DB - Cassandra API </b>
+
+
+<p> Apache Cassandra. A wide column store is a type of NoSQL database. Unlike a relational database, the names and format of the columns can vary from row to row in the same table. A few others wide column store databases are Apache Cassandra, Hbase and Azure Tables. Cosmos DB Cassandra API can be used as the data store for apps written for Apache Cassandra. Existing Cassandra applications using CQLv4 compliant drivers, can communicate with the Cosmos DB Cassandra API. You can easily switch from Apache Cassandra to Cosmos DB Cassandra API by just updating the connection string. Use the CQL (Casandra Query Language), Cassandra-based tools and Cassandra client drivers you're already familiar with. </p>
+
+<p> Benefits of using Cosmos DB Cassandra API includes no operations management (PaaS), low latency reads and writes, you can use existing code and tools to work with Cosmos DB, throughput and storage elasticity, global distribution and availability, choice of five well-definede consistency levels </p>
+
+<p> You can choose different tools for interacting with the Cosmos DB Cassandra API. You can use Cassandra-based tools (e.g. cqlsh, SQL Shell), you can use the data explorer and finally you can interact programmatically, using the SDK (CassandraCSharpDriver). In the data explorer, you need to define a keyspace. The keyspace is a container or namespace, if you will, and the tables you create will be inside this keyspace. </p>
+
+<b> Working with Azure Data Lake Storage Gen2 </b>
+
+<p> Azure Data Lake Storage is a hyper-scale repository for big data analytic workloads. You can use this service to capture data of any size, type and ingestion speed. Storage can be accessed from Hadoop (available with HDInsight cluster). Using the WebHDFS-compatible REST APIs. Includes enterprise-grade capabilties: security, manageability, scalability, reliability, and availability. Azure Data Lake Storage is a set of capabilities dedicated to big data analytics, built on top of the Azure Blob storage. </p>
+
+<p> Demo: Provisioning Azure Data Lake Storage Gen2 using the portal. Uploading documents using AzCopy. 
+
+Step 1: Create a storage account
+Step 2: Create a file system (?) 
+Step 3: Download Azure Storage Explorer 
+
+You can upload files to the Data Lake with the RESTful API or the DistCp tool. Since Azure Data LAke Storage Gen2 is built on top of Azure Blob Storage, you can also use the AzCopy tool to copy documents into this storage. With AzCopy we can have different file formats (csv, xlsx, JSON, xml, sql, accdb, zip etc) </p>
+
+
+
 ---
 
-<h3> notes </h3>
+<h3> Notes </h3>
 
 <b> Instance </b>
 <p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
