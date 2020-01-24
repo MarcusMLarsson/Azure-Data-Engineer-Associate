@@ -70,6 +70,61 @@
   <b> Provisioning a SQL Server instance in Azure SQL Database (PaaS scenario) </b>
    <p> Search for SQL Database </p>
     
+    
+ <p> SQL Datbase Elastic Pools </p>
+ 
+ <p> Are a simple, cost-effective solution for managing and scaling multiple dataabases that have varying and unpredictable usage demands. Imagen we only have Azure SQL Database Single Database option available to us and we have 4 databases. We do know that each of these databases needs 20 DTUs (20,20,20,20 => 80 DTUs). Another scenario is when we have 4 other databases (10,40,40,20 => 110 DTUs) and two of these databases needs 40 DTUs for a short time at the peak of its usage. However, you don't know the exact time when the usage will peak. Having only Azure Database Single Instance we need to provision 110 DTUs for all these 4 databases, to accomidate database #2 & #3. We are overprovisioning since the databases only needs 40 DTUs for a short time. So now let's see how Azure SQL Database Elastic Pools can help in this scenario. The first thing you will do, is to create a elastic pool. You will than put all the 4 databases into this pool. You will assign a set amount of resources to the elastic pool (let's say 80 eDTUs). All these databases are going to share the resources.  </p>
+  
+<p> Azure SQL Database Elastic Pool is a cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage of demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resrouces as a set price. Enables developers to optimize the price performance fo a group of databases within a prediscribed budget. Prevents over-provisioning or under-provisioning of resources. Elastic pool is not for every scenario however. The pools are well suited for multiple databases with specific utilization patterns. This pattern is low average utilization with infrequent utilization spikes. </p>
+
+<p> Securing Azure SQL Database </p>
+<ul>
+  <li> Network security </li>
+  <p> Your Azure SQL Database instance is managed by logical Azure SQL Server. You can defined firewall rules on these server. This way you can grant access to databases based on the originating IP address of each request. Also, Azure SQL Database firewall enables you to only accept requests originated from subnets inside the virtual network. </p>
+  <li> Access management</li>
+  <p> Azure SQL Database supports SQL authentication. You can define DB username and password (like normal) and use them in your client application to connect to the database. Azure SQL Database also supports Azure active directory authentication, so you can use Azure active identity to connect to the database. Azure SQL Database supports row level security aswell. That is, you can control access to rows in a table based on the role of the user.</p>
+  <li> Threat protection</li>
+  <p> SQL auditing in Azure Monitor logs and Event Hubs tracks database activites and helps maintaining compliance with security standards. You can also utilize Advanced Threat Protection to analyze your SQL Server logs to detect unusual behaviour and potentially harmful attempts. </p>
+  <li> Information protection and encryption </li>
+  <p> First of all, the data in transit is always encrypted using Transport Layer Security (TLS). Also transparent data encryption is available, which encrypts the raw files, such as database files and backup files on Azure servers, this way your data is protected from offline access, incase the database files are compromised. Dynamic data masking protects sensitive data (credit card numbers, sallaries) by masking it for non-priviledged users. Any non-priviledged user trying to query this data will see the masked version of the data. Always Encrypted protects data from high privileged, unauthorized users such as database admins. Finally, all the encryptions keys are stored in Azure Key Vault and are protected from unauthorized access. </p>
+ </ul>
+ 
+ <p> Demo: Provisioning an Azure SQL Database single database </p>
+ 
+ <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
+<pre> CREATE LOGIN appuser
+          WITH PASSWORD ='12345xwqsxws'
+      GO </pre> </p>
+ <p> Now let's create a user which uses this login. Click on Security, right click on user and click on new user. 
+<pre> CREATE USER user01
+          FOR LOGIN appuser
+      GO </pre></p>
+<p> This user will have no permission. Let's add user to the dbowner role (See options, Roles => Database Roles) for the single one database. </p>     
+<pre> EXEC sp_addrolemember N'db_owner', N'user01'
+      GO
+</pre>
+<p> Now connect with new user  </p>
+
+<p> Demo: Provisioning Azure SQL Elastic Pools </p>
+<p> Create multiple Azure SQL Database Single Databases and than add them to a new elastic pool. We only need one server. Create a resource => SQL Elastic database pool => Create. Place Elastic pool inside same resource group. Which logical server do I want to put my elastic pool in? When you have created the resource you are ready to add the databases to the pool. Let's click on configure. Here you can change the amoungt of resources you assigne to the elastic pool. Let's click on databases, here you have the option to create databases which will be added to the pool. Let's choose the databases and click apply. Now it should say Elastic General Purpose for the pricing tier. </p>
+
+<p> Scaling: Could be single database or elastic pool. Click on database => Pricing tier </p>
+
+
+  
+  ---
+  
+  <h3> Notes </h3>
+  
+  <p> 
+Virtual Networking: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.
   
   
+  The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
+  
+  <p> vCPUs (virtual CPUs), Physical CPUs, Cores </p>
+  
+  <p> It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
+  
+<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
   
