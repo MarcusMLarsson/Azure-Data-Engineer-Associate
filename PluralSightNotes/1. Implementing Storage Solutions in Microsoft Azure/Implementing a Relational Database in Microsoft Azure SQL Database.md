@@ -111,16 +111,84 @@
 <p> Scaling: Could be single database or elastic pool. Click on database => Pricing tier </p>
 
 
+<b> Understanding Azure SQL Database managed instance</b>
+<p> The third deployment option, which is Managed Instance. Managed instances are a set of databases that can be used together, allows easy migration of on-premises databases. Managed instace is a deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises.This allows the existing SQL Server customer to lift and shift their on-premises applications with minimal changes. This deployment option provides a native virtual network implementation. Managed instance presvers all PaaS capabilities that reduces management overhead. The managed instance deployment option targets user scenarios with mass database migration from on-premises or IaaS database. Differences between SQL Server On-premises and Managed Instance (near 100% compatibility): High-availability is built in and pre-configured. For example, provisioning multiple database servers and put them in an availability set or behind load balancer (this is not the case for the managed instances, high availability is built in and pre-configured). Using SQL server, you can specify full physical paths to back up files or other entities, which is not supported Azure SQL Database (because the underlying SQL Server hosting the database is abstraced out from the user). In Microsoft SQL Server you can use Windows authentication which is not the case for managed instance, isntead you can use Azure Active Directory identification. Also, the XTP filegroups and in-memory OLTP (online transaction processing) objects are automatically managed. Finally you can't use SSIS (SQL Server Integration Service) with Azure SQL Database. Instead you should use Azure Data Factory (ADF) which can run SSIS packages. </p>
+
+<p> You have two options to migrate your on premises database to manage instance. Back up and restor, which creates backup files and places them in Azure Blob Storage. Than these backups can be stored into a manged instace using T-SQL RESTORE command. The other option is to use Azure Data Migration Service (ADMS). This is a fully managed service enabling easy migrations from SQL Server databases to Azure Data platforms, including Azure SQL database. Managed Instance also offers different service tiers.</p>
+
+<ul>
+  <p> General purpose : Business Critical
+  <li> 99.99% availability that enable you to independently select storage and compute : 99.99% availability and enable you to independently elect storage and compute</li>
+  <li> Business applications with typical performance requirements : Business applications with highest performance requirements </li>
+  <li> High-performance Azure BloB storage (8 TB) : Super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5</li>
+    <li> Built in high-availability : Built-in high availability based on Always On Availability Groups</li>
+    <li> : Additional read-only DB replica (for reporting or other read-only workloads) </li>
+</ul>
+
+<p> Managed Instance Management Operations: Instance creation, 90 % of clustured creations finishes in less than 4 hours. Instance update, 90 % of cluster expansions finish in less than 2.5 hours. Instance deletion, 90 % of  virtual cluster deletions finis in 1.5 hours. For the first instance in a subnet, deployment time is typically much longer than in subsequent instance. So the first time you are creating a managed instance, the deployment might take up to 6h.
+
+<p> Managed Instance Security </p> 
+<p> The managed instance deployment option combines advanced security features provided by Azure cloud and SQL Server Database Enginge. Azure SQL Database Security technologies include applies to all deployment options of Azure SQL databases, including managed instance. These security technologies are transparent data encryption (TDE), Threat detection, Row-level security, managed instance auditing, dynamic data masking, Azure AD Integration. Now let's talk about Managed Instance Advanced Security (unique for managed instance). So your managed instance is deployed into a virtual network, you can connect your on-premises environment to this virtual network; using VPN or express route. This gives your on-premises application a quick and secure way to communicate with Azure SQL Database managed instance. By default, the managed instance SQL endpoint is only exposed through a private IP address, allowing safe connectivity from private Azure or hybrid networks. Your Azure SQL Database Managed Instance is deployed to a single-tenant with dedicated underlying infrastructure (compute, storage)
   
+<p> Provisioning an Azure SQL Database managed. Already prepared an Azure SQL Database Managed Instance since the provisioning can take hours. </p>
+
+<p> The first step is to create a virtual machinea and the next step is to connect to the virtual machine using RDP (Remote Desktop Protocol). Third step is to run SQL Server Management Studio from within the virtual machine and connect to the managed instance.</p>
+
+<b> Configuring Data Backup </b>
+
+<p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
+
+<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. Full backup: Azure backs up the entire database. Differential back up: which captures only the data that has changed since the last full backup. Transaction log back up: Records of all the committed and uncommitted transactions. Full backup: Taken every week, Differential backup: Taken every 12 hours, Transaction log backup: Taken every 5-10 minutes. These backups are stored in Azure read-access geo-redundant (RA-GRS) standard blob storage by default. This means your backup are stored in two seperate regions (?), which the second region is a read only region. All backups are automatically encrypted at rest using Transparent Data Encryption (TDE), blob torage is also protected.  </p>
+
+<p> In turn of retention period, there are two types of backups. Point in time (7-35 days), you can use this backup to retore your database to an exact point in time. This is because all three type of backups, full backup, differential and transaction logs are keept. You might need to keep your backup for more than 3 days for compliance reasons. In that case, you can use long-term retention (up to 10 years). You can't disable point in time backups, you can only configure the retention period which is between 7-35 days. All Azure SQL databases (single, pooled, managed instance) have a default backup retention period of 7 days). If you delete a database, Azure SQL Database will keep the bakcups in the same way it would for an online database. LTR is not yet available for databases in Managed Instances. Instead you can use SQL Agent jobs to schedule copy-only database backups as an alternative to LTR (beyond 35 days). </p>
+
+<p> Usage of backups. You can restore an existing database to a point-in-time in the past. You can restore a deleted datbase to the time it was delete. You can restore a database to another geographical region. Note, if you delete an Azure SQL server, all elastic pools and databases that belong to that server are also deleted and cannot be restored. If you delete the parent logical server there is no way to restore. Restore time is impacted by size of the database, amount of activity that needs to be replayed, what service tier, network bandwidth, number of transaction etc. Might take several hours. </p>
+
+<b> Demo: restoring an Azure SQL instance </b>
+<p> Configure backup period: SQL database => click on server name => click on manage backups (under settings) => configure retention. Restore Database: => Sql databases => Restore => The restore will create a new database (you can't overwrite). Restore deleted databases: Under settings click on deleted databases </p>
+
+<p> LTR backups: Database => Configure retention => How long would I like to keep the weekly backup... </p>
+
+<p> Configure Elastic Database jobs </p>
+
+<p> Scheduling technologies in Azure SQL Database: Elastic Database Jobs, SQL Agent Jobs. Database Scheduled jobs can be periodically executed against one or many databases to run T-SQL quereis and perform maintenance tasks. A few use cases are for management task to run after hours (for example you can deploy schema changes or credentials management, you can also use them to update or load data from Azure Blob storage, collect query results from a set of databases in an on-going basis, rebuild indexes to imrpove query performance) collect data for reporting (aggregate data from a collection of Azure SQL databases into a single destination, execute long-running data pro data processing queries across a large set of databases), data movements (replicate changes made in your databases to other databases, load data from or to your databases using SQL Server Integration Services (SSIS) </p>
+
+<p> Scheduling technologies in Azure: Azure Automation (runbooks), Azure Functions (using timer trigger), Azure Logic Apps, Azure Scheduler, Elastic Database jobs and SQL Agent Jobs. </p>
+
+<p> Elastic Database Job is a native Azure SQL Database service that executes custom jobs on one or many Azure SQL Databases, in an interval. This concept is very similar to SQL server jobs.  </p>
+
+<ul> 
+  <p> SQL agent : Elastic job</p>
+  <li> Any individual database in the same SQL Server instance as the SQL agent : Targets can be in different SQL Database servers, subscriptions, and/or regions</li>
+  <li> T-SQL, SQL Server Management Studio (SSMS) : Single databases, data warehouses, pool, SQL Server, or shardmap</li>
+  <li> : Portal, Azure Resource Manager, PowerShell, T-SQL </li>
+</ul>
+
+<p> Elastic jobs are available for single and pooled instances. Agent jobs can be used for Managed Instance. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
+
+<ul>
+  <p> Elastic Job Components </p>
+  <li> Job Agent </li>
+  <p> Is the Azure resource for creating, running and managing jobs. Requires an existing clean SQL database (job Database). The Elastic job agent is free, but you will pay for the resources used as part of the execution</p>
+  <li> Job Database</li>
+  <p> The Job database is used for defining jobs and tracking the status and history of job executions. The job database is also used to store agent metadata, logs, results, job definitions, and contains many useful stored procedures. </p>
+  <li> Target Group </li>
+  <p> You can have Azure SQL Database logical server </p>
+  <li> Job </li>
+  <p> </p>
+</ul>
   ---
   
   <h3> Notes </h3>
   
+ <p> Remote Desktop Protocol is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
+  
+ <p> A communication protocal is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. Protocal are to communcations wat programming languages are to computations. 
+  
   <p> 
 Virtual Networking: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.
-  
-  
-  The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
+
+The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
   
   <p> vCPUs (virtual CPUs), Physical CPUs, Cores </p>
   
@@ -128,3 +196,5 @@ Virtual Networking: is primary used for cloud. A virtual network is software bas
   
 <p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
   
+<p> Transparent Data Encryption </p>
+<p> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p> 
