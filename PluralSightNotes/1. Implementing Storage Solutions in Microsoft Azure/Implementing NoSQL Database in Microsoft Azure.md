@@ -14,9 +14,9 @@
 <ul>
 <p> <b>  Managed NoSQL offeings by Azure </b> </p>
 <li> Azure Storage (blob, file, queue, table)</li>
- <p> Can be used to store unstructured data in cheap storage. Is accessible from any where in the world over HTTP / HTTPS. </p>
+ <p> Can be used to store unstructured data (csv, video, image etc) in cheap storage. Is accessible from anywhere in the world over HTTP / HTTPS. </p>
 <li> Azure Data Lake </li>
- <p> Uses Azure Storage under the hood </p>
+ <p> Uses Azure Storage under the hood. </p>
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. 
  <ul>
@@ -63,24 +63,23 @@
 
 <b> Azure Table Storage </b> 
 <p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name, email. Azure table storage is a greate option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
-<ul>
- 
- <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables (example Users and Posts). Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
+
+
+ <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables. Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
   
  <b> Azure Blog Storage </b>
- <p> Blob Storage is optimized to store massive amount of unstructured data in the cloud, servering documents directly to the browser. Blob Storage is widely used for data back-up and restore. Many Azure services (for example Azure SQL Database) are storing their backup in Azure Blob Storage. Audio and video files can be uploaded to Azure Blob storage. The service can also be used to store data for analysis. Azure Blob Storage can automatically scale when the demand increases.</p>
+ <p> Blob Storage is optimized to store massive amount of unstructured data in the cloud, servering documents directly to the browser. Blob Storage is widely used for data back-ups and restores. Many Azure services (for example Azure SQL Database) are storing their backup in Azure Blob Storage. Audio and video files can be uploaded to Azure Blob storage. The service can also be used to store data for analysis. Azure Blob Storage can automatically scale when the demand increases.</p>
  
  <b> Azure Queue Storage </b> 
- <p> Azure queue storage is a service for storing large numbers of messages. You can access the messages via authenticated calls using HTTP or HTTPs. E.g. passing messages from a web role to a worker role. Imagen you have a website that converts bitmap images into jpg. Users can upload their files and they will get the jpg image. Converting bitmap img to jpg can be time consuming. And you might not be able to convert 1000 of files at the same time. What you can do is per each bit map conversion request you add a message to your Azure queue storage. You have your converter worker role read these messages and do the conversions. </p>
+ <p> Azure queue storage is a service for storing large numbers of messages. You can access the messages via authenticated calls using HTTP or HTTPs. E.g. passing messages from a web role to a worker role. Imagen you have a website that converts bitmap images into jpg. Users can upload their files and they will get the jpg image. Converting bitmap img to jpg can be time consuming, and you might not be able to convert 1000 of files at the same time. What you can do is per each bit map conversion request you add a message to your Azure queue storage. You have your converter worker role read these messages and do the conversions. </p>
  
  <b> Azure Files </b>
  <p> Azure files offers fully managed file shares in the cloud that are accessible via the industry standard server message block (SMB) protocol. Most people use shared dirves at work using an on-premise file server. Your network administrator is mapping those drives to your machine and than you can simply drag and drop files. <b> Azure files can be used to replace on-premises file  servers </b>. If you are using legacy applications which uses shared files you can lift and shift them to the cloud.  </p>
  
  <b> Securing storage accounts. </b>
 <ul>
- <li><b> Management security</b> </li> <p> Who can create a storage account, who can delete tables, blobs or queues within the storage?
-Operations that affect the storage account itself. RBAC (roled base access control) roles for storage (owner role, contributor role, reader) </p>
- <li><b> Data access secuirty </b> </li> <p> Who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and shared access signature (SAS), which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP, it will be rejected. You can also enforce HTTPS.</p>
+ <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. RBAC (roled base access control) roles for storage (owner role, contributor role, reader) </p>
+ <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and shared access signature (SAS), which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address and enforce HTTPS.</p>
   <li><b> Encryption for data in transit </b> </li>
  <p> You can use both HTTP and HTTPS when calling the REST APIs or accessing objects in storage. It's recommended to always use HTTPS.
  <li><b> Encryption for data at rest </b> </li>
