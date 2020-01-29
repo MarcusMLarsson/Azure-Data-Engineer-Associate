@@ -147,7 +147,109 @@ Bricks notebooks and jobs. The data transformations that takes place usually inv
 the database is transformed the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse,
 Cosmos DB, Azure SQL Server etc.
 
-<p> Demo 
+<p> Demo: Open up Data Bricks workspace. Go and create a cluster that is going to be used by the
+notebook. Go into the workspace and import a couple of notebooks. Workspace, import, browse...
+Bring in the audience notebook and add in the clean-audiance notebook (replace the placeholders).
+Attach the notebook to the cluster. First thing is that we are going to mount a file system in
+Azure Data Lake Storage Gen2 account. Now we are going to start the process of ETL and to start to
+ingest data. This is going to download downloading a JSON file from github, putting it to a temporary
+directory, than we are going copy that JSON file into our Azure Data Lake Storage. </p>
+
+<pre> %sh wget -P /tmp
+https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/
+small_radio_json.json
+
+shell comand
+</pre>
+
+
+<p> Batch Scoring of Apache Spark ML Models WIth Azure Databricks </p>
+
+<p> Batch scroing involves a scheduled application of a ML model on a dataset to provide predictions.
+This can be done using a Spark job in Azure Data Bricks. In Azure Databricks, the best way to 
+implement batch scoring is by using notebooks to build a batch scoring pipeline. A batch scoring
+pipeline allows you to produce and run ML Models against data in a control and scheduled manner.
+Multiple notebooks are used to complete each step of the process. 
+
+<b> Demo: Batch scoring of Spark machine learning models on Azure Databricks </b>
+
+<pre> cd clouddrive .... 
+
+git clone ... </pre>
+
+<p> Demo includes building a batch scoring pipeline on Azure Data Bricks to predict machine
+component faileur. This demo has 10 notebooks. Do the demo... </p>
+
+
+<b> Streaming HDInsight Kafka Data into Azure Databricks </b>
+
+<p> Apache Kafka is an event ingestion platform for storing and aggregating event from multiple 
+sources. Providing a source for destributing collected data, to data consumers. It's a single platform
+meeting the needs of event producers and consumers. In Azure HDInsight is the platform for hosting
+Kafka. You can use many opensource frameworks such as Hadoop, Apache Spark and Apache Kafka and more
+with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
+records (events) to clusters were they are stored as topic. A topic is just a write-ahead log where
+the producers append records. Within the clusters, topics are assigned to the partitions that can
+be replicated for fault tollerance across the clusters. In the case of Azure, Kafka topics reside in 
+HDInsight cluster. These records, based on a key-value pair, ae available for consumers to use. 
+Consumers are going to subscripe to the topics they need and receive changes in real time as event
+producers send more data into Kafka. All communication between producers and consumers happens
+by Kafka brokers running in the cluster. 
+
+For a long time, we have written programs that store information in databases. Databases think in
+things (cards, people etc), better to think in events (events have an description of what happend
+at that time), the primary idea is that event is an indication in time that the thing took place.
+It's not easy to store events in databases, instead we use logs. A log is just a order sequence 
+of the events. Apache Kafka is a system to managing these logs, using a fairly standard historical 
+terms it calls them topics. A topic is just an order collection of events stored in a durable way.
+Durable meanign that they are written to disc and replicated. No one hardware faileur that can make
+that data go away. Topic can store data from days to multiple years, topics can be relative small
+or enormous. 
+
+Back when databases ruled the world, there was kind of a trend to build a one gigant program that
+uses one big database all by itself. These things grew to where they were difficulte to change
+and difficute think about. Now the trend is to write lots and lots of small programs, each one 
+one of which is small enough to version and change all on its own. These programs can talk to each
+other thrue Kafka topics. So each one of these services can consume a message from a Kafka topic
+and produce that message off to another Kafka topic that lives in another service. Now its possible 
+to perform real time analysis (streaming) on these topics. In contrast to running a batch service
+over night. 
+
+Kafka connect is a tool that helps connect different systems. You want to collect data from different
+systems and get the data to be written into a topic, your you want to transform a topic into
+a different fileformat for an external legacy system. Kafta connect is also an echo system of 
+connectors. There are dussins even 100 connectors out there in the world, some of them are open source,
+some of them are commercials but they are these little plugable models that you can deploy to get the
+integration done. You deloy them, you configure them, you don't write code to do this reading and
+wrinting from the database. Kafta connect does that integration to those external systems. </p>
+
+<p> Demo: Streaming Data Scenario </p>
+<p> Store data in Kafka topic and consuming a subset of the data into Azure Databricks. These involves
+a number of steps. We are going to install the required components for HDInsight. We are going to build
+and configure HDInsight with Kafka. We are going to build an Azure Databricks workspace and cluster.
+We are going to implement virtual network pearing between the two clustersand than we kick off event
+production and consumption stream using Databricks notebook. </p>
+
+
+<p> Virtual Network peering </p>
+
+<p> Often times resources in Azure are deployed to different virtual networks based on the needs
+of the services. These networks are isolated by design. For those occations when you need to
+virtual networks to be connected, and the resources need to communication, Azure Virtual Netwoork
+Peering is here to help. With peering, services in different Virtual Networks (or vNets) communicate
+with each other via highbandwith, low latency, Azure fiber backbones. In our streaming scenario, 
+setting up Virtual Netwowrk Peering between Kafka HDInsight and Azure Databricks is going to eastblish
+this private communication network and allow streaming to happend. This is done by configuring each
+side of the peer network. While Azure allows Network Peering across network (known as global vnet 
+peering) we are using same region for our demo. Do the demo. </p>
+
+<p> Once connected to Kafka on HDInsight via peered Vnet, Azure Databricks using connectors built into
+the Spark platform makes the connection needed to establish the streaming process. The best place
+to do this in Azure is to use Azure Notebooks. For basic streaming, a notebook for producing events
+will be created. This establishes the flow of data from outside sources into Kafka and placed into
+topics for consumption. Another notebook will be created to consum the topic desired from Kafka brokers
+within the cluster and bring the data into Azure Databricks. From there, data scienties can do whatever
+they need with the data. Do the demo!! </p>
 
 ---
 

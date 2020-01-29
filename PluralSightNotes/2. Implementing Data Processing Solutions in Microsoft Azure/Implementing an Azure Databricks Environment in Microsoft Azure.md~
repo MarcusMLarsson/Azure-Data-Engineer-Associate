@@ -147,6 +147,8 @@ Bricks notebooks and jobs. The data transformations that takes place usually inv
 the database is transformed the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse,
 Cosmos DB, Azure SQL Server etc.
 
+<p> Demo 
+
 ---
 
 <h1> Notes </h1>
