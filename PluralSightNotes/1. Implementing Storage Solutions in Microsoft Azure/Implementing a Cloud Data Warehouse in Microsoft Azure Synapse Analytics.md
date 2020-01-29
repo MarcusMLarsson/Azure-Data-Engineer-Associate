@@ -459,13 +459,13 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 
 <ul>
 	<li> Backing up a Data warehouse </li>
-	<p> Snapshots offers a time wen your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (in alot of different places). Automatic restore points are taken several times a day <b> when your data warehouse is not paused </b>. Overview => New Restore Point (to create your own restore point). </p>
+	<p> Snapshots offers a time when your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (exists in alot of different places). Automatic restore points are taken several times a day <b> assuming your data warehouse is not paused </b>. Overview => New Restore Point (to create your own restore point). </p>
 	<li> Restoring a Data warehouse</li> 
 	<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
 	<li> Managing cost of a Data warehouse </li>
-	<p> Pricing page is available at Microsoft website. How much does the storage cost and how much does the computing cost? Service level DWU </p>
+	<p> The pricing page is available at Microsoft website. The cost depends on how much the storage cost and how much the computing cost. </p>
 	<li> Workload management </li>
-	<p> Include the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
+	<p> Workload management includes the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
 	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
 	<li> Implementing security </li>
 	<p> How to secure Azure SQL Data Warehouse </p>  
@@ -475,10 +475,10 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 
  
  <b> Resource Group </b>
- <p> Resource groups (RG) in Azure is a new approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share an unified lifecycle from creation to usage and finally, de-provisioning. The underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
+ <p> Resource groups (RG) in Azure is an approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share an unified lifecycle from creation to usage and finally, de-provisioning. The underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
 
 <b> Database vs Data warehouse </b>
-<p> Database is a structured place to store data. A data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
+<p> Database is a structured place to store data. A data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, a database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
 
 <b> Computing  </b>
 <p> Computing is any activity that uses computers to manage, process and communicate information. </p>
@@ -487,20 +487,13 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 <p> Processing is the actual execution of instructions or the instance. </p>
 
 <b> Cache </b>
-<p> 
-CPU Cache: A computer have two different types of memory. Dynamic RAM and SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. The CPU Cache is the CPU internal memory. It's job is to store copy of data from RAM which is wainting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first.
+<p> CPU Cache: The CPU Cache is the CPUs internal memory. It's job is to store copy of data from RAM which is waiting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first. A computer have two different types of memory. Dynamic RAM and SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. 
 
 Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
-
-<a href="https://www.youtube.com/watch?v=yi0FhRqDJfo"> Video Explanation </a>
  </p>
 
 
 <b> Ports & IP Addressing </b>
-
-<a href ="https://www.youtube.com/watch?v=AXrFCbD4-fU"> Video Explanation </a>
-
-
 <p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. How do you find port numbers on a computer. If you are using windows open command and type netstat -a -b -n with admin privelage. Common port numbers: HTTP 80, FTP (File transfer) 20 </p> 
 
 <b> Firewall </b>
