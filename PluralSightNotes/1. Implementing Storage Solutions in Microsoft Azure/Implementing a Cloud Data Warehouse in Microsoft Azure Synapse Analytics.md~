@@ -12,7 +12,7 @@
   <li>Azure Analytics</li>
 </ul>
 
-<p> However, Azure SQL Data Warehouse and Azure Synapse Analytics are today used interchangeably. Azure SQL Data Warehouse is a cloud based enterprise data Warehouse (EDW) that uses <b> massiveley parallel processing (MPP)</b>. SQL Data Warehouse is an appropriate tool when you need to keep historical data seperate from transactional data. That is, it's reasonable to use Azure SQL Data Warehouse when you have <b>historical data</b> that is sitting there, ready for analytical services. </p>
+<p> However, Azure SQL Data Warehouse and Azure Synapse Analytics are used interchangeably. Azure SQL Data Warehouse is a cloud based enterprise data warehouse (EDW) that uses <b> massiveley parallel processing (MPP)</b>. SQL Data Warehouse is an appropriate tool when you need to keep historical data seperate from transactional. That is, it's reasonable to use Azure SQL Data Warehouse when you have historical data that is sitting there and waiting for analyitcs to happen to it. </p>
 
 <b> Understanding massively parallel processing (MPP) </b>
 
@@ -21,19 +21,18 @@
 
 <li> <b> Control Node: </b> The front end that interacts with all applications and connections. The MPP enginge runs on the control node to optimize and coordinate parallel queries.  </li>
 
-<li> <b> Compute Node: </b> Provides the computational power for analytics. The compute nodes are separated from storage nodes and scaled using the data warehouse units (DWU). Computing is any activity that uses computers to manage, process and communicate information.  </li>
+<li> <b> Compute Node: </b> Provides the computational power for analytics. The compute nodes are separated from storage nodes and scaled using the data warehouse units (DWU)  </li>
 
 <li> <b> Storage Node: </b> The storage nodes are separateed from the compute nodes in order to keep data at rest. Storage is cheaper than data that is being analyzed. </li>
 
-<li> <b> Data Warehouse unit: </b> A collection of analytic resources that are provisioned. This is a combination of CPU, memory and IO (Input/output). These can be scaled up or down to meet needs. Provisioning is the configuration,
-deployment and management of IT resources. </li>
+<li> <b> Data Warehouse unit: </b> A collection of analytic resources that are provisioned. This is a combination of CPU, memory and IO (Input/output). These can be scaled to up or down to meet needs. </li>
 
 <li> <b> Data Movement Service: </b> Data transport technology that coordinates data movement between compute nodes. When SQL Data Warehouse runs a query, the work is divided into 60 smaller queries that run in parallel.  </li>
 </ul>
 
 <img src="Images/parallel.JPG" width="700">
 
-<p> At the bottom of the picture is the Azure storage where the data is keept. It is seperated from the compute power (which are more expensive) </p>
+<p> At the bottom of the picture is the Azure storage where the data is keept. It is seperate from the compute power that will cost the most of money </p>
 
 <b> Implementing Data Distribution for a SQL Data Warehouse </b> </p> 
 <p> When SQL Analytics (in Azure Synapse) runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute Node manages one or more of the 60 distributions. A SQL pool with maximum compute resources has one distribution per Compute Node. A SQL pool with minimum compute resources has all the distributions on one Compute Node.
@@ -44,7 +43,7 @@ deployment and management of IT resources. </li>
   <li> Replicated Table</li>
   <p>  A replicated table provides the fastest query performance for small tables (full data consistency). Replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which makes large tables impractical. </p>
   <li> Round Robin</li>
-  <p> Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash.  </p> 
+  <p> Round Robin distributes data evenly across the table without additional optimization. Loading data into Round Robin is quick but query performance is better for Hash. </p> 
   <li> Hash Table </li>
   <p> A hash distributed table can deliver the highest query performance for joins and aggregations on large tables.
 To shard data into a hash-distributed table, SQL Analytics uses a hash function to deterministically assign each row to one distribution.</p>
@@ -56,8 +55,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 
 <p> Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. Partitioning can benefit data maintenance and query performance. Improve the efficiency and performance of loading data by the use of partition deletion, switching and merging </p>
 
-<p> For example, a sales fact table might contain just data for the past 36 months. At the end of every month, the oldest month of sales data is deleted from the table (by using a delete statement). However, deleting large amount of data (row-by-row) with a delete statement can take long time, and creates the risk for large rollbacks if something goes wrong. A more optimal approach is to drop the oldest partition of data. Deleting the individual rows could take hours, deleting an entire partition could take seconds.</p>
-
+<p> For example, a sales fact table might contain just data for the past 36 months. At the end of every month, the oldest month of sales data is deleted from the table. This data could be deleted by using a delete statement to delete the data for the oldest month. However, deleting a large amount of data row-by-row with a delete statement can take too much time, as well as create the risk of large transactions that take a long time to rollback if something goes wrong. A more optimal approach is to drop the oldest partition of data. Where deleting the individual rows could take hours, deleting an entire partition could take seconds.</p>
 
 <p> There are three types of table partitions </p>
 <ul>
@@ -71,14 +69,14 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 </ul>
 </p>
 
-<p> Creating a table with to many partitions can hurt performance under some circumstances (10 to a few hundred is resonable). For clustered columnstore tables, it is important to consider how many rows belong to each partions. Keep in mind that before paritions are created, SQL Data Warehouse already divides each table into 60 distributed databases. 
+<p> Creating a table with to many partitions can hurt performance under some circumstances. Usually you talk around 10 to few hundreds. For clustered columnstore tables, it is important to consider how many rows belong to each partions. Before paritions are created SQL Data Warehouse already divides each table into 60 distributed databases. 
   
   ---
  <h3> Deploying a Data Warehouse in Microsoft Azure Synapse Analytics </h3>
   
-  <p> In this exercise, we are going to deploy a data warehouse in Microsoft Azure Synapse Analytics (Formerly SQL Data Warehouse). In the exercise we are going to </p>
+  <p> In this exercise we are going to deploy a data warehouse in Microsoft Azure Synapse Analytics (Formerly SQL Data Warehouse). In the exercise we are going to </p>
 <ul>
-  <li> Connect to a data warehouse
+  <li> Connect to a data warehouse</li>
   <li> Prepare the data warehouse to load data</li>
   <li> Load data into the data warehouse</li>
   <li> Examine configuration settings and tasks in the portal </li>
@@ -87,23 +85,33 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
  
    <b> Steps to Create a SQL Data Warehouse in Azure </b>
 <ul>
-  <li> Create a Resource, choose Databases, Click Azure Synapse Analytics (formerly SQL DW) </li>
-  <li> Select subscription and resource group, give the Data Warehouse a name, create an Azure SQL serve, put the Performance level to the lowest, always review settings and click create</li>
+  <li> Create a Resource </li>
+  <li> Choose Databases </li>
+  <li> Click Azure Synapse Analytics (formerly SQL DW) </li>
+  <li> Select subscription and resource group </li>
+  <li> Give the Data Warehouse a name </li>
+  <li> Create a Azure SQL server </li>
+  <li> Put the Performance level to the lowest </li>
+  <li> Always review settings and click create</li>
   <p> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </p>
   <li> Pause the Compute Node so you dont get charged (If you were running a query, it's not a good idea to pause).</li>
-  <li> We will still be charged for the storage </li> 
+  <li> We will still be charged for the storage? </li> 
  </ul>
  
    <b> Setting a Firewall Rule and Connecting to an SQL Data Warehouse </b>
+   <p> We are going to resume the Compute Node, create a Firewall rule, connect with Microsoft SQL Server Management Studio. </p>
 <ul>
   <li> Click resume </li>
   <li> Create Firewall rules</li>
   <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server (that host our data warehouse) we need to add a Firewall rule. This rule is going to enable connectivity for one specific ip address or a range of ip addresses. Azure SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your Firewall, meaning that you are going to need to open up that port. </p>
-  <li> To add Firewall rules start with copying and clicking on the Servername, click on Firewall and virtual networks </li>
-  <li> Add client IP (add's it automatically under rule name). Than press save</li>
+  <li> To add Firewall rules start with copying and clicking on the Servername. </li>
+  <li> Click on Firewall and virtual networks </li>
+  <li> Add client IP, add's it automatically under rule name. Than press save</li>
   <p> Now we have added a Firewall rule, we have an admin with the password and we can connect to the datbase. </p>
-  <li> Open Microsoft SQL Server Management Studio, press Object explorer, press connect,d atabase enginge, Server name (See Azure), login with authentication details </li>
-  <li> Expand database and you should see the Data Warehouse and a master database. 
+  <li> Open Microsoft SQL Server Management Studio </li>
+  <li> Object explorer => Connect => Database enginge => Server name (copied from before) </li>
+  <li> SQL Server Authentication => Login details </li>
+  <li> Expand database => TestDataWareHouse & master database. 
  </ul>
  
   <b> Preparing an SQL Pool in Azure Synapse Analyitcs to Load Data </b>
@@ -113,7 +121,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 	<li> We are going to link into NYC Taxi Source Data.   </li>
 	<li>  We are than going to create tables to hold data inside our data warehouse. </li>
 </ul>
-   <p> The admin account is not very good for loading massive amount of data. The data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
+   <p> The admin account is not very good for loading massive amount of data. That data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
 
   <p> Rightclick master database and select new query. </p>
 	<pre>CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
