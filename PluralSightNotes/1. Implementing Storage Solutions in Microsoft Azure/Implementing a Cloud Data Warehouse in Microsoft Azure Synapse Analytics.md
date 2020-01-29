@@ -443,13 +443,13 @@ SELECT * FROM sys.dm_pdw_exec_requests;
  <p> In this section we are going to examine configuration options for the data warehouse.  </p>
  
  <ul>
-	<li><b> Scale </b> botton is next to pause. Here we can scale the system (will be more expensive). </li>
-	<li> <b> Activity log </b>: A log file is a file that records either events that occur in an operating system or other software runs. To query log information use KQL. </li>
+	<li><b> Scale </b> Here we can scale the system (will be more expensive). </li>
+	<li> <b> Activity log </b>: Here you find the log files. A log file is a file that records either events that occur in an operating system or other software runs (to query log information use KQL). </li>
 	<li> <b> Tags </b>: All resources in Azure can recieve a tag. A tag is a descriptive charactarization that you put on any kind of resource so you can search by category. If you have certain clients that are responsible for paying for certain resources, then that would be an example of the use of a tag.</li>
-	<li> <b> Geo-backup policy</b>: What policy do Azure have for backing up data information. On Gen2 backup is taken care off. </li>
-		<li> <b> Connecting strings</b>: If you need to load/connect data from different applications </li>
-	<li> <b> Export template</b>: Alot of resources in Azure are available thrue a template. With export templates or Azure Resource Manager (ARM) You can recreate the resources from scratch and have all the configurations from your original resource. </li>
-	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs. A collection of data comming from, for example, IoT devices streaming into our data warehouse. Sometimes you need to monitor to look for certain triggers. </li>
+	<li> <b> Geo-backup policy</b>: Here you Azures policy for backing up data information. On Gen2 backup is taken care off. </li>
+		<li> <b> Connecting strings</b>: Use connection string if you need to load or connect data from different applications </li>
+	<li> <b> Export template</b>: Alot of resources in Azure are available thru a template. With export templates or you can recreate the resources from scratch, with Azure Resource Manager (ARM), and have all the configurations from your original resource. </li>
+	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs, e.g. a collection of data comming from IoT devices streaming into our data warehouse. Sometimes you need to monitor to look for certain triggers. </li>
 	<li> <b> Load data </b>: Here you find <b> Azure Data Factory </b> which allows you to store and integrate your information into your data warehouse. </li>
 	<li> <b> Query editor </b>: We can connect to the database and run queries inside here without using SQL server management studio. </li>
 </ul>
@@ -494,10 +494,10 @@ Browser Cache: A way to make website faster for you when your browsing the inter
 
 
 <b> Ports & IP Addressing </b>
-<p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. How do you find port numbers on a computer. If you are using windows open command and type netstat -a -b -n with admin privelage. Common port numbers: HTTP 80, FTP (File transfer) 20 </p> 
+<p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. If you are using windows open command and type netstat -a -b -n (with admin privelage) to find port numbers. Common port numbers: HTTP 80, FTP (File transfer) 20 </p> 
 
 <b> Firewall </b>
-<p> A Firewall is a system that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally firewalls allow data to go out.  </p>
+<p> A Firewall is a system that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A Firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A Firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally Firewalls allow data to go out.  </p>
 
 <b> SQL Server Management Studio(SSMS)</b>
 <p> Integrated environment for managing any SQL infrastructure, from SQL Server to Azure SQL Database </p>
@@ -506,9 +506,9 @@ Browser Cache: A way to make website faster for you when your browsing the inter
 <b> System databases in SQL Server </b>
 <p>
 <ul>
-  <li> <b> master </b> keeps and manages all system level information. Such as system configuration, logins, linked servers, credentials etc. Take master data backup because if it becomes corrupted/deleted you won't be able to start sql server. </li>
-  <li> <b> model </b> The model database acts as a template for all the data bases. Used in the creation of any new user database created in this instance (store procedures, database configurations) </li>
-  <li> <b> msdb </b> SQL Server agent information is managed by msdb. Will hold backup, log_shipping. li>
+  <li> <b> master </b> keeps and manages all system level information. Such as system configuration, logins, linked servers, credentials etc. Take master data backup because if it becomes corrupted/deleted you won't be able to start SQL server. </li>
+  <li> <b> model </b> The model database acts as a template for all the databases. The template is used in the creation of any new user-database created in this instance (store procedures, database configurations etc) </li>
+  <li> <b> msdb </b> SQL Server agent information is managed by msdb. Will hold backup, log_shipping. </li>
   <li> <b> tempdb </b> holds temporary data, tables like locally temporary tables.</li>
   <li> <b> resource </b> not accessable by the user </li>
   <li> <b> distribution </b> not accessable by the user </li>
@@ -516,4 +516,4 @@ Browser Cache: A way to make website faster for you when your browsing the inter
 </p>
 
 <b> Collation</b>
-<p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). A character set is a group of these (American Standard vs European, UTF8 allows for like a million characters etc). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
+<p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
