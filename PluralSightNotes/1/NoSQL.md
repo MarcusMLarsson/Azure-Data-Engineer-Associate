@@ -94,7 +94,7 @@
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
  
- --
+ ---
  
  <b> Demo: Provisioning Table Storage in the Azure Portal </b>
  <ul>
