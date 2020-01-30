@@ -25,7 +25,7 @@
   <li>Easy migration from SQL Server on-premises : Ability to assign necessary resources (CPU/storage) to individual databases</li>
   <li>Private IP address within Azure VNet : Built-in advanced intelligence and security</li>
   <li> : Online change of resources (CPU/storage) with no downtime</li>
-  <ul>
+  </ul>
     
    <b> Limitations </b> 
     <ul>
@@ -34,7 +34,7 @@
   <li> You need to implement your own high-availability solution : Some SQL Server features are not available</li>
   <li> There is a downtime while changing the resources (CPU/storage) : No guaranteed exact maintenance time (but nearly transparent) </li>
   <li>Need to implement additional mechanisms to ensure availability of your databases : Private IP address cannot be assigned (with exception) </li>
-  <ul>
+  </ul>
     
     
    <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. Continue t administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
@@ -47,13 +47,13 @@
   <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
   
 
-    <ul>
+  <ul>
   <p> vCore-based : DTU-based </p>
   <li> For single database, elastic pool and managed instance : Only for single database and elastic pool </li>
   <li> Best for customers who need flexibility, control and transparency : Best for customers who want simple, preconfigured resource options </li>
   <li> Strightforward way to translate on-premises workload to the cloud : Might need to calculate the needed DTUs before migration  </li>
   <li> Microsoft recommends vCore-based model : If the DTU-based purchasing model meets your performance and business reqirements, you should continue using it </li>
-  <ul>
+  </ul>
   
   <p> IF your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
   
