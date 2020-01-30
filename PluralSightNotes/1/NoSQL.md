@@ -33,7 +33,7 @@
 <p> <b> CosmosDB API </b> </p>
  <li> SQL API </li>
  <li> Cassandra</li>
- <li> Graph (Gremlin) </li>
+ <li> Gremlin (Graph) </li>
  <li> MongoDB </li>
  <li> Table </li>
 </ul>
@@ -55,40 +55,46 @@
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course. </li>
 </ul>
 
+---
+
 <b> Demo </b>
 
-<p> Start by provisioning Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 are used normally. Locally redundant storage is the cheapest one. Cool are for archiving. Choose hot. After creating you can choose 4 different storage types under the storage account umbrella. </p>
+<p> Start by provisioning an Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 (normally used). Locally redundant storage is the cheapest one. Cool is for archiving, choose hot. After creating a storage account you can choose 4 different storage types under the storage account umbrella. </p>
 
 <p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
 
+---
+
 <b> Azure Table Storage </b> 
-<p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name, email. Azure table storage is a greate option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
+<p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name and email. Azure table storage is a greate option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account, which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
 
 
  <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables. Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
   
  <b> Azure Blog Storage </b>
- <p> Blob Storage is optimized to store massive amount of unstructured data in the cloud, servering documents directly to the browser. Blob Storage is widely used for data back-ups and restores. Many Azure services (for example Azure SQL Database) are storing their backup in Azure Blob Storage. Audio and video files can be uploaded to Azure Blob storage. The service can also be used to store data for analysis. Azure Blob Storage can automatically scale when the demand increases.</p>
+ <p> Blob Storage is optimized to store massive amount of unstructured data (e.g. audio, video, csv) in the cloud, servering documents directly to the browser. Blob Storage is widely used for data back-ups and restores. Many Azure services (for example Azure SQL Database) are storing their backup in Azure Blob Storage. The service can also be used to store data for analysis. Azure Blob Storage can automatically scale when the demand increases.</p>
  
  <b> Azure Queue Storage </b> 
- <p> Azure queue storage is a service for storing large numbers of messages. You can access the messages via authenticated calls using HTTP or HTTPs. E.g. passing messages from a web role to a worker role. Imagen you have a website that converts bitmap images into jpg. Users can upload their files and they will get the jpg image. Converting bitmap img to jpg can be time consuming, and you might not be able to convert 1000 of files at the same time. What you can do is per each bit map conversion request you add a message to your Azure queue storage. You have your converter worker role read these messages and do the conversions. </p>
+ <p> Azure queue storage is a service for storing large numbers of messages. You can access the messages via authenticated calls using HTTP or HTTPs. Imagen you have a website that converts bitmap images into jpg. Users can upload their files and they will get the jpg image. Converting bitmap imgages to jpg can be time consuming, and you might not be able to convert 1000 of files at the same time. What you can do is per each bit map conversion request you add a message to your Azure queue storage. You than have your converter worker role read these messages and do the conversions. </p>
  
  <b> Azure Files </b>
  <p> Azure files offers fully managed file shares in the cloud that are accessible via the industry standard server message block (SMB) protocol. Most people use shared dirves at work using an on-premise file server. Your network administrator is mapping those drives to your machine and than you can simply drag and drop files. <b> Azure files can be used to replace on-premises file  servers </b>. If you are using legacy applications which uses shared files you can lift and shift them to the cloud.  </p>
  
  <b> Securing storage accounts. </b>
 <ul>
- <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. RBAC (roled base access control) roles for storage (owner role, contributor role, reader) </p>
- <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and shared access signature (SAS), which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address and enforce HTTPS.</p>
+ <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. <b> RBAC (roled base access control) </b> roles for storage (owner role, contributor role, reader) </p>
+ <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and <b> shared access signature (SAS) </b>, which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
   <li><b> Encryption for data in transit </b> </li>
  <p> You can use both HTTP and HTTPS when calling the REST APIs or accessing objects in storage. It's recommended to always use HTTPS.
  <li><b> Encryption for data at rest </b> </li>
- <p> Data at rest is refered to the data that is stored in the storage account. There are two methods to encrypt this data. The first one is storage service encryption (SSE), this option is able for all storage accounts and can not be disables. You can also use client side encryption. You can programmatically encrypt the data in a client application then send it across the wire (can be done using the storage account SDK). </p>
+ <p> Data at rest is refered to the data that is stored in the storage account. There are two methods to encrypt this data. The first one is <b> storage service encryption (SSE) </b>, this option is enabled for all storage accounts and can not be disables. You can also use client side encryption. You can programmatically encrypt the data in a client application then send it across the wire (can be done using the storage account SDK). </p>
   <li><b> Auditing and monitoring access </b> </li> <p> Who accessed your blob storage, and at what time? 
-You can enable Azure Storage Analytics to log the authentication method used by clients. This data will be saved in Azure montior logs and can be queried </p> 
+ You can enable <b> Azure Storage Analytics </b> to log the authentication method used by clients. This data will be saved in Azure montior logs and can be queried </p> 
  <li><b> CORS (Cross-Origin Resource Sharing) for browser clients </b>  </li>
- <p> CORS is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
+ <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
+ 
+ --
  
  <b> Demo: Provisioning Table Storage in the Azure Portal </b>
  <ul>
@@ -101,12 +107,15 @@ You can enable Azure Storage Analytics to log the authentication method used by 
  </ul>
  
 <b> Demo: Working with Azure Storage Explorer</b>
-<p> There are two different options (desktop version and the online version) to work with Azure Storage Explorer. You can download the desktop version of Azure Storage Explorer from Microsoft's website. After that, you can view and edit blob, queues, tables and files. On top of that, you will be able to work with your Cosmos DB Storage. You can also obtain shared access signatures (SAS keys). Also, in the Azure Portal, you have access to the online version of the Storage Explorer (preview). Here I have the option to create a blob, file, queue or tables storage. Add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Put Sweden for the PartionKey and for the RowKey I'm going to put 1. Now when the system properties are defined, press add property. Add Name: Marcus, Email: mla. Press insert  </p>
+<p> 
+ 
+ 
+There are two different options (desktop version and the online version) to work with <b> Azure Storage Explorer </b>. We will be using the online version of the Storage Explorer (preview) in this demo. In Azure Storage Explorer I have the option to create a blob, file, queue or tables storage. Let's start with creating a Table Storage add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Now when the system properties are defined, press add property. Press insert  </p>
 
 <b> Demo: Working with Azure Table Storage .NET SDK (Software development kit)</b>
 <p><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a></p>
 <p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
- <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables =>.. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
+ <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
  
 <pre>using Microsoft.WindowsAzure.Storage;                  <i> //importing package from SDK </i>
 using Microsoft.WindowsAzure.Storage.Table;             
@@ -119,17 +128,16 @@ namespace AzureStorageSDK                                   <i> //namespaces are
         {
             string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
 
-            <i> //A connection string includes the authorization information required for your application to access data in an Azure   Storage account </i> 
+           <i> // A connection string includes the authorization information required for your application to access data in an Azure   Storage account </i> 
 
             CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
             
-            <i> //CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
-            <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
-            <i> // <a href ="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet"> CloudStorageAccount </a> </i>
+           <i> // CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
+           <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
+          CloudStorageAccount </a> </i>
 
             CloudTableClient serviceClient = account.CreateCloudTableClient();       
-            <i> //CloudTableClient is a class, serviceClient is an object </i>
-
+           <i> // CloudTableClient is a class, serviceClient is an object </i>
 
             CloudTable table = serviceClient.GetTableReference("TableTest");
 
@@ -143,7 +151,7 @@ namespace AzureStorageSDK                                   <i> //namespaces are
 }
 </pre>
 
-<pre> using Microsoft.WindowsAzure.Storage.Table;
+<pre>using Microsoft.WindowsAzure.Storage.Table;
 
 namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
 {
@@ -166,11 +174,11 @@ namespace AzureStorageSDK                 <i> // namespace are used to organize 
 
         public string Email { get; set; }
 
-        /* */
         public string Phone { get; set; }
     }
 }</pre>
  
+ ---
  
  <b> Azure Cosmos DB Overview </b>
  <ul>
