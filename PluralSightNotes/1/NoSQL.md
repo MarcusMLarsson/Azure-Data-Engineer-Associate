@@ -19,6 +19,7 @@
 <li> Cosmos DB is a globally distributed multi-model database </li>
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
+</ul>
 <br>
 
 <b> What are containers? </b>
@@ -39,6 +40,7 @@
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. </p>
  </ul>
+ <br>
  <ul>
   <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
   <li> If your to store the data in key-value pairs use the Azure table API.</li>
