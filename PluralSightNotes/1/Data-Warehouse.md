@@ -9,13 +9,16 @@
 <li> It's reasonable to use Data Warehouse when you have historical data that is sitting there, ready for analytics to be applied to it </li>
 <li> Rather than to soak in data (like a database), a data warehouse is designed to produce data for analysis. That is, a database is designed to record while a data warehouse is designed to analyize. </li>
 <li> For a Data Warehouse the datas purpose is defined (structured and highly transformed). For a Data Lake the datas purpose is not yet determined. </li>
+<br>
 <i> What is Azure SQL Data Warehouse? </i>
 <li> Azure SQL Data Warehouse is cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
 <li> Azure SQL Data Warehouse and Azure Synapse Analytics are used interchangeably (the same thing) </li>
 <li> Massively parallel processing can be described as multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. </li>
+<br>
 <i> What are best practises for Azure SQL Data Warehouse? </i>
 <li> Data warehouses often contain large tables, and require techniques for both managing these large tables and providing good query performance </li>
-<li> Partitioning allows a table, index, or index-organized table to be subdivided into smaller pieces, where each piece of such a database object is called a partition.</li>
+<li> Data distribution allows the work of a query to be divided into 60 smaller queries that run in parallel.
+<li> Data partitioning allows a table, index, or index-organized table to be subdivided into smaller pieces, where each piece of such a database object is called a partition.</li>
 
 
 
@@ -29,7 +32,7 @@
   <li> <b> Azure SQL Data Warehouse </b> </li>
   <li>Azure Analytics</li>
 </ul>
-
+<br>
 <p> However, Azure SQL Data Warehouse and Azure Synapse Analytics are today used interchangeably. Azure SQL Data Warehouse is a cloud based enterprise data Warehouse (EDW) that uses <b> massiveley parallel processing (MPP)</b>. SQL Data Warehouse is an appropriate tool when you need to keep historical data seperate from transactional data. That is, it's reasonable to use Azure SQL Data Warehouse when you have <b>historical data</b> that is sitting there, ready for analytical services. </p>
 
 <b> Understanding massively parallel processing (MPP) </b>
@@ -89,7 +92,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 </ul>
 </p>
 
-<p> Creating a table with to many partitions can hurt performance under some circumstances (10 to a few hundred is resonable). For clustered columnstore tables, it is important to consider how many rows belong to each partions. Keep in mind that before paritions are created, SQL Data Warehouse already divides each table into 60 distributed databases. 
+<p> Creating a table with to many partitions can hurt performance under some circumstances (10 to a few hundred is resonable). For clustered columnstore tables, it is important to consider how many rows belong to each partions. Keep in mind that before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases. 
   
   ---
  <h3> Deploying a Data Warehouse in Microsoft Azure Synapse Analytics </h3>
@@ -106,9 +109,9 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
    <b> Steps to Create a SQL Data Warehouse in Azure </b>
 <ul>
   <li> Create a Resource, choose Databases, Click Azure Synapse Analytics (formerly SQL DW) </li>
-  <li> Select subscription and resource group, give the Data Warehouse a name, create an Azure SQL serve, put the Performance level to the lowest, always review settings and click create</li>
-  <p> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure </p>
-  <li> Pause the Compute Node so you dont get charged (If you were running a query, it's not a good idea to pause).</li>
+  <li> Select subscription and resource group, give the Data Warehouse a name, create an Azure SQL serve, put the Performance level to the lowest, and click create.</li>
+  <p> If you have ever built and installed SQL servers from scratch you can appriciate how little effort it takes with Azure. </p>
+  <li> Pause the Compute Node so you dont get charged (If you are running a query, it's not a good idea to pause).</li>
   <li> We will still be charged for the storage </li> 
  </ul>
  
@@ -116,35 +119,35 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 <ul>
   <li> Click resume </li>
   <li> Create Firewall rules</li>
-  <p> The SQL data warehouse creates a firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server (that host our data warehouse) we need to add a Firewall rule. This rule is going to enable connectivity for one specific ip address or a range of ip addresses. Azure SQL Data warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your Firewall, meaning that you are going to need to open up that port. </p>
-  <li> To add Firewall rules start with copying and clicking on the Servername, click on Firewall and virtual networks </li>
-  <li> Add client IP (add's it automatically under rule name). Than press save</li>
+  <p> Azure SQL Data Warehouse creates a Firewall at the service level. This prevents external application and tools to connect to the server or any database within the server. In order to connec to our SQL server (that host our Data Warehouse) we need to add a Firewall rule. This rule is going to enable connectivity for one specific ip address or a range of ip addresses. Azure SQL Data Warehouse communicates over port 1.4.3.3. You might have a situation were that port is closed in your Firewall, meaning that you are going to need to open up that port. </p>
+  <li> To add Firewall rules start with copying and clicking on the servername, click on Firewall and virtual networks </li>
+  <li> Add client IP. Than press save</li>
   <p> Now we have added a Firewall rule, we have an admin with the password and we can connect to the datbase. </p>
-  <li> Open Microsoft SQL Server Management Studio, press Object explorer, press connect,d atabase enginge, Server name (See Azure), login with authentication details </li>
-  <li> Expand database and you should see the Data Warehouse and a master database. 
+  <li> Open Microsoft SQL Server Management Studio, press Object explorer, press Connect, Database enginge, fill in servername, login with authentication details </li>
+  <li> When expanding the database and you should see the Data Warehouse and a master database. 
  </ul>
- 
+ <br>
   <b> Preparing an SQL Pool in Azure Synapse Analyitcs to Load Data </b>
   <p> In this section;</p>
   <ul>
-	<li> We are going to create a login and a user to load data into our warehouse.</li>
+	<li> We are going to create an login and an user to load data into our warehouse.</li>
 	<li> We are going to link into NYC Taxi Source Data.   </li>
 	<li>  We are than going to create tables to hold data inside our data warehouse. </li>
 </ul>
-   <p> The admin account is not very good for loading massive amount of data. The data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and a user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
+<br>
+   <p> The admin account is not very good for loading massive amount of data. The data takes alot of processing power as it has to compile and compress. It's a good idea to create a login and an user account specificly for loading data. The login is going to be associated with a resource class that is going to allow us a higher maximum amount of memory being used </p>
 
   <p> Rightclick master database and select new query. </p>
-	<pre>CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Britney123';
-CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; </pre> 
+	<pre>CREATE LOGIN marcuslarsson1 WITH PASSWORD = 'Password';
+CREATE USER marcuslarsson FOR LOGIN marcuslarsson; </pre> 
 <p> Rightclick TestDataWarehous</p>
-<pre>CREATE USER marcuslarsson1 FOR LOGIN marcuslarsson1; 
-GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson1;
-EXEC sp_addrolemember 'staticrc20', 'marcuslarsson1' </pre> 
-  <p> Login to datebase as new user. Object explorer => Connect => Database enginge =>  </p>
-  <p> Create master key for database. Now we are ready to connect to external datasource.
+<pre>CREATE USER marcuslarsson FOR LOGIN marcuslarsson; 
+GRANT CONTROL ON DATABASE::[TestDataWareHouse] to marcuslarsson;
+EXEC sp_addrolemember 'staticrc20', 'marcuslarsson' </pre> 
+  <p> Login to datebase as a new user. Object explorer => Connect => Database enginge =>  </p>
+  <p> Create a master key for database. Now we are ready to connect to the external datasource.
     </p>
  <pre>CREATE MASTER_KEY; </pre>	
-  <p> This is one of the more poorly named objects in the SQL Server platform. Or perhaps the “master” database is the one that is not named well. In any case, the DMK has nothing to do with the master database. Instead, the DMK is the base encryption key inside of a database. This is the key that secures all other keys.  </p>
 <pre> CREATE MASTER KEY;
 CREATE EXTERNAL DATA SOURCE NYTPublic
 WITH
@@ -153,7 +156,7 @@ WITH
 	LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
 );  </pre> 
   <p>
-  Now we need to create an external file store statement. And this is going to specify the formatinng charactaristics and the options for our external data file. In order for us to load the data into our data warehouse. This statement specifies that the external data is
+ In order for us to load the data into our data warehouse we need to create an external file store statement. This is going to specify the formating charactaristics and the options for our external data file. This statement specifies that the external data is
 stored as text. We use a pipe variable in order to separate the values. This file is compressed with gzip.     
  </p>
   
@@ -347,9 +350,8 @@ WITH
  
  
   <b> Loading NYC Taxi Data into an SQL Pool in Azure Synapse Analytics </b>
-  <ul>
-  <p> Examine external tables. We are now going to load data into these tables. We are going to view that data being loaded and then examine the details on that loading data </p>
-	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you normallly load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import this data into a relational table. It has a distribution type that is Round Robin. It has en index which is a clustered column store index. Other than that its basically a select from... </p>
+  <p> We are now going to load data into the external tables. We are going to view that data being loaded and then examine the details on that loading data </p>
+	<p> We are loading this data directly into our final table. This might not be a good idea to do in production because you normally load your data into some kind of staging table in order to transform that data to fit into the tables. The data warehouse is going to import the data into a relational table. It has a distribution type that is Round Robin (standard) . It has en index which is a clustered column store index. </p>
 <pre> 
 CREATE TABLE [dbo].[Date]
 WITH
@@ -464,10 +466,10 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li><b> Scale </b> Here we can scale the system (will be more expensive). </li>
 	<li> <b> Activity log </b>: Here you find the log files. A log file is a file that records either events that occur in an operating system or other software runs (to query log information use KQL). </li>
 	<li> <b> Tags </b>: All resources in Azure can recieve a tag. A tag is a descriptive charactarization that you put on any kind of resource so you can search by category. If you have certain clients that are responsible for paying for certain resources, then that would be an example of the use of a tag.</li>
-	<li> <b> Geo-backup policy</b>: Here you Azures policy for backing up data information. On Gen2 backup is taken care off. </li>
-		<li> <b> Connecting strings</b>: Use connection string if you need to load or connect data from different applications </li>
-	<li> <b> Export template</b>: Alot of resources in Azure are available thru a template. With export templates or you can recreate the resources from scratch, with Azure Resource Manager (ARM), and have all the configurations from your original resource. </li>
-	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs, e.g. a collection of data comming from IoT devices streaming into our data warehouse. Sometimes you need to monitor to look for certain triggers. </li>
+	<li> <b> Geo-backup policy</b>: Here you see Azures policy for backing up data information. On Gen2 backup is taken care off. </li>
+		<li> <b> Connecting strings</b>: Use the connection string if you need to load or connect to data from different applications </li>
+	<li> <b> Export template</b>: Alot of resources in Azure are available thru a template. With export templates you can recreate the resources from scratch (using Azure Resource Manager) and have all the configurations from your original resource. </li>
+	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs, e.g. a collection of data comming from IoT devices streaming into our data warehouse. </li>
 	<li> <b> Load data </b>: Here you find <b> Azure Data Factory </b> which allows you to store and integrate your information into your data warehouse. </li>
 	<li> <b> Query editor </b>: We can connect to the database and run queries inside here without using SQL server management studio. </li>
 </ul>
@@ -481,12 +483,10 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li> Restoring a Data warehouse</li> 
 	<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
 	<li> Managing cost of a Data warehouse </li>
-	<p> The pricing page is available at Microsoft website. The cost depends on how much the storage cost and how much the computing cost. </p>
+	<p> The pricing page is available at Microsoft website. The cost depends on how the storage cost and the computing cost. </p>
 	<li> Workload management </li>
 	<p> Workload management includes the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
 	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
-	<li> Implementing security </li>
-	<p> How to secure Azure SQL Data Warehouse </p>  
  
   ---
 <h3> Notes </h3>
