@@ -196,11 +196,11 @@ namespace AzureStorageSDK                 <i> // namespace are used to organize 
  <li> When a new region is added or removed, the connection string stays the same. </li>
  </ul> 
  <br>
-<p> Imagine you have two regions for your Cosmos DB account, one instance in West US and another instance in East US. You have created two versions of your web application and deployed on to an app service in West US and another app service in the East US region so your users can experience the least amount of latency. Now let's see what happends when there is a request for your application. You must probably have a traffic manager accepting the requests from the clients. The traffic managers knows the location of the client. In this case, the request is originated from Los Angeles, so the traffic manager is going to redirect the request to the app service located in the West US region, and my app service is using a connection string to connect to the Cosmos DB. So the question is, how my app service knows to which instance of Cosmos DB it should connect to; West US or East US? Because we don't have different connection strings for West US Cosmos DB and East US Cosmos DB, the multi-homing API sovles this problem. The multi-homing API is going to figure out which instance of Cosmos DB is closest to my app service and redirect the data request to that instance, and this is the idea behind the multi-homing API </p>
+<p> Imagine you have two regions for your Cosmos DB account, one instance in West US and another instance in East US. You have created two versions of your web application and deployed on to an app service in West US and another app service in the East US region so your users can experience the least amount of latency. Now let's see what happends when there is a request for your application. You must probably have a traffic manager accepting the requests from the clients. The traffic managers knows the location of the client. In this case, the request is originated from Los Angeles, so the traffic manager is going to redirect the request to the app service located in the West US region, and my app service is using a connection string to connect to the Cosmos DB. So the question is, how does my app service know to which instance of Cosmos DB it should connect to; West US or East US? Because we don't have different connection strings for West US Cosmos DB and East US Cosmos DB. The answer is that the <b> multi-homing API </b> sovles this problem. The multi-homing API is going to figure out which instance of Cosmos DB is closest to my app service and redirect the data request to that instance, and this is the idea behind the multi-homing API </p>
 
 
  <b> Time-to-live</b>
- <p> With time-to-live (TTL) you can set an expire date on some of your objects saved into the database. You don't need to clean up your database and delete when the time has come. You can set the expiry time on Cosmos DB data items; the setting is called TTL and is set as seconds. Cosmos DB will automatically remove the items after this time period, since the last modififed time. </p>
+ <p> With time-to-live (TTL) you can set an expire date on some of your objects saved into the database. You don't need to clean up your database and delete when the time has come. You can set the expiry time on Cosmos DB data items; the setting is called TTL and is set in seconds. Cosmos DB will automatically remove the items after this time period, since the last modififed time. </p>
  
 <b> Database Consistency</b>
 <p> Imagen you have a distributed database. One replica exist  in West US, and the other replica exists in East US, and there is a global replication going on between these two. So every 5 seconds, the data in West US will be replicated to East US. This database holds information of a few bank clients, and the information we are interest in is the credit score of these clients. Let's say credit score goes from 750 to 700 for on customer in West US database. 
@@ -208,71 +208,64 @@ namespace AzureStorageSDK                 <i> // namespace are used to organize 
 CreditScore = 750
 WHERE ID = 10 </pre>
 
-Now someone in the East US need to access the credit score of the customer updated in West US (id = 10). So he runs the query. 
-<pre>query SELECT CreditScore FROM History,
+Now someone in the East US needs to access the credit score of the customer updated in West US (id = 10). So he runs the query. 
+<pre>SELECT CreditScore FROM History,
 WHERE ID = 10 </pre>
 
-What score do the observer get? 700 or 750? The observer should not see the old credit score (lag 5 second). This is the concept around data consistency. Relational Databases make sure you always get the consistent version of the data, even if you have to wait for some time. Azure Cosmos DB gives the option to add consistency to your database. 
+What score do the observer get? 700 or 750? The observer is not suppose to see the old credit score. This is the concept around data consistency. Relational Databases make sure you always get the consistent version of the data, even if you have to wait for some time. Azure Cosmos DB gives the option to add consistency to your database. 
 </p>
  
  
  <b> Cosmos DB Concepts - Multi-writes and Consistent Prefix Reads </b>
  
+<p> There is always a trade off between data consistency and data availability & latency. Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. </p>
 <ul>
- <li> Data consistency versus data availability & latency </li>
- <li> Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. </li>
- <li> Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. </li>
- <li> Strong, bounded staleness, session, consistent prefix, eventual</li>
+ <li> Strong</li>
+  <li> Bounded staleness</li>
+  <li>Session</li>
+  <li>Consistent prefix</li>
+  <li> Eventual</li>
  </ul>
- <br>
- 
- <p> Imagine I have a record in my Cosmos DB database. This is a person record and has five properties. givenname, lastname, email, phone, spouse. My Cosmos DB is distributed to East-US and West-US region. At 10 AM my East-US replica is going to update the email address to john@test.com. Two mintues later, the West-US replica goes ahead and updates the phone number. So far, I have two distinguished writes to the same record. At 10:04 AM., my observer queries my Cosmos DB instance for this record, and let's say this database instance guarantees consistent prefix rates. Now let's see which version of the data in the database this observer will se. So is my observer going to see only the first update, meaning, the email address? Or is he going to see both updates side by side? So having in mind that this database guarantees consistent prefix of the list, it is okey for my observer to see either email, the new email, and the new phone, or none of them. So you might ask, what is not okay for this observer to see having in mind that we have consistent prefix consistency level guaranteed? It is not okay to see the second update, but not the first update.   </p>
+
+ <p> Imagine I have a record in my Cosmos DB database. This is a person record and has five properties (givenname, lastname, email, phone, spouse). My Cosmos DB is distributed to East-US and West-US region. At 10 AM my East-US replica is going to update the email address to john@test.com. Two mintues later, the West-US replica goes ahead and updates the phone number. So far, I have two distinguished writes to the same record. At 10:04 AM., my observer queries my Cosmos DB instance for this record, and let's say this database instance guarantees consistent prefix rates. Now let's see which version of the data in the database this observer will see. So is my observer going to see only the first update, meaning, the email address? Or is he going to see both updates side by side? So having in mind that this database guarantees consistent prefix of the list, it is okey for my observer to see either email, the new email, and the new phone, or none of them. Another way of thinking about this is, given that we have consistent prefix consistency level guaranteed, what is not okay for this observer to see? It is not okay to see the second update, but not the first update. </p>
  
  <b> Cosmos DB Concepts - Consistency Levels (Strong, Session, Eventual, and Others) </b>
  
  <p> Strong, Bounded Staleness, Session, Consistent Prefix, Eventual</p>
- <p> Moving from left to right you get higher latency and throughput put at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are guaranteed only consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistnecy level, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix, meaning they are going to see in order writes only. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. You might see out of order updates.   </p>
+ <p> Moving from left to right you get higher latency and throughput at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates.   </p>
   
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
- <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partations. </p>
+ <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partitions. </p>
  
- <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is almost spread evenly among different logical partitions if the cities you are choosing have almost the same amount of population. For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
- 
- <p> A partition key can be used by Azure Cosmos DB to divide my data into logical partitions. These logical partitions later will be mapped to physical partition and will be saved onto different machines around the globe.    </p>
- 
- <b> Cosmos DB APIs and Security </b>
- <ul>
- <li> SQL API </li>
-  <li> MongoDB API</li>
-  <li> Table API </li>
-  <li> Cassandra API</li>
-  <li> Gremlin API</li>
- </ul>
- <br>
- 
+ <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is roughly spread evenly among different logical partitions (assuming the cities you are choosing have roughly the same amount of population). For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
+
+
  <b> Security </b>
  <ul>
  <li> RBAC (Roll based access control) to grant access to users, groups or applications. </li>
- <li> Use firewall to limit clients who can access Cosmos DB </li>
+ <li> Use Firewall to limit clients who can access Cosmos DB </li>
  <li> Deploy Cosmos DB into a VNet & use NSGs: Azure Cosmos DB can be integrated with a virtual network. This way, you can use network security groups to control inbound and outbound traffic for your Cosmos DB </li>
  <li> CORS (Cross-origin resource control) can be whitelisted for Azure Cosmos DB as well. So if you have a client-side application which is directly calling Cosmos DB APIs to get data back, you can whitelist those applications in Azure Cosmos DB so those requests can be made from the browser.  </li>
  <li> Read-only and read-write keys </li>
 </ul>
 <br>
 
+---
+
  <b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
- <p> More Services => Cosmos Db. Overview => Add container (multiple options). Database is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container People and /City as partinione key. Add a new item (under people). Add to JSON file. When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
+ <p> Let's start with creating an Cosmos DB. Go tomore Services => Cosmos Db. Overview => Add container. Remember an Cosmos DB is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container, People and pick /City as partinione key. Add a new item (we will use JSON format). When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
    
  <b> Demo: Cosmos DB Security </b>
  <p>
-If I only need my clients to see the data, not update it, I give them Read-only keys, not Read-write keys. Under Firewall and virtual networks I can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
+If I only need the clients to be able to see the data, but not to update the data,  you can give them Read-only keys (not Read-write keys). Under Firewall and virtual networks you can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
 
  <b> Working with Azure Cosmos DB - SQL (Core) API </b>
  
  <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
  
  <ul>
+ <p> Container name for different APIs </p>
  <li> <b> SQL API:</b> Collection</li>
  <li> <b>Table API:</b> Table</li>
  <li> <b>MongoDB API:</b> Collection</li>
@@ -285,10 +278,10 @@ If I only need my clients to see the data, not update it, I give them Read-only 
 <pre>
 "firstname": "Marcus",
 "lastname": "Larsson,
-"email": "mla@ocean.se",
+"email": "mla@mail.se",
 "address": { 
-    "streetAdress": "gatan",
-    "city": "Gothenburg",
+    "streetAdress": "Gatan",
+    "city": "Stockholm",
     "country": "Sweden",
 },
 "phone": "+46703 ....."
@@ -297,17 +290,17 @@ If I only need my clients to see the data, not update it, I give them Read-only 
 <pre>
 SELECT *
 FROM People as p
-WHERE p.givenname = "John"
+WHERE p.lastname = "Marcus"
 </pre>
 
 <p> You can also query nested properties </p>
 <pre>
 SELECT *
 FROM People as p
-WHERE p.address.city = "Gothenburg"
+WHERE p.address.city = "Stockholm"
 </pre>
 
-<p> I can select fields of of my items into new JSON objects</p>
+<p> I can select fields of my items into new JSON objects</p>
 
 <pre>
 SELECT {"Name":p.id, "City":p.address.city} AS Person
@@ -341,18 +334,13 @@ WHERE p.address.city = "Gothenburg"
 
 <p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
 
-<p> Create SQL server & Database in Azure. Populate with data.
-
-
-<a href ="https://docs.microsoft.com/en-us/azure/cosmos-db/import-data"> Link </a>
-
-<a href ="https://github.com/azure/azure-documentdb-datamigrationtool"> GitHub </a>
+<p> Create a SQL server & Database in Azure. Populate it with data with the help of the pre-compiled binary.
 
 <a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
 
 <b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
 
-<pre> using System;
+<pre>using System;
 using System.Collections.Generic;
 using Microsoft.Azure.Cosmos;
 
@@ -417,36 +405,37 @@ namespace ConsoleApp1
 
 </pre>
 
+--
+
 <b> Working with Azure Cosmos DB - MongoDB API</b>
 
 <p>
- MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed SLAs (service level agreement) for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the worl and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
+ MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed <b> SLAs (service level agreement) </b> for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the world and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
  </p>
 <ul> 
  <p> Let's take alook at the pre-migrating steps before migrating your data. 
 </p>
  <li> Create an Azure Cosmos AB account </li>
- <p> See demo </p>
+ <p> See previous demo </p>
  <li> Estimate the throughput needed for your workload (you can change this later) </li>
  <p> Throughput can be provisioned on both collection & database. You can choose database-level throughput if not sure. Throughput is measured in Request Units (RUs) / second. RU is an abstraction of physical resources (Memory, CPU, IOPs). The concept of RUs is very similar to the concept of DTUs in Azure SQL Database.  </p>
  <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item icreases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
  
  <li> Pick an optimal partition key for your data (can't be changed if you don't recreate the collection)</li>
- <p> Cosmos DB uses partitioning to scale individualcontainers in a database to meet the scalability and performance needs of the application. Follow best practices to avoid "hot" partitions. Choose a partition key so your data is divided equally.</p>
+ <p> Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of the application. Follow best practices to avoid "hot" partitions. Choose a partition key so your data is divided equally.</p>
  
  <li> Understand the indexing policy that you can set on your data </li>
  <p> Azure Cosmos DB indexes all the data field upon ingestion. However, it is recommended to turn off indexing when migrating data. We are going to use Azure Data Migration Service (DMS) to migrate data from MongoDB to Cosmos DB. This services can migrate MongoDB indexes with unique indexes. However, the unique indexes must be created in destination before the migration. It's important to note that you can not create unique indexes, when there is already data in collections. We are going to use Azure Database Migration service to migrate a MongoDB  collection to Azure Cosmos DB.  </p>
 </ul>
 
 <p>
- Post-migration steps. After your data is migrated to the destination you need to connect your application with the connection string. The other three steps are optional steps. You can optimize the indexing policy, you can globally distribute your data and you can set concistency level of your choice.
+ Post-migration steps: After your data is migrated to the destination you need to connect your application with the connection string. The other three steps are optional steps. You can optimize the indexing policy, you can globally distribute your data and you can set concistency level of your choice.
  </p>
  
+ ---
  
  <b> Demo: Create a sample MongoDB database in MongoDB Atlas </b>
-<p> MongoDB Atlas: Create free tier (M0 Sandbox). Clikc on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user.  </p>
-
-<p> Studio 3T mongoDB client? </p> 
+<p> MongoDB Atlas: Create free tier (M0 Sandbox). Click on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user. Download Studio 3T mongoDB client  </p>
 
 <pre> 
 using MongoDB.Driver;
@@ -513,7 +502,7 @@ namespace MongoDBAPI
 
 <b> Working with Azure Cosmos DB - Table API </b>
 
-<p> So you already have your data in Azure Table Storage. Why would you migrate to Cosmos DB Table API? Azutr Cosmos DB offers turnkey global distribution. Azure Table Storage is fast but you dont get SLAs around latency. Azure Cosmos DB provides less than 10 millisecond latency for reads. Azure Table Storage has a maximum throughput of 20,000 operations/s which is not the limit for Azure Cosmos DB (more operations/s). Azure Table Storage only provide primary index on partition key and row key. There are no secondary index. For Azure Cosmos DB you get automatic and complete indexing on all properties by default. Meaning queries will run faster as they can utilize these indexes. Azure Table Storage you get strong consistency within primary region and eventual consistency within secondary region. For Azure Cosmos DB you have five well-defined consistency level. Higher SLAs with Azure Cosmos DB.
+<p> So you already have your data in Azure Table Storage. Why would you migrate to Cosmos DB Table API? Azure Cosmos DB offers global distribution. Azure Table Storage is fast but you don't get SLAs around latency. Azure Cosmos DB provides less than 10 millisecond latency for reads. Azure Table Storage has a maximum throughput of 20,000 operations/s, which is not the limit for Azure Cosmos DB (more operations/s). Azure Table Storage only provide primary index on partition key and row key. There are no secondary index. For Azure Cosmos DB you get automatic and complete indexing on all properties by default. Meaning queries will run faster as they can utilize these indexes. With Azure Table Storage you get strong consistency within primary region and eventual consistency within secondary region. For Azure Cosmos DB you have five well-defined consistency level. You get higher SLAs with Azure Cosmos DB.
  
 
 Azure Cosmos DB containers are named table for Azure Table API. If you have your data migrated to Azure Cosmos DB Table API there are multiple ways for you to query your data. You can query data using partition key and row key. Alternativly you can query your data by using an OData filter. Finally, you can query by using LINQ (.NET SDK).
@@ -571,13 +560,13 @@ namespace TableAPI
 
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
-<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
+<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
 
-<p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices and the edges (?), e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
+<p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
 
-<p> Apache Gremlin is a graph traversal (query) language. You can use Gremlin to add, update, delete and query graph items. These items include vertices, edges and properties. There are multiple ways to interact with your graphs in Azure Cosmos DB Gremlin API. You can use the Gremlin SDK, which is available for .NEt, Java, Node.js, Python or you can use Gremlin to interact with your graph. You can download the Apache Gremlin console and use that, or alternatively, run your Gremlin queries from within the Azure Portal. </p>
+<p> Apache Gremlin is a graph traversal (query) language. You can use Gremlin to add, update, delete and query graph items. These items include vertices, edges and properties. There are multiple ways to interact with your graphs in Azure Cosmos DB Gremlin API. You can use the Gremlin SDK, which is available for .NET, Java, Node.js, Python or you can use Gremlin to interact with your graph. You can download the Apache Gremlin console and use that, or alternatively, run your Gremlin queries from within the Azure Portal. </p>
 
-<p> Graph is the entity for container. Use a partition key. </p>
+<p> Graph is similar to container. Use a partition key. </p>
 
 <pre> 
 
@@ -604,9 +593,9 @@ g.V().match(
 <b> Demo: Working with Azure Cosmos DB - Cassandra API </b>
 
 
-<p> Apache Cassandra. A wide column store is a type of NoSQL database. Unlike a relational database, the names and format of the columns can vary from row to row in the same table. A few others wide column store databases are Apache Cassandra, Hbase and Azure Tables. Cosmos DB Cassandra API can be used as the data store for apps written for Apache Cassandra. Existing Cassandra applications using CQLv4 compliant drivers, can communicate with the Cosmos DB Cassandra API. You can easily switch from Apache Cassandra to Cosmos DB Cassandra API by just updating the connection string. Use the CQL (Casandra Query Language), Cassandra-based tools and Cassandra client drivers you're already familiar with. </p>
+<p> Apache Cassandra: A wide column store is a type of NoSQL database. Unlike a relational database, the names and format of the columns can vary from row to row in the same table. A few others wide column store databases are Apache Cassandra, Hbase and Azure Tables. Cosmos DB Cassandra API can be used as the data store for apps written for Apache Cassandra. Existing Cassandra applications using CQLv4 compliant drivers, can communicate with the Cosmos DB Cassandra API. You can easily switch from Apache Cassandra to Cosmos DB Cassandra API by just updating the connection string. Use the CQL (Casandra Query Language), Cassandra-based tools and Cassandra client drivers you're already familiar with. </p>
 
-<p> Benefits of using Cosmos DB Cassandra API includes no operations management (PaaS), low latency reads and writes, you can use existing code and tools to work with Cosmos DB, throughput and storage elasticity, global distribution and availability, choice of five well-definede consistency levels </p>
+<p> Benefits of using Cosmos DB Cassandra API includes no operations management (PaaS), low latency reads and writes, you can use existing code and tools to work with Cosmos DB, throughput and storage elasticity, global distribution and availability, choice of five well-defined consistency levels </p>
 
 <p> You can choose different tools for interacting with the Cosmos DB Cassandra API. You can use Cassandra-based tools (e.g. cqlsh, SQL Shell), you can use the data explorer and finally you can interact programmatically, using the SDK (CassandraCSharpDriver). In the data explorer, you need to define a keyspace. The keyspace is a container or namespace, if you will, and the tables you create will be inside this keyspace. </p>
 
@@ -620,7 +609,7 @@ Step 1: Create a storage account
 Step 2: Create a file system (?) 
 Step 3: Download Azure Storage Explorer 
 
-You can upload files to the Data Lake with the RESTful API or the DistCp tool. Since Azure Data LAke Storage Gen2 is built on top of Azure Blob Storage, you can also use the AzCopy tool to copy documents into this storage. With AzCopy we can have different file formats (csv, xlsx, JSON, xml, sql, accdb, zip etc) </p>
+You can upload files to the Data Lake with the RESTful API or the DistCp tool. Since Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage, you can also use the AzCopy tool to copy documents into this storage. With AzCopy we can have different file formats (csv, xlsx, JSON, xml, sql, accdb, zip etc) </p>
 
 
 
@@ -632,10 +621,10 @@ You can upload files to the Data Lake with the RESTful API or the DistCp tool. S
 <p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
 
 <b> Azure Container Instance </b>
-<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. </p>
+<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources.</p>
 
 <b> Provisioning </b>
-<p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources. </p> 
+<p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. </p> 
 
 
 <b> Wide column store </b>
@@ -643,7 +632,7 @@ You can upload files to the Data Lake with the RESTful API or the DistCp tool. S
 
 <b> HTTP Headers </b>
 <p> When you type a url in your address bar, your browser sends an HTTP request and it may look like this </p>
-<pre> GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1
+<pre>GET /tutorials/other/top-20-mysql-best-practices/ HTTP/1.1
 Host: net.tutsplus.com
 User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 (.NET CLR 3.5.30729)
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
@@ -713,7 +702,7 @@ Latency and throughput are the two most fundamental measures of network performa
  <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
 
 
-<b> Setup LocalDB server using sqllocaldb (Microsoft SQL Server Management Studio</b>
+<b>Setup LocalDB server using sqllocaldb (Microsoft SQL Server Management Studio</b>
 
 <a href="https://www.youtube.com/playlist?list=PLWsYJ2ygHmWgGDLIGe0w5nA5QyMDB3-OU"> Youtube playlisy </a>
 
