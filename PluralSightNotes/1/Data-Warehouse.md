@@ -4,18 +4,18 @@
 <ul> 
 <b> <h3> Summary of this document </h3> </b>
 
-<i> What is a Data Warehouse? </i>
+<i> <b> What is a Data Warehouse?  </b> </i>
 <li> Data warehousing is a technology that aggregates structured data from one or more sources so that it can be compared and analyzed </li>
 <li> It's reasonable to use Data Warehouse when you have historical data that is sitting there, ready for analytics to be applied to it </li>
 <li> Rather than to soak in data (like a database), a data warehouse is designed to produce data for analysis. That is, a database is designed to record while a data warehouse is designed to analyize. </li>
 <li> For a Data Warehouse the datas purpose is defined (structured and highly transformed). For a Data Lake the datas purpose is not yet determined. </li>
+<i> <b> What is Azure SQL Data Warehouse? </b> </i>
 <br>
-<i> What is Azure SQL Data Warehouse? </i>
 <li> Azure SQL Data Warehouse is cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
 <li> Azure SQL Data Warehouse and Azure Synapse Analytics are used interchangeably (the same thing) </li>
 <li> Massively parallel processing can be described as multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. </li>
+<i><b> What are best practises for Azure SQL Data Warehouse? </b> </i>
 <br>
-<i> What are best practises for Azure SQL Data Warehouse? </i>
 <li> Data warehouses often contain large tables, and require techniques for both managing these large tables and providing good query performance </li>
 <li> Data distribution allows the work of a query to be divided into 60 smaller queries that run in parallel.
 <li> Data partitioning allows a table, index, or index-organized table to be subdivided into smaller pieces, where each piece of such a database object is called a partition.</li>
