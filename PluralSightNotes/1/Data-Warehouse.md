@@ -459,6 +459,8 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 </pre>
  </ul>
  
+ ---
+ 
  <b> Examining Configuration Options for an SQL Pool in Azure Synapse Analytics</b>
  <p> In this section we are going to examine configuration options for the data warehouse.  </p>
  
