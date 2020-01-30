@@ -38,19 +38,19 @@
  <p> Uses Azure Storage under the hood. </p>
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. </p>
+ </ul>
  <ul>
   <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
   <li> If your to store the data in key-value pairs use the Azure table API.</li>
   <li> If you want to store your data as wide columns use the Cassandra API </li>
   <li> If you want to store your data as graphs use the Gremlin API</li>
  </ul>
-
-
+<br>
 
 <ul>
 <p> <b> Manage NoSQL offerings by Azure </b> </p>
  <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
- <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course. </li>
+ <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
 
 ---
