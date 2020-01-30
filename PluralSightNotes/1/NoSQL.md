@@ -1,14 +1,33 @@
 <h1> Implementing NoSQL Database in Microsoft Azure </h1>
 
-<h3> Introduction </h3>
-<p> In this lession, we will</p>
-<ul>
-<i> <li> Learn Azure Cosmos DB</li>
-<li>  Learn Azure Multimodel API</li>
-<li> Azure Table Storage etc</li> </i>
-</ul>
+<ul> 
+<b> <h3> Summary</h3> </b>
+
+<b> What is NoSQL and why use it?  </b>
+<li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
+<li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serer in order to maintaine the integrity of the table mappings and require consistency) </li>
+<li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
+<br>
+<b> What is Azure Storage Account?</b> 
+<br><br>
+<li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
+<li> Notice that, a storage account is not a NoSQL service olr a database, its a container for various file and storage services</li>
+<li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
+<br>
+<b> What is CosmosDB</b> 
+<br><br>
+<li> Cosmos DB is a globally distributed multi-model database </li>
+<li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
+<li> Cosmos DB is a unit of management for a set of containers </li>
+<br>
+
+<b> What are containers? </b>
+<br><br>
+<p> Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. </p>
+
 
 ---
+
 
 <h3> An Introduction to NoSQL Databases. </h3>
 <ul>
@@ -18,35 +37,14 @@
 <li> Azure Data Lake </li>
  <p> Uses Azure Storage under the hood. </p>
 <li> CosmosDB (previous called Document DB)</li>
- <p> Globally distributed, multimodel database. 
+ <p> Globally distributed, multimodel database. </p>
  <ul>
   <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
   <li> If your to store the data in key-value pairs use the Azure table API.</li>
   <li> If you want to store your data as wide columns use the Cassandra API </li>
   <li> If you want to store your data as graphs use the Gremlin API</li>
  </ul>
- 
- </p>
-</ul>
 
-<ul>
-<p> <b> CosmosDB API </b> </p>
- <li> SQL API </li>
- <li> Cassandra</li>
- <li> Gremlin (Graph) </li>
- <li> MongoDB </li>
- <li> Table </li>
-</ul>
-
-<ul>
-<p> <b> What is NoSQL</b> </p>
- <li> Not schema dependent. </li>
-  <li> Any database that store data which is not in tabular relationships. </li>
-  <li> JSON structure is normal.</li>
-  <li> Scales better horizontally. </li>
-  <li> NoSQL should not only be recommended to store non-relational data. NoSQL can store relational data aswell. </li>
- <li> Mainly about horizontal scalability, availability and price. </li>
-</ul>
 
 
 <ul>
@@ -71,7 +69,7 @@
 
  <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables. Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
   
- <b> Azure Blog Storage </b>
+ <b> Azure Blog Storage (Binary Large Object) </b>
  <p> Blob Storage is optimized to store massive amount of unstructured data (e.g. audio, video, csv) in the cloud, servering documents directly to the browser. Blob Storage is widely used for data back-ups and restores. Many Azure services (for example Azure SQL Database) are storing their backup in Azure Blob Storage. The service can also be used to store data for analysis. Azure Blob Storage can automatically scale when the demand increases.</p>
  
  <b> Azure Queue Storage </b> 
