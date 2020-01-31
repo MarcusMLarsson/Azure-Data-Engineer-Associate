@@ -42,7 +42,7 @@
 | There is a downtime while changing the resources (CPU/storage) | No guaranteed exact maintenance time (but nearly transparent)       |
 | Need to implement additional mechanisms to ensure availability of your databases | Private IP address cannot be assigned (with exception)       |
 
-   <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. Continue t administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+   <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
    
    <p> How are resources assigned to various deployment options to Azure database? In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
@@ -51,16 +51,14 @@
    
   <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
   
-
-    <ul>
-  <p> vCore-based : DTU-based </p>
-  <li> For single database, elastic pool and managed instance : Only for single database and elastic pool </li>
-  <li> Best for customers who need flexibility, control and transparency : Best for customers who want simple, preconfigured resource options </li>
-  <li> Strightforward way to translate on-premises workload to the cloud : Might need to calculate the needed DTUs before migration  </li>
-  <li> Microsoft recommends vCore-based model : If the DTU-based purchasing model meets your performance and business reqirements, you should continue using it </li>
-  <ul>
-  
-  <p> IF your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
+  | vCore-based        | DTU-based       |
+| ------------- |:-------------:|
+| For single database, elastic pool and managed instance     | Only for single database and elastic pool  |
+| Best for customers who need flexibility, control and transparency     | Best for customers who want simple, preconfigured resource options      |
+| Strightforward way to translate on-premises workload to the cloud | Might need to calculate the needed DTUs before migration       |
+| Microsoft recommends vCore-based model | If the DTU-based purchasing model meets your performance and business reqirements, you should continue using it       |
+    
+  <p> If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
   
   <p> (Service tiers) General purpose / standard : is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. Business Critical / Premium: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency. Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </p>
   
