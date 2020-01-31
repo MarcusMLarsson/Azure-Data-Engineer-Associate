@@ -23,29 +23,25 @@
 | Up to 99.95% availaiblity     | 99.99% availability guaranteed  |
 | Full control over the SQL Server enginge     | The most commonly used SQL Server features are available      |
 | Full parity with the matching version of on-premises SQL Server | Built-in backups, patching, recovery      |
+| Easy migration from SQL Server on-premises | Ability to assign necessary resources (CPU/storage) to individual databases      |
+| Private IP address within Azure VNet | Built-in advanced intelligence and security      |
+|  | Online change of resources (CPU/storage) with no downtime     |
 
 
 
-<ul>
-  <p> SQL Server on VM : Azure SQL Database </p>
-  <li>Up to 99.95% availablity : 99.99% availability guaranteed </li>
-  <li>Full control over the SQL Server enginge : The most commonly used SQL Server features are available</li>
-  <li>Full parity with the matching version of on-premises SQL Server : Built-in backups, patching, recovery</li>
-  <li>Easy migration from SQL Server on-premises : Ability to assign necessary resources (CPU/storage) to individual databases</li>
-  <li>Private IP address within Azure VNet : Built-in advanced intelligence and security</li>
-  <li> : Online change of resources (CPU/storage) with no downtime</li>
-  <ul>
-    
-   <b> Limitations </b> 
-    <ul>
-  <p> SQL Server on VM : Azure SQL Database </p>
-  <li> Need to manually manage your backups and patches : Migration from SQL Server might be hard</li>
-  <li> You need to implement your own high-availability solution : Some SQL Server features are not available</li>
-  <li> There is a downtime while changing the resources (CPU/storage) : No guaranteed exact maintenance time (but nearly transparent) </li>
-  <li>Need to implement additional mechanisms to ensure availability of your databases : Private IP address cannot be assigned (with exception) </li>
-  <ul>
-    
-    
+
+
+
+
+<b> Limitations  </b>
+
+| SQL Server on VM        | Azure SQL Database       |
+| ------------- |:-------------:|
+| Need to manually manage your backups and patches     | Migration from SQL Server might be hard  |
+| You need to implement your own high-availability solution     | Some SQL Server features are not available      |
+| There is a downtime while changing the resources (CPU/storage) | No guaranteed exact maintenance time (but nearly transparent)       |
+| Need to implement additional mechanisms to ensure availability of your databases | Private IP address cannot be assigned (with exception)       |
+
    <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. Continue t administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
    
