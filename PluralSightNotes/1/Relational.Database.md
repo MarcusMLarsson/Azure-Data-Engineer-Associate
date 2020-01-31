@@ -10,16 +10,25 @@
   <li> Managed instance: A set of databases that can be used together, easy migration of on-premises databases</li>
 </ul>
 
-<p> Imagen you have a server which talks to a SQL server database inthe back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas).   The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
+<p> Imagen you have a server which talks to a SQL server database in the back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas).   The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
 
-<p> SQL Server on Azure VMs: is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server insallted on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database to save some costs.  </p>
+<p> SQL Server on Azure VMs: is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server installed on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database (to save some costs).  </p>
 
-<p> Azure SQL Database: A relational database-as-a-service (DBaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. Has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and manaagement. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
+<p> Azure SQL Database: A relational database-as-a-service (DBaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
 
 <b> Benefits </b>
+
+| SQL Server on VM        | Azure SQL Database       |
+| ------------- |:-------------:|
+| Up to 99.95% availaiblity     | 99.99% availability guaranteed  |
+| Full control over the SQL Server enginge     | The most commonly used SQL Server features are available      |
+| Full parity with the matching version of on-premises SQL Server | Built-in backups, patching, recovery      |
+
+
+
 <ul>
   <p> SQL Server on VM : Azure SQL Database </p>
-  <li>Up to 99.95% availaiblity : 99.99% availability guaranteed </li>
+  <li>Up to 99.95% availablity : 99.99% availability guaranteed </li>
   <li>Full control over the SQL Server enginge : The most commonly used SQL Server features are available</li>
   <li>Full parity with the matching version of on-premises SQL Server : Built-in backups, patching, recovery</li>
   <li>Easy migration from SQL Server on-premises : Ability to assign necessary resources (CPU/storage) to individual databases</li>
@@ -317,7 +326,7 @@ sp_set_agent_properties is not supported. Disabling Agent is currently not suppo
 In schedueles you can add scheduels.. Fill in everything. To run manually right click on job, and pick start job. Now let's go a head and configure email registration for our job (each thime job runs, email trigger). Before we do this we
 need to configre the database mail: Click on Management folder,  rightclik on database mail and choose Configure Database Mail. Next => Configure a mail account (go with the first option), Create a new e-mail profile and specify its
 SMTP accounts (Send email from printer, scanner, or app. If you are using SSL (Secure Sockets Layer) firewall needs to open port 587. Go to Network Security group. Click on outbound security rules and make sure the outgoing port 587 is
- allowed. Name your profile AzureManagedInstance_dbmail_profile. You can right-click on the Database Mail and send a test email. Now let's configure our agent to send notificaitons. Before doing that, I need to define an operator. An operator could be a database administrator who needs to be notified on agent jobs. Right click on Operators and click new operator. Now let‰s dubbelclick on Jobs, click on notifcaiton and click on e-mail, and choose other operator from the
+ allowed. Name your profile AzureManagedInstance_dbmail_profile. You can right-click on the Database Mail and send a test email. Now let's configure our agent to send notificaitons. Before doing that, I need to define an operator. An operator could be a database administrator who needs to be notified on agent jobs. Right click on Operators and click new operator. Now let√§s dubbelclick on Jobs, click on notifcaiton and click on e-mail, and choose other operator from the
 dropdown. </p>
 
 ---
