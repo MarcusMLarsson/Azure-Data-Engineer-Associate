@@ -121,7 +121,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 </pre>
 <p> Now connect with new user  </p>
 
-<p> Demo: Provisioning Azure SQL Elastic Pools </p>
+<p> <b>Demo: Provisioning Azure SQL Elastic Pools </b></p>
 <p> Create multiple Azure SQL Database Single Databases and than add them to a new elastic pool. We only need one server. Create a resource => SQL Elastic database pool => Create. Place Elastic pool inside same resource group. Which logical server do I want to put my elastic pool in? When you have created the resource you are ready to add the databases to the pool. Let's click on configure. Here you can change the amoungt of resources you assigne to the elastic pool. Let's click on databases, here you have the option to create databases which will be added to the pool. Let's choose the databases and click apply. Now it should say Elastic General Purpose for the pricing tier. </p>
 
 <p> Scaling: Could be single database or elastic pool. Click on database => Pricing tier </p>
