@@ -16,12 +16,6 @@
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. </p>
  </ul>
- <ul>
-  <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
-  <li> If your to store the data in key-value pairs use the Azure table API.</li>
-  <li> If you want to store your data as wide columns use the Cassandra API </li>
-  <li> If you want to store your data as graphs use the Gremlin API</li>
- </ul>
 
 <ul>
 <p> <b> Manage NoSQL offerings by Azure </b> </p>
@@ -30,7 +24,6 @@
 </ul>
 
 <h3> Azure Storage Account </h3>
-<br><br>
 <li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
 <li> Notice that, a storage account is not a NoSQL service or a database, its a container for various file and storage services</li>
 <li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
@@ -70,6 +63,13 @@
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
 </ul>
+
+ <ul>
+  <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
+  <li> If your to store the data in key-value pairs use the Azure table API.</li>
+  <li> If you want to store your data as wide columns use the Cassandra API </li>
+  <li> If you want to store your data as graphs use the Gremlin API</li>
+ </ul>
  
  <ul>
  <li> Global distribution & multi-homing </li>
