@@ -152,163 +152,6 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
  <li> CORS (Cross-origin resource control) can be whitelisted for Azure Cosmos DB as well. So if you have a client-side application which is directly calling Cosmos DB APIs to get data back, you can whitelist those applications in Azure Cosmos DB so those requests can be made from the browser.  </li>
  <li> Read-only and read-write keys </li>
 </ul>
-<br>
-
----
-
- <b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
- <p> Let's start with creating an Cosmos DB. Go tomore Services => Cosmos Db. Overview => Add container. Remember an Cosmos DB is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container, People and pick /City as partinione key. Add a new item (we will use JSON format). When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
-   
- <b> Demo: Cosmos DB Security </b>
- <p>
-If I only need the clients to be able to see the data, but not to update the data,  you can give them Read-only keys (not Read-write keys). Under Firewall and virtual networks you can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
-
- <b> Working with Azure Cosmos DB - SQL (Core) API </b>
- 
- <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
- 
- <ul>
- <p> Container name for different APIs </p>
- <li> <b> SQL API:</b> Collection</li>
- <li> <b>Table API:</b> Table</li>
- <li> <b>MongoDB API:</b> Collection</li>
- <li> <b>Cassandra API:</b> Table</li>
- <li> <b>Gremlin API:</b> Graph</li>
- </ul>
- <br>
- 
- <p> Use Data Explorer: Azure Cosmos DB SQL API supports querying JSON items using SQL.
-<pre>
-"firstname": "Marcus",
-"lastname": "Larsson,
-"email": "mla@mail.se",
-"address": { 
-    "streetAdress": "Gatan",
-    "city": "Stockholm",
-    "country": "Sweden",
-},
-"phone": "+46703 ....."
-</pre>
-
-<pre>
-SELECT *
-FROM People as p
-WHERE p.lastname = "Marcus"
-</pre>
-
-<p> You can also query nested properties </p>
-<pre>
-SELECT *
-FROM People as p
-WHERE p.address.city = "Stockholm"
-</pre>
-
-<p> I can select fields of my items into new JSON objects</p>
-
-<pre>
-SELECT {"Name":p.id, "City":p.address.city} AS Person
-FROM People AS p
-WHERE p.address.city = "Gothenburg"
-</pre>
-
-<b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
-
-<p> Create CosmosDB => Create container => add items </p>
-
-<pre>
-{
-    "id": "1000",
-    "name" : "Reza",
-    "email" : "reza@test.com",
-    "city" : "Toronto"
-}
-</pre> 
-
-<pre>
-{
-    "id": "1001",
-    "name": "John",
-    "email": "John@test.com",
-    "city": "Boston",
-}
-</pre>
-
-<b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
-
-<p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
-
-<p> Create a SQL server & Database in Azure. Populate it with data with the help of the pre-compiled binary.
-
-<a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
-
-<b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
-
-<pre>using System;
-using System.Collections.Generic;
-using Microsoft.Azure.Cosmos;
-
-namespace ConsoleApp1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            CosmosClient cosmosClient;                
-            Database database;
-            Container container;
-
-            cosmosClient = new CosmosClient("AccountEndpoint=https://mlacosmos.documents.azure.com:443/;AccountKey=x73LhWDOWB4zDSoMUlqQUaJHWpB2cSURpnm1DyXvtl79hXlsuHNYJDIVggnnngE4O5mHnw8D9Uj5mcM22PGH4A==;");                 // Create a cosmosClient object by passing connection string
-            database = cosmosClient.GetDatabase("db01");             // Using the cosmosClient object, create a database object (getting a refrence to the database)  
-            container = database.GetContainer("Items");               // Access the container I need inside this database.   
-
-            var sqlQueryText = "SELECT * FROM dbo.Product";          // Sql query
-            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);          // create object queryDefinition with the help of QueryDefinition class (pass query to a constructor)
-            FeedIterator<Product> queryResultSetIterator = container.GetItemQueryIterator<Product>(queryDefinition);   // create object queryResultSetIterator (create a query result iterator)
-
-            List<Product> redProducts = new List<Product>();                   // an empty list of the product object that I'm going to fetch
-
-
-            while (queryResultSetIterator.HasMoreResults)  // as long as we have data to fetch =>
-            {
-                FeedResponse<Product> currentResultSet = queryResultSetIterator.ReadNextAsync().Result;  // => it is going to fetch the data =>
-                foreach(Product product in currentResultSet)
-                {
-                    redProducts.Add(product);                                 // => add them to the result list =>
-                    Console.WriteLine("\tRead {0}\n", product.ProductNumber); // => and also put the product console into the consol
-                }
-
-            }
-        }
-    }
-}
-</pre>
-
-<pre> 
-namespace ConsoleApp1
-{
-    internal class Product
-    {
-
-        public int ProductID { get; set; }
-        
-        public string Name { get; set;  }
-
-        public string ProductNumber { get; set; }
-
-        public Category Category { get; set; }
-
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-    }
-
-}
-
-</pre>
-
---
 
 <b> Working with Azure Cosmos DB - MongoDB API</b>
 
@@ -335,69 +178,6 @@ namespace ConsoleApp1
  Post-migration steps: After your data is migrated to the destination you need to connect your application with the connection string. The other three steps are optional steps. You can optimize the indexing policy, you can globally distribute your data and you can set concistency level of your choice.
  </p>
  
- ---
- 
- <b> Demo: Create a sample MongoDB database in MongoDB Atlas </b>
-<p> MongoDB Atlas: Create free tier (M0 Sandbox). Click on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user. Download Studio 3T mongoDB client  </p>
-
-<pre> 
-using MongoDB.Driver;
-using System;
-
-namespace MongoDBAPI
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            IMongoCollection<Company> companiesCollection;
-
-            MongoClient client = new MongoClient("mongodb+srv://marcuslarsson:Britney123@cluster0-rmtx6.azure.mongodb.net/test?retryWrites=true&w=majority"); 
-
-            // Create an instance of MongoClient object using MongoDB connection string to this constructure.
-
-            var database = client.GetDatabase("sample_training"); // get a reference to the database that we are going to work with. 
-
-            companiesCollection = database.GetCollection<Company>("companies"); //name of the collection
-
-            var myCompanies = companiesCollection.Find<Company>(company => company.founded_year > 2000).Limit(100).ToList();
-
-
-            foreach (var company in myCompanies)
-            {
-                Console.WriteLine($"{company.name} founded in { company.founded_year}.");
-                    
-            }
-
-            Console.WriteLine("press a key to exit ...");
-            Console.ReadKey();
-        }
-    }
-}
-
-</pre>
-
-<pre>
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace MongoDBAPI
-{
-    internal class Company
-    {
-
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
-
-        public int founded_year { get; set; }
-
-        public string name { get; set; }
-
-        public string homepage_url { get; set; }
-    }
-}
-</pre>
 
 <b> Migrate a Mongo DB database to Azure Cosmos DB using Data Migration Service (DMS) </b>
 
@@ -424,42 +204,6 @@ Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install t
 </pre>
 
 <p> The first step is to go ahead and create an Azure Cosmos DB Table API instance. Choose Azure Table API. Now we can migrate our data into Azure Cosmos DB (Table API). There are two tools to migrate the data (Cosmos DB Data Migration Tool, AzCopy) </p>
-
-<p> Demo: Provisioning a Cosmos DB Table API instance. </p>
-
-<pre>
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
-
-namespace TableAPI
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=mlacosmosdb;AccountKey=3DUoTtcwo7whnUkawB7DuejVEL7HWkCwR3Y2erou891Caa6O0Fd2sQimMBPgrXAaCUDIA3DOwKTClRjvUzHhWw==;TableEndpoint=https://mlacosmosdb.table.cosmos.azure.com:443/;";
-
-
-            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-
-            CloudTableClient serviceClient = account.CreateCloudTableClient();
-
-            CloudTable table = serviceClient.GetTableReference("people");
-
-            var opperation = TableOperation.Retrieve<Person>("canada", "1");
-
-
-            var jobResult = table.ExecuteAsync(opperation);
-
-
-            var entity = jobResult.Result;
-        }
-    }
-}
-
-</pre>
 
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
@@ -711,3 +455,260 @@ namespace AzureStorageSDK                 <i> // namespace are used to organize 
         public string Phone { get; set; }
     }
 }</pre>
+
+
+<b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
+ <p> Let's start with creating an Cosmos DB. Go tomore Services => Cosmos Db. Overview => Add container. Remember an Cosmos DB is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container, People and pick /City as partinione key. Add a new item (we will use JSON format). When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
+   
+ <b> Demo: Cosmos DB Security </b>
+ <p>
+If I only need the clients to be able to see the data, but not to update the data,  you can give them Read-only keys (not Read-write keys). Under Firewall and virtual networks you can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
+
+ <b> Working with Azure Cosmos DB - SQL (Core) API </b>
+ 
+ <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
+ 
+ <ul>
+ <p> Container name for different APIs </p>
+ <li> <b> SQL API:</b> Collection</li>
+ <li> <b>Table API:</b> Table</li>
+ <li> <b>MongoDB API:</b> Collection</li>
+ <li> <b>Cassandra API:</b> Table</li>
+ <li> <b>Gremlin API:</b> Graph</li>
+ </ul>
+ <br>
+ 
+ <p> Use Data Explorer: Azure Cosmos DB SQL API supports querying JSON items using SQL.
+<pre>
+"firstname": "Marcus",
+"lastname": "Larsson,
+"email": "mla@mail.se",
+"address": { 
+    "streetAdress": "Gatan",
+    "city": "Stockholm",
+    "country": "Sweden",
+},
+"phone": "+46703 ....."
+</pre>
+
+<pre>
+SELECT *
+FROM People as p
+WHERE p.lastname = "Marcus"
+</pre>
+
+<p> You can also query nested properties </p>
+<pre>
+SELECT *
+FROM People as p
+WHERE p.address.city = "Stockholm"
+</pre>
+
+<p> I can select fields of my items into new JSON objects</p>
+
+<pre>
+SELECT {"Name":p.id, "City":p.address.city} AS Person
+FROM People AS p
+WHERE p.address.city = "Gothenburg"
+</pre>
+
+<b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
+
+<p> Create CosmosDB => Create container => add items </p>
+
+<pre>
+{
+    "id": "1000",
+    "name" : "Reza",
+    "email" : "reza@test.com",
+    "city" : "Toronto"
+}
+</pre> 
+
+<pre>
+{
+    "id": "1001",
+    "name": "John",
+    "email": "John@test.com",
+    "city": "Boston",
+}
+</pre>
+
+<b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
+
+<p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
+
+<p> Create a SQL server & Database in Azure. Populate it with data with the help of the pre-compiled binary.
+
+<a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
+
+<b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
+
+<pre>using System;
+using System.Collections.Generic;
+using Microsoft.Azure.Cosmos;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            CosmosClient cosmosClient;                
+            Database database;
+            Container container;
+
+            cosmosClient = new CosmosClient("AccountEndpoint=https://mlacosmos.documents.azure.com:443/;AccountKey=x73LhWDOWB4zDSoMUlqQUaJHWpB2cSURpnm1DyXvtl79hXlsuHNYJDIVggnnngE4O5mHnw8D9Uj5mcM22PGH4A==;");                 // Create a cosmosClient object by passing connection string
+            database = cosmosClient.GetDatabase("db01");             // Using the cosmosClient object, create a database object (getting a refrence to the database)  
+            container = database.GetContainer("Items");               // Access the container I need inside this database.   
+
+            var sqlQueryText = "SELECT * FROM dbo.Product";          // Sql query
+            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);          // create object queryDefinition with the help of QueryDefinition class (pass query to a constructor)
+            FeedIterator<Product> queryResultSetIterator = container.GetItemQueryIterator<Product>(queryDefinition);   // create object queryResultSetIterator (create a query result iterator)
+
+            List<Product> redProducts = new List<Product>();                   // an empty list of the product object that I'm going to fetch
+
+
+            while (queryResultSetIterator.HasMoreResults)  // as long as we have data to fetch =>
+            {
+                FeedResponse<Product> currentResultSet = queryResultSetIterator.ReadNextAsync().Result;  // => it is going to fetch the data =>
+                foreach(Product product in currentResultSet)
+                {
+                    redProducts.Add(product);                                 // => add them to the result list =>
+                    Console.WriteLine("\tRead {0}\n", product.ProductNumber); // => and also put the product console into the consol
+                }
+
+            }
+        }
+    }
+}
+</pre>
+
+<pre> 
+namespace ConsoleApp1
+{
+    internal class Product
+    {
+
+        public int ProductID { get; set; }
+        
+        public string Name { get; set;  }
+
+        public string ProductNumber { get; set; }
+
+        public Category Category { get; set; }
+
+    }
+
+    public class Category
+    {
+        public int CategoryId { get; set; }
+    }
+
+}
+
+</pre>
+
+
+<hr>
+
+
+<b> Demo: Create a sample MongoDB database in MongoDB Atlas </b>
+<p> MongoDB Atlas: Create free tier (M0 Sandbox). Click on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user. Download Studio 3T mongoDB client  </p>
+
+<pre> 
+using MongoDB.Driver;
+using System;
+
+namespace MongoDBAPI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            IMongoCollection<Company> companiesCollection;
+
+            MongoClient client = new MongoClient("mongodb+srv://marcuslarsson:Britney123@cluster0-rmtx6.azure.mongodb.net/test?retryWrites=true&w=majority"); 
+
+            // Create an instance of MongoClient object using MongoDB connection string to this constructure.
+
+            var database = client.GetDatabase("sample_training"); // get a reference to the database that we are going to work with. 
+
+            companiesCollection = database.GetCollection<Company>("companies"); //name of the collection
+
+            var myCompanies = companiesCollection.Find<Company>(company => company.founded_year > 2000).Limit(100).ToList();
+
+
+            foreach (var company in myCompanies)
+            {
+                Console.WriteLine($"{company.name} founded in { company.founded_year}.");
+                    
+            }
+
+            Console.WriteLine("press a key to exit ...");
+            Console.ReadKey();
+        }
+    }
+}
+
+</pre>
+
+<pre>
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace MongoDBAPI
+{
+    internal class Company
+    {
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string id { get; set; }
+
+        public int founded_year { get; set; }
+
+        public string name { get; set; }
+
+        public string homepage_url { get; set; }
+    }
+}
+</pre>
+
+<hr>
+
+<p> Demo: Provisioning a Cosmos DB Table API instance. </p>
+
+<pre>
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+
+namespace TableAPI
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=mlacosmosdb;AccountKey=3DUoTtcwo7whnUkawB7DuejVEL7HWkCwR3Y2erou891Caa6O0Fd2sQimMBPgrXAaCUDIA3DOwKTClRjvUzHhWw==;TableEndpoint=https://mlacosmosdb.table.cosmos.azure.com:443/;";
+
+
+            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+
+            CloudTableClient serviceClient = account.CreateCloudTableClient();
+
+            CloudTable table = serviceClient.GetTableReference("people");
+
+            var opperation = TableOperation.Retrieve<Person>("canada", "1");
+
+
+            var jobResult = table.ExecuteAsync(opperation);
+
+
+            var entity = jobResult.Result;
+        }
+    }
+}
+
+</pre>
