@@ -6,8 +6,8 @@
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
 </ul>
 
-<ul>
 <p> <b>  Managed NoSQL offeings by Azure </b> </p>
+<ul>
 <li> Azure Storage (blob, file, queue, table)</li>
  <p> Can be used to store unstructured data (csv, video, image etc) in cheap storage. Is accessible from anywhere in the world over HTTP / HTTPS. </p>
 <li> Azure Data Lake </li>
@@ -17,7 +17,6 @@
  </ul>
 
 <ul>
-<p> <b> Manage NoSQL offerings by Azure </b> </p>
  <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
