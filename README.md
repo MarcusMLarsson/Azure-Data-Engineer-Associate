@@ -7,7 +7,7 @@
 
 <h3> My journey to becomming Azure certified </h3>
 
-<p> This repository includes my studynotes for the Azure-Data-Engineer-Associate certification. In particular, my notes focuses on the Pluralsights curriculum for DP-200 and DP-201. I wish you the best of luck for your studies! </p> 
+<p> This repository includes my studynotes for the Azure-Data-Engineer-Associate certification. In particular, my notes focuses on Pluralsights curriculum for DP-200 and DP-201. I wish you the best of luck for your studies! </p> 
 
 
 
