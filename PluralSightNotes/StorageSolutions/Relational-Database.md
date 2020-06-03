@@ -46,7 +46,7 @@
   <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
 </ul>
 
-   <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+   <p><b>Why move to Azure SQL Database</b>: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
    <p> How are resources assigned to various deployment options to Azure database? In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
