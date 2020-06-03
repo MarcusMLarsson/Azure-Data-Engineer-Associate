@@ -198,8 +198,6 @@ https://<endpoint>/People()?$filter=PartitionKey%20eq%20'Boston'%20and%20Email%2
 Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install the correct version of .NET Framework SDK (using Microsoft.Azure.Cosmos.Table).
 </pre>
 
-<p> The first step is to go ahead and create an Azure Cosmos DB Table API instance. Choose Azure Table API. Now we can migrate our data into Azure Cosmos DB (Table API). There are two tools to migrate the data (Cosmos DB Data Migration Tool, AzCopy) </p>
-
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
 <p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
