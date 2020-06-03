@@ -54,7 +54,7 @@
 <ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
 	<li>	The other purchasing model is the <b>vCore-based</b> purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </li></ul></p>
    
-  <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
+  <p> <i>DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes. </i> </p>
   
   | vCore-based        | DTU-based       |
 | ------------- |:-------------:|
