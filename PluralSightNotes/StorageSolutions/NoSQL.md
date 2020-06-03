@@ -4,7 +4,7 @@
 
 <b> What is NoSQL and why use it?  </b>
 <li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
-<li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serer in order to maintaine the integrity of the table mappings and require consistency) </li>
+<li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
 <br>
 <b> What is Azure Storage Account?</b> 
