@@ -99,8 +99,45 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  
  <hr>
  
+  <h3> Notes </h3>
+  
+<p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
+  
+<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
+  
+ <p> 
+	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
+  
+  <b> vCPUs (virtual CPUs), Physical CPUs, Cores </b>
+  <p> It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
+  
+<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
+  
+<b> Transparent Data Encryption </b>
+<p> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p>
+
+<b> SQL Server and Database Encryption Keys </b>
+
+<p> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
+to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
+
+SQL Server has two primary applications for keys: a service master key (SMK) generated on and for a SQL Server instance, and a database master key (DMK) used for a database.
+
+The Service Master Key is the root of the SQL Server encryption hierarchy. The SMK is automatically generated the first time the SQL Server instance is started and is used to encrypt a linked server password, credentials, and the
+database master key. The SMK is encrypted by using the local machine key using the Windows Data Protection API (DPAIP). TThe service master key can only be decrypted by the service account under which it was created or by
+principal that has access to the machine's credentials.
+
+The database master key is a symmetric key that is used to protect the private keys of certificates and asymmetric keys that are present in the database. It can also be used to encrypt data, but it has length limitations that make
+it less practical for data than using a symmetric key. To enable the automatic decryption of the database master key, a copy of the key is encrypted by using the SMK. It is stored in both the database where it is used and in the master
+system database. 
+
+<b> SQL Server Change Tracking (CT) </b>
+<p> SSQL Server Change Tracking, also known as CT, is a lightweight tracking mechanism, introduced the first time in SQL Server 2008, that can be used to track the DML (Data Manipulation Language, insert, update, delete) changes peformed in SQL Server database tables. SQL Change Tracking can be configured in all SQL Server editions, including the free Express edition. </p>
+ 
+ <hr>
+ 
  <h3> Demo: Provisioning an Azure SQL Database single database </h3>
- <p> The demo section can't be followed by only using my notes </p>
+ <p> <b> <i> The demo section can't be followed by only using my notes <b> </i></p>
  <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
 <pre> CREATE LOGIN appuser
           WITH PASSWORD ='12345xwqsxws'
@@ -348,40 +385,3 @@ is created it is going to start synchronizing based on the schedule you provide.
 user credentials of my hub database. In the next step I need to configure the member database (choose same logical
 server). In the last step of our wizard, we need to choose which tables we want to be synced. We also need to allow 
 Azure services and resources to access this server for all databases (same place as firewall settings)
-	
-<hr>
-  
-  <h3> Notes </h3>
-  
-<p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
-  
-<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
-  
- <p> 
-	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
-  
-  <b> vCPUs (virtual CPUs), Physical CPUs, Cores </b>
-  <p> It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
-  
-<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
-  
-<b> Transparent Data Encryption </b>
-<p> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p>
-
-<b> SQL Server and Database Encryption Keys </b>
-
-<p> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
-to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
-
-SQL Server has two primary applications for keys: a service master key (SMK) generated on and for a SQL Server instance, and a database master key (DMK) used for a database.
-
-The Service Master Key is the root of the SQL Server encryption hierarchy. The SMK is automatically generated the first time the SQL Server instance is started and is used to encrypt a linked server password, credentials, and the
-database master key. The SMK is encrypted by using the local machine key using the Windows Data Protection API (DPAIP). TThe service master key can only be decrypted by the service account under which it was created or by
-principal that has access to the machine's credentials.
-
-The database master key is a symmetric key that is used to protect the private keys of certificates and asymmetric keys that are present in the database. It can also be used to encrypt data, but it has length limitations that make
-it less practical for data than using a symmetric key. To enable the automatic decryption of the database master key, a copy of the key is encrypted by using the SMK. It is stored in both the database where it is used and in the master
-system database. 
-
-<b> SQL Server Change Tracking (CT) </b>
-<p> SSQL Server Change Tracking, also known as CT, is a lightweight tracking mechanism, introduced the first time in SQL Server 2008, that can be used to track the DML (Data Manipulation Language, insert, update, delete) changes peformed in SQL Server database tables. SQL Change Tracking can be configured in all SQL Server editions, including the free Express edition. 
