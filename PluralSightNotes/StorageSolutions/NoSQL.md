@@ -1,7 +1,33 @@
 <h1> Implementing NoSQL Database in Microsoft Azure </h1>
 
-<ul> 
 
+<h3> An Introduction to NoSQL Databases. </h3>
+<ul>
+<p> <b>  Managed NoSQL offeings by Azure </b> </p>
+<li> Azure Storage (blob, file, queue, table)</li>
+ <p> Can be used to store unstructured data (csv, video, image etc) in cheap storage. Is accessible from anywhere in the world over HTTP / HTTPS. </p>
+<li> Azure Data Lake </li>
+ <p> Uses Azure Storage under the hood. </p>
+<li> CosmosDB (previous called Document DB)</li>
+ <p> Globally distributed, multimodel database. </p>
+ </ul>
+ <br>
+ <ul>
+  <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
+  <li> If your to store the data in key-value pairs use the Azure table API.</li>
+  <li> If you want to store your data as wide columns use the Cassandra API </li>
+  <li> If you want to store your data as graphs use the Gremlin API</li>
+ </ul>
+<br>
+
+<ul>
+<p> <b> Manage NoSQL offerings by Azure </b> </p>
+ <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
+ <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
+</ul>
+
+
+<ul> 
 <b> What is NoSQL and why use it?  </b>
 <li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
 <li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
@@ -42,49 +68,13 @@
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
 
-
-<b> What are containers? </b>
-<br><br>
-<p> Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. </p>
-<br>
-<b> What is CosmosDB</b> 
-<br><br>
+ <b> Azure Cosmos DB Overview </b>
+ 
 <li> Cosmos DB is a globally distributed multi-model database </li>
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
 </ul>
-
-
-
-<h3> An Introduction to NoSQL Databases. </h3>
-<ul>
-<p> <b>  Managed NoSQL offeings by Azure </b> </p>
-<li> Azure Storage (blob, file, queue, table)</li>
- <p> Can be used to store unstructured data (csv, video, image etc) in cheap storage. Is accessible from anywhere in the world over HTTP / HTTPS. </p>
-<li> Azure Data Lake </li>
- <p> Uses Azure Storage under the hood. </p>
-<li> CosmosDB (previous called Document DB)</li>
- <p> Globally distributed, multimodel database. </p>
- </ul>
- <br>
- <ul>
-  <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
-  <li> If your to store the data in key-value pairs use the Azure table API.</li>
-  <li> If you want to store your data as wide columns use the Cassandra API </li>
-  <li> If you want to store your data as graphs use the Gremlin API</li>
- </ul>
-<br>
-
-<ul>
-<p> <b> Manage NoSQL offerings by Azure </b> </p>
- <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
- <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
-</ul>
-
-
-
-
- <b> Azure Cosmos DB Overview </b>
+ 
  <ul>
  <li> Global distribution & multi-homing </li>
  <li> Consistency levels </li>
