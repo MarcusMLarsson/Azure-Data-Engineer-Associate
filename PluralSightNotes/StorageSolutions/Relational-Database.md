@@ -48,9 +48,9 @@
 
    <p><b>Why move to Azure SQL Database</b>: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
-   <p> How are resources assigned to various deployment options to Azure database? In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
+   <p> <b>How are resources assigned to various deployment options to Azure database?</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
-   <p> Resource purchasing models: DTU-based (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. The other purchasing model is the vCore-based purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </p>
+   <p> <b>Resource purchasing models</b>: DTU-based (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. The other purchasing model is the vCore-based purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </p>
    
   <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
   
