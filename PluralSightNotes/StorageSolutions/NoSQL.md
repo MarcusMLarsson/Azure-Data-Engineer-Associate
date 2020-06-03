@@ -15,7 +15,7 @@
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. </p>
  </ul>
-
+<p> <b> Options are available for </b> </p>
 <ul>
  <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
