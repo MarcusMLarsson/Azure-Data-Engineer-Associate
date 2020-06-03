@@ -56,7 +56,6 @@
  </ul>
 
  <h3> Azure Cosmos DB </h3>
- 
  <ul>
 <li> Cosmos DB is a globally distributed multi-model database </li>
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
@@ -77,9 +76,7 @@
  <li> Nearest region is identified without any configuration changes. </li>
  <li> When a new region is added or removed, the connection string stays the same. </li>
  </ul> 
- <br>
 <p> Imagine you have two regions for your Cosmos DB account, one instance in West US and another instance in East US. You have created two versions of your web application and deployed on to an app service in West US and another app service in the East US region so your users can experience the least amount of latency. Now let's see what happends when there is a request for your application. You must probably have a traffic manager accepting the requests from the clients. The traffic managers knows the location of the client. In this case, the request is originated from Los Angeles, so the traffic manager is going to redirect the request to the app service located in the West US region, and my app service is using a connection string to connect to the Cosmos DB. So the question is, how does my app service know to which instance of Cosmos DB it should connect to; West US or East US? Because we don't have different connection strings for West US Cosmos DB and East US Cosmos DB. The answer is that the <b> multi-homing API </b> sovles this problem. The multi-homing API is going to figure out which instance of Cosmos DB is closest to my app service and redirect the data request to that instance, and this is the idea behind the multi-homing API </p>
-
 
  <b> Time-to-live</b>
  <p> With time-to-live (TTL) you can set an expire date on some of your objects saved into the database. You don't need to clean up your database and delete when the time has come. You can set the expiry time on Cosmos DB data items; the setting is called TTL and is set in seconds. Cosmos DB will automatically remove the items after this time period, since the last modififed time. </p>
