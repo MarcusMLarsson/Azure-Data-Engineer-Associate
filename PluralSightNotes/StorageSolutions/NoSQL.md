@@ -237,8 +237,7 @@ g.V().match(
      select("c").by("name")
 </pre>
 
-<b> Demo: Working with Azure Cosmos DB - Cassandra API </b>
-
+<b>Working with Azure Cosmos DB - Cassandra API </b>
 
 <p> Apache Cassandra: A wide column store is a type of NoSQL database. Unlike a relational database, the names and format of the columns can vary from row to row in the same table. A few others wide column store databases are Apache Cassandra, Hbase and Azure Tables. Cosmos DB Cassandra API can be used as the data store for apps written for Apache Cassandra. Existing Cassandra applications using CQLv4 compliant drivers, can communicate with the Cosmos DB Cassandra API. You can easily switch from Apache Cassandra to Cosmos DB Cassandra API by just updating the connection string. Use the CQL (Casandra Query Language), Cassandra-based tools and Cassandra client drivers you're already familiar with. </p>
 
