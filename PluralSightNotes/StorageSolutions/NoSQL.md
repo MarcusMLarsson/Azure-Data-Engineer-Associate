@@ -62,19 +62,12 @@
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
 </ul>
-<p> What back-end to pick </p>
+<p> <b> What back-end to pick </b></p>
  <ul>
   <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
   <li> If your to store the data in key-value pairs use the Azure table API.</li>
   <li> If you want to store your data as wide columns use the Cassandra API </li>
   <li> If you want to store your data as graphs use the Gremlin API</li>
- </ul>
- 
- <ul>
- <li> Global distribution & multi-homing </li>
- <li> Consistency levels </li>
- <li> Auto-expire using time-to-live (TTL) </li>
-  <li> Data partitioning & best practices </li>
  </ul>
  
  <b> Cosmos DB Concepts - Global Distribution and Multi-homing </b>
