@@ -5,7 +5,7 @@
 
 <ul>
   <p> There are 3 Azure SQL Database deployment options</p>
-  <li> Single database: Isolated database that is perfect for applciations that need a single data source</li>
+  <li> Single database: Isolated database that is perfect for applications that need a single data source</li>
   <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
   <li> Managed instance: A set of databases that can be used together, easy migration of on-premises databases</li>
 </ul>
