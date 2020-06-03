@@ -54,16 +54,6 @@
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
 
----
-
-<b> Demo </b>
-
-<p> Start by provisioning an Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 (normally used). Locally redundant storage is the cheapest one. Cool is for archiving, choose hot. After creating a storage account you can choose 4 different storage types under the storage account umbrella. </p>
-
-<p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
-
----
-
 <b> Azure Table Storage </b> 
 <p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name and email. Azure table storage is a great option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account, which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
 
@@ -92,93 +82,7 @@
  <li><b> CORS (Cross-Origin Resource Sharing) for browser clients </b>  </li>
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
- 
- ---
- 
- <b> Demo: Provisioning Table Storage in the Azure Portal </b>
- <ul>
- <li> We are going to provision (configuration, deployment and management) a storage account in the Azure Portal. We will also configure security. More services => Storage accounts => Add. Account kind: StorageV2 (general purpose v2). Choose locally-redundant storage (LRS) for replication. </li>
- <li> Go to resource => Access keys (under settings). I can define if the token is going to be used as a Blob/File/queque/table storage. I can allow user permissions (can they read, write, delete, add, update etc). You can put a time frame on SAS token.</li>
- <li> Generate SAS and connection string (generates a token, a connection string), url for choosen storage type (blob/file/table/queue) </li>
- <li> Encryption: Option to use your own key stored in Azure Key Vault for encryption </li>
- <li> Firewalls and virtual networks: By default all the services within all virtual networks can access my storage account. You can change that by specifying a few selected virtual networks (selected networks). Here I can whitelist IPs which are allowed to access my storage account or even access existing virtual network or create a new virtual network and assign it to my storage account.</li>
- <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, Queues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
- </ul>
- 
-<b> Demo: Working with Azure Storage Explorer</b>
-<p> 
- 
- 
-There are two different options (desktop version and the online version) to work with <b> Azure Storage Explorer </b>. We will be using the online version of the Storage Explorer (preview) in this demo. In Azure Storage Explorer I have the option to create a blob, file, queue or tables storage. Let's start with creating a Table Storage add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Now when the system properties are defined, press add property. Press insert  </p>
 
-<b> Demo: Working with Azure Table Storage .NET SDK (Software development kit)</b>
-<p><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a></p>
-<p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
- <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
- 
-<pre>using Microsoft.WindowsAzure.Storage;                  <i> //importing package from SDK </i>
-using Microsoft.WindowsAzure.Storage.Table;             
-
-namespace AzureStorageSDK                                   <i> //namespaces are used to organize classes </i>             
-{
-    class Program                                           <i> //A class is a blueprint for creating objects </i> 
-    {                                                            
-      static void Main(string[] args)    <i> // Void returns nothing, static means that there's only one (don't belong to an object) </i>                         
-        {
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
-
-           <i> // A connection string includes the authorization information required for your application to access data in an Azure   Storage account </i> 
-
-            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-            
-           <i> // CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
-           <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
-          CloudStorageAccount </a> </i>
-
-            CloudTableClient serviceClient = account.CreateCloudTableClient();       
-           <i> // CloudTableClient is a class, serviceClient is an object </i>
-
-            CloudTable table = serviceClient.GetTableReference("TableTest");
-
-            var opperation = TableOperation.Retrieve<TableTest>("Sweden", "1");
-
-            var jobResult = table.ExecuteAsync(opperation);
-
-            var entity = jobResult.Result;
-        }
-    }
-}
-</pre>
-
-<pre>using Microsoft.WindowsAzure.Storage.Table;
-
-namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
-{
-    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity </i>
-    {
-
-        public TableTest()
-        {
-
-        }
-
-        public TableTest(string pk, string rk)
-        {
-            PartitionKey = pk;
-            RowKey = rk;
-        }
-
-
-        public string Name { get; set; }
-
-        public string Email { get; set; }
-
-        public string Phone { get; set; }
-    }
-}</pre>
- 
- ---
- 
  <b> Azure Cosmos DB Overview </b>
  <ul>
  <li> Global distribution & multi-homing </li>
@@ -715,3 +619,95 @@ sqllocaldb create "LocalDBDemo" </pre>
  Authentication: Windows Authentication
  </p> 
 
+
+<hr> 
+
+<h3> Demo </h3>
+
+<p> Start by provisioning an Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 (normally used). Locally redundant storage is the cheapest one. Cool is for archiving, choose hot. After creating a storage account you can choose 4 different storage types under the storage account umbrella. </p>
+
+<p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
+
+<hr>
+
+<b> Demo: Provisioning Table Storage in the Azure Portal </b>
+ <ul>
+ <li> We are going to provision (configuration, deployment and management) a storage account in the Azure Portal. We will also configure security. More services => Storage accounts => Add. Account kind: StorageV2 (general purpose v2). Choose locally-redundant storage (LRS) for replication. </li>
+ <li> Go to resource => Access keys (under settings). I can define if the token is going to be used as a Blob/File/queque/table storage. I can allow user permissions (can they read, write, delete, add, update etc). You can put a time frame on SAS token.</li>
+ <li> Generate SAS and connection string (generates a token, a connection string), url for choosen storage type (blob/file/table/queue) </li>
+ <li> Encryption: Option to use your own key stored in Azure Key Vault for encryption </li>
+ <li> Firewalls and virtual networks: By default all the services within all virtual networks can access my storage account. You can change that by specifying a few selected virtual networks (selected networks). Here I can whitelist IPs which are allowed to access my storage account or even access existing virtual network or create a new virtual network and assign it to my storage account.</li>
+ <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, Queues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
+ </ul>
+ 
+<b> Demo: Working with Azure Storage Explorer</b>
+<p> 
+ 
+ 
+There are two different options (desktop version and the online version) to work with <b> Azure Storage Explorer </b>. We will be using the online version of the Storage Explorer (preview) in this demo. In Azure Storage Explorer I have the option to create a blob, file, queue or tables storage. Let's start with creating a Table Storage add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Now when the system properties are defined, press add property. Press insert  </p>
+
+<b> Demo: Working with Azure Table Storage .NET SDK (Software development kit)</b>
+<p><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a></p>
+<p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
+ <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
+ 
+<pre>using Microsoft.WindowsAzure.Storage;                  <i> //importing package from SDK </i>
+using Microsoft.WindowsAzure.Storage.Table;             
+
+namespace AzureStorageSDK                                   <i> //namespaces are used to organize classes </i>             
+{
+    class Program                                           <i> //A class is a blueprint for creating objects </i> 
+    {                                                            
+      static void Main(string[] args)    <i> // Void returns nothing, static means that there's only one (don't belong to an object) </i>                         
+        {
+            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
+
+           <i> // A connection string includes the authorization information required for your application to access data in an Azure   Storage account </i> 
+
+            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
+            
+           <i> // CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
+           <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
+          CloudStorageAccount </a> </i>
+
+            CloudTableClient serviceClient = account.CreateCloudTableClient();       
+           <i> // CloudTableClient is a class, serviceClient is an object </i>
+
+            CloudTable table = serviceClient.GetTableReference("TableTest");
+
+            var opperation = TableOperation.Retrieve<TableTest>("Sweden", "1");
+
+            var jobResult = table.ExecuteAsync(opperation);
+
+            var entity = jobResult.Result;
+        }
+    }
+}
+</pre>
+
+<pre>using Microsoft.WindowsAzure.Storage.Table;
+
+namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
+{
+    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity </i>
+    {
+
+        public TableTest()
+        {
+
+        }
+
+        public TableTest(string pk, string rk)
+        {
+            PartitionKey = pk;
+            RowKey = rk;
+        }
+
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+    }
+}</pre>
