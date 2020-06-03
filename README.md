@@ -4,7 +4,6 @@
   <li> DP-200 - Implementing an Azure Data Solution </li>  
   <li> DP-201 - Designing an Azure Data Solution </li>
 </ul>
----
 
 <h3> My journey to becomming Azure certified. </h3>
 
