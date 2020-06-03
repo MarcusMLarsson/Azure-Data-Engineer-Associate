@@ -79,7 +79,7 @@
 	<li>Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
 </ul> 
     
-<p> Securing Azure SQL Database </p>
+<p> <b>Securing Azure SQL Database </b></p>
 <ul>
   <li> Network security </li>
   <p> Your Azure SQL Database instance is managed by logical Azure SQL Server. You can defined firewall rules on these server. This way you can grant access to databases based on the originating IP address of each request. Also, Azure SQL Database firewall enables you to only accept requests originated from subnets inside the virtual network. </p>
