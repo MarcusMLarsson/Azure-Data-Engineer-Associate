@@ -50,7 +50,9 @@
    
    <p> <b>How are resources assigned to various deployment options to Azure database?</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
-   <p> <b>Resource purchasing models</b>: DTU-based (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. The other purchasing model is the vCore-based purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </p>
+   <p> <b>Resource purchasing models</b>: 
+<ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
+	<li>	The other purchasing model is the <b>vCore-based</b> purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </li></ul></p>
    
   <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
   
