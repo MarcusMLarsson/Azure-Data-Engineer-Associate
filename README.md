@@ -1,19 +1,14 @@
 # <a href="https://docs.microsoft.com/en-us/learn/certifications/azure-data-engineer"> Microsoft Certified: Azure-Data-Engineer-Associate
 </a>
-
-#### DP-200 (Implementing an Azure Data Solution) DP-201 (Designing an Azure Data Solution)
-
+<ul>
+  <li> DP-200 - Implementing an Azure Data Solution </li>  
+  <li> DP-201 - Designing an Azure Data Solution </li>
+</ul>
 ---
 
-<p> My journey to becomming Azure certified. </p>
+<h3> My journey to becomming Azure certified. </h3>
 
-
-https://www.youtube.com/watch?v=ohya6zTa1Hg
-
-
-<p> Plural Sight Track </p>
-
-https://savilltech.com/2019/07/18/full-azure-data-engineer-associate-learning-track-available/
+<p> This repository includes my studynotes for the Azure-Data-Engineer-Associate certification. Pluralsights has a curriculum for studying for the exam, which I follow </p> 
 
 
 
