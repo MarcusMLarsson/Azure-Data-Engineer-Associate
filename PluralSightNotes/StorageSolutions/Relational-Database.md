@@ -91,14 +91,7 @@
   <p> First of all, the data in transit is always encrypted using Transport Layer Security (TLS). Also transparent data encryption is available, which encrypts the raw files, such as database files and backup files on Azure servers, this way your data is protected from offline access, incase the database files are compromised. Dynamic data masking protects sensitive data (credit card numbers, sallaries) by masking it for non-priviledged users. Any non-priviledged user trying to query this data will see the masked version of the data. Always Encrypted protects data from high privileged, unauthorized users such as database admins. Finally, all the encryptions keys are stored in Azure Key Vault and are protected from unauthorized access. </p>
  </ul>
  
-  <b> SQL Datbase Elastic Pools </b>
- 
- <p> Are a simple, cost-effective solution for managing and scaling multiple dataabases that have varying and unpredictable usage demands. Imagen we only have Azure SQL Database Single Database option available to us and we have 4 databases. We do know that each of these databases needs 20 DTUs (20,20,20,20 => 80 DTUs). Another scenario is when we have 4 other databases (10,40,40,20 => 110 DTUs) and two of these databases needs 40 DTUs for a short time at the peak of its usage. However, you don't know the exact time when the usage will peak. Having only Azure Database Single Instance we need to provision 110 DTUs for all these 4 databases, to accomidate database #2 & #3. We are overprovisioning since the databases only needs 40 DTUs for a short time. So now let's see how Azure SQL Database Elastic Pools can help in this scenario. The first thing you will do, is to create a elastic pool. You will than put all the 4 databases into this pool. You will assign a set amount of resources to the elastic pool (let's say 80 eDTUs). All these databases are going to share the resources.  </p>
-  
-<p>The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resrouces as a set price. Enables developers to optimize the price performance fo a group of databases within a prediscribed budget. Prevents over-provisioning or under-provisioning of resources. Elastic pool is not for every scenario however. The pools are well suited for multiple databases with specific utilization patterns. This pattern is low average utilization with infrequent utilization spikes. </p>
-
- 
- <p> Demo: Provisioning an Azure SQL Database single database </p>
+ <h3> Demo: Provisioning an Azure SQL Database single database </h3>
  
  <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
 <pre> CREATE LOGIN appuser
