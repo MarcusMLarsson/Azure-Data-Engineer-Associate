@@ -2,14 +2,6 @@
 <h1> Implementing a Relational Database in Microsoft Azure SQL Database </h1>
 
 ---
-
-<ul>
-  <p> There are 3 Azure SQL Database deployment options</p>
-  <li> Single database: Isolated database that is perfect for applications that need a single data source</li>
-  <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
-  <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
-</ul>
-
 <h3> Azure SQL Database (DBaas) vs SQL Server on Azure VM (Iaas) </h3>
 
 <p> Imagen you have a server which talks to a SQL server database in the back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
@@ -44,8 +36,17 @@
 | There is a downtime while changing the resources (CPU/storage) | No guaranteed exact maintenance time (but nearly transparent)       |
 | Need to implement additional mechanisms to ensure availability of your databases | Private IP address cannot be assigned (with exception)       |
 
+
+<h3> Azure SQL Database </h3>
+
+<ul>
+  <p> There are 3 Azure SQL Database deployment options</p>
+  <li> Single database: Isolated database that is perfect for applications that need a single data source</li>
+  <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
+  <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
+</ul>
+
    <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
-   
    
    <p> How are resources assigned to various deployment options to Azure database? In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
