@@ -2,7 +2,7 @@
 
 ---
 
-<p> Understanding Hybrid Data Systems </p>
+<p> <b> Understanding Hybrid Data Systems </b></p>
 
 <p> Hybrid is an architecture that invloves components on-premises and components in the cloud. When switching to 
 hybrid solution (seperating aspect of computing data) is critical to understand attributes and requirements (things
