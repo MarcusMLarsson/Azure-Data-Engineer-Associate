@@ -7,18 +7,15 @@
 <li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
 <br>
-<b> What is Azure Storage Account?</b> 
+<h3> Azure Storage Account </h3>
 <br><br>
 <li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
 <li> Notice that, a storage account is not a NoSQL service or a database, its a container for various file and storage services</li>
 <li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
 <br>
 
-<h3> Azure Storage Account </h3>
-
 <b> Azure Table Storage </b> 
 <p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name and email. Azure table storage is a great option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account, which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
-
 
  <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables. Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
   
