@@ -65,10 +65,19 @@
     
   <p> If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
   
-  <p> (Service tiers) General purpose / standard : is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. Business Critical / Premium: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency. Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </p>
-  
-  <p> First you choose deployment options (single database, elastic pool, managed instance)
-  Then you choose purchasing models (DTU-based, vCore-based), than you choose Service tiers (general purpose/standard, business      critical/premium, hyperscale). </p>
+  <b> Options for Azure SQL Database </b>
+  <ul>
+	<p> <li>First you choose deployment options (single database, elastic pool, managed instance) </li>
+	<li>Then you choose purchasing models (DTU-based, vCore-based) </li>
+	<li>Then you choose Service tiers (general purpose/standard, business critical/premium, hyperscale). </li> </p>
+</ul>
+<ul>
+<p> <b>Service tiers</b>:
+	<li> <b>General purpose / standard</b> : is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
+	<li> <b>Business Critical / Premium </b>: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency.  </li>
+	<li> <b> Hyperscale </b>: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
+</ul> 
+
   
   <b> Provisioning a SQL Server instance in a managed VM (IaaS scenario) </b>
   
