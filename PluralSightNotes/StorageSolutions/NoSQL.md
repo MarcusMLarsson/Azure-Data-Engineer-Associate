@@ -1,5 +1,5 @@
 <h1> Implementing NoSQL Database in Microsoft Azure </h1>
-<b> What is NoSQL and why use it?  </b>
+<p><b> What is NoSQL and why use it?  </b></p>
 <ul> 
 <li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
 <li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
