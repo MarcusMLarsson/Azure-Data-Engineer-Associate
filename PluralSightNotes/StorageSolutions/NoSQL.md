@@ -12,6 +12,9 @@
 <li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
 <li> Notice that, a storage account is not a NoSQL service or a database, its a container for various file and storage services</li>
 <li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
+<b> What are containers? </b>
+<br><br>
+<p> Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. </p>
 <br>
 <b> What is CosmosDB</b> 
 <br><br>
@@ -19,11 +22,7 @@
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
 </ul>
-<br>
 
-<b> What are containers? </b>
-<br><br>
-<p> Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. </p>
 
 
 ---
