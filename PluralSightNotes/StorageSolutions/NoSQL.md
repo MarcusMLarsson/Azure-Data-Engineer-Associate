@@ -69,7 +69,7 @@
  <b> Azure Files </b>
  <p> Azure files offers fully managed file shares in the cloud that are accessible via the industry standard server message block (SMB) protocol. Most people use shared dirves at work using an on-premise file server. Your network administrator is mapping those drives to your machine and than you can simply drag and drop files. <b> Azure files can be used to replace on-premises file  servers </b>. If you are using legacy applications which uses shared files you can lift and shift them to the cloud.  </p>
  
- <b> Securing storage accounts. </b>
+ <b> Securing storage accounts </b>
 <ul>
  <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. <b> RBAC (roled base access control) </b> roles for storage (owner role, contributor role, reader) </p>
  <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and <b> shared access signature (SAS) </b>, which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
