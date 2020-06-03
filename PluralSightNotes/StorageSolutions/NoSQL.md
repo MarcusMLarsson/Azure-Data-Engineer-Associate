@@ -366,12 +366,11 @@ sqllocaldb create "LocalDBDemo" </pre>
 <hr> 
 
 <h3> Demo </h3>
+<b> <i>The demo section can't be followed by only using my notes </b></i> 
 
 <p> Start by provisioning an Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 (normally used). Locally redundant storage is the cheapest one. Cool is for archiving, choose hot. After creating a storage account you can choose 4 different storage types under the storage account umbrella. </p>
 
 <p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
-
-<hr>
 
 <b> Demo: Provisioning Table Storage in the Azure Portal </b>
  <ul>
