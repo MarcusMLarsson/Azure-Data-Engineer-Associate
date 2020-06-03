@@ -72,7 +72,8 @@
 	<li>Then you choose Service tiers (general purpose/standard, business critical/premium, hyperscale). </li> </p>
 </ul>
 <ul>
-<p> <b>Service tiers</b>:
+<b>Different Service tiers</b>
+<p>
 	<li> <b>General purpose / standard</b> : is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
 	<li> <b>Business Critical / Premium </b>: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency.  </li>
 	<li> <b> Hyperscale </b>: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
