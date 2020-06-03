@@ -7,7 +7,6 @@
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
 </ul>
 
-<h3> An Introduction to NoSQL Databases. </h3>
 <ul>
 <p> <b>  Managed NoSQL offeings by Azure </b> </p>
 <li> Azure Storage (blob, file, queue, table)</li>
