@@ -177,11 +177,6 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 <p>
  Post-migration steps: After your data is migrated to the destination you need to connect your application with the connection string. The other three steps are optional steps. You can optimize the indexing policy, you can globally distribute your data and you can set concistency level of your choice.
  </p>
- 
-
-<b> Migrate a Mongo DB database to Azure Cosmos DB using Data Migration Service (DMS) </b>
-
-<p>UnsupportedSourceVersion: The version of the source server is 4.2.2 but must be at least 3.0.0 and less than 4.1.0. </p>
 
 <b> Working with Azure Cosmos DB - Table API </b>
 
