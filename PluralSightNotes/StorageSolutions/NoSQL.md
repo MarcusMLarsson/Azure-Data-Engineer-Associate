@@ -55,7 +55,7 @@
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
 
- <b> Azure Cosmos DB Overview </b>
+ <h3> Azure Cosmos DB </h3>
  
 <li> Cosmos DB is a globally distributed multi-model database </li>
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
