@@ -1,6 +1,7 @@
-# Azure-Data-Engineer-Associate
-#### DP-200 DP-201
-<a href="https://docs.microsoft.com/en-us/learn/certifications/azure-data-engineer"> Microsoft Certified Associate </a>
+# <a href="https://docs.microsoft.com/en-us/learn/certifications/azure-data-engineer"> Microsoft Certified: Azure-Data-Engineer-Associate
+</a>
+
+#### DP-200 (Implementing an Azure Data Solution) DP-201 (Designing an Azure Data Solution)
 
 ---
 
