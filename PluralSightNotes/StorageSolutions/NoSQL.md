@@ -5,7 +5,7 @@
 <li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
 <li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
-<br> </ul>
+</ul>
 
 <h3> An Introduction to NoSQL Databases. </h3>
 <ul>
@@ -17,21 +17,18 @@
 <li> CosmosDB (previous called Document DB)</li>
  <p> Globally distributed, multimodel database. </p>
  </ul>
- <br>
  <ul>
   <li> If you want to store data as JSON document use the SQL and MongoDB API.</li>
   <li> If your to store the data in key-value pairs use the Azure table API.</li>
   <li> If you want to store your data as wide columns use the Cassandra API </li>
   <li> If you want to store your data as graphs use the Gremlin API</li>
  </ul>
-<br>
 
 <ul>
 <p> <b> Manage NoSQL offerings by Azure </b> </p>
  <li> IaaS (Infrastructure as a Servce): Provision VMs and install database engines of your choice. </li>
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
-
 
 <h3> Azure Storage Account </h3>
 <br><br>
