@@ -65,7 +65,7 @@
 ---
 
 <b> Azure Table Storage </b> 
-<p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name and email. Azure table storage is a greate option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account, which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
+<p> Ideal for storing structured non-relation data. Imagen you want to save information for a group of people. You know this people will have some attributes which are similar to each other, for example first name, last name and email. Azure table storage is a great option for this kind of data. If you however have a few JSON files which haven nothing incommon, you should store them in a different storage account, which is better suited for unstructured data (e.g. Azure Blob Storage). Azure Table storage is not good with complex joins. </p>
 
 
  <p> To be able to use Azure Table Storage, you first need an Azure Storage Account. Inside this storage account you can create a few tables. Next you can store your data inside these tables. Each row in the tables are referred to as an entity. These entities can have multiple properties, name, email, phonenumber etc. 
