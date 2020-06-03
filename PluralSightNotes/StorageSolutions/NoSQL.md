@@ -57,6 +57,7 @@
 
  <h3> Azure Cosmos DB </h3>
  
+ <ul>
 <li> Cosmos DB is a globally distributed multi-model database </li>
 <li> A multi-model database is designed to support multiple data models against a single, integrated backend. Relational (SQL), NoSQL (MongoDB), Graph (Gremlin), wide column store (Cassandra), key-value pairs (Table) models are examples of data models that are supported by Cosmos DB. </li>
 <li> Cosmos DB is a unit of management for a set of containers </li>
