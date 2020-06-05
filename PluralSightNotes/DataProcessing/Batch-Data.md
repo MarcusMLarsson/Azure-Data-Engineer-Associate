@@ -22,12 +22,15 @@ Data Lake the datas purpose is not yet determined.
 
 <table>
 <tr>
-  Batch processing: Working with 
-previously stored data (more tollerance for latency)</tr>
-<tr>Stream processing: Working with incoming
-data in real time.</tr>
-<tr>Data processing: Situationg data into a usable format. </tr>
-<tr>Data analysis: Asking questions of the prepared data.</tr>
+  <th> Batch processing </th> <th>Working with 
+previously stored data (more tollerance for latency)</th></tr>
+<tr>
+   <th> Stream processing </th> <th> Working with incoming
+data in real time.</th></tr>
+<tr>
+   <th>Data processing </th> <th>Situationg data into a usable format. </th></tr>
+<tr>
+   <th>Data analysis </th> <th>Asking questions of the prepared data </th></tr>
 </table>
 
 <ul>
