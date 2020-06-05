@@ -12,7 +12,7 @@ like latency). How does my application access the data? </p>
 <p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service.
 By default most services are accessed via a internet facing endpoint (via encrypted data). </p>
 
-<p> Implementing Hybrid Data Systems </p>
+<p><b> Implementing Hybrid Data Systems </p></b>
 
 <p> All resources in Azure are deployed into a subscription. With PaaS services are also deployed to a region. I typically collect things together in a resource group that has an common lifecycle (run together, de-provisioned together etc).In production, you should not be creating resources in the portal. You want to be using a JSON template (might be
 created as part of DevOps pipeline, ARM). Before you click create when using the portal you can download a template for automation (basis or hints for creating ARM?). There are few locations between on-premises to services on Azure: 
