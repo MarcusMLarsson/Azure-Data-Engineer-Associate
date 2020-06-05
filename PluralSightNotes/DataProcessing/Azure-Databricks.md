@@ -24,8 +24,8 @@ and than Reduce, while Spark has more flexibility. </p>
 <li> Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithims for classification,
   regression etc. </li>
 <li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
-   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li> 
-   </p>
+   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li> '
+   </p></ul>
 
 <p> Typical use cases for Azure Databricks: Dealing with streaming processing (IoT devices, sensors), machine learning etc.
 When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
