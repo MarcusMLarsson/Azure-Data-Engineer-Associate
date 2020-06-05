@@ -47,7 +47,7 @@ groups, for example create a group for data science etc.
 
 <b>Create Workspace</b>: Workspace, Workspace, create, folder. Right click folder and modify permission. 
 
-<b> Demo: Getting started with the Databricks CLI: </b>
+<b> Demo: Getting started with the Databricks CLI </b>
 
 <p>We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
 You can also setup the CLI locally. CLI stands for command-line interface. First, I need to generate a new token for my user to able access
@@ -102,8 +102,7 @@ Python, Scala, Markdown and HTML. </p>
 
 <p> <b>Demo: Working with Notebooks in Azure Databricks </p> </b>
 
-<p> Import notebook by rightclicking on Workspace. Notebook has .ipynb file format (same file format of Jupyter Notebook). In the left top corner
-we can attach a cluster. % means other code than Python (or what we opened the notebook in), %md for instance means markdown. </p>
+<p> Import notebook by rightclicking on Workspace. Notebook has .ipynb file format (iPythonJupyterNotebook). In the left top corner we can attach a cluster. % means other code than Python (or what we opened the notebook in), %md for instance means markdown, %% bash (cell magic, will be exectued in a bash shell), try %lsmagic</p>
 
 <p> Working with Azure Databricks Tables: is a collection of structured data. Tables are equivalent of Apache Spark dataframes. In Spark a dataframe
 is a distributed collection of data organized inte name columns. Same as dataframe in Python and R. But it comes with much richer optimizations
