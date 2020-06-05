@@ -104,9 +104,7 @@ Python, Scala, Markdown and HTML. </p>
 
 <p> Import notebook by rightclicking on Workspace. Notebook has .ipynb file format (iPythonJupyterNotebook). In the left top corner we can attach a cluster. % means other code than Python (or what we opened the notebook in), %md for instance means markdown, %% bash (cell magic, will be exectued in a bash shell), try %lsmagic</p>
 
-<p> Working with Azure Databricks Tables: is a collection of structured data. Tables are equivalent of Apache Spark dataframes. In Spark a dataframe
-is a distributed collection of data organized inte name columns. Same as dataframe in Python and R. But it comes with much richer optimizations
-under the hood. This means you can cache, filter and perform any operation supported by dataframes on your tables.
+<p> <b>Working with Azure Databricks Tables</b>: is a collection of structured data. Tables are equivalent of Apache Spark dataframes. In Spark a dataframe is a distributed collection of data organized inte name columns. Same as dataframe in Python and R. But it comes with much richer optimizations under the hood. This means you can cache, filter and perform any operation supported by dataframes on your tables.
 
 <a href="https://wesmckinney.com/blog/apache-arrow-pandas-internals/"> Pandas & Apache </a>
 
@@ -135,7 +133,7 @@ databricks jobs run-now --job-id 7
 
 </pre>
 
-<p> Performing ETL (Extract, Transform, Load) Operations with Azure Databricks </p>
+<p> <b>Performing ETL (Extract, Transform, Load) Operations with Azure Databricks</b> </p>
 <p> ETL (Etract, Transform, Load) is a datapipeline used to collect data from various source, transform that data according to business rules
 and load it into a destination data store. This makes way for your intelligente applications to access the transformed data they need, in the
 format that they need it. In the ETL model, data is stored raw in different types of storage (e.g. Azure Blob Storage, Azure Data Lake Storage
@@ -164,7 +162,7 @@ shell comand
 </pre>
 
 
-<p> Batch Scoring of Apache Spark ML Models WIth Azure Databricks </p>
+<p> <b>Batch Scoring of Apache Spark ML Models WIth Azure Databricks</b> </p>
 
 <p> Batch scroing involves a scheduled application of a ML model on a dataset to provide predictions.
 This can be done using a Spark job in Azure Data Bricks. In Azure Databricks, the best way to 
@@ -224,7 +222,7 @@ some of them are commercials but they are these little plugable models that you 
 integration done. You deloy them, you configure them, you don't write code to do this reading and
 wrinting from the database. Kafta connect does that integration to those external systems. </p>
 
-<p> Demo: Streaming Data Scenario </p>
+<p> <b>Demo: Streaming Data Scenario</b> </p>
 <p> Store data in Kafka topic and consuming a subset of the data into Azure Databricks. These involves
 a number of steps. We are going to install the required components for HDInsight. We are going to build
 and configure HDInsight with Kafka. We are going to build an Azure Databricks workspace and cluster.
@@ -232,7 +230,7 @@ We are going to implement virtual network pearing between the two clustersand th
 production and consumption stream using Databricks notebook. </p>
 
 
-<p> Virtual Network peering </p>
+<p> <b>Virtual Network peering</b> </p>
 
 <p> Often times resources in Azure are deployed to different virtual networks based on the needs
 of the services. These networks are isolated by design. For those occations when you need to
