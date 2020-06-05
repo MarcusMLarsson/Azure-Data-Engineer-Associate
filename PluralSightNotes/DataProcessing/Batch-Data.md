@@ -12,11 +12,14 @@ of columns, and relationships among tables are explicitly defined.
 Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
 for a schema. Unstructured data (CSV, PNG, EXE (blob)). </p>
 
-<p> For a Data Warehouse the datas purpose is defined (structured and highly transformed). For a
-Data Lake the datas purpose is not yet determined. ETL (Extract, transform load. Data is transformed
-in flight between source and destination. Does not scale particulary well. ELT (Extract, load, 
-transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
-for the cloud given limitless compute and storage resources). Batch processing: Working with
+<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
+Data Lake the datas purpose is not yet determined. 
+<ul> 
+<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
+<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
+  for the cloud given limitless compute and storage resources). </li>
+</ul>
+<b>Batch processing</b>: Working with
 previously stored data (more tollerance for latency). Stream processing: Working with incoming
 data in real time. Data processing: Situationg data into a usable format. Data analysis: Asking questions of the prepared data. </p>
 
