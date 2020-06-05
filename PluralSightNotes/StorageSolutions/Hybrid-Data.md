@@ -9,7 +9,7 @@ hybrid solution (seperating aspect of computing data) its critical to understand
 like latency). How does my application access the data? </p>
 
 
-<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service
+<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service.
 By default most services are accessed via a internet facing endpoint (via encrypted data). </p>
 
 <p> Implementing Hybrid Data Systems </p>
