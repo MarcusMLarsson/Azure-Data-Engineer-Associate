@@ -92,9 +92,8 @@ hadoop cluster. </p>
 | Lower data throughput, bt faster granular query performance | Higher data thrughput, bot slower granualr query perfromance       |
 | Vertically scaled  |Horizontally Scaled        |
 | OLTP   |OLAP       |
-| SQL Server/Azure SQL Database are licensed and closed source  |(Mostly) free and open source,
-Cloudera and Microsoft offers managed services, paying for hosted environment and integration with 
-HDinsight       |
+| SQL Server/Azure SQL Database are licensed and closed source  |(Mostly) free and open source|
+|Cloudera and Microsoft offers managed services |  paying for hosted environment and integration with HDinsight       |
   
   
   
