@@ -10,7 +10,7 @@
 <p> This repository includes my studynotes for the Azure-Data-Engineer-Associate certification. In particular, the repository contains the following folders:
 <ul>
   <li> <i>LearningPathsNotes</i>: Includes my notes for <a href="https://docs.microsoft.com/en-us/learn/paths/azure-for-the-data-engineer/"> Azures official curriculum</a> (not completed) </li>
-  <li> <i>PluralSightNotes</i>: Includes my notes for Pluralsight curriculum </li>  
+  <li> <i>PluralSightNotes</i>: Includes my notes for Pluralsights curriculum </li>  
   <li> <i>Labs</i>: Includes mocs exams and practise tests </li>  
   </ul>
   <p> I wish you the best of luck for your studies! </p> 
