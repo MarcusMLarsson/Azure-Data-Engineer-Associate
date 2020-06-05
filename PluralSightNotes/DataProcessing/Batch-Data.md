@@ -50,7 +50,7 @@ broken up into smaller part to be run on each node. The mapper works on the smal
 takes the mappers data from every node and brings it together on nodes all alround the cluster. The
 reducer runs the node, and knows it has access to everything with the same key. </p>
 
-<b> HDFS <b>
+<b> HDFS </b>
   
 <ul>
 <li> Hadoop Distributed File System is the core component or you can say, the backbone of Hadoop Ecosystem. </li>
