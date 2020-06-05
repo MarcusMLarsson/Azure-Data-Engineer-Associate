@@ -21,27 +21,25 @@ and than Reduce, while Spark has more flexibility. </p>
  <ul>
 <li> Spark SQL is the Spark module for working with structured data in within Azure Databricks. A Dataframe is a distributed collection of data organized into name columns. It's conceptionally equivalent to a table or a dataframe in Python. </li>
 <li> Than we have streaming support, which provides real time data processing and analysis for analytic and interactive applications. It integrate with things like HDFS, flume and Apache Kafka. </li> 
-<li> Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithims for classification,
+<li> Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithms for classification,
   regression etc. </li>
 <li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
-   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li> '
-   </p></ul>
+   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li></p></ul>
 
-<p> Typical use cases for Azure Databricks: Dealing with streaming processing (IoT devices, sensors), machine learning etc.
-When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
-contain all of your assets. Than you have Apache Clusters, these do the heavy lifting of your analysis work. Next we have the
+<p>When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
+contain all of your assets. Than you have Apache Clusters, these do the heavy lifting of your analysis work. Next, we have the
 Notebooks which provides a collaborative space for traning and preparing your data and creating your data pipelines. We have
 Tables which provide datastructures in your work spaces and last are the jobs for scheduling jobs in your work spaces. Now let's take
 alook at these by their own. </p>
 
-<p> Workspace: A workspace is an environment for assesing all of your Azure Databricks assets. It organizes notebooks, libaries,
-dashboards, and experiments into folders. By default the workspace and all it containts its available to all the user who have
+<p> <b>Workspace</b>: A workspace is an environment for assesing all of your Azure Databricks assets. It organizes notebooks, libaries,
+dashboards, and experiments into folders. By default the workspace and all it content its available to all the user who have
 access to the workspace. Each user however have their private folder which is note shared. You can create and manage workspaces
-using UI, CLI or Workspace API. Folders hold everything within the workspace (like a folder on your local computre). There exist
+using UI, CLI or Workspace API. Folders hold everything within the workspace (like a folder on your local computer). There exist
 three folders; Workspace, Shared and Users. Workspace is a special root folder for all of your assets, the Shared folder is for 
 sharing objects across your organization. The user folder is for each user. </p>
 
-<p> Demo: Creating an Azure Databricks workspace </p>
+<p> <b>Demo: Creating an Azure Databricks workspace </p></b>
 
 <p> Search for Databricks, Add (new workspace), pricing tier: standard allows you to secure with Azure AD, while premium allows
 Role-based access control (RBAC). Create, Launch workspace, click on user profile, admin console, add user. You can also use 
