@@ -14,7 +14,15 @@ Batch processing is the processing of data in a group or batch. Data is collecte
   <b> Hadoop </b>
 <p> Hadoop is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. The notion of commodity hardware, means you dont have to pay for super computers
 if you are going to spread the workload across enough nodes. For instance you can build a 
-Hadoop cluster using rasp-berry pie. In the past, when larger and larger quantities of data needed to be interegated,
+Hadoop cluster using rasp-berry pie. 
+  
+  <b> Hadoop Eco System </b>
+  
+  <img src=https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+  
+  
+  <b> Hadoop history </b>
+  In the past, when larger and larger quantities of data needed to be interegated,
 businesses would simply write larger and larger checks to their database vendors of choice (Oracle,
 IBM, Microsoft). However, in the early of 2000, companies like google were running into a wall. 
 There vast quantity of data where simply to large to pump thrue a single database bottleneck.
@@ -22,11 +30,13 @@ To address this, the Google labs team developed an algorithm that allowed for th
 calculations to be chopped up into smaller chunks, and mapped to many computers. They called this algorithm MapReduce. This algorithm were later used to develop an open source project called Hadoop, which allows applications to
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. </p>
-
-<img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+  
+<b> YARN </b>
+<p> Consider YARN as the brain of your Hadoop Ecosystem. It performs all your processing activities by allocating resources and scheduling tasks. </p>
+  
   
 <b>MapReduce</b>
-<p>MapReduce has two phases, a Map phase and a reduce phase. The Mappers job is to create or process the
+<p> MapReduce provides the logic of processing. MapReduce has two phases, a Map phase and a reduce phase. The Mappers job is to create or process the
 input data. This is usually a file or a directory. This file is stored
 on HDFS and is passed into the mapper function. The file is usually passed in line by line, into the
 mapper function. The mapper processes this input data to create as few or as many output as needed.
@@ -40,6 +50,15 @@ broken up into smaller part to be run on each node. The mapper works on the smal
 takes the mappers data from every node and brings it together on nodes all alround the cluster. The
 reducer runs the node, and knows it has access to everything with the same key. </p>
 
+<b> HDFS <b>
+  
+<ul>
+<li> Hadoop Distributed File System is the core component or you can say, the backbone of Hadoop Ecosystem. </li>
+<li>HDFS is the one, which makes it possible to store different types of large data sets (i.e. structured, unstructured and semi structured data). </li>
+<li>HDFS creates a level of abstraction over the resources, from where we can see the whole HDFS as a single unit.
+It helps us in storing our data across various nodes and maintaining the log file about the stored data (metadata).</li>
+</ul>
+  
 <p>HDFS breaks larger files into smaller chunks (blocks). We get several benefits by breaking up the
 terabit files into smaller blocks. When the mapper is operating on the terabite file, its actually
 operating on a block and not the entire file. The terabite file is being worked at by several nodes
@@ -81,6 +100,8 @@ MapR).</p>
 <p>
 Spark is sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Spark is a processing engine that serves as a MapReduce alternative. Sparks goal is to give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark open ups API to Scala, Python, JAva, R and SQL. If your not using Spark, you are pretty much stuck
 with java. Microsoft designed HDinsight in conjunction with Hortonworks (the software company that came from the Apache Hadoop project). In january 2019, Hortonworks merged with Cloudera. Lower compute costs mean Apache Spark is moving to the forefront of big data analysis.  </p>
+
+<img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/Apache-Spark-Framework-Hadoop-Ecosystem-Edureka-1-528x230.png">
 
  | MapReduce      | Spark       |
 | ------------- |:-------------:|
