@@ -23,7 +23,7 @@ calculations to be chopped up into smaller chunks, and mapped to many computers.
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. </p>
 
-<img="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+<img src="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
   
 <b>MapReduce</b>
 <p>MapReduce has two phases, a Map phase and a reduce phase. The Mappers job is to create or process the
