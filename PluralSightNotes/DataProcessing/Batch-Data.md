@@ -12,93 +12,92 @@ Batch processing is the processing of data in a group or batch. Data is collecte
 
 <h3>Developing Batch Processing Solutions with Azure HDInsight </h3>
   <b> Hadoop </b>
-<p> Have you every wonder how facebook can quickly deal with it's large quantity of 
-information? In the past when larger and larger quanteties of data needed to be interegated,
+<p> Hadoop is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. The notion of commodity hardware, means you dont have to pay for super computers
+if you are going to spread the workload across enough nodes. For instance you can build a 
+Hadoop cluster using rasp-berry pie. In the past, when larger and larger quantities of data needed to be interegated,
 businesses would simply write larger and larger checks to their database vendors of choice (Oracle,
 IBM, Microsoft). However, in the early of 2000, companies like google were running into a wall. 
 There vast quantity of data where simply to large to pump thrue a single database bottleneck.
 To address this, the Google labs team developed an algorithm that allowed for their large database
-calculations to be chopped up into smaller chunks, and mapped to many computers. Then when the
-calculations were done, be brought back together. They called this algorithm MapReduce. This algorithm
-were later used to develop an open source project called Hadoop, which allows applications to
+calculations to be chopped up into smaller chunks, and mapped to many computers. They called this algorithm MapReduce. This algorithm were later used to develop an open source project called Hadoop, which allows applications to
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. </p>
   
 <b>MapReduce</b>
-<p>
-MapReduce has two phases, Map phase and reduce phase. The Mappers job is to create or process the
-input data. As shown in the diagram, this is usually a file or a directory. This file is stored
-on HDFS and is passed into the mapper function. The file is usally passed in line by line, into the
+<p>MapReduce has two phases, a Map phase and a reduce phase. The Mappers job is to create or process the
+input data. This is usually a file or a directory. This file is stored
+on HDFS and is passed into the mapper function. The file is usually passed in line by line, into the
 mapper function. The mapper processes this input data to create as few or as many output as needed.
 The mappers output is then passed to the reduce phase. The reducers job is to process the data from
 the mapper into something useful. Every single value from the mapper is passed into the reduce
 function. The reducer will create new output values based on the input from the mapper. The new
 output values from the reducer will be saved to HDFS. The technical name for this part is shuffle
-and sort phase (also called the magic). Nodes can process data independently, and combine it together.
+and sort phase. Nodes can process data independently, and combine it together.
 The cluster is made up of 10, 100 or even 1000 nodes that are connected by a network. A job is 
 broken up into smaller part to be run on each node. The mapper works on the smaller parts. The magic
 takes the mappers data from every node and brings it together on nodes all alround the cluster. The
-reducer runs the node, and knows it has access to everything with the same key. 
+reducer runs the node, and knows it has access to everything with the same key. </p>
 
-HDFS breaks larger files into smaller chunks (blocks). We get several benefits by breaking up the
-terabit files into smaller blocks. When the mapper is operating on the terabite file its actually
+<p>HDFS breaks larger files into smaller chunks (blocks). We get several benefits by breaking up the
+terabit files into smaller blocks. When the mapper is operating on the terabite file, its actually
 operating on a block and not the entire file. The terabite file is being worked at by several nodes
 in the cluster all at once. The various nodes are just operating on different chunks. Once the mapper
 is done, the magic takes over. All of the data in the terabite file is combined based on a key.
-The reducer runs on different keys.
+The reducer runs on different keys.</p>
 
-Distributed storage. You dont want to be limited by a single hard drive. If you have distributed 
+<b>Distributed storage</b>
+<p>
+You dont want to be limited by a single hard drive. If you have distributed 
 storage you can just keep on adding more and more computers to your cluster. Hadoop is redundant,
 if one of the computers is destroyed, Hadoop can handle that as you have backup data in other places
 on you cluster. Hadoop was devloped originally by Yahoo! (they were building something called Nutch!)
 using Google publically published papers on GFS and MapReduce. Hadoop was primarly driven by
 Doug Cutting and Tom White in 2006, it's been evolving ever since. Hadoop was originally used for
 batch processing. Now there are stuff built on top of Hadoop which makes it appropriate for
-interactive queries aswell (not just for batch processing any more). 
+interactive queries aswell (not just for batch processing any more). </p>
 
+<p>
 HDFS (Hadoop version of GFS) is the system that allows us to distribute the storage of big data
 across our cluster of computer. It makes all of the hard drives on our cluster to look like one 
 giant file system. Not only that, it maintaince redundant copies of that data so if one of the 
 computer get destroyed, it can recover from that automatically. That is the distributed data storage
-piece of Hadoop.
-Sitting on top of HDFS we have YARN (Yet Another Resource Negotiator): YARN is were the data 
+piece of Hadoop.Sitting on top of HDFS we have YARN (Yet Another Resource Negotiator): YARN is were the data 
 processing is starting to comes to play. YARN is basically the system that manages the resources
 on your computing cluster, it what decides what gets to run tests, what nodes are available for 
 extra work, which nodes are not available.
 On top of that is MapReduce: ----, initially MapReduce and YARN was kind of the same thing, but got
-split up.
-On top of MapReduce we have technologies like Pig: If you don't want to write JAVA or Python
+split up. On top of MapReduce we have technologies like Pig: If you don't want to write JAVA or Python
 MapReduce code, you can use Pig, which allows you to write simple scripts that looks alot like SQL.
 Hive also sits ontop of MapReduce and solves a similar problem like Pig, but it's more directly
 like a SQL database. Database, you can exectute SQL queries on that database. 
 Apache Ambari: Sits ontop of everything, basically gives you a view of your cluster. 
 Ambari is what Hortonworks uses, there are competing distributens of Hadoops (Hortonworks, Cloudera,
-MapR).
-Spark: Sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Requires
+MapR).</p>
+
+<b> Spark </b>
+<p>
+Sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Requires
 some programming, use Spark script with Python, Java, Scala. It's very fast and under alot of 
 active development. If you want to quickly process data on your Hadoop cluster, Spark is a good 
-choice. 
-Kafka: Data ingestion, collect data of any sort from a cluster of pc and broadcast that into your
-hadoop cluster. 
+choice. </p>
 
-
-<p> What is Apache Hadoop: Open-source framework for distributed big data processing and 
-analysis. The notion of commodity hardware, means you dont have to pay for super computers
-if you are going to spread the workload across enough nodes. For instance you can build a 
-Hadoop cluster using rasp-berry pie. 
-
-
-<ul>
-<p> Traditional RDBMS : Hadoop </p>
-<li> RDBMS : Hadoop </li>
-<li> Structured data : Unstructured (although you can project structure) </li>
-<li> ACID : CAP </li>
-<li> Lower data throughput, bt faster granular query performance : Higher data thrughput, bot slower granualr query perfromance </li>
-<li> Vertically scaled : Horizontally Scaled </li>
-<li> OLTP : OLAP </li>
-<li> SQL Server/Azure SQL Database are licensed and closed source : (Mostly) free and open source,
+<b> Kafka </b>
+<p>Data ingestion, collect data of any sort from a cluster of pc and broadcast that into your
+hadoop cluster. </p>
+  
+  | Traditional RDBMS       | Hadoop      |
+| ------------- |:-------------:|
+| Structured data   | Unstructured (although you can project structure) |
+| ACID    | CAP      |
+| Lower data throughput, bt faster granular query performance | Higher data thrughput, bot slower granualr query perfromance       |
+| Vertically scaled  |Horizontally Scaled        |
+| OLTP   |OLAP       |
+| SQL Server/Azure SQL Database are licensed and closed source  |(Mostly) free and open source,
 Cloudera and Microsoft offers managed services, paying for hosted environment and integration with 
-HDinsight </li>
+HDinsight       |
+  
+  
+  
 <p> HDInsight is Microsoft hosted Apache Hadoop cluster environment. So the high level architecture 
 is very similar to open soure Apache Hadoop. We got masisivley parallel processing, we got the same
 concept under the hood in HDInsight that you would in any other cloud or on-premises Hadoop cluster.
