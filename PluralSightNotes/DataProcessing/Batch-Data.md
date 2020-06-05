@@ -35,8 +35,15 @@ data in real time.</th></tr>
 
 <table>
 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
 <tr>
-<th> <i>Azure SQL Database</th> <th> Azure SQL Data Warehouse </i></th>
+<th> Azure SQL Database</th> <th> Azure SQL Data Warehouse </th>
 </tr>
 <tr>
 <th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th>
