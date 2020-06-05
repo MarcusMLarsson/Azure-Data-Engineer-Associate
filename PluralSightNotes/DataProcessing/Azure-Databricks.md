@@ -198,37 +198,37 @@ To understand how Kafka does these things, let's dive in and explore Kafka's cap
 First a few concepts:
 <ul>
     <li>Kafka is run as a cluster on one or more servers that can span multiple datacenters.</li>
-    <li>The Kafka cluster stores streams of records in categories called topics.</li>
+ <li>The Kafka cluster stores streams of records in categories called <b>topics</b>.</li>
     <li>Each record consists of a key, a value, and a timestamp. </li></ul>   
 <p> In Kafka the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older versions. We provide a Java client for Kafka, but clients are available in many languages. </p>    
   
  <p>
-In Azure HDInsight is the platform for hosting
-Kafka. You can use many opensource frameworks such as Hadoop, Apache Spark and Apache Kafka and more
+In Azure, HDInsight is the platform for hosting Kafka. 
+ You can use many opensource frameworks such as Hadoop, Apache Spark and Apache Kafka and more
 with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
-records (events) to clusters were they are stored as topic. A topic is just a write-ahead log where
+records (events) to clusters were they are stored as topics. A topic is just a write-ahead log where
 the producers append records. Within the clusters, topics are assigned to the partitions that can
 be replicated for fault tollerance across the clusters. In the case of Azure, Kafka topics reside in 
-HDInsight cluster. These records, based on a key-value pair, ae available for consumers to use. 
+HDInsight cluster. These records, based on a key-value pairs, are available for consumers to use. 
 Consumers are going to subscripe to the topics they need and receive changes in real time as event
 producers send more data into Kafka. All communication between producers and consumers happens
 by Kafka brokers running in the cluster.  </p>
 
 <p>
 For a long time, we have written programs that store information in databases. Databases think in
-things (cards, people etc), better to think in events (events have an description of what happend
-at that time), the primary idea is that event is an indication in time that the thing took place.
+things (cards, people etc), but Kafka thinks in events (events have an description of what happend
+at that time). The primary idea is that an event is an indication in time that the thing took place.
 It's not easy to store events in databases, instead we use logs. A log is just a order sequence 
 of the events. Apache Kafka is a system to managing these logs, using a fairly standard historical 
 terms it calls them topics. A topic is just an order collection of events stored in a durable way.
-Durable meanign that they are written to disc and replicated. No one hardware faileur that can make
-that data go away. Topic can store data from days to multiple years, topics can be relative small
+Durable meanign that they are written to disc and replicated. As a result, no single hardware faileur can make
+that data go away. Topics can store data from days to multiple years, topics can be relative small
 or enormous. </p>
 
 <p>
 Back when databases ruled the world, there was kind of a trend to build a one gigant program that
 uses one big database all by itself. These things grew to where they were difficulte to change
-and difficute think about. Now the trend is to write lots and lots of small programs, each one 
+and difficute think about. Now the trend is to write lots and lots of small programs, each
 one of which is small enough to version and change all on its own. These programs can talk to each
 other thrue Kafka topics. So each one of these services can consume a message from a Kafka topic
 and produce that message off to another Kafka topic that lives in another service. Now its possible 
@@ -236,10 +236,10 @@ to perform real time analysis (streaming) on these topics. In contrast to runnin
 over night. </p>
 
 <p>
-Kafka connect is a tool that helps connect different systems. You want to collect data from different
-systems and get the data to be written into a topic, your you want to transform a topic into
+Kafka connect is a tool that helps to connect to ifferent systems. You want to collect data from different
+systems and get the data to be written into a topic. You want to transform a topic into
 a different fileformat for an external legacy system. Kafta connect is also an echo system of 
-connectors. There are dussins even 100 connectors out there in the world, some of them are open source,
+connectors. There are dussins, even 100 connectors out there in the world, some of them are open source,
 some of them are commercials but they are these little plugable models that you can deploy to get the
 integration done. You deloy them, you configure them, you don't write code to do this reading and
 wrinting from the database. Kafta connect does that integration to those external systems. </p>
