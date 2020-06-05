@@ -124,7 +124,7 @@ with java. Microsoft designed HDinsight in conjunction with Hortonworks (the sof
   
   
 <b> HDInsight </b>  
-<p> HDInsight is Microsofts hosted Apache Hadoop cluster environment. So the high level architecture 
+<p> Azure HDInsight is a managed, full-spectrum, open-source analytics service in the cloud for enterprises. You can use open-source frameworks such as Hadoop, Apache Spark, Apache Hive, LLAP, Apache Kafka, Apache Storm, R, and more. In other words, HDInsight is Microsofts hosted Apache Hadoop cluster environment. So the high level architecture 
 is very similar to open soure Apache Hadoop. We got masisivley parallel processing, we got the same
 concept under the hood in HDInsight that you would in any other cloud or on-premises Hadoop cluster.
 Head Nodes, Worker Nodes, at the bottom we have decoupled storage (Data Lake Store, Azure Storage 
