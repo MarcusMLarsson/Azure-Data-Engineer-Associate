@@ -45,7 +45,7 @@ sharing objects across your organization. The user folder is for each user. </p>
 Role-based access control (RBAC). Create, Launch workspace, click on user profile, admin console, add user. You can also use 
 groups, for example create a group for data science etc. 
 
-Create Workspace: Workspace, Workspace, create, folder. Right click folder and modify permission. 
+<b>Create Workspace</b>: Workspace, Workspace, create, folder. Right click folder and modify permission. 
 
 <b> Demo: Getting started with the Databricks CLI </b>: We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
 You can also setup the CLI locally. CLI stands for command-line interface. First, I need to generate a new token for my user to able access
