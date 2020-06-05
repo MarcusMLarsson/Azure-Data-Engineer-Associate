@@ -1,6 +1,6 @@
 <h1> Implementing an Azure Databricks Environment in Microsoft Azure </h1>
 
-<p> What is Azure Databricks. It's a scalable apache spark based analytics platform that is optimized for Azure. Designed in
+<p> <b>What is Azure Databricks?</b> It's a scalable apache spark based analytics platform that is optimized for Azure. Designed in
 collaboration with the founders of Apache Spark, Azure Databricks provides streamline workflow in an ineractive workspace that
 enables collaboration between your data scienties, your data engineers etc. </p>
 
@@ -8,18 +8,19 @@ enables collaboration between your data scienties, your data engineers etc. </p>
 <li> Ingest: Kafka, Event Hub, IoT Hub </li>
 <li> Store: Blobs, Data Lake </li>
 <li> Prep & Train: Databricks (Machine Learning) </li>
-<li> Model & Serve: Cosmos DB, SQL DAtabase, SQL Data Warehouse </li>
+<li> Model & Serve: Cosmos DB, SQL Database, SQL Data Warehouse </li>
 <li> Intelligence: Analytical Dashboards, predictive apps </li>
+</ul>
 
 <p> Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface from
 programming entire clusters with implicit data parallelism and fault tolerance. The purpose of Apache Spark is to process
 large amount of data and Spark is suitable for batching and streaming processing. With MapReduce you first have to do Map
 and than Reduce, while Spark has more flexibility. </p> 
 
-<p> Azure Databricks comprises the complete set of open source Apache Spark open source technology capabilities. Spark SQL is the
+<p> Azure Databricks comprises the complete set of Apache Spark open source technology capabilities. Spark SQL is the
 Spark module for working with structured data in within Azure Databricks. A Dataframe is a distributed collection of data organized
 into name columns. It's conceptionally equivalent to a table or a dataframe in Python. Than we have streaming support, which provides
-real time data processing and analysis for analytic and interactive applications. Its integrate with things like HDFS, flume and 
+real time data processing and analysis for analytic and interactive applications. It integrate with things like HDFS, flume and 
 Apache Kafka. Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithims for classification,
 regression etc. Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases. Last we have
 the Spark core API (includes support for R, SQL, Python, Scala, Java). </p>
