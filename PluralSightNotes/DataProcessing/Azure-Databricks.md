@@ -47,10 +47,12 @@ groups, for example create a group for data science etc.
 
 <b>Create Workspace</b>: Workspace, Workspace, create, folder. Right click folder and modify permission. 
 
-<b> Demo: Getting started with the Databricks CLI </b>: We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
+<b> Demo: Getting started with the Databricks CLI: </b>
+
+<p>We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
 You can also setup the CLI locally. CLI stands for command-line interface. First, I need to generate a new token for my user to able access
 my workspacing using the databricks cli. Copy the token, and go into https://shell.azure.com. Let's create an virtual environment for
-my Data Bricks CLI to live in. 
+my Data Bricks CLI to live in. </p>
 
 <pre>
 virtualenv -p /user/bin/python2.7
@@ -72,13 +74,13 @@ Copy URL
 databricks -h
 </pre>
 
-<p> <b>Demo: Working with Spark clusters. </p></b>
+<p> <b>Demo: Working with Spark clusters </p></b>
 
 <p> Go down to the common task, and click new cluster or go over to the cluster icon. Click create cluster. Leave enable autoscaling,
 it will automatically scale the minimum and maximum number of nodes based on loads. For worker type, you can choose a number off different
 virtual machines. For the type of driver, you can pick the same as a worker. This is how you create a cluster with the UI. </p>
 
-<p> How to create a cluster with the shell. 
+<p> <b>How to create a cluster with the shell</b>
 
 <pre>
 source databrickscli/bin/activate
