@@ -184,9 +184,9 @@ component faileur. This demo has 10 notebooks. Do the demo... </p>
 
 <p> Apache Kafka is a distributed streaming platform. What exactly does that mean? A streaming platform has three key capabilities:
 
-    <ul> <li> Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system. </li>
-    <li>Store streams of records in a fault-tolerant durable way. </li>
-    <li>Process streams of records as they occur. </li></ul>
+<ul> <li> Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system. </li>
+<li>Store streams of records in a fault-tolerant durable way. </li>
+<li>Process streams of records as they occur. </li> </ul>
 
 Kafka is generally used for two broad classes of applications:
 <ul>
