@@ -34,19 +34,11 @@ data in real time.</th></tr>
 </table>
 
 <table>
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-
 <tr>
 <th> Azure SQL Database</th> <th> Azure SQL Data Warehouse </th>
 </tr>
 <tr>
-<th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th>
+<span><th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th> </span>
 </tr>
 <tr>
 <th>SMP</th> <th> MPP </th>
