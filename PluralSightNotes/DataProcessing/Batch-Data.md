@@ -22,6 +22,8 @@ To address this, the Google labs team developed an algorithm that allowed for th
 calculations to be chopped up into smaller chunks, and mapped to many computers. They called this algorithm MapReduce. This algorithm were later used to develop an open source project called Hadoop, which allows applications to
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. </p>
+
+<img="https://www.edureka.co/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
   
 <b>MapReduce</b>
 <p>MapReduce has two phases, a Map phase and a reduce phase. The Mappers job is to create or process the
@@ -101,7 +103,7 @@ with java. Microsoft designed HDinsight in conjunction with Hortonworks (the sof
   
   
 <b> HDInsight </b>  
-<p> HDInsight is Microsoft hosted Apache Hadoop cluster environment. So the high level architecture 
+<p> HDInsight is Microsofts hosted Apache Hadoop cluster environment. So the high level architecture 
 is very similar to open soure Apache Hadoop. We got masisivley parallel processing, we got the same
 concept under the hood in HDInsight that you would in any other cloud or on-premises Hadoop cluster.
 Head Nodes, Worker Nodes, at the bottom we have decoupled storage (Data Lake Store, Azure Storage 
