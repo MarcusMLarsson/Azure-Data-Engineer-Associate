@@ -64,8 +64,9 @@ computer get destroyed, it can recover from that automatically. That is the dist
 piece of Hadoop.Sitting on top of HDFS we have YARN (Yet Another Resource Negotiator): YARN is were the data 
 processing is starting to comes to play. YARN is basically the system that manages the resources
 on your computing cluster, it what decides what gets to run tests, what nodes are available for 
-extra work, which nodes are not available.
-On top of that is MapReduce: ----, initially MapReduce and YARN was kind of the same thing, but got
+extra work, which nodes are not available. </p>
+<p>
+On top of that is MapReduce: initially MapReduce and YARN was kind of the same thing, but got
 split up. On top of MapReduce we have technologies like Pig: If you don't want to write JAVA or Python
 MapReduce code, you can use Pig, which allows you to write simple scripts that looks alot like SQL.
 Hive also sits ontop of MapReduce and solves a similar problem like Pig, but it's more directly
@@ -76,14 +77,9 @@ MapR).</p>
 
 <b> Spark </b>
 <p>
-Sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Requires
-some programming, use Spark script with Python, Java, Scala. It's very fast and under alot of 
-active development. If you want to quickly process data on your Hadoop cluster, Spark is a good 
-choice. </p>
+Spark is sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Spark is a processing engine that serves as a MapReduce alternative. Sparks goal is to give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark open ups API to Scala, Python, JAva, R and SQL. If your not using Spark, you are pretty much stuck
+with java. Microsoft designed HDinsight in conjunction with Hortonworks (the software company that came from the Apache Hadoop project). In january 2019, Hortonworks merged with Cloudera. Lower compute costs mean Apache Spark is moving to the forefront of big data analysis.  </p>
 
-<b> Kafka </b>
-<p>Data ingestion, collect data of any sort from a cluster of pc and broadcast that into your
-hadoop cluster. </p>
   
   | Traditional RDBMS       | Hadoop      |
 | ------------- |:-------------:|
@@ -116,34 +112,6 @@ System) where Blob Service usually are. Go to access control (IAM) and give our 
 Go add role assignment, use built in Storage Blob Data Contributor. Assign access to User 
 assigned managed identity. Let's go to HDInsight tab and press add... Continue demo. </p>
 
-
-
-
-
-<p> <b>Data Structures </b>
- <ul>
-<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
-  of columns, and relationships among tables are explicitly defined. </li>
-<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
-for a schema. </li>
-<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
-</ul>
-
-<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
-Data Lake the datas purpose is not yet determined. 
-<ul> 
-<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
-<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
-  for the cloud given limitless compute and storage resources). </li>
-</ul>
-
-| Azure SQL Database       | Azure SQL Data Warehouse      |
-| ------------- |:-------------:|
-| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
-| SMP    |  MPP      |
-| Vertical scale | Horizontal scale      |
-| No polybase | Polybase       |
-
 <b> PolyBase </b>
 <p>
 PolyBase is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
@@ -173,12 +141,6 @@ dbo.weather table in SSMS and we are going to place it in our Data Lake Storage 
 <p> Combine HDInsight with Hive to do a batch processing job. We are going to download our
 dataset (CSV), populate it into our HDInsight cluster, Transform the data using Hive, Create a table
 in an Azure SQL Database, and than export the processed data to Azure SQL Database using scoop. </p>
-
-<p> About Apache Spark: Spark is a processing engine that serves as a MapReduce alternative. Goal to 
-give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark
-open ups API to Scala, Python, JAva, R and SQL. If your not using Spark, you are pretty much stuck
-with java. Microsoft designed HDinsight in conjunction with Hortonworks (the software company that came from the Apache Hadoop project). In january 2019, Hortonworks merged with Cloudera.
-Lower compute costs mean Apache Spark is moving to the forefront of big data analysis.  </p>
 
 <p> Databricks: is a hosted Apache Spark environment. Databricks is not originally Microsoft, but 
 Microsoft worked with the Databricks team to create Azure Databricks (microsofts hosted value). This
@@ -229,6 +191,30 @@ of the traditional Hadoop/Spark/HDInsight cluster. You can also programatically 
 
 
 <h1> Notes </h1>
+
+<p> <b>Data Structures </b>
+ <ul>
+<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
+  of columns, and relationships among tables are explicitly defined. </li>
+<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
+for a schema. </li>
+<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
+</ul>
+
+<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
+Data Lake the datas purpose is not yet determined. 
+<ul> 
+<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
+<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
+  for the cloud given limitless compute and storage resources). </li>
+</ul>
+
+| Azure SQL Database       | Azure SQL Data Warehouse      |
+| ------------- |:-------------:|
+| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
+| SMP    |  MPP      |
+| Vertical scale | Horizontal scale      |
+| No polybase | Polybase       |
 
 <p> Virtual Machine (VM): Operating systems are software that are able to control the physical
 component of a computer. A VM is another type of software that allow us to run more operating systems
