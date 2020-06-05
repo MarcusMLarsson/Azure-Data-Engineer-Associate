@@ -114,7 +114,7 @@ Python, Scala, Markdown and HTML. </p>
 <p> A job is a way of running a notebook on a scheduled basis. You can create and run jobs using the UI, CLI or API. Similary, you can monitor job
 run results in the UI / CLI / API aswell. One thing to note is that the number of jobs in a workspace is limited to 1000. To create a job, 
 simply go down to jobs, click on create jobs, you can create the job based one of the notebooks. Click edit beside schedule to schedule the job.
-If we take a look at the cluster we can edit that aswell. The recommendaiton from Apache Spark is to use a new cluster for your production 
+If we take a look at the cluster we can edit that aswell. The recommendation from Apache Spark is to use a new cluster for your production 
 level jobs, or the jobs that are important to complete. You can click run now to test the job. </p>
 
 <p> To do this with the Azure Cloud Shell </p>
@@ -146,7 +146,7 @@ Bricks notebooks and jobs. The data transformations that takes place usually inv
 the database is transformed the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse,
 Cosmos DB, Azure SQL Server etc.
 
-<p> Demo: Open up Data Bricks workspace. Go and create a cluster that is going to be used by the
+<p> <b>Demo</b>: Open up Data Bricks workspace. Go and create a cluster that is going to be used by the
 notebook. Go into the workspace and import a couple of notebooks. Workspace, import, browse...
 Bring in the audience notebook and add in the clean-audiance notebook (replace the placeholders).
 Attach the notebook to the cluster. First thing is that we are going to mount a file system in
