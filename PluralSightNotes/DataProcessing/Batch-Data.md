@@ -36,7 +36,7 @@ data in real time.</th></tr>
 <table>
 
 <tr>
-<th> Azure SQL Database</th> <th> Azure SQL Data Warehouse </th>
+<th> <i>Azure SQL Database</th> <th> Azure SQL Data Warehouse </i></th>
 </tr>
 <tr>
 <th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th>
