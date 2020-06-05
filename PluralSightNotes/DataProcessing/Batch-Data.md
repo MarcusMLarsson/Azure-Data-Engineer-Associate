@@ -3,7 +3,7 @@
 <p><b> Terms </b> </p>
 <ul>
   <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
-<li<b>Stream processing</b>: Working with incoming data in real time.</li>
+<li><b>Stream processing</b>: Working with incoming data in real time.</li>
 <li><b>Data processing</b>: Situationg data into a usable format</li>
 </ul>
 
@@ -43,35 +43,35 @@ Data Lake the datas purpose is not yet determined.
 
 
 
-<p> To make a storage account a (Enable the hierachical namespace) a datalake storage gen2 account.
+<b>To make a storage account a datalake (enable the hierachical namespace) storage gen2 account</b> <p>
 Notice under services, instead of Blob Storage its now called Data Lake Gen2 file system. So from
-now on this storage account is going to be a datalkae store with HDFS compatible file systems. Select
+now on this storage account is going to be a datalake store with HDFS compatible file systems. Select
 that service and collect a file system. If we go into the file system we get a prompt that let's use
 Azure Storage Explorer. </p>
 
-<p> PolyBase: is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
+<p> <b>PolyBase</b>: is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
 external data while still giving you the ability to use transct-SQL. PolyBase means you can get
 data from different source like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
 your data warehouse and you can create an external table which pulls data from for example a
 Hadoop cluster and you can bring in the data. It provides a higher degree of cross-platform
 compatibility. </p>
 
-<p> Demo: Use the polly based feature to create an external table from data that resides from outside
+<p> <b>Demo</b>: Use the polly based feature to create an external table from data that resides from outside
 the warehouse. We can now work with this data from within the Data Warehouse as nativley as these
 external tables were permentaly appart of the Data Warehouse. </p>
 
-<p> Data Analysis Options: Excel, in the Azure cloud you got Azure Analysis Services (cloud based 
+<p> <b>Data Analysis Options</b>: Excel, in the Azure cloud you got Azure Analysis Services (cloud based 
 variant of SSAS), Power BI. </p>
 
-<p> Demo: Azure Data Factory, Code-free data integration solution, informerly we can call it
+<p> <b>Demo</b>: Azure Data Factory, Code-free data integration solution, informerly we can call it
 cloud bases SSIS. You use Azure Data Factory to build pipelines (hybid ETL and ELT) with a visual
 design surface. There is over 80 pre-built connectors to differet data sources. 
 
 In this demo we will use Azue Data Factory to perform a copy activity, we are going to take the
 dbo.weather table in SSMS and we are going to place it in our Data Lake Storage Gen2.
 
-<p> Developing Batch Processing Soltuions with Azure HDInsight </p>
-<p> Hadoop: Have you every woner how facebook can quickly deal with it's large quantity of 
+<p> <b>Developing Batch Processing Solutions with Azure HDInsight </b></p>
+<p> <b>Hadoop</b>: Have you every wonder how facebook can quickly deal with it's large quantity of 
 information? In the past when larger and larger quanteties of data needed to be interegated,
 businesses would simply write larger and larger checks to their database vendors of choice (Oracle,
 IBM, Microsoft). However, in the early of 2000, companies like google were running into a wall. 
@@ -83,7 +83,7 @@ were later used to develop an open source project called Hadoop, which allows ap
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. 
 
-MapReduce: Two phases, Map phase and reduce phase. The Mappers job is to create or process the
+<b>MapReduce</b>: Two phases, Map phase and reduce phase. The Mappers job is to create or process the
 input data. As shown in the diagram, this is usually a file or a directory. This file is stored
 on HDFS and is passed into the mapper function. The file is usally passed in line by line, into the
 mapper function. The mapper processes this input data to create as few or as many output as needed.
