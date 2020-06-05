@@ -1,19 +1,15 @@
 <h1> Building Batch Data Processing Solutions in Microsoft Azure </h1>
 
-<p><b> Terms </b> </p>
+<p> Batch data processing is an efficient way of processing high volumes of data where data is proccessed as a scheduled time.
+
+Batch processing is the processing of data in a group or batch. Data is collected, entered, processed and then the batch results are produced (Hadoop is focused on batch data processing). While batch processing can be carried out at any time, it is particularly suited to end-of-cycle processing, such as at the end of the business day etc.
+
 <ul>
   <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
 <li><b>Stream processing</b>: Working with incoming data in real time.</li>
 <li><b>Data processing</b>: Situationg data into a usable format</li>
 </ul>
 
-
-<p> <b>The Four V's of Big Data </b>
-<ul> 
-  <li>Volume (the flow of data, size matrix like Peta bites or Exa bites) </li>
-<li>Velocity (Processing frequency, what is your tollerance for latency)</li>
-<li> Data Variety (is your data structured, semi-structured or unstructured)</li>
-<li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
 
 <p> <b>Data Structures </b>
  <ul>
@@ -281,4 +277,12 @@ loaded into memory RAM instead of hard disks. </p>
 hot. It's a semiconductor who's conductivity change based on the environment. This special ability make
 semicondcuturs the perfect brain for electronic devices. Circuits of small semiconductor switches,
 called transistors, are at the heart of computer chips, and enable them to do math and run programs. </p> 
+
+
+<p> <b>The Four V's of Big Data </b>
+<ul> 
+  <li>Volume (the flow of data, size matrix like Peta bites or Exa bites) </li>
+<li>Velocity (Processing frequency, what is your tollerance for latency)</li>
+<li> Data Variety (is your data structured, semi-structured or unstructured)</li>
+<li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
 
