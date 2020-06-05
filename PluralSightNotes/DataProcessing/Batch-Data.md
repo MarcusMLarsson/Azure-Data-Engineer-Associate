@@ -33,21 +33,18 @@ data in real time.</th></tr>
    <th>Data analysis </th> <th>Asking questions of the prepared data </th></tr>
 </table>
 
-<h4> <center> Azure SQL Database vs Azure SQL Data Warehouse </center> </h4>
-<table>
-<tr>
-<th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th> 
-</tr>
-<tr>
-<th>SMP</th> <th> MPP </th>
-</tr>
-<tr>
-<th>Vertical scale </th><th>Horizontal scale </th>
-</tr>
-<tr>
-<th> No polybase </th><th> Polybase </th>
-</tr>
-</table>
+
+
+
+| Azure SQL Database       | Azure SQL Data Warehouse      |
+| ------------- |:-------------:|
+| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
+| SMP    |  MPP      |
+| Vertical scale | Horizontal scale      |
+| No polybase | Polybase       |
+
+
+
 
 <p> To make a storage account a (Enable the hierachical namespace) a datalake storage gen2 account.
 Notice under services, instead of Blob Storage its now called Data Lake Gen2 file system. So from
