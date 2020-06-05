@@ -1,5 +1,13 @@
 <h1> Building Batch Data Processing Solutions in Microsoft Azure </h1>
 
+<p><b> Terms </b> </p>
+<ul>
+  <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
+<li<b>Stream processing</b>: Working with incoming data in real time.</li>
+<li><b>Data processing</b>: Situationg data into a usable format</li>
+</ul>
+
+
 <p> <b>The Four V's of Big Data </b>
 <ul> 
   <li>Volume (the flow of data, size matrix like Peta bites or Exa bites) </li>
@@ -7,16 +15,13 @@
 <li> Data Variety (is your data structured, semi-structured or unstructured)</li>
 <li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
 
-<p> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
-of columns, and relationships among tables are explicitly defined.
-Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
-for a schema. Unstructured data (CSV, PNG, EXE (blob)). </p>
-
-<ul>
-  <li>Batch processing: Working with previously stored data (more tollerance for latency) </li>
-<li>Stream processing: Working with incoming data in real time.</li>
-<li>Data processing: Situationg data into a usable format</li>
-<li>Data analysis: Asking questions of the prepared data </li>
+<p> <b>Data Structures </b>
+ <ul>
+<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
+  of columns, and relationships among tables are explicitly defined. </li>
+<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
+for a schema. </li>
+<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
 </ul>
 
 <p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
