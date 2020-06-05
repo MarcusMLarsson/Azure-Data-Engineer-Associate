@@ -93,10 +93,9 @@ hadoop cluster. </p>
 | Vertically scaled  |Horizontally Scaled        |
 | OLTP   |OLAP       |
 | SQL Server/Azure SQL Database are licensed and closed source  |(Mostly) free and open source|
-|Cloudera and Microsoft offers managed services |  paying for hosted environment and integration with HDinsight       |
   
   
-  
+<b> HDInsight </b>  
 <p> HDInsight is Microsoft hosted Apache Hadoop cluster environment. So the high level architecture 
 is very similar to open soure Apache Hadoop. We got masisivley parallel processing, we got the same
 concept under the hood in HDInsight that you would in any other cloud or on-premises Hadoop cluster.
