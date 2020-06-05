@@ -72,7 +72,7 @@ Copy URL
 databricks -h
 </pre>
 
-<p> Demo: Working with Spark clusters. </p>
+<p> <b>Demo: Working with Spark clusters. </p></b>
 
 <p> Go down to the common task, and click new cluster or go over to the cluster icon. Click create cluster. Leave enable autoscaling,
 it will automatically scale the minimum and maximum number of nodes based on loads. For worker type, you can choose a number off different
@@ -94,11 +94,11 @@ databricks clusters list
 
 </pre> 
 
-<p> Notebooks: Web-based interface, combine code, visualization and text that are all organized in cells. Often production level notebooks
+<p> <b>Notebooks</b>: Web-based interface, combine code, visualization and text that are all organized in cells. Often production level notebooks
 will be run as a job, once tweaking of code is complete. Notebooks will be the foundation for building pipelines within Azure Databricks. Supports
 Python, Scala, Markdown and HTML. </p>
 
-<p> Demo: Working with Notebooks in Azure Databricks </p>
+<p> <b>Demo: Working with Notebooks in Azure Databricks </p> </b>
 
 <p> Import notebook by rightclicking on Workspace. Notebook has .ipynb file format (same file format of Jupyter Notebook). In the left top corner
 we can attach a cluster. % means other code than Python (or what we opened the notebook in), %md for instance means markdown. </p>
@@ -109,7 +109,7 @@ under the hood. This means you can cache, filter and perform any operation suppo
 
 <a href="https://wesmckinney.com/blog/apache-arrow-pandas-internals/"> Pandas & Apache </a>
 
-<p> Demo: Working with tables </p>
+<p> <b>Demo: Working with tables </p> </b>
 <p> Import the notebook, attach to cluster, create a spark table </p> 
 
 <p> A job is a way of running a notebook on a scheduled basis. You can create and run jobs using the UI, CLI or API. Similary, you can monitor job
