@@ -17,13 +17,15 @@ programming entire clusters with implicit data parallelism and fault tolerance. 
 large amount of data and Spark is suitable for batching and streaming processing. With MapReduce you first have to do Map
 and than Reduce, while Spark has more flexibility. </p> 
 
-<p> Azure Databricks comprises the complete set of Apache Spark open source technology capabilities. Spark SQL is the
-Spark module for working with structured data in within Azure Databricks. A Dataframe is a distributed collection of data organized
-into name columns. It's conceptionally equivalent to a table or a dataframe in Python. Than we have streaming support, which provides
-real time data processing and analysis for analytic and interactive applications. It integrate with things like HDFS, flume and 
-Apache Kafka. Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithims for classification,
-regression etc. Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases. Last we have
-the Spark core API (includes support for R, SQL, Python, Scala, Java). </p>
+<p> Azure Databricks comprises the complete set of Apache Spark open source technology capabilities. 
+ <ul>
+<li> Spark SQL is the Spark module for working with structured data in within Azure Databricks. A Dataframe is a distributed collection of data organized into name columns. It's conceptionally equivalent to a table or a dataframe in Python. </li>
+<li> Than we have streaming support, which provides real time data processing and analysis for analytic and interactive applications. It integrate with things like HDFS, flume and Apache Kafka. </li> 
+<li> Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithims for classification,
+  regression etc. </li>
+<li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
+   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li> 
+   </p>
 
 <p> Typical use cases for Azure Databricks: Dealing with streaming processing (IoT devices, sensors), machine learning etc.
 When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
