@@ -92,8 +92,6 @@ code ./clouddrive/demo/intro/bd-cl02.json
 databricks clusters create --json-file ./clouddrive/demo/intro/bd-cl02.json
 
 databricks clusters list
-
-
 </pre> 
 
 <p> <b>Notebooks</b>: Web-based interface, combine code, visualization and text that are all organized in cells. Often production level notebooks
@@ -120,7 +118,6 @@ level jobs, or the jobs that are important to complete. You can click run now to
 <p> To do this with the Azure Cloud Shell </p>
 
 <pre> 
-
 databricks jobs list
 
 databricks jobs get --job-id 4
@@ -130,7 +127,6 @@ code ./clouddrive/demo/intro/bd-job01.json
 databricks jobs create --json-file clouddrive/demo/intro/bd-job01.json
 
 databricks jobs run-now --job-id 7
-
 </pre>
 
 <p> <b>Performing ETL (Extract, Transform, Load) Operations with Azure Databricks</b> </p>
@@ -154,7 +150,7 @@ Azure Data Lake Storage Gen2 account. Now we are going to start the process of E
 ingest data. This is going to download downloading a JSON file from github, putting it to a temporary
 directory, than we are going copy that JSON file into our Azure Data Lake Storage. </p>
 
-<pre> %sh wget -P /tmp
+<pre>%sh wget -P /tmp
 https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/
 small_radio_json.json
 
@@ -172,7 +168,7 @@ Multiple notebooks are used to complete each step of the process.
 
 <b> Demo: Batch scoring of Spark machine learning models on Azure Databricks </b>
 
-<pre> cd clouddrive .... 
+<pre>cd clouddrive .... 
 
 git clone ... </pre>
 
