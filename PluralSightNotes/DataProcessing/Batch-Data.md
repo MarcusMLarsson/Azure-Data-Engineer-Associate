@@ -80,6 +80,15 @@ MapR).</p>
 Spark is sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Spark is a processing engine that serves as a MapReduce alternative. Sparks goal is to give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark open ups API to Scala, Python, JAva, R and SQL. If your not using Spark, you are pretty much stuck
 with java. Microsoft designed HDinsight in conjunction with Hortonworks (the software company that came from the Apache Hadoop project). In january 2019, Hortonworks merged with Cloudera. Lower compute costs mean Apache Spark is moving to the forefront of big data analysis.  </p>
 
+ | MapReduce      | Spark       |
+| ------------- |:-------------:|
+| Batch processing  | Batch and real-time (streaming) processing |
+| Disk data processing    | In-memory data processing      |
+| Java API | Scala, R, Python, SQL, JAva APIs       |
+| Generally non-interactive  |Interactive emphasis        |
+| HiveQL   |Spark SQL       |
+| External ML Support (Mahout)  |Native MLlib support|  
+
   
   | Traditional RDBMS       | Hadoop      |
 | ------------- |:-------------:|
@@ -156,15 +165,6 @@ Azure Databricks added value: Auto scale the cluster and place the database clus
 Built in machine learning libaries, and full Azure integration (RBAC, Azure AD, Tie-in with other Azure resource). 
 
 <ul>
-
-<p> MapReduce : Spark </p>
-<li> Batch processing : Batch and real-time (streaming) processing </li>
-<li> Disk data processing : In-memory data processing </li>
-<li> Java API : Scala, R, Python, SQL, JAva APIs </li>
-<li> Generally non-interactive : Interactive emphasis </li>
-<li> HiveQL : Spark SQL </li>
-<li> External ML Support (Mahout) : Native MLlib support </li> 
-</ul>
 
 <p> Demo: We are going to do a ETL job with Azure Databricks. We are going to ingest unstructured data (log files, csv files, media). We are going to Databricks ingest that data into a
 reposityory (really ELT not ETL), than using Databricks to perform some transformation on the data, and than load it to Azure SQL Data Warehouse. </p>
