@@ -1,8 +1,11 @@
 <h1> Building Batch Data Processing Solutions in Microsoft Azure </h1>
 
-<p> The Four V's of Big Data: Volume (the flow of data, size matrix like Peta bites or Exa bites),
-Velocity (Processing frequency, what is your tollerance for latency), Data Variety (is your data
-structured, semi-structured or unstructured), Veraciy (Data trustworthiness, Noise, bias). </p>
+<p> <b>The Four V's of Big Data </b>
+<ul> 
+  <li>Volume (the flow of data, size matrix like Peta bites or Exa bites) </li>
+<li>Velocity (Processing frequency, what is your tollerance for latency)</li>
+<li> Data Variety (is your data structured, semi-structured or unstructured)</li>
+<li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
 
 <p> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
 of columns, and relationships among tables are explicitly defined.
@@ -253,7 +256,7 @@ With the hitherto prevalent disk-based technolgoy, data is loaded to the compute
 form of multiple tables and multi-dimensonal structures against which queries are run. Disk-based
 technologies are relational database management systems (RDMS), often based on the
 SQL language. To improve query performance, multidimensonal databases or OLAP cubes are constructed.
-Designing a cube is an elaborate and lengthy process, and changing the cube‰s structure to adapt
+Designing a cube is an elaborate and lengthy process, and changing the cube√§s structure to adapt
 to dynamically changing business needs may be cumbersome. Cubes are pre-populated with data to answer
 specific queries and altough they increase performance, they are still not suitable for answering
 ad-hoc queries. <br> <br> Reading data from the hard disk is much slower (possibly hundreds of times)
