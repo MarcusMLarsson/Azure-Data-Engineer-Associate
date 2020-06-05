@@ -19,13 +19,19 @@ Data Lake the datas purpose is not yet determined.
 <li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
   for the cloud given limitless compute and storage resources). </li>
 </ul>
-<p><b>Batch processing</b>: Working with
-previously stored data (more tollerance for latency).</p> <p><b>Stream processing</b>: Working with incoming
-data in real time.</p> <b>Data processing</b>: Situationg data into a usable format. Data analysis: Asking questions of the prepared data. </p>
+
+<table>
+Batch processing: Working with
+previously stored data (more tollerance for latency).
+Stream processing: Working with incoming
+data in real time.
+Data processing: Situationg data into a usable format. 
+Data analysis: Asking questions of the prepared data. </p>
+</table>
 
 <ul>
 
-<p> Azure SQL DAtabase : Azure SQL Data Warehouse </p>
+<p> Azure SQL Database : Azure SQL Data Warehouse </p>
 <li> OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE) : OLAP(Online analytical processing)/querying and reporting </li>
 <li> SMP : MPP </li>
 <li> Vertical scale : Horizontal scale </li>
