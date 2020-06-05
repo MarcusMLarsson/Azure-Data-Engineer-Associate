@@ -9,9 +9,9 @@
 
 <p> This repository includes my studynotes for the Azure-Data-Engineer-Associate certification. In particular, the repository contains the following:
 <ul>
-  <li> <b>LearningPathsNotes</b>: Includes my notes for <a href="https://docs.microsoft.com/en-us/learn/paths/azure-for-the-data-engineer/"> Azures official curriculum (not completed)</a>  </li>
-  <li> <b>PluralSightNotes</b>: Includes my notes for Pluralsight curriculum </li>  
-  <li> <b>Labs</b>: Includes mocs exams and practise tests </li>  
+  <li> <i>LearningPathsNotes</i>: Includes my notes for <a href="https://docs.microsoft.com/en-us/learn/paths/azure-for-the-data-engineer/"> Azures official curriculum (not completed)</a>  </li>
+  <li> <i>PluralSightNotes</i>: Includes my notes for Pluralsight curriculum </li>  
+  <li> <i>Labs</i>: Includes mocs exams and practise tests </li>  
   </ul>
   <p> I wish you the best of luck for your studies! </p> 
 
