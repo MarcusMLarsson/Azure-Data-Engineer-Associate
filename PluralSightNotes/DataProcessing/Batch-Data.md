@@ -12,6 +12,13 @@ of columns, and relationships among tables are explicitly defined.
 Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
 for a schema. Unstructured data (CSV, PNG, EXE (blob)). </p>
 
+<ul>
+  <li>Batch processing: Working with previously stored data (more tollerance for latency) </li>
+<li>Stream processing: Working with incoming data in real time.</li>
+<li>Data processing: Situationg data into a usable format</li>
+<li>Data analysis: Asking questions of the prepared data </li>
+</ul>
+
 <p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
 Data Lake the datas purpose is not yet determined. 
 <ul> 
@@ -19,21 +26,6 @@ Data Lake the datas purpose is not yet determined.
 <li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
   for the cloud given limitless compute and storage resources). </li>
 </ul>
-
-<table>
-<tr>
-  <th> Batch processing </th> <th>Working with 
-previously stored data (more tollerance for latency)</th></tr>
-<tr>
-   <th> Stream processing </th> <th> Working with incoming
-data in real time.</th></tr>
-<tr>
-   <th>Data processing </th> <th>Situationg data into a usable format. </th></tr>
-<tr>
-   <th>Data analysis </th> <th>Asking questions of the prepared data </th></tr>
-</table>
-
-
 
 
 | Azure SQL Database       | Azure SQL Data Warehouse      |
