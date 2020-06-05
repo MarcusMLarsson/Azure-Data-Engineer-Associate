@@ -47,7 +47,7 @@ groups, for example create a group for data science etc.
 
 Create Workspace: Workspace, Workspace, create, folder. Right click folder and modify permission. 
 
-<b> Demo: Getting started with the Databricks CLI: We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
+<b> Demo: Getting started with the Databricks CLI </b>: We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
 You can also setup the CLI locally. CLI stands for command-line interface. First, I need to generate a new token for my user to able access
 my workspacing using the databricks cli. Copy the token, and go into https://shell.azure.com. Let's create an virtual environment for
 my Data Bricks CLI to live in. 
