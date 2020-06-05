@@ -5,7 +5,7 @@
 <p> <b> Understanding Hybrid Data Systems </b></p>
 
 <p> Hybrid is an architecture that invloves components on-premises and components in the cloud. When switching to 
-hybrid solution (seperating aspect of computing data) is critical to understand attributes and requirements (things
+hybrid solution (seperating aspect of computing data) its critical to understand attributes and requirements (things
 like latency). How does my application access the data? </p>
 
 
