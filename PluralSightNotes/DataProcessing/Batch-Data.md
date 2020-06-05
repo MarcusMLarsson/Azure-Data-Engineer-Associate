@@ -23,8 +23,9 @@ calculations were done, be brought back together. They called this algorithm Map
 were later used to develop an open source project called Hadoop, which allows applications to
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. 
-
-<b>MapReduce</b>: Two phases, Map phase and reduce phase. The Mappers job is to create or process the
+  
+<b>MapReduce</b>
+MapReduce has two phases, Map phase and reduce phase. The Mappers job is to create or process the
 input data. As shown in the diagram, this is usually a file or a directory. This file is stored
 on HDFS and is passed into the mapper function. The file is usally passed in line by line, into the
 mapper function. The mapper processes this input data to create as few or as many output as needed.
