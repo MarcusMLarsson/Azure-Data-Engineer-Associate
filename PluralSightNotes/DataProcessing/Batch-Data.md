@@ -18,7 +18,7 @@ Hadoop cluster using rasp-berry pie.
   
   <b> Hadoop Eco System </b>
   
-  <img src=https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+  <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
   
   
   <b> Hadoop history </b>
