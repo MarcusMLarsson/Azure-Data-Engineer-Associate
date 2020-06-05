@@ -2,19 +2,13 @@
 <h1> Implementing a Relational Database in Microsoft Azure SQL Database </h1>
 
 ---
+<h3> Azure SQL Database (DBaas) vs SQL Server on Azure VM (Iaas) </h3>
 
-<ul>
-  <p> Azure SQL Database deployment options</p>
-  <li> Single database: Isolated database that is perfect for applciations that need a single data source</li>
-  <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
-  <li> Managed instance: A set of databases that can be used together, easy migration of on-premises databases</li>
-</ul>
+<p> Imagen you have a server which talks to a SQL server database in the back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
 
-<p> Imagen you have a server which talks to a SQL server database in the back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas).   The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
+<p><b>SQL Server on Azure VMs</b>: is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server installed on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database (to save some costs).  </p>
 
-<p> SQL Server on Azure VMs: is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server installed on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database (to save some costs).  </p>
-
-<p> Azure SQL Database: A relational database-as-a-service (DBaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
+<p><b>Azure SQL Database</b>: A relational database-as-a-service (DBaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
 
 <b> Benefits </b>
 
@@ -27,12 +21,6 @@
 | Private IP address within Azure VNet | Built-in advanced intelligence and security      |
 |  | Online change of resources (CPU/storage) with no downtime     |
 
-
-
-
-
-
-
 <b> Limitations  </b>
 
 | SQL Server on VM        | Azure SQL Database       |
@@ -42,14 +30,37 @@
 | There is a downtime while changing the resources (CPU/storage) | No guaranteed exact maintenance time (but nearly transparent)       |
 | Need to implement additional mechanisms to ensure availability of your databases | Private IP address cannot be assigned (with exception)       |
 
-   <p> Why move to Azure SQL Database: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+
+<h3> Azure SQL Database </h3>
+
+<ul>
+  <p> There are 3 Azure SQL Database deployment options</p>
+  <li> Single database: Isolated database that is perfect for applications that need a single data source</li>
+  <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
+  <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
+</ul>
+
+<b> Understanding Elastic pool</b> 
+ <p> Elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resrouces as a set price. Elastic pools enables developers to optimize the price performance fo a group of databases within a prediscribed budget. Prevents over-provisioning or under-provisioning of resources. Elastic pool is not for every scenario however. The pools are well suited for multiple databases with specific utilization patterns. This pattern is low average utilization with infrequent utilization spikes. </p> 
+
+<p>
+Imagen we only have Azure SQL Database Single Database option available to us and we have 4 databases. We do know that each of these databases needs 20 DTUs (20,20,20,20 => 80 DTUs). Another scenario is when we have 4 other databases (10,40,40,20 => 110 DTUs) and two of these databases needs 40 DTUs for a short time at the peak of its usage. However, you don't know the exact time when the usage will peak. Having only Azure Database Single Instance we need to provision 110 DTUs for all these 4 databases, to accomidate database #2 & #3. We are overprovisioning since the databases only needs 40 DTUs for a short time. So now let's see how Azure SQL Database Elastic Pools can help in this scenario. The first thing you will do, is to create a elastic pool. You will than put all the 4 databases into this pool. You will assign a set amount of resources to the elastic pool (let's say 80 eDTUs). All these databases are going to share the resources.  </p>
+  
+
+<b> Understanding Azure SQL Database Managed Instance</b>
+<p> The third deployment option, which is Managed Instance. Managed instances are a set of databases that can be used together, allows easy migration of on-premises databases. Managed instace is a deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises.This allows the existing SQL Server customer to lift and shift their on-premises applications with minimal changes. This deployment option provides a native virtual network implementation. Managed instance presvers all PaaS capabilities that reduces management overhead. The managed instance deployment option targets user scenarios with mass database migration from on-premises or IaaS database. Differences between SQL Server On-premises and Managed Instance (near 100% compatibility): High-availability is built in and pre-configured. For example, provisioning multiple database servers and put them in an availability set or behind load balancer (this is not the case for the managed instances, high availability is built in and pre-configured). Using SQL server, you can specify full physical paths to back up files or other entities, which is not supported Azure SQL Database (because the underlying SQL Server hosting the database is abstraced out from the user). In Microsoft SQL Server you can use Windows authentication which is not the case for managed instance, isntead you can use Azure Active Directory identification. Also, the XTP filegroups and in-memory OLTP (online transaction processing) objects are automatically managed. Finally you can't use SSIS (SQL Server Integration Service) with Azure SQL Database. Instead you should use Azure Data Factory (ADF) which can run SSIS packages. </p>
+
+<p> You have two options to migrate your on premises database to manage instance. Back up and restor, which creates backup files and places them in Azure Blob Storage. Than these backups can be stored into a manged instace using T-SQL RESTORE command. The other option is to use Azure Data Migration Service (ADMS). This is a fully managed service enabling easy migrations from SQL Server databases to Azure Data platforms, including Azure SQL database. Managed Instance also offers different service tiers.</p>
+
+   <p><b>Why move to Azure SQL Database</b>: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
+   <p> <b>How are resources assigned to various deployment options to Azure database?</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
-   <p> How are resources assigned to various deployment options to Azure database? In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
+   <p> <b>Resource purchasing models</b>: 
+<ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
+	<li>	The other purchasing model is the <b>vCore-based</b> purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </li></ul></p>
    
-   <p> Resource purchasing models: DTU-based (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. The other purchasing model is the vCore-based purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </p>
-   
-  <p> DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes.  </p>
+  <p> <i>DTU: A database transaction unit represents a blend of measure of CPU, memory, reads, and writes. </i> </p>
   
   | vCore-based        | DTU-based       |
 | ------------- |:-------------:|
@@ -60,30 +71,24 @@
     
   <p> If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
   
-  <p> (Service tiers) General purpose / standard : is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. Business Critical / Premium: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency. Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </p>
-  
-  <p> First you choose deployment options (single database, elastic pool, managed instance)
-  Then you choose purchasing models (DTU-based, vCore-based), than you choose Service tiers (general purpose/standard, business      critical/premium, hyperscale). </p>
-  
-  <b> Provisioning a SQL Server instance in a managed VM (IaaS scenario) </b>
-  
-  <p> Search for SQL server </p>
-  
-  
-  <b> Provisioning a SQL Server instance in Azure SQL Database (PaaS scenario) </b>
-   <p> Search for SQL Database </p>
-    
-    
- <p> SQL Datbase Elastic Pools </p>
- 
- <p> Are a simple, cost-effective solution for managing and scaling multiple dataabases that have varying and unpredictable usage demands. Imagen we only have Azure SQL Database Single Database option available to us and we have 4 databases. We do know that each of these databases needs 20 DTUs (20,20,20,20 => 80 DTUs). Another scenario is when we have 4 other databases (10,40,40,20 => 110 DTUs) and two of these databases needs 40 DTUs for a short time at the peak of its usage. However, you don't know the exact time when the usage will peak. Having only Azure Database Single Instance we need to provision 110 DTUs for all these 4 databases, to accomidate database #2 & #3. We are overprovisioning since the databases only needs 40 DTUs for a short time. So now let's see how Azure SQL Database Elastic Pools can help in this scenario. The first thing you will do, is to create a elastic pool. You will than put all the 4 databases into this pool. You will assign a set amount of resources to the elastic pool (let's say 80 eDTUs). All these databases are going to share the resources.  </p>
-  
-<p> Azure SQL Database Elastic Pool is a cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage of demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resrouces as a set price. Enables developers to optimize the price performance fo a group of databases within a prediscribed budget. Prevents over-provisioning or under-provisioning of resources. Elastic pool is not for every scenario however. The pools are well suited for multiple databases with specific utilization patterns. This pattern is low average utilization with infrequent utilization spikes. </p>
-
-<p> Securing Azure SQL Database </p>
+  <b> Options for Azure SQL Database </b>
+  <ul>
+	<p> <li>First you choose deployment options (single database, elastic pool, managed instance) </li>
+	<li>Then you choose purchasing models (DTU-based, vCore-based) </li>
+	<li>Then you choose Service tiers (general purpose/standard, business critical/premium, hyperscale). </li> </p>
+</ul>
 <ul>
-  <li> Network security </li>
-  <p> Your Azure SQL Database instance is managed by logical Azure SQL Server. You can defined firewall rules on these server. This way you can grant access to databases based on the originating IP address of each request. Also, Azure SQL Database firewall enables you to only accept requests originated from subnets inside the virtual network. </p>
+<b>Different Service tiers</b>
+<p>
+	<li>General purpose / standard: is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
+	<li>Business Critical / Premium: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency.  </li>
+	<li>Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
+</ul> 
+    
+<p> <b>Securing Azure SQL Database </b></p>
+<ul>
+	<li> Network security </li>
+ <p> Your Azure SQL Database instance is managed by logical Azure SQL Server. You can defined firewall rules on these server. This way you can grant access to databases based on the originating IP address of each request. Also, Azure SQL Database firewall enables you to only accept requests originated from subnets inside the virtual network. </p> 
   <li> Access management</li>
   <p> Azure SQL Database supports SQL authentication. You can define DB username and password (like normal) and use them in your client application to connect to the database. Azure SQL Database also supports Azure active directory authentication, so you can use Azure active identity to connect to the database. Azure SQL Database supports row level security aswell. That is, you can control access to rows in a table based on the role of the user.</p>
   <li> Threat protection</li>
@@ -92,8 +97,44 @@
   <p> First of all, the data in transit is always encrypted using Transport Layer Security (TLS). Also transparent data encryption is available, which encrypts the raw files, such as database files and backup files on Azure servers, this way your data is protected from offline access, incase the database files are compromised. Dynamic data masking protects sensitive data (credit card numbers, sallaries) by masking it for non-priviledged users. Any non-priviledged user trying to query this data will see the masked version of the data. Always Encrypted protects data from high privileged, unauthorized users such as database admins. Finally, all the encryptions keys are stored in Azure Key Vault and are protected from unauthorized access. </p>
  </ul>
  
- <p> Demo: Provisioning an Azure SQL Database single database </p>
+ <hr>
  
+  <h3> Notes </h3>
+  
+<p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
+  
+<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
+  
+ <p> 
+	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
+
+  <p>   <b> vCPUs (virtual CPUs), Physical CPUs, Cores </b>: It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
+  
+<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
+  
+<p> <b> Transparent Data Encryption:</b> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p>
+
+
+<p> <b> SQL Server and Database Encryption Keys:</b> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
+to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
+
+SQL Server has two primary applications for keys: a service master key (SMK) generated on and for a SQL Server instance, and a database master key (DMK) used for a database.
+
+The Service Master Key is the root of the SQL Server encryption hierarchy. The SMK is automatically generated the first time the SQL Server instance is started and is used to encrypt a linked server password, credentials, and the
+database master key. The SMK is encrypted by using the local machine key using the Windows Data Protection API (DPAIP). TThe service master key can only be decrypted by the service account under which it was created or by
+principal that has access to the machine's credentials.
+
+The database master key is a symmetric key that is used to protect the private keys of certificates and asymmetric keys that are present in the database. It can also be used to encrypt data, but it has length limitations that make
+it less practical for data than using a symmetric key. To enable the automatic decryption of the database master key, a copy of the key is encrypted by using the SMK. It is stored in both the database where it is used and in the master
+system database. 
+
+<p> 
+<b> SQL Server Change Tracking (CT):</b> SSQL Server Change Tracking, also known as CT, is a lightweight tracking mechanism, introduced the first time in SQL Server 2008, that can be used to track the DML (Data Manipulation Language, insert, update, delete) changes peformed in SQL Server database tables. SQL Change Tracking can be configured in all SQL Server editions, including the free Express edition. </p>
+ 
+ <hr>
+ 
+ <h3> Demo: Provisioning an Azure SQL Database single database </h3>
+ <p> <b> <i> The demo section can't be followed by only using my notes </b> </i></p>
  <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
 <pre> CREATE LOGIN appuser
           WITH PASSWORD ='12345xwqsxws'
@@ -108,30 +149,10 @@
 </pre>
 <p> Now connect with new user  </p>
 
-<p> Demo: Provisioning Azure SQL Elastic Pools </p>
+<p> <b>Demo: Provisioning Azure SQL Elastic Pools </b></p>
 <p> Create multiple Azure SQL Database Single Databases and than add them to a new elastic pool. We only need one server. Create a resource => SQL Elastic database pool => Create. Place Elastic pool inside same resource group. Which logical server do I want to put my elastic pool in? When you have created the resource you are ready to add the databases to the pool. Let's click on configure. Here you can change the amoungt of resources you assigne to the elastic pool. Let's click on databases, here you have the option to create databases which will be added to the pool. Let's choose the databases and click apply. Now it should say Elastic General Purpose for the pricing tier. </p>
 
 <p> Scaling: Could be single database or elastic pool. Click on database => Pricing tier </p>
-
-
-<b> Understanding Azure SQL Database managed instance</b>
-<p> The third deployment option, which is Managed Instance. Managed instances are a set of databases that can be used together, allows easy migration of on-premises databases. Managed instace is a deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises.This allows the existing SQL Server customer to lift and shift their on-premises applications with minimal changes. This deployment option provides a native virtual network implementation. Managed instance presvers all PaaS capabilities that reduces management overhead. The managed instance deployment option targets user scenarios with mass database migration from on-premises or IaaS database. Differences between SQL Server On-premises and Managed Instance (near 100% compatibility): High-availability is built in and pre-configured. For example, provisioning multiple database servers and put them in an availability set or behind load balancer (this is not the case for the managed instances, high availability is built in and pre-configured). Using SQL server, you can specify full physical paths to back up files or other entities, which is not supported Azure SQL Database (because the underlying SQL Server hosting the database is abstraced out from the user). In Microsoft SQL Server you can use Windows authentication which is not the case for managed instance, isntead you can use Azure Active Directory identification. Also, the XTP filegroups and in-memory OLTP (online transaction processing) objects are automatically managed. Finally you can't use SSIS (SQL Server Integration Service) with Azure SQL Database. Instead you should use Azure Data Factory (ADF) which can run SSIS packages. </p>
-
-<p> You have two options to migrate your on premises database to manage instance. Back up and restor, which creates backup files and places them in Azure Blob Storage. Than these backups can be stored into a manged instace using T-SQL RESTORE command. The other option is to use Azure Data Migration Service (ADMS). This is a fully managed service enabling easy migrations from SQL Server databases to Azure Data platforms, including Azure SQL database. Managed Instance also offers different service tiers.</p>
-
-<ul>
-  <p> General purpose : Business Critical
-  <li> 99.99% availability that enable you to independently select storage and compute : 99.99% availability and enable you to independently elect storage and compute</li>
-  <li> Business applications with typical performance requirements : Business applications with highest performance requirements </li>
-  <li> High-performance Azure BloB storage (8 TB) : Super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5</li>
-    <li> Built in high-availability : Built-in high availability based on Always On Availability Groups</li>
-    <li> : Additional read-only DB replica (for reporting or other read-only workloads) </li>
-</ul>
-
-<p> Managed Instance Management Operations: Instance creation, 90 % of clustured creations finishes in less than 4 hours. Instance update, 90 % of cluster expansions finish in less than 2.5 hours. Instance deletion, 90 % of  virtual cluster deletions finis in 1.5 hours. For the first instance in a subnet, deployment time is typically much longer than in subsequent instance. So the first time you are creating a managed instance, the deployment might take up to 6h.
-
-<p> Managed Instance Security </p> 
-<p> The managed instance deployment option combines advanced security features provided by Azure cloud and SQL Server Database Enginge. Azure SQL Database Security technologies include applies to all deployment options of Azure SQL databases, including managed instance. These security technologies are transparent data encryption (TDE), Threat detection, Row-level security, managed instance auditing, dynamic data masking, Azure AD Integration. Now let's talk about Managed Instance Advanced Security (unique for managed instance). So your managed instance is deployed into a virtual network, you can connect your on-premises environment to this virtual network; using VPN or express route. This gives your on-premises application a quick and secure way to communicate with Azure SQL Database managed instance. By default, the managed instance SQL endpoint is only exposed through a private IP address, allowing safe connectivity from private Azure or hybrid networks. Your Azure SQL Database Managed Instance is deployed to a single-tenant with dedicated underlying infrastructure (compute, storage)
   
 <p> Provisioning an Azure SQL Database managed. Already prepared an Azure SQL Database Managed Instance since the provisioning can take hours. </p>
 
@@ -361,47 +382,3 @@ is created it is going to start synchronizing based on the schedule you provide.
 user credentials of my hub database. In the next step I need to configure the member database (choose same logical
 server). In the last step of our wizard, we need to choose which tables we want to be synced. We also need to allow 
 Azure services and resources to access this server for all databases (same place as firewall settings)
-
-
- 
-
----
-  
-  <h3> Notes </h3>
-  
- <p> Remote Desktop Protocol is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
-  
- <p> A communication protocal is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. Protocal are to communcations wat programming languages are to computations. 
-  
-  <p> 
-Virtual Networking: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.
-
-The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
-  
-  <p> vCPUs (virtual CPUs), Physical CPUs, Cores </p>
-  
-  <p> It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
-  
-<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
-  
-<p> Transparent Data Encryption </p>
-<p> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p>
-
-<p> SQL Server and Database Encryption Keys </p>
-
-<p> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
-to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
-
-SQL Server has two primary applications for keys: a service master key (SMK) generated on and for a SQL Server instance, and a database master key (DMK) used for a database.
-
-The Service Master Key is the root of the SQL Server encryption hierarchy. The SMK is automatically generated the first time the SQL Server instance is started and is used to encrypt a linked server password, credentials, and the
-database master key. The SMK is encrypted by using the local machine key using the Windows Data Protection API (DPAIP). TThe service master key can only be decrypted by the service account under which it was created or by
-principal that has access to the machine's credentials.
-
-The database master key is a symmetric key that is used to protect the private keys of certificates and asymmetric keys that are present in the database. It can also be used to encrypt data, but it has length limitations that make
-it less practical for data than using a symmetric key. To enable the automatic decryption of the database master key, a copy of the key is encrypted by using the SMK. It is stored in both the database where it is used and in the master
-system database. 
-
-
-<p> SQL Server Change Tracking (CT) </p>
-<p> SSQL Server Change Tracking, also known as CT, is a lightweight tracking mechanism, introduced the first time in SQL Server 2008, that can be used to track the DML (Data Manipulation Language, insert, update, delete) changes peformed in SQL Server database tables. SQL Change Tracking can be configured in all SQL Server editions, including the free Express edition. 
