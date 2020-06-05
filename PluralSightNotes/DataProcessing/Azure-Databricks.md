@@ -182,9 +182,25 @@ component faileur. This demo has 10 notebooks. Do the demo... </p>
 
 <b> Streaming HDInsight Kafka Data into Azure Databricks </b>
 
-<p> Apache Kafka is an event ingestion platform for storing and aggregating event from multiple 
-sources. Providing a source for destributing collected data, to data consumers. It's a single platform
-meeting the needs of event producers and consumers. In Azure HDInsight is the platform for hosting
+<p> Apache Kafka is a distributed streaming platform. What exactly does that mean? A streaming platform has three key capabilities:
+
+    <ul> <li> Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system. </li>
+    <li>Store streams of records in a fault-tolerant durable way. </li>
+    <li>Process streams of records as they occur. </li></ul>
+
+Kafka is generally used for two broad classes of applications:
+<ul>
+    <li> Building real-time streaming data pipelines that reliably get data between systems or applications </li>
+     <li>Building real-time streaming applications that transform or react to the streams of data </li>
+</ul>
+To understand how Kafka does these things, let's dive in and explore Kafka's capabilities from the bottom up.
+
+First a few concepts:
+<ul>
+    <li>Kafka is run as a cluster on one or more servers that can span multiple datacenters.</li>
+    <li>The Kafka cluster stores streams of records in categories called topics.</li>
+    <li>Each record consists of a key, a value, and a timestamp. </li></ul>
+In Azure HDInsight is the platform for hosting
 Kafka. You can use many opensource frameworks such as Hadoop, Apache Spark and Apache Kafka and more
 with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
 records (events) to clusters were they are stored as topic. A topic is just a write-ahead log where
