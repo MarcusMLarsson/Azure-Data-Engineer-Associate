@@ -31,7 +31,6 @@ Notebooks which provides a collaborative space for traning and preparing your da
 Tables which provide datastructures in your work spaces and last are the jobs for scheduling jobs in your work spaces. Now let's take
 alook at these by their own. </p>
 
-<ul>
 <p> Workspace: A workspace is an environment for assesing all of your Azure Databricks assets. It organizes notebooks, libaries,
 dashboards, and experiments into folders. By default the workspace and all it containts its available to all the user who have
 access to the workspace. Each user however have their private folder which is note shared. You can create and manage workspaces
