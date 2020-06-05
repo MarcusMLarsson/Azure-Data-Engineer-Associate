@@ -10,62 +10,6 @@ Batch processing is the processing of data in a group or batch. Data is collecte
 <li><b>Data processing</b>: Situationg data into a usable format</li>
 </ul>
 
-
-<p> <b>Data Structures </b>
- <ul>
-<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
-  of columns, and relationships among tables are explicitly defined. </li>
-<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
-for a schema. </li>
-<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
-</ul>
-
-<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
-Data Lake the datas purpose is not yet determined. 
-<ul> 
-<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
-<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
-  for the cloud given limitless compute and storage resources). </li>
-</ul>
-
-
-| Azure SQL Database       | Azure SQL Data Warehouse      |
-| ------------- |:-------------:|
-| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
-| SMP    |  MPP      |
-| Vertical scale | Horizontal scale      |
-| No polybase | Polybase       |
-
-
-
-
-<b>To make a storage account a datalake (enable the hierachical namespace) storage gen2 account</b> <p>
-Notice under services, instead of Blob Storage its now called Data Lake Gen2 file system. So from
-now on this storage account is going to be a datalake store with HDFS compatible file systems. Select
-that service and collect a file system. If we go into the file system we get a prompt that let's use
-Azure Storage Explorer. </p>
-
-<p> <b>PolyBase</b>: is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
-external data while still giving you the ability to use transct-SQL. PolyBase means you can get
-data from different source like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
-your data warehouse and you can create an external table which pulls data from for example a
-Hadoop cluster and you can bring in the data. It provides a higher degree of cross-platform
-compatibility. </p>
-
-<p> <b>Demo</b>: Use the polly based feature to create an external table from data that resides from outside
-the warehouse. We can now work with this data from within the Data Warehouse as nativley as these
-external tables were permentaly appart of the Data Warehouse. </p>
-
-<p> <b>Data Analysis Options</b>: Excel, in the Azure cloud you got Azure Analysis Services (cloud based 
-variant of SSAS), Power BI. </p>
-
-<p> <b>Demo</b>: Azure Data Factory, Code-free data integration solution, informerly we can call it
-cloud bases SSIS. You use Azure Data Factory to build pipelines (hybid ETL and ELT) with a visual
-design surface. There is over 80 pre-built connectors to differet data sources. 
-
-In this demo we will use Azue Data Factory to perform a copy activity, we are going to take the
-dbo.weather table in SSMS and we are going to place it in our Data Lake Storage Gen2.
-
 <p> <b>Developing Batch Processing Solutions with Azure HDInsight </b></p>
 <p> <b>Hadoop</b>: Have you every wonder how facebook can quickly deal with it's large quantity of 
 information? In the past when larger and larger quanteties of data needed to be interegated,
@@ -163,8 +107,6 @@ machine learning. Spark: In-memory processing and interactive queries (substitut
 Apache Storm: Real-time event processing
 
 
-
-
 <b> HDInsight is hosted Hadoop, and your using the native Hadoop tools, but they are being hosted
 in an Azure frame </b> 
 <p> Demo: In this demo we are going to create our first HDInsight cluster, we are going to create
@@ -173,6 +115,57 @@ Hortonworks data platform (100% Apache Hadoop). Go to gpv2 storage account (Data
 System) where Blob Service usually are. Go to access control (IAM) and give our HDInsight permission.
 Go add role assignment, use built in Storage Blob Data Contributor. Assign access to User 
 assigned managed identity. Let's go to HDInsight tab and press add... Continue demo. </p>
+
+
+
+
+
+<p> <b>Data Structures </b>
+ <ul>
+<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
+  of columns, and relationships among tables are explicitly defined. </li>
+<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
+for a schema. </li>
+<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
+</ul>
+
+<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
+Data Lake the datas purpose is not yet determined. 
+<ul> 
+<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
+<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
+  for the cloud given limitless compute and storage resources). </li>
+</ul>
+
+| Azure SQL Database       | Azure SQL Data Warehouse      |
+| ------------- |:-------------:|
+| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
+| SMP    |  MPP      |
+| Vertical scale | Horizontal scale      |
+| No polybase | Polybase       |
+
+<b> PolyBase </b>
+<p>
+PolyBase is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
+external data while still giving you the ability to use transct-SQL. PolyBase means you can get
+data from different source like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
+your data warehouse and you can create an external table which pulls data from for example a
+Hadoop cluster and you can bring in the data. It provides a higher degree of cross-platform
+compatibility. </p>
+
+<p> <b>Demo</b>: Use the polly based feature to create an external table from data that resides from outside
+the warehouse. We can now work with this data from within the Data Warehouse as nativley as these
+external tables were permentaly appart of the Data Warehouse. </p>
+
+<p> <b>Data Analysis Options</b>: Excel, in the Azure cloud you got Azure Analysis Services (cloud based 
+variant of SSAS), Power BI. </p>
+
+<p> <b>Demo</b>: Azure Data Factory, Code-free data integration solution, informerly we can call it
+cloud bases SSIS. You use Azure Data Factory to build pipelines (hybid ETL and ELT) with a visual
+design surface. There is over 80 pre-built connectors to differet data sources. 
+
+In this demo we will use Azue Data Factory to perform a copy activity, we are going to take the
+dbo.weather table in SSMS and we are going to place it in our Data Lake Storage Gen2.
 
 
 <p> Azure Data Factory Integration: ? </p>
@@ -285,4 +278,11 @@ called transistors, are at the heart of computer chips, and enable them to do ma
 <li>Velocity (Processing frequency, what is your tollerance for latency)</li>
 <li> Data Variety (is your data structured, semi-structured or unstructured)</li>
 <li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
+
+</p>
+<b>To make a storage account a datalake (enable the hierachical namespace) storage gen2 account:</b>
+Notice under services, instead of Blob Storage its now called Data Lake Gen2 file system. So from
+now on this storage account is going to be a datalake store with HDFS compatible file systems. Select
+that service and collect a file system. If we go into the file system we get a prompt that let's use
+Azure Storage Explorer. </p>
 
