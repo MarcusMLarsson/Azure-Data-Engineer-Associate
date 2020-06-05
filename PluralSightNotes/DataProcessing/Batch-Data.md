@@ -33,7 +33,7 @@ data in real time.</th></tr>
    <th>Data analysis </th> <th>Asking questions of the prepared data </th></tr>
 </table>
 
-<h4> Azure SQL Database vs Azure SQL Data Warehouse </h4>
+<h4> <center> Azure SQL Database vs Azure SQL Data Warehouse </center> </h4>
 <table>
 <tr>
 <th>OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)</th> <th> OLAP(Online analytical processing)/querying and reporting </th> 
