@@ -10,7 +10,7 @@ Batch processing is the processing of data in a group or batch. Data is collecte
 <li><b>Data processing</b>: Situationg data into a usable format</li>
 </ul>
 
-<h3>Developing Batch Processing Solutions with Azure HDInsight <h3>
+<h3>Developing Batch Processing Solutions with Azure HDInsight </h3>
   <b> Hadoop </b>
 <p> Have you every wonder how facebook can quickly deal with it's large quantity of 
 information? In the past when larger and larger quanteties of data needed to be interegated,
