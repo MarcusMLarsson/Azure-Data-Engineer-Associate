@@ -9,14 +9,22 @@
 
 <h3>Developing Batch Processing Solutions with Azure HDInsight </h3>
   <b> Hadoop </b>
-<p> Hadoop is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. The notion of commodity hardware, means you dont have to pay for super computers
+<p> Hadoop is a platform for distributed storing and analyzing of very large data sets.  In other words, Hadoop is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. The notion of commodity hardware, means you dont have to pay for super computers
 if you are going to spread the workload across enough nodes. For instance you can build a 
-Hadoop cluster using rasp-berry pie. 
+Hadoop cluster using rasp-berry pie.
+
+Hadoop has four main modules: Hadoop common, HDFS, MapReduce and YARN. The way these modules are woven together is what makes Hadoop so successful.
+  
+  
+  <img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Hadoop-Ecosystem.jpg">
   
   <b> Hadoop Eco System </b>
   
   <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
   
+  <p> You use Apache Kafka to ingest data, and store the it in HDFS. You do the analytics with Apache Spark and as a backend for the display you store data in Apache HBase.
+
+To have a working system you also need YARN for resource management. You also need Zookeeper, a configuration management service to use Kafka and HBase </p>
   
   <b> Hadoop history </b>
   In the past, when larger and larger quantities of data needed to be interegated,
