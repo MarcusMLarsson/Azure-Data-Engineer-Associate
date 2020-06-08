@@ -99,15 +99,15 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
  
 <p> There is always a trade off between data consistency and data availability & latency. Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. Moving from up to down you get higher latency and throughput at the price of weaker consistency. </p>
 <ul>
- <li> Strong</li>
+ <li><b> Strong</b></li>
  Strong always guarantes consistency level.
-  <li> Bounded staleness</li>
+  <li> <b>Bounded staleness</b></li>
  For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data.
-  <li>Session</li>
+  <li><b>Session</b></li>
  Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix.
-  <li>Consistent prefix</li>
+  <li><b>Consistent prefix</b></li>
  For consistent Prefix the only thing Cosmos DB is guaranteeing is that your observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. 
-  <li> Eventual</li>
+  <li> <b>Eventual</b></li>
  Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates.
  </ul>
   
