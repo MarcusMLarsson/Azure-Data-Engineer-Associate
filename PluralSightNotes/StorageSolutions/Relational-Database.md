@@ -22,7 +22,7 @@
 
 <p> <i> A database engine (or storage engine) is the underlying software component that a database management system (DBMS) uses to create, read, update and delete (CRUD) data from a database. </p> </i>
 
-<p><b>Azure SQL Database</b>: A relational database-as-a-service (DBaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
+<p><b>Azure SQL Database</b>: A relational database-as-a-service (PaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
 
 <b> Benefits </b>
 
