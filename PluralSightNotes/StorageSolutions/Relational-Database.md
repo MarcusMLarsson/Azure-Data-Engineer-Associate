@@ -12,7 +12,7 @@
 	<li> Service as a service: SaaS utilizes the internet to deliver applications, which are managed by a third-party vendor, to its users. </li>
 </ul>
 
-<h3> Azure SQL Database (DBaas) vs SQL Server on Azure VM (Iaas) </h3>
+<h3> Azure SQL Database (Paas) vs SQL Server on Azure VM (Iaas) </h3>
 
 <p> Imagen you have a server which talks to a SQL server database in the back end. In the old days, before the cloud, you would get the server either on-premises or in your data center and install SQL Server on that box. You were responsible to configre the networking, the security, operating system patching, and the performance and scaling of your SQL server. Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
 
