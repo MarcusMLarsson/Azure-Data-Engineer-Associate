@@ -44,7 +44,7 @@
  <b> Securing storage accounts </b>
 <ul>
  <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. <b> RBAC (roled base access control) </b> roles for storage (owner role, contributor role, reader) </p>
- <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and <b> shared access signature (SAS) </b>, which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
+ <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, <b>storage account keys</b> (grants complete access) and <b> shared access signature (SAS)</b>, which gives the permission required for a <b>limited amount of time</b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
   <li><b> Encryption for data in transit </b> </li>
  <p> You can use both HTTP and HTTPS when calling the REST APIs or accessing objects in storage. It's recommended to always use HTTPS.
  <li><b> Encryption for data at rest </b> </li>
@@ -95,7 +95,7 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 </p>
  
  
- <b> Cosmos DB Concepts - Multi-writes and Consistent Prefix Reads </b>
+ <b> Cosmos DB Concepts - Consistency Levels </b>
  
 <p> There is always a trade off between data consistency and data availability & latency. Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. </p>
 <ul>
@@ -106,12 +106,13 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
   <li> Eventual</li>
  </ul>
 
- <p> Imagine I have a record in my Cosmos DB database. This is a person record and has five properties (givenname, lastname, email, phone, spouse). My Cosmos DB is distributed to East-US and West-US region. At 10 AM my East-US replica is going to update the email address to john@test.com. Two mintues later, the West-US replica goes ahead and updates the phone number. So far, I have two distinguished writes to the same record. At 10:04 AM., my observer queries my Cosmos DB instance for this record, and let's say this database instance guarantees consistent prefix rates. Now let's see which version of the data in the database this observer will see. So is my observer going to see only the first update, meaning, the email address? Or is he going to see both updates side by side? So having in mind that this database guarantees consistent prefix of the list, it is okey for my observer to see either email, the new email, and the new phone, or none of them. Another way of thinking about this is, given that we have consistent prefix consistency level guaranteed, what is not okay for this observer to see? It is not okay to see the second update, but not the first update. </p>
- 
- <b> Cosmos DB Concepts - Consistency Levels (Strong, Session, Eventual, and Others) </b>
- 
- <p> Strong, Bounded Staleness, Session, Consistent Prefix, Eventual</p>
- <p> Moving from left to right you get higher latency and throughput at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates.   </p>
+ <p> Moving from up to down you get higher latency and throughput at the price of weaker consistency. 
+ <ul>
+  <li> Strong always guarantes consistency level. </li>
+ <li> For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. </li>
+<li>  Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix. </li>
+ <li> For consistent Prefix the only thing Cosmos DB is guaranteeing is that your observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. </li>
+<li> Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates. </li>   </p>
   
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
