@@ -3,6 +3,12 @@
 
 ---
 
+
+
+<h3> Azure SQL Database (Paas) vs SQL Server on Azure VM (Iaas) </h3>
+
+<p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (Paas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
+
 <h3> IaaS vs PaaS vs SaaS </h3>
 
 <img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png">
@@ -11,10 +17,6 @@
 	<li> Platform as a service: PaaS allows businesses to design and create applications that are built into the PaaS with special software components. </li>
 	<li> Service as a service: SaaS utilizes the internet to deliver applications, which are managed by a third-party vendor, to its users. </li>
 </ul>
-
-<h3> Azure SQL Database (Paas) vs SQL Server on Azure VM (Iaas) </h3>
-
-<p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (DBaas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
 
 <p><b>SQL Server on Azure VMs</b>: is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server installed on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database (to save some costs).  </p>
 
