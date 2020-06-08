@@ -10,7 +10,7 @@
 <br>
 <b> What is Azure SQL Data Warehouse? </b> 
 <br><br>
-<li> Azure SQL Data Warehouse is cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
+<li> Azure SQL Data Warehouse is a cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
 <li> Azure SQL Data Warehouse and Azure Synapse Analytics are used interchangeably (the same thing) </li>
 <li> Massively parallel processing can be described as multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. </li>
 <br>
