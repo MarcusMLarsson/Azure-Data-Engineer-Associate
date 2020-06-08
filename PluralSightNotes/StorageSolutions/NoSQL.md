@@ -113,7 +113,7 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
   
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
- <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partitions. </p>
+ <p> An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partitions. </p>
  
  <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is roughly spread evenly among different logical partitions (assuming the cities you are choosing have roughly the same amount of population). For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
 
@@ -130,7 +130,9 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 <b> Working with Azure Cosmos DB - MongoDB API</b>
 
 <p>
- MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed <b> SLAs (service level agreement) </b> for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the world and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
+ MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. </p>
+ <p>
+ Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed <b> SLAs (service level agreement) </b> for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the world and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
  </p>
 <ul> 
  <p> Let's take alook at the pre-migrating steps before migrating your data. 
@@ -174,7 +176,7 @@ Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install t
 
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
-<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
+<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model? Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
 
 <p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
 
