@@ -7,9 +7,9 @@
 
 <img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png">
 <ul>
-	<li> Infrastructure as a service: Use Virtual Machine </li>
-	<li> Platform as a service: </li>
-	<li> Service as a service: </li>
+	<li> Infrastructure as a service: IaaS delivers cloud computing infrastructure, including servers, network, operating systems, and storage, through virtualization technology (virtual machines). </li>
+	<li> Platform as a service: PaaS allows businesses to design and create applications that are built into the PaaS with special software components. </li>
+	<li> Service as a service: SaaS utilizes the internet to deliver applications, which are managed by a third-party vendor, to its users. </li>
 </ul>
 
 <h3> Azure SQL Database (DBaas) vs SQL Server on Azure VM (Iaas) </h3>
