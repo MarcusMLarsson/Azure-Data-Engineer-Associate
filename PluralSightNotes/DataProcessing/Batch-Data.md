@@ -5,7 +5,6 @@
 <ul>
   <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
 <li><b>Stream processing</b>: Working with incoming data in real time.</li>
-<li><b>Data processing</b>: Situationg data into a usable format</li>
 </ul>
 
 <h3>Developing Batch Processing Solutions with Azure HDInsight </h3>
