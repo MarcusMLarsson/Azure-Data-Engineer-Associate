@@ -1,8 +1,6 @@
 <h1> Building Batch Data Processing Solutions in Microsoft Azure </h1>
 
-<p> Batch data processing is an efficient way of processing high volumes of data where data is proccessed as a scheduled time.
-
-Batch processing is the processing of data in a group or batch. Data is collected, entered, processed and then the batch results are produced (Hadoop is focused on batch data processing). While batch processing can be carried out at any time, it is particularly suited to end-of-cycle processing, such as at the end of the business day etc.
+<p> Batch data processing is where data is proccessed as a scheduled time.In other words, batch processing is the processing of data in a group or a batch. Data is collected, entered, processed and then the batch results are produced (Hadoop is focused on batch data processing). While batch processing can be carried out at any time, it is particularly suited to end-of-cycle processing, such as at the end of the business day etc.
 
 <ul>
   <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
