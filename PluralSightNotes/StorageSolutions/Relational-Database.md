@@ -69,9 +69,9 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <ul> <li>Back up and restor, which creates backup files and places them in Azure Blob Storage. Than these backups can be stored into a manged instace using T-SQL RESTORE command. </li>
 <li>The other option is to use Azure Data Migration Service (ADMS). This is a fully managed service enabling easy migrations from SQL Server databases to Azure Data platforms, including Azure SQL database. Managed Instance also offers different service tiers.</li> </ul></p>
 
-   <p><b>Why move to Azure SQL Database</b>: Reduces the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+   <p><b>Why move to Azure SQL Database</b>: By moving to Azure SQL Database you can reduce the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
    
-   <p> <b>How are resources assigned to various deployment options to Azure database?</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
+   <p> <b>How are resources assigned to various deployment options to Azure database?:</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
    <p> <b>Resource purchasing models</b>: 
 <ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
@@ -120,10 +120,10 @@ Imagen we only have Azure SQL Database Single Database option available to us an
   
 <p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
   
-<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides a user with a graphical interface to connect to another computer over a network connection. </p>
+<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides an user with a graphical interface to connect to another computer over a network connection. </p>
   
  <p> 
-	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc.The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
+	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN or WAN that has been sectioned off. Virtual networks can have their own security, encryption, login credentials etc. The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
 
   <p>   <b> vCPUs (virtual CPUs), Physical CPUs, Cores </b>: It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
   
