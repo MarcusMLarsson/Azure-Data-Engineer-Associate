@@ -14,6 +14,7 @@ enables collaboration between your data scienties, your data engineers etc. </p>
 <li> Intelligence: Analytical Dashboards, predictive apps </li>
 </ul>
 
+<b> Apache Spark </b>
 <p> Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface from
 programming entire clusters with implicit data parallelism and fault tolerance. The purpose of Apache Spark is to process
 large amount of data and Spark is suitable for batching and streaming processing. Spark was created to address the limitations to MapReduce, by doing processing in-memory, reducing the number of steps in a job, and by reusing data across multiple parallel operations. With Spark, only one-step is needed where data is read into memory, operations performed, and the results written back—resulting in a much faster execution. Spark also reuses data by using an in-memory cache to greatly speed up machine learning algorithms that repeatedly call a function on the same dataset. Data re-use is accomplished through the creation of DataFrames, an abstraction over Resilient Distributed Dataset (RDD), which is a collection of objects that is cached in memory, and reused in multiple Spark operations. This dramatically lowers the latency making Spark multiple times faster than MapReduce, especially when doing machine learning, and interactive analytics. </p> 
