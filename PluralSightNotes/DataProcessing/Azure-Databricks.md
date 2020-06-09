@@ -29,6 +29,13 @@ large amount of data and Spark is suitable for batching and streaming processing
   regression etc. </li>
 <li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
    <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li></p></ul>
+   
+   
+<b> Spark vs Hadoop </b>
+
+<img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Table-Hadoop-and-Spark.jpg">
+
+<p> Hadoop is used to store data in the Hadoop Distributed File System (HDFS). It can analyse the stored data with MapReduce and manage resources with YARN. However, Hadoop is more than just storage, analytics and resource management. There's a whole eco system of tools around the Hadoop core. Compared to Hadoop, Spark is "just" an analytics framework. It has no storage capability. Although it has a standalone resource management, you usually don't use that feature. </b>
 
 <b> Working with Azure Databricks </b>
 <p>When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
