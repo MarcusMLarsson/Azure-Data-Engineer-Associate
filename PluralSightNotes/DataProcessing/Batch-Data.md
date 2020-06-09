@@ -1,6 +1,6 @@
 <h1> Building Batch Data Processing Solutions in Microsoft Azure </h1>
 
-<p> Batch data processing is where data is proccessed as a scheduled time.In other words, batch processing is the processing of data in a group or a batch. Data is collected, entered, processed and then the batch results are produced (Hadoop is focused on batch data processing). While batch processing can be carried out at any time, it is particularly suited to end-of-cycle processing, such as at the end of the business day etc.
+<p> Batch data processing is where data is proccessed at a scheduled time. In other words, batch processing is the processing of data in a group or a batch. Data is collected, entered, processed and then the batch results are produced (Hadoop is for example focused on batch data processing). While batch processing can be carried out at any time, it is particularly suited to end-of-cycle processing, such as at the end of the business day etc.
 
 <ul>
   <li><b>Batch processing</b>: Working with previously stored data (more tollerance for latency) </li>
@@ -13,7 +13,13 @@
 if you are going to spread the workload across enough nodes. For instance you can build a 
 Hadoop cluster using rasp-berry pie.
 
-Hadoop has four main modules: Hadoop common, HDFS, MapReduce and YARN. The way these modules are woven together is what makes Hadoop so successful.
+Hadoop has four main modules 
+<ul>
+  <li>Hadoop common </li>
+  <li>HDFS </li>
+  <li>MapReduce </li>
+  <li>YARN </li> The way these modules are woven together is what makes Hadoop so successful.
+</ul>
   
   
   <img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Hadoop-Ecosystem.jpg">
