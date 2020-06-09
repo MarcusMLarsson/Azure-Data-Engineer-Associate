@@ -30,6 +30,7 @@ large amount of data and Spark is suitable for batching and streaming processing
 <li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
    <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li></p></ul>
 
+<b> Working with Azure Databricks </b>
 <p>When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
 contain all of your assets. Than you have Apache Clusters, these do the heavy lifting of your analysis work. Next, we have the
 Notebooks which provides a collaborative space for traning and preparing your data and creating your data pipelines. We have
@@ -37,7 +38,7 @@ Tables which provide datastructures in your work spaces and last are the jobs fo
 alook at these by their own. </p>
 
 <p> <b>Workspace</b>: A workspace is an environment for assesing all of your Azure Databricks assets. It organizes notebooks, libaries,
-dashboards, and experiments into folders. By default the workspace and all it content its available to all the user who have
+dashboards, and experiments into folders. By default the workspace and all it content is available to all the user who have
 access to the workspace. Each user however have their private folder which is note shared. You can create and manage workspaces
 using UI, CLI or Workspace API. Folders hold everything within the workspace (like a folder on your local computer). There exist
 three folders; Workspace, Shared and Users. Workspace is a special root folder for all of your assets, the Shared folder is for 
