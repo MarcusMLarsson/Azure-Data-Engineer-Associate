@@ -11,9 +11,9 @@
   <b> Hadoop </b>
 <p> Hadoop is a platform for distributed storing and analyzing of very large data sets.  In other words, Hadoop is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. The notion of commodity hardware, means you dont have to pay for super computers
 if you are going to spread the workload across enough nodes. For instance you can build a 
-Hadoop cluster using rasp-berry pie.
+Hadoop cluster using rasp-berry pie. </p>
 
-<b> Hadoop history </b>
+<b> Hadoop history </b> </p>
   In the past, when larger and larger quantities of data needed to be interegated,
 businesses would simply write larger and larger checks to their database vendors of choice (Oracle,
 IBM, Microsoft). However, in the early of 2000, companies like google were running into a wall. 
