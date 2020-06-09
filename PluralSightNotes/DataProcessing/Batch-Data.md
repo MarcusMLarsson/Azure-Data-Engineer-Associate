@@ -33,6 +33,9 @@ Hadoop has four main modules. The way these modules are woven together is what m
 </ul>
 
   <img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Hadoop-Ecosystem.jpg">
+ <b> Hadoop common </b>
+<p>
+  The Hadoop common libraries and functions are working in the background. That's why I will not go further into them. They are mainly there to support Hadoop's modules. </p>
   
  <b> YARN </b>
 <p> Consider YARN as the brain of your Hadoop Ecosystem. It performs all your processing activities by allocating resources and scheduling tasks. </p>
