@@ -142,17 +142,16 @@ databricks jobs run-now --job-id 7
 </pre>
 
 <p> <b>Performing ETL (Extract, Transform, Load) Operations with Azure Databricks</b> </p>
-<p> ETL (Etract, Transform, Load) is a datapipeline used to collect data from various source, transform that data according to business rules
+<p> ETL (Extract Transform, Load) is a datapipeline used to collect data from various source, transform that data according to business rules
 and load it into a destination data store. This makes way for your intelligente applications to access the transformed data they need, in the
 format that they need it. In the ETL model, data is stored raw in different types of storage (e.g. Azure Blob Storage, Azure Data Lake Storage
-,Hadoop Storage). Since you don't want to change the raw data, and it's often more data than its needed for the end consumer application, you
+, Hadoop Storage). Since you don't want to change the raw data, and it's often more data than its needed for the end consumer application, you
 are going to extract it from it store, for the transform process. The process of extracting comes out of notebook calls requesting the data
 that they need. This allows the process to be schedueled and interactive. And because Azure Data Bricks lives in Azure, you have easy access
 to all of your storage, native and securly. Once the data is extracted, transformation can begin. Transformation in Azure Data Bricks involves
-processing the raw data into predicts and insight. A transformation activity, executes in the Azure Data Bricks Apache Cluster, driven by Azure Data
+processing the raw data into predictions and insight. A transformation activity, executes in the Azure Data Bricks Apache Cluster, driven by Azure Data
 Bricks notebooks and jobs. The data transformations that takes place usually involves filtering, cleaning, joining, removing duplicates etc. Once 
-the database is transformed the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse,
-Cosmos DB, Azure SQL Server etc.
+the data is transformed, the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse, Cosmos DB, Azure SQL Server etc.
 
 <p> <b>Demo</b>: Open up Data Bricks workspace. Go and create a cluster that is going to be used by the
 notebook. Go into the workspace and import a couple of notebooks. Workspace, import, browse...
@@ -170,7 +169,7 @@ shell comand
 </pre>
 
 
-<p> <b>Batch Scoring of Apache Spark ML Models WIth Azure Databricks</b> </p>
+<p> <b>Batch Scoring of Apache Spark ML Models With Azure Databricks</b> </p>
 
 <p> Batch scroing involves a scheduled application of a ML model on a dataset to provide predictions.
 This can be done using a Spark job in Azure Data Bricks. In Azure Databricks, the best way to 
@@ -208,11 +207,12 @@ First a few concepts:
     <li>Kafka is run as a cluster on one or more servers that can span multiple datacenters.</li>
  <li>The Kafka cluster stores streams of records in categories called <b>topics</b>.</li>
     <li>Each record consists of a key, a value, and a timestamp. </li></ul>   
-<p> In Kafka the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older versions. We provide a Java client for Kafka, but clients are available in many languages. </p>    
-  
+<p> In Kafka, the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older versions. </p>    
+  <img src="https://i.ytimg.com/vi/k-7lz6Ex354/maxresdefault.jpg">
  <p>
+ <b> HDInsight </b>
 In Azure, HDInsight is the platform for hosting Kafka. 
- You can use many opensource frameworks such as Hadoop, Apache Spark and Apache Kafka and more
+ You can use many open source frameworks such as Hadoop, Apache Spark and Apache Kafka and more
 with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
 records (events) to clusters were they are stored as topics. A topic is just a write-ahead log where
 the producers append records. Within the clusters, topics are assigned to the partitions that can
