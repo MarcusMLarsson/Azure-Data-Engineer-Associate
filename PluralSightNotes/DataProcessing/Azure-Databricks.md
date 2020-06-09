@@ -1,7 +1,7 @@
 <h1> Implementing an Azure Databricks Environment in Microsoft Azure </h1>
 
 <p> <b>What is Azure Databricks?</b> It's a scalable apache spark based analytics platform that is optimized for Azure. Designed in
-collaboration with the founders of Apache Spark, Azure Databricks provides streamline workflow in an ineractive workspace that
+collaboration with the founders of Apache Spark, Azure Databricks provides streamline workflow in an interactive workspace that
 enables collaboration between your data scienties, your data engineers etc. </p>
 
 <img src="https://miro.medium.com/max/800/1*qn2gItW3lIvbDtrKlQgtww.jpeg">
