@@ -13,12 +13,12 @@
 if you are going to spread the workload across enough nodes. For instance you can build a 
 Hadoop cluster using rasp-berry pie.
 
-Hadoop has four main modules 
+Hadoop has four main modules. The way these modules are woven together is what makes Hadoop so successful.
 <ul>
   <li>Hadoop common </li>
   <li>HDFS </li>
   <li>MapReduce </li>
-  <li>YARN </li> The way these modules are woven together is what makes Hadoop so successful.
+  <li>YARN </li> 
 </ul>
   
   
