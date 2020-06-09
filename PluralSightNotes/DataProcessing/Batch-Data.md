@@ -13,26 +13,7 @@
 if you are going to spread the workload across enough nodes. For instance you can build a 
 Hadoop cluster using rasp-berry pie.
 
-Hadoop has four main modules. The way these modules are woven together is what makes Hadoop so successful.
-<ul>
-  <li>Hadoop common </li>
-  <li>HDFS </li>
-  <li>MapReduce </li>
-  <li>YARN </li> 
-</ul>
-  
-  
-  <img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Hadoop-Ecosystem.jpg">
-  
-  <b> Hadoop Eco System </b>
-  
-  <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
-  
-  <p> You use Apache Kafka to ingest data, and store the it in HDFS. You do the analytics with Apache Spark and as a backend for the display you store data in Apache HBase.
-
-To have a working system you also need YARN for resource management. You also need Zookeeper, a configuration management service to use Kafka and HBase </p>
-  
-  <b> Hadoop history </b>
+<b> Hadoop history </b>
   In the past, when larger and larger quantities of data needed to be interegated,
 businesses would simply write larger and larger checks to their database vendors of choice (Oracle,
 IBM, Microsoft). However, in the early of 2000, companies like google were running into a wall. 
@@ -42,7 +23,18 @@ calculations to be chopped up into smaller chunks, and mapped to many computers.
 run, using the MapReduce algorithm. Simply put, we are processing data in parallel rather than
 serial. </p>
   
-<b> YARN </b>
+
+Hadoop has four main modules. The way these modules are woven together is what makes Hadoop so successful.
+<ul>
+  <li>Hadoop common </li>
+  <li>HDFS </li>
+  <li>MapReduce </li>
+  <li>YARN </li> 
+</ul>
+
+  <img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Hadoop-Ecosystem.jpg">
+  
+ <b> YARN </b>
 <p> Consider YARN as the brain of your Hadoop Ecosystem. It performs all your processing activities by allocating resources and scheduling tasks. </p>
   
   
@@ -75,8 +67,17 @@ terabit files into smaller blocks. When the mapper is operating on the terabite 
 operating on a block and not the entire file. The terabite file is being worked at by several nodes
 in the cluster all at once. The various nodes are just operating on different chunks. Once the mapper
 is done, the magic takes over. All of the data in the terabite file is combined based on a key.
-The reducer runs on different keys.</p>
+The reducer runs on different keys.</p> 
+  
+  
+  <b> Hadoop Eco System </b>
+  
+  <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+  
+  <p> You use Apache Kafka to ingest data, and store the it in HDFS. You do the analytics with Apache Spark and as a backend for the display you store data in Apache HBase.
 
+To have a working system you also need YARN for resource management. You also need Zookeeper, a configuration management service to use Kafka and HBase </p>
+  
 <b>Distributed storage</b>
 <p>
 You dont want to be limited by a single hard drive. If you have distributed 
