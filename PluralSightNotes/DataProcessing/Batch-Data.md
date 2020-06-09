@@ -97,7 +97,7 @@ HDFS (Hadoop version of GFS) is the system that allows us to distribute the stor
 across our cluster of computer. It makes all of the hard drives on our cluster to look like one 
 giant file system. Not only that, it maintaince redundant copies of that data so if one of the 
 computer get destroyed, it can recover from that automatically. That is the distributed data storage
-piece of Hadoop.Sitting on top of HDFS we have YARN (Yet Another Resource Negotiator): YARN is were the data 
+piece of Hadoop. Sitting on top of HDFS we have YARN (Yet Another Resource Negotiator): YARN is were the data 
 processing is starting to comes to play. YARN is basically the system that manages the resources
 on your computing cluster, it what decides what gets to run tests, what nodes are available for 
 extra work, which nodes are not available. </p>
@@ -113,7 +113,7 @@ MapR).</p>
 
 <b> Spark </b>
 <p>
-Spark is sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Spark is a processing engine that serves as a MapReduce alternative. Sparks goal is to give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark open ups API to Scala, Python, JAva, R and SQL. If your not using Spark, you are pretty much stuck
+Spark is sitting at the same level of MapReduce (on top of Yarn), to run queries on your data. Spark is a processing engine that serves as a MapReduce alternative. Sparks goal is to give MapReduce's scale and fault tolerance faster via in-memory processing (rather just disk IO). Spark have API to Scala, Python, Java, R and SQL. If your not using Spark, you are pretty much stuck
 with java. Microsoft designed HDinsight in conjunction with Hortonworks (the software company that came from the Apache Hadoop project). In january 2019, Hortonworks merged with Cloudera. Lower compute costs mean Apache Spark is moving to the forefront of big data analysis.  </p>
 
 <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/Apache-Spark-Framework-Hadoop-Ecosystem-Edureka-1-528x230.png">
