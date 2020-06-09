@@ -266,7 +266,7 @@ production and consumption stream using Databricks notebook. </p>
 
 <p> <b>Virtual Network peering</b> </p>
 
-<p> Often times resources in Azure are deployed to different virtual networks based on the needs
+<p> Often times, resources in Azure are deployed to different virtual networks based on the needs
 of the services. These networks are isolated by design. For those occations when you need to
 virtual networks to be connected, and the resources need to communication, Azure Virtual Netwoork
 Peering is here to help. With peering, services in different Virtual Networks (or vNets) communicate
