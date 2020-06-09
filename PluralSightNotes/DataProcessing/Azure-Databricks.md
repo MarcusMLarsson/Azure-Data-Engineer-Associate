@@ -209,20 +209,9 @@ First a few concepts:
     <li>Each record consists of a key, a value, and a timestamp. </li></ul>   
 <p> In Kafka, the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older versions. </p>    
   <img src="https://i.ytimg.com/vi/k-7lz6Ex354/maxresdefault.jpg">
- <p>
- <b> HDInsight </b>
-In Azure, HDInsight is the platform for hosting Kafka. 
- You can use many open source frameworks such as Hadoop, Apache Spark and Apache Kafka and more
-with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
-records (events) to clusters were they are stored as topics. A topic is just a write-ahead log where
-the producers append records. Within the clusters, topics are assigned to the partitions that can
-be replicated for fault tollerance across the clusters. In the case of Azure, Kafka topics reside in 
-HDInsight cluster. These records, based on a key-value pairs, are available for consumers to use. 
-Consumers are going to subscripe to the topics they need and receive changes in real time as event
-producers send more data into Kafka. All communication between producers and consumers happens
-by Kafka brokers running in the cluster.  </p>
-
-<p>
+  
+  
+  <p>
 For a long time, we have written programs that store information in databases. Databases think in
 things (cards, people etc), but Kafka thinks in events (events have an description of what happend
 at that time). The primary idea is that an event is an indication in time that the thing took place.
@@ -251,6 +240,21 @@ connectors. There are dussins, even 100 connectors out there in the world, some 
 some of them are commercials but they are these little plugable models that you can deploy to get the
 integration done. You deloy them, you configure them, you don't write code to do this reading and
 wrinting from the database. Kafta connect does that integration to those external systems. </p>
+  
+  
+ <b> HDInsight </b>
+  <p>
+In Azure, HDInsight is the platform for hosting Kafka. 
+ You can use many open source frameworks such as Hadoop, Apache Spark and Apache Kafka and more
+with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
+records (events) to clusters were they are stored as topics. A topic is just a write-ahead log where
+the producers append records. Within the clusters, topics are assigned to the partitions that can
+be replicated for fault tollerance across the clusters. In the case of Azure, Kafka topics reside in 
+HDInsight cluster. These records, based on a key-value pairs, are available for consumers to use. 
+Consumers are going to subscripe to the topics they need and receive changes in real time as event
+producers send more data into Kafka. All communication between producers and consumers happens
+by Kafka brokers running in the cluster.  </p>
+
 
 <p> <b>Demo: Streaming Data Scenario</b> </p>
 <p> Store data in Kafka topic and consuming a subset of the data into Azure Databricks. These involves
