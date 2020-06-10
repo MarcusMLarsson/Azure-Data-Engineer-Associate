@@ -169,7 +169,7 @@ assigned managed identity. Let's go to HDInsight tab and press add... Continue d
 <p>
 PolyBase is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
 external data while still giving you the ability to use transct-SQL. PolyBase means you can get
-data from different source like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
+data from different sources like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
 your data warehouse and you can create an external table which pulls data from for example a
 Hadoop cluster and you can bring in the data. It provides a higher degree of cross-platform
 compatibility. </p>
