@@ -1,7 +1,7 @@
 <h1> Integrating Data in Microsoft Azure </h1>
 
 <h3> Azure Data Factory </h3>
-Data engineers need to integrate data from different data sources in a multi-cloud environment
+Azure Data Factory is a fully managed cloud-based data integration platform. Its used to create data-driven workflows and ti integrate data from different data sources in a multi-cloud environment. 
 <ul>
   <li> Hybrid data integration service. </li>
   <li> Simplifies ETL at scale. </li>
@@ -12,10 +12,6 @@ Data engineers need to integrate data from different data sources in a multi-clo
   <li> On-premise data stores to Azure </li>
   <li> Different cloud providers supported </li></p>
 </ul>
-
-
-
-
 
 <h3> Data Migration Assistant </h3>
 <ul>
