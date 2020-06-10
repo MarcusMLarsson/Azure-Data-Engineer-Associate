@@ -144,10 +144,16 @@ is very similar to open soure Apache Hadoop. We got masisivley parallel processi
 concept under the hood in HDInsight that you would in any other cloud or on-premises Hadoop cluster.
 Head Nodes, Worker Nodes, at the bottom we have decoupled storage (Data Lake Store, Azure Storage 
 blobs). </p>
-<p> HDInsight Cluster Types: The traditional Hadoop option (Batch query and analysis of HDFS stored data). HBase (processing for large schmealess NoSQL data). Interactive Query (In-memory caching for
-fast Hive queries). Kafka: Distributed steaming data platform, ML Services: Predictive modeling and 
-machine learning. Spark: In-memory processing and interactive queries (substitute to MapReduce), 
-Apache Storm: Real-time event processing
+<p> HDInsight Cluster Types
+  <ul>
+    <li>The traditional Hadoop option (Batch query and analysis of HDFS stored data). </li>
+<li>HBase (processing for large schmealess NoSQL data). </li>
+<li>Interactive Query (In-memory caching for fast Hive queries). </li>
+<li>Kafka: Distributed steaming data platform</li>
+<li>ML Services: Predictive modeling and machine learning. </li>
+<li>Spark: In-memory processing and interactive queries (substitute to MapReduce) </li>
+<li>Apache Storm: Real-time event processing</li>
+</ul>
 
 
 <b> HDInsight is hosted Hadoop, and your using the native Hadoop tools, but they are being hosted
