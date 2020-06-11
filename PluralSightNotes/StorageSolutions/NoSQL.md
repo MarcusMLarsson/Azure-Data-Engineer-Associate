@@ -44,7 +44,7 @@
  <b> Securing storage accounts </b>
 <ul>
  <li><b> Management security</b> </li> <p> Represents who can create a storage account, who can delete tables, blobs or queues within the storage. That is operations that affect the storage account itself. <b> RBAC (roled base access control) </b> roles for storage (owner role, contributor role, reader) </p>
- <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, storage account keys (grants complete access) and <b> shared access signature (SAS) </b>, which gives the permission required for a <b> limited amount of time </b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
+ <li><b> Data access secuirty </b> </li> <p> Represents who can access the blob data, or who can update the data. Access to storage account data is blocked by default. You have two main method to grant access, <b>storage account keys</b> (grants complete access) and <b> shared access signature (SAS)</b>, which gives the permission required for a <b>limited amount of time</b>. You can even limit by IP, so if you receive an correct request from wrong IP address, the request will be denied. You can also enforce HTTPS.</p>
   <li><b> Encryption for data in transit </b> </li>
  <p> You can use both HTTP and HTTPS when calling the REST APIs or accessing objects in storage. It's recommended to always use HTTPS.
  <li><b> Encryption for data at rest </b> </li>
@@ -95,27 +95,25 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 </p>
  
  
- <b> Cosmos DB Concepts - Multi-writes and Consistent Prefix Reads </b>
+ <b> Cosmos DB Concepts - Consistency Levels </b>
  
-<p> There is always a trade off between data consistency and data availability & latency. Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. </p>
+<p> There is always a trade off between data consistency and data availability & latency. Most distributed databases ask you to choose between the two extreme consistency levels: strong and eventual consistency. Strong means you always see the latest version of the data, even if you have to wait for a few milliseconds or seconds. Eventual consistency, meaning, the database enginge doesn't guarantee that you see the latest data, but at the same time, the data, is returned very quickly. Azure Cosmos DB offers 5 consistency levels to choose from, including the 2 extremes. Moving from up to down you get higher latency and throughput at the price of weaker consistency. </p>
 <ul>
- <li> Strong</li>
-  <li> Bounded staleness</li>
-  <li>Session</li>
-  <li>Consistent prefix</li>
-  <li> Eventual</li>
+ <li><b> Strong</b></li>
+ Strong always guarantes consistency level.
+  <li> <b>Bounded staleness</b></li>
+ For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data.
+  <li><b>Session</b></li>
+ Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix.
+  <li><b>Consistent prefix</b></li>
+ For consistent Prefix the only thing Cosmos DB is guaranteeing is that your observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. 
+  <li> <b>Eventual</b></li>
+ Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates.
  </ul>
-
- <p> Imagine I have a record in my Cosmos DB database. This is a person record and has five properties (givenname, lastname, email, phone, spouse). My Cosmos DB is distributed to East-US and West-US region. At 10 AM my East-US replica is going to update the email address to john@test.com. Two mintues later, the West-US replica goes ahead and updates the phone number. So far, I have two distinguished writes to the same record. At 10:04 AM., my observer queries my Cosmos DB instance for this record, and let's say this database instance guarantees consistent prefix rates. Now let's see which version of the data in the database this observer will see. So is my observer going to see only the first update, meaning, the email address? Or is he going to see both updates side by side? So having in mind that this database guarantees consistent prefix of the list, it is okey for my observer to see either email, the new email, and the new phone, or none of them. Another way of thinking about this is, given that we have consistent prefix consistency level guaranteed, what is not okay for this observer to see? It is not okay to see the second update, but not the first update. </p>
- 
- <b> Cosmos DB Concepts - Consistency Levels (Strong, Session, Eventual, and Others) </b>
- 
- <p> Strong, Bounded Staleness, Session, Consistent Prefix, Eventual</p>
- <p> Moving from left to right you get higher latency and throughput at the price of weaker consistency. Strong always guarantes consistency level. For the bounded staleness you specify a window of staleness, and this windows is defined in time and number of operations. For example, you are going to say, I want my Window of staleness to be 10 minutes and for 1000 operations. So any observer accessing Cosmos DB outside this staleness Windows is going to see a strong consistency. For the observers accessing Cosmos DB within this staleness window, they are only guaranteed consistent prefix consistency level, meaning they are guaranteed to see in order updates, but not necessarily the latest and most consistent version of the data. Session consistency level is in the middle ground. It's the default consistency level when you are povisioning a new instance of Cosmos DB. Same as bounded staleness, you are going to have two different consistency levels, but instead of a staleness window, you are dealing with a session. So if you observer is accessing Cosmos DB within the same session that writes data, they are going to see a strong consistency; however for other obsvers accessing Cosmos DB from other sessions, they are going to only see consistent prefix. For consistent Prefix the only thing Cosmos DB is guaranteeing is that you observer is always going to see in the correct order of updates. If they see update N, they are going to see all the ones before as well, but consistent Prefix does not guarantee N is the latest version. Finally we have the Eventual consistency level. This is the weakest consistency level. For Eventual consistency level you might see out of order updates.   </p>
   
  <b> Cosmos DB Concepts - Data Partitioning </b>
  
- <p> Databases and Containers: An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partitions. </p>
+ <p> An Azure Cosmos database is a unit of management for a set of containers. A single database consist of a set of schema-agnostic container. The data you store inside containers can be partioned based on their partition key. A logical partition consists of a set of items that have the same partition key. Data that's added to the container is automatically partitioned across as set of logical partitions. Logical partitions are mapped to physical partitions that are distributed among several machines. Throughput provisioned for a container is divided evenly among physical partitions. </p>
  
  <p> Don't pick an partition key that result in "hot spots" within your applications. In other words, choose a partition key that has a wide range of values, so your data is evenly spread across logical partitions. If you are saving data about people in their cities, chosing city as the partition key might be a good idea because this way you make sure your data is roughly spread evenly among different logical partitions (assuming the cities you are choosing have roughly the same amount of population). For partition keys, try to use properties that appear frequently as a filter in queries; including the partition key in the filter predicate improves query performance.  A single logical partition has a limit of 10 GB of storage </p>
 
@@ -132,7 +130,9 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 <b> Working with Azure Cosmos DB - MongoDB API</b>
 
 <p>
- MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed <b> SLAs (service level agreement) </b> for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the world and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
+ MongoDB is a cross-platform document-oriented database program. MongoDB is a NoSQL database. Documents are stored in JSON format. The conecpt of containers is called collection for MongoDB. </p>
+ <p>
+ Why would you wan't to migrate your already working MongoDB database to Cosmos DB? You can get financially backed <b> SLAs (service level agreement) </b> for the NoSQL APIs powered by Cosmos DB. Cosmos DB provides global distribution with multi-master replication. You can have multiple nodes around the world and all of them can write to your database. If you have more traffic, you can elastically scale the provisioned throughput and storage for your Cosmos database. You pay only for the throughput and storage you need. 
  </p>
 <ul> 
  <p> Let's take alook at the pre-migrating steps before migrating your data. 
@@ -176,7 +176,7 @@ Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install t
 
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
-<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model. Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
+<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model? Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
 
 <p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
 

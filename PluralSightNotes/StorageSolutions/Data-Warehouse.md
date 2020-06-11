@@ -6,11 +6,11 @@
 <li> Data warehousing is a technology that aggregates structured data from one or more sources so that it can be compared and analyzed </li>
 <li> It's reasonable to use Data Warehouse when you have historical data that is sitting there, ready for analytics to be applied to it </li>
 <li> Rather than to soak in data (like a database), a data warehouse is designed to produce data for analysis. That is, a database is designed to record while a data warehouse is designed to analyize. </li>
-<li> For a Data Warehouse the datas purpose is defined (structured and highly transformed). For a Data Lake the datas purpose is not yet determined. </li>
+<li> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a Data Lake the datas purpose is not yet determined. </li>
 <br>
 <b> What is Azure SQL Data Warehouse? </b> 
 <br><br>
-<li> Azure SQL Data Warehouse is cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
+<li> Azure SQL Data Warehouse is a cloud based enterprise Data Warehouse and uses massiveley parallel processing (MPP)</li>
 <li> Azure SQL Data Warehouse and Azure Synapse Analytics are used interchangeably (the same thing) </li>
 <li> Massively parallel processing can be described as multiple processing nodes (computers) which are interconnected to each other and kept in the same chassi. </li>
 <br>

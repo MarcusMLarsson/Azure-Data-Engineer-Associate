@@ -10,7 +10,7 @@ like latency). How does my application access the data? </p>
 
 
 <p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service.
-By default most services are accessed via a internet facing endpoint (via encrypted data). </p>
+By default most services are accessed via an internet facing endpoint (via encrypted data). </p>
 
 <p><b> Implementing Hybrid Data Systems </p></b>
 
