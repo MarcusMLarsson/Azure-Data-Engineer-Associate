@@ -7,10 +7,9 @@
 <ul>
   <li> Simplifies ETL at scale. </li>
   <li> Enables modern data integration.</li>
-<li> Drag and drop interface. </li>
+<li> Easy drag and drop interface (no code/ low amount of code is needed). </li>
   <li>Over 80 connections available. </li>
-    <li> Move, transform and save data. </li>
-  <li> On-premise data stores to Azure </li>
+  <li> Easy migration from On-premise data stores to Azure </li>
   <li> Different cloud providers supported </li></p>
 </ul>
 
