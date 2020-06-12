@@ -40,34 +40,3 @@ There are three steps to ingest data
   <li> Create Linked Services </li>
   <li> Create a Copy Data Activity </li>
 </ul>
-
-
-<hr>
-
-<h3> Data Migration Assistant </h3>
-<ul>
-  <li> Helps us with on-premis data migration</li>
-  <li> Helps migrating schema and data </li>
-  <li> Detects compatibility issues between data sources</li>
-  <li> Detects unsupported or partially supported features</li>
-</p>
-</ul>
-
-<b> Copy Data Tool </b>
-<p> Allows data engineers to easily and quickly create data pipelines to move data from different services </p>  
-
-<p> For large migrations Azure Database Migration Service is recommended</p>
-<ul>
-  <li> Fully managed </li>
-  <li> Helps migrate databases at scale</li>
-  <li> Minimal downtime</li>
-</p>
-</ul>
-
-<p> Migrating SQL Server Data, Copying data between Amazon S3 package and Azure Blob Storage. Creating data integration pipelines using Azure Factory and Azuree Databricks. Creating real-time pipelines. </p>
-
-
-<p> Create an Azure SQL Server, allow firewall settings. Data migration assistant. Helps pgrade infrastructure to a 
-modern data platform. Detects compability and migration issues. Detects unsupported or partially supported feautures.
-Provides guidance and support. In this module we use Data Migration Assistant to detect compatibility issues between
-the on-pemise SQL Server and Azure SQL Server. Need to download the file.
