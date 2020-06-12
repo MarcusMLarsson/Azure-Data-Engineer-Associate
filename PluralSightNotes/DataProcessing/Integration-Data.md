@@ -34,6 +34,12 @@
   Before we create a dataset, we need to create a linked service. Datasets and Linked Services go hand in hand. A linked service connects a data store, like SQL Server, to the data factory. Then the dataset uses the linked service to conncet to the data stores. Linked services are similar to connection strings which represents the connection information needed for Data Factory to connect to external resources. These external resources can either be data stores, such as Azure SQL server or a computer resources, e.g. Spark Cluster, that can host the execution of an activity. For example, data bricks notebook running on a Spark computer environment.    </p>
 
 
+
+
+
+
+<hr>
+
 <h3> Data Migration Assistant </h3>
 <ul>
   <li> Helps us with on-premis data migration</li>
@@ -43,22 +49,8 @@
 </p>
 </ul>
 
-
-
-
-
-<hr>
-
-
 <b> Copy Data Tool </b>
 <p> Allows data engineers to easily and quickly create data pipelines to move data from different services </p>  
-
-
-
-
-
-
-
 
 <p> For large migrations Azure Database Migration Service is recommended</p>
 <ul>
@@ -68,15 +60,7 @@
 </p>
 </ul>
 
-
-
-
-
-
-
 <p> Migrating SQL Server Data, Copying data between Amazon S3 package and Azure Blob Storage. Creating data integration pipelines using Azure Factory and Azuree Databricks. Creating real-time pipelines. </p>
-
-
 
 
 <p> Create an Azure SQL Server, allow firewall settings. Data migration assistant. Helps pgrade infrastructure to a 
