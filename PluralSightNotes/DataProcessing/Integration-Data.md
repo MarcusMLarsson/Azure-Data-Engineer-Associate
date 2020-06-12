@@ -31,11 +31,15 @@
 <p> A dataset is a namned view that points or references the data you want to use in your activities. They identify data inside data stores such as files, folders, documents and tables. For example, if you have a pipeline activity that needs to access data hosted inside an Azure SQL Server database table, you will create a dataset that references this data. </p> 
   
 <p> <b> Linked Services </b> </p>
-  Before we create a dataset, we need to create a linked service. Datasets and Linked Services go hand in hand. A linked service connects a data store, like SQL Server, to the data factory. Then the dataset uses the linked service to conncet to the data stores. Linked services are similar to connection strings which represents the connection information needed for Data Factory to connect to external resources. These external resources can either be data stores, such as Azure SQL server or a computer resources, e.g. Spark Cluster, that can host the execution of an activity. For example, data bricks notebook running on a Spark computer environment.    </p>
+ <p>Before we create a dataset, we need to create a linked service. Datasets and Linked Services go hand in hand. A linked service connects a data store, like SQL Server, to the data factory. Then the dataset uses the linked service to conncet to the data stores. Linked services are similar to connection strings which represents the connection information needed for Data Factory to connect to external resources. These external resources can either be data stores, such as Azure SQL server or a computer resources, e.g. Spark Cluster, that can host the execution of an activity. For example, data bricks notebook running on a Spark computer environment.    </p>
 
-
-
-
+<p> <b> Creating a Pipeline to Ingest Data in Azure Data Factory </b> </p>
+There are three steps to ingest data
+<ul>
+  <li> Create Datasets </li>
+  <li> Create Linked Services </li>
+  <li> Create a Copy Data Activity </li>
+</ul>
 
 
 <hr>
