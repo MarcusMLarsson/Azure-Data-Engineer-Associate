@@ -1,8 +1,7 @@
 <h1> Building Streaming Data Pipelines in Microsoft Azure </h1>
 
 
-<p> Live Data Processing: Due to the nature of live data, data ingestion, processing and output should happen in
-real-time. This introduces some challanges. First you have to make sure, that your live data processing is supporting
+<p> Due to the nature of live data, data ingestion, processing and output should happen in real-time. This introduces some challanges. First you have to make sure, that your live data processing is supporting
 high volume data ingestion. In some situations your system needs to ingest input of MG or even GB per second. We 
 also need enough processing power, so data ingestion is not interrupted. This means, in most cases, live data
 processing systems can not be deployed to a commodity machine. The machine need to be scaleable and powerfull. You
