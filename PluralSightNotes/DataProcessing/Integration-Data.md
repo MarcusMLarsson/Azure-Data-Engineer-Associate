@@ -3,7 +3,7 @@
 <h3> Azure Data Factory </h3>
 <p>Azure Data Factory is a fully managed cloud-based data integration platform. Its used to create data-driven workflows and to integrate data from different data sources in a multi-cloud environment. </p>
 
-<b> Why should you use Azure Data Factory?
+<b> Why should you use Azure Data Factory? </b>
 <ul>
   <li> Simplifies ETL at scale. </li>
   <li> Enables modern data integration.</li>
