@@ -14,12 +14,12 @@
 </ul>
 
 <b> Understanding Azure Data Factory Pipelines </b>
-<p> A data factory can contain one or more pipelines. A pipeline is a logical grouping of activities that perform a given task. It allows managing activities as a set instead of individual actions. An activity represents a processing step in the pipeline and they define actions to be performed on the data. One activity in the pipeline can for exampl be to ingest data, transform data and store data. Activities in the pipeline can be linked together and can be exectued either sequentially or run in pararellel. </p>  
+<p> A data factory can contain one or more pipelines. A pipeline is a logical grouping of activities that perform a given task. It allows managing activities as a set instead of individual actions. An activity represents a processing step in the pipeline and they define actions to be performed on the data. One activity in the pipeline can for example be to ingest data, transform data and store data. Activities in the pipeline can be linked together and can be exectued either sequentially or run in pararellel. </p>  
   
-<p> Azure Data Factory supports three types of activities </p>
+<p> <b>Azure Data Factory supports three types of activities </b></p>
 <ul>
   <li> Data movement activities</li>
-  Copy data located on-premises or in the cloud. Some of these data stores include Azure Blob Storage, Azure Cosmos DB, Amazon Redshift, Google BigQuery, Hive, MariaDB, Oracle, SQL Server, MongoDB, Amazon S3 and more.
+  Copy data located on-premises or in the cloud. Some of the data stores include Azure Blob Storage, Azure Cosmos DB, Amazon Redshift, Google BigQuery, Hive, MariaDB, Oracle, SQL Server, MongoDB, Amazon S3 and more.
   <li> Data transformation activities</li>
   Helps you transform and enrich data. Some of the supported transformation activities include Hive, Pig, MapReduce, Spark and Azure Data Bricks. 
   <li> Control activities</li>
@@ -27,8 +27,11 @@
 </ul>
 
 
-<p> Azure Data Factory Datasets </p>
-<p> A dataset is namned view that points or references the data you want to use in your activities. They identify data inside data stores such as files, folders, documents and tables. For example, if you have a pipeline activity that needs to access data hosted inside an Azure SQL Server database table, you will create a dataset that references this data. Before we create a dataset, we need to create a linked service. Data set and Linked Services go hand in hand. A linked service connects a data store, like SQL Server, to the data factory. Then the dataset uses the linked service to conncet to the data stores. Linked services are similar to connection strings which represents the connection information needed for Data Factory to connect to external resources. These external resources can either be data stores, such as Azure SQL server or represents computer resources, e.g. Spark Cluster, that can host the execution of an activity. For example, data bricks notebook running on a Spark computer environment.    </p>
+<p><b> Azure Data Factory Datasets </b></p>
+<p> A dataset is a namned view that points or references the data you want to use in your activities. They identify data inside data stores such as files, folders, documents and tables. For example, if you have a pipeline activity that needs to access data hosted inside an Azure SQL Server database table, you will create a dataset that references this data. </p> 
+  
+<p> <b> Linked Services </b> </p>
+  Before we create a dataset, we need to create a linked service. Datasets and Linked Services go hand in hand. A linked service connects a data store, like SQL Server, to the data factory. Then the dataset uses the linked service to conncet to the data stores. Linked services are similar to connection strings which represents the connection information needed for Data Factory to connect to external resources. These external resources can either be data stores, such as Azure SQL server or a computer resources, e.g. Spark Cluster, that can host the execution of an activity. For example, data bricks notebook running on a Spark computer environment.    </p>
 
 
 <h3> Data Migration Assistant </h3>
