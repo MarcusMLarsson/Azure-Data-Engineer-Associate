@@ -42,3 +42,23 @@
  <li> Configure Azure Data Factory </li>
  <li> Copying data from Storage to Database </li>
  </ul>
+ 
+ <h3> Demo: Creating an Azure Devops organization </h3>
+ <ul>
+ <li> Create a new account </li>
+ <li> Create a new organization </li>
+ </ul>
+ 
+ <h3> Demo: Creating an Azure DevOps repository </h3>
+ <ul>
+ <li> Create a new Git repository </li>
+ <li> Learn repository navigation UI </li>
+ <li> Learn repository navigation UI </li>
+ </ul>
+ 
+ <p> Branch strategies</p>
+ 
+ <p> Branch policies </p>
+ 
+ <p> CI/CD </p>
+ 
