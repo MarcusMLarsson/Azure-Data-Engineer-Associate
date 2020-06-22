@@ -74,6 +74,10 @@
  
  <img src="https://cloudandmobileblogcom.files.wordpress.com/2018/07/devops.jpg?w=833" width="1200">
  
+ <h3> Azure DevOps </h3>
+ 
+ <img src="https://azurecomcdn.azureedge.net/cvt-fdde87d637c93aaa8d44f0dccd6bc94b93ea7d42a2bc4f5a987d991913ae6ad1/images/page/services/devops/boards/screenshot.jpg">
+ 
  <h3> Demo: Creating ARM and Database Templates </h3>
  <ul>
  <li> Review .Net Azure Resource Projects </li>
