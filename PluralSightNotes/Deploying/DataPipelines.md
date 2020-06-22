@@ -38,3 +38,6 @@
   
   <h3> Demo: Configure Azure Data Factory and Azure Key Vault</h3>
   <p> Copy connection string from Azure Blob Storage. Store it in Azure Key Vault. Its possible to add the connection string directly into ADF. This is bad practice however; we want to secure the connection string first, which is possible with Azure Key Vault. To do this, go inte Azure Key Vault. Go to Secrets, and press generate/import. Select the manual opload option. Paste the Blob storage connection string in the name field. The next step is to give our Data Factory access to this key vault. We can do this by using Azure Service Principles and Managed Service Identity. Go to Access policies and click add access policy.</p>
+  
+  <h3> Integrating Azure Data Factory Pipelines with source control using Azure DevOps </h3>
+  <p> Do not confuse Azure Pipelines with ADF data pipelines. </p>
