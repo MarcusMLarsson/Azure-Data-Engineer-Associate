@@ -86,3 +86,10 @@
  <li> Start a new build and publish </li>
  </ul>
 
+
+<h3> Demo: Creating an Azure DevOps Release </h3>
+<ul>
+ <li> Connect to build artifact </li>
+ <li> Deploy new Azure SQL Server </li>
+ <li> Deploy new Azure SQL Database </li>
+ </ul>
