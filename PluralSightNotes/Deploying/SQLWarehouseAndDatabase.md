@@ -115,8 +115,7 @@
  </ul>
  
  <h3> Demo: Exploring Azure Database Migration Guidance Website  </h3>
- <a href="https://datamigration.microsoft.com/"> datamigration.microsoft.com/ </a>
- 
+<p> <a href="https://datamigration.microsoft.com/"> datamigration.microsoft.com/ </a> </p>
 <ul> 
  <li> pre-migration </li>
  <p> Assesing environemnt and resources that are currently used on-premises. What are the capabilities and capacity of Azure service we are migrating to. Don't lose performance from choosing wronge tier. </p> 
@@ -124,5 +123,33 @@
  <li> Post-migration </li>
  <p> Now its time to tuning the resources </p>
 </ul>
+
+<h3> Demo: Creating an Azure Migrate Project </h3>
+<ul>
+ <li> Create a Database migration project </li>
+ <li> Download the Azure Data Migration Assistant </li>
+ </ul>
  
+ <p> To create an Azure migrate project, go into the Azure portal and search for Azure Migrate. </p>
  
+ <h3> Demo: Creating an Azure Migrate Project </h3>
+<ul>
+ <li> Demo: Using the Data Migration Assistant </li>
+ <li> Create an on-premises assessment </li>
+  <li> Migrate on-premises SQL Server database to Azure SQL Server </li>
+ </ul>
+ 
+
+ <p> Download Data migration assistant </p>
+ <p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=53595"> Download Data Migration Assistant </a> </p>
+ <p> Create project type Assesment. As part of assesement, check for database compatibility and check feature parity.</p>
+ <p> Create project type Migration. For migration scope, choose schema and data. 
+ 
+ <h3> Demo: Setting up Azure SQL Data Sync </h3>
+ <ul>
+ <li> Create new Data Sync group </li>
+ <li> Connect Azure SQL Server Hub </li>
+ <li> Connect on-premises SQL Server </li>
+ </ul>
+
+<p> Click on SQL Databases, Sync to other databases, create new sync group. The sync group is what is used to keep an Azure SQL Database in sync with other Azure SQL Databases or on-premis databases. Easiest to create new database to save sync data </p>
