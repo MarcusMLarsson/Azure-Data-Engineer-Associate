@@ -51,3 +51,8 @@
 
 <h3> Export templates using Azure Data Factory visual tools </h3>
 <p> Import/export ARM templates </p>
+
+<h3> Implementing CI/CD of Azure Data Factory Pipelines using Azure DevOps </h3>
+<p> Go into Azure Devops, Library, Variable Group. Make one variable group for production, staging etc.</p>
+
+<h3> Difference between ADF pipelines and DevOps pipelines? </h3>
