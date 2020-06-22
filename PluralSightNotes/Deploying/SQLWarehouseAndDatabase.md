@@ -63,7 +63,7 @@
  <h3> Continuous integration and deployment (CI/CD) </h3>
  <b> What is DevOps? </b>
  
- <img src="https://miro.medium.com/max/3964/1*AwvDJDfErlD34ox2QpwGoA.png" width="1000">
+ <img src="https://miro.medium.com/max/3964/1*AwvDJDfErlD34ox2QpwGoA.png" width="800">
  
  
  <p> DevOps is the combination of development and operations. The marriage of software development and IT operations. The lines of being a software developer and an IT operations engineer are getting very fuzzy. Now infrastructure is becomming codeable. Even when using ARM templates, an entire enterprise can be provisioned from templated scripts, sitting in a repository. Deployment like this, usually comes in the end of the process, the process being continously updating and coninously deploying </p>     </p>
@@ -72,4 +72,4 @@
  <li> Operations: Involves operational processes, policies, system performance, monitoring and technical infrastructure </li>
  </ul>
  
- <img src="https://cloudandmobileblogcom.files.wordpress.com/2018/07/devops.jpg?w=833" width="1000">
+ <img src="https://cloudandmobileblogcom.files.wordpress.com/2018/07/devops.jpg?w=833" width="1200">
