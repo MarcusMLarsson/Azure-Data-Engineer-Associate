@@ -79,3 +79,10 @@
  <li> Review .Net Azure Resource Projects </li>
  <li> Review .Net Sql Database Projects </li>
  </ul>
+
+ <h3> Demo: Creating an Azure DevOps Pipeline </h3>
+ <ul>
+ <li> Connect to existing Repository </li>
+ <li> Start a new build and publish </li>
+ </ul>
+
