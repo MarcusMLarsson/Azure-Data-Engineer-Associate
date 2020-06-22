@@ -81,7 +81,7 @@
  <ul>
  <li> Repos: Here your project/code will live</li>
  <li> Boards: Agile scrum cards </li>
- <li> Pipeline: You have a build system, and you can release your software into different environments </li>
+ <li> Pipeline: You have a build system, and you can release your software into different environments. Everytime I make a commit, it builds my code and make sure it works and it runs a number of tasks (including unit tests). It makes sure my unit test pass, before it builds.  </li>
  <li> Test Plans: If you have systems inplace for formalized testing. </li>
  <li> Artifacts: You can create your own NuGet / NPM feed (package manager system). </li>
  
@@ -103,4 +103,10 @@
  <li> Connect to build artifact </li>
  <li> Deploy new Azure SQL Server </li>
  <li> Deploy new Azure SQL Database </li>
+ </ul>
+ 
+ <h3> Demo: Creating an Azure Devops PR Release </h3>
+ <ul>
+ <li> Locate release pipelines</li>
+ <li> Manage release triggers</li>
  </ul>
