@@ -140,8 +140,6 @@
   <li> Migrate on-premises SQL Server database to Azure SQL Server </li>
  </ul>
  
-
- <p> Download Data migration assistant </p>
  <p><a href="https://www.microsoft.com/en-us/download/details.aspx?id=53595"> Download Data Migration Assistant </a> </p>
  <p> Create project type Assesment. As part of assesement, check for database compatibility and check feature parity.</p>
  <p> Create project type Migration. For migration scope, choose schema and data. 
