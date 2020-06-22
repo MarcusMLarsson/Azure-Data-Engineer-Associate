@@ -78,6 +78,13 @@
  
  <img src="https://azurecomcdn.azureedge.net/cvt-fdde87d637c93aaa8d44f0dccd6bc94b93ea7d42a2bc4f5a987d991913ae6ad1/images/page/services/devops/boards/screenshot.jpg">
  
+ <ul>
+ <li> Repos: Here your project/code will live</li>
+ <li> Boards: Agile scrum cards </li>
+ <li> Pipeline: You have a build system, and you can release your software into different environments </li>
+ <li> Test Plans: If you have systems inplace for formalized testing. </li>
+ <li> Artifacts: You can create your own NuGet / NPM feed (package manager system). </li>
+ 
  <h3> Demo: Creating ARM and Database Templates </h3>
  <ul>
  <li> Review .Net Azure Resource Projects </li>
