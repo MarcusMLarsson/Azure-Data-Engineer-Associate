@@ -73,3 +73,9 @@
  </ul>
  
  <img src="https://cloudandmobileblogcom.files.wordpress.com/2018/07/devops.jpg?w=833" width="1200">
+ 
+ <h3> Demo: Creating ARM and Database Templates </h3>
+ <ul>
+ <li> Review .Net Azure Resource Projects </li>
+ <li> Review .Net Sql Database Projects </li>
+ </ul>
