@@ -76,6 +76,9 @@
  
  <h3> Azure DevOps </h3>
  
+  <a href="https://azure.microsoft.com/en-us/services/devops/"> https://azure.microsoft.com/en-us/services/devops/ </a>
+
+ 
  <img src="https://azurecomcdn.azureedge.net/cvt-fdde87d637c93aaa8d44f0dccd6bc94b93ea7d42a2bc4f5a987d991913ae6ad1/images/page/services/devops/boards/screenshot.jpg">
  
  <ul>
@@ -110,3 +113,5 @@
  <li> Locate release pipelines</li>
  <li> Manage release triggers</li>
  </ul>
+ 
+ <a href="datamigration.microsoft.com"> datamigration.microsoft.com </a>
