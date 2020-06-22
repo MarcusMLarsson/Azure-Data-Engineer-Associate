@@ -76,7 +76,7 @@
  
  <h3> Azure DevOps </h3>
  
-  <a href="https://azure.microsoft.com/en-us/services/devops/"> https://azure.microsoft.com/en-us/services/devops/ </a>
+  <a href="https://azure.microsoft.com/en-us/services/devops/"> azure.microsoft.com/en-us/services/devops/ </a>
 
  
  <img src="https://azurecomcdn.azureedge.net/cvt-fdde87d637c93aaa8d44f0dccd6bc94b93ea7d42a2bc4f5a987d991913ae6ad1/images/page/services/devops/boards/screenshot.jpg">
@@ -114,4 +114,13 @@
  <li> Manage release triggers</li>
  </ul>
  
- <a href="datamigration.microsoft.com"> datamigration.microsoft.com </a>
+ <h3> Demo: Exploring Azure Database Migration Guidance Website  </h3>
+<ul> 
+ <li> pre-migration </li>
+ <p> Assesing environemnt and resources that are currently used on-premises. What are the capabilities and capacity of Azure service we are migrating to. Don't lose performance from choosing wronge tier. </p> 
+ <li> Migration </li>
+ <li> Post-migration </li>
+ <p> Now its time to tuning the resources </p>
+<a href="https://datamigration.microsoft.com/"> datamigration.microsoft.com/ </a>
+ 
+ 
