@@ -87,6 +87,7 @@
  <li> Pipeline: You have a build system, and you can release your software into different environments. Everytime I make a commit, it builds my code and make sure it works and it runs a number of tasks (including unit tests). It makes sure my unit test pass, before it builds.  </li>
  <li> Test Plans: If you have systems inplace for formalized testing. </li>
  <li> Artifacts: You can create your own NuGet / NPM feed (package manager system). </li>
+ </ul>
  
  <h3> Demo: Creating ARM and Database Templates </h3>
  <ul>
