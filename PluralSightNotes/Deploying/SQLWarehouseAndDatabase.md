@@ -115,12 +115,14 @@
  </ul>
  
  <h3> Demo: Exploring Azure Database Migration Guidance Website  </h3>
+ <a href="https://datamigration.microsoft.com/"> datamigration.microsoft.com/ </a>
+ 
 <ul> 
  <li> pre-migration </li>
  <p> Assesing environemnt and resources that are currently used on-premises. What are the capabilities and capacity of Azure service we are migrating to. Don't lose performance from choosing wronge tier. </p> 
  <li> Migration </li>
  <li> Post-migration </li>
  <p> Now its time to tuning the resources </p>
-<a href="https://datamigration.microsoft.com/"> datamigration.microsoft.com/ </a>
+</ul>
  
  
