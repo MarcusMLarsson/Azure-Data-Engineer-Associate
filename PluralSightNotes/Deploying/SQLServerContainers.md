@@ -215,7 +215,24 @@ kubectl delete service webapp1-service --namespace=k8s-demo
 </pre>
 </pre>
 
-<h3> Introduction to YAML </h3>
+<h3> Introduction to YAML (Yet another markup language) </h3>
+<p> A YAML file is used to represent data.  </p>
+
+<pre> 
+<b>Key Value Pair</b>
+name: Server1
+owner: John
+created: 12321312
+status: running
+</pre>
+
+<pre> 
+<b>Array/list</b>
+Fruits:
+- Orange
+- Apple
+- Banana
+</pre>
 
 <h3> Azure Kubernetes Service </h3>
 <p> Kubernetes has master and worker nodes. In the demo above, Docker Desktop deployed this for me. If I deployed it manually, its quite a lot to it. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service. I'm not deploying Kubernetes, I'm not patching Kubernetes, I'm not scaling the master infrastructure etc. With Azure Kubernetes Services, I get a dedicated master created for my, but I never see it. </p>
@@ -230,4 +247,3 @@ kubectl delete service webapp1-service --namespace=k8s-demo
 </ul>
   
   
-  <li> 
