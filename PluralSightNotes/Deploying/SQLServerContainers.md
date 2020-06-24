@@ -34,5 +34,5 @@
 
 <h3> Docker </h3>
 
-<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png">
+<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500>
 <p> 
