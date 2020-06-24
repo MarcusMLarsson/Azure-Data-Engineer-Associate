@@ -191,3 +191,6 @@ docker ps -a
 kubectl delete service webapp1-service --namespace=k8s-demo 
 </pre>
 </pre>
+
+<h3> Azure Kubernetes Service </h3>
+<p> Kubernetes has master and worker nodes. In the demo above, Docker Desktop deployed this for me. If I deployed it manually, its quite a lot to it. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service. I'm not deploying Kubernetes, I'm not patching Kubernetes, I'm not scaling the master infrastructure etc. With Azure Kubernetes Services, I get a dedicated master created for my, but I never see it. </p>
