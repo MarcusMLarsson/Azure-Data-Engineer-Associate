@@ -237,7 +237,7 @@ Fruits:
 <h3> Azure Kubernetes Service </h3>
 
 <p align="center">
-<img src="https://uditha.files.wordpress.com/2020/01/image_thumb.png?w=439&h=258" width="400">
+<img src="https://miro.medium.com/max/1400/1*V1PkVRHFyYImPAskBzlLVQ.png" width="600">
  </p>
 
 
