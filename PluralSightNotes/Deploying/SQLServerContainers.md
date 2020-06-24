@@ -100,3 +100,33 @@ docker exec $ContainerID echo "hello john"
 docker exec -it $ContainerID bash
 docker stop $ContinaerID
 
+</pre>
+
+<h3> Benefits of Containers </h3>
+
+<ul>
+  <li> Enable the application to be the prime focus </li>
+  <li> The developer can specify what the application needs to run successfully and provides immutability for the execution </li>
+  <li> The operations can easily deploy with cchange control without the need for xomplex runbooks that are often incomplete.</li>
+  <li> Very fast deployment as existing container hosts are leveraged instead of requiring new VMs enabling faster response oto scale requirements </li>
+  <li> Simpler upgrade patterns </li>
+  <li> Portability </li>
+  <li> Very thin instances on a shared kernel </li>
+  <li> State separation between applications </li>
+  <li> Enables multiple versions of applications to be maintained </li>
+  <li> Greate imaging system that leverages a repository that can be cloud shared, cloud private or on-premises private </li>
+  </ul>
+  
+  <h3> Containers in Azure </h3>
+  <p> There are a number of ways to run containers in Azure </p>
+  <ul>
+  <li> Deploy inside an Azure IaaS VM </li>
+  <p> Make that a container host, manually or something that can create the BMS for me. </p>
+  <li> Use Azure Container Instances </li>
+  <p> You can think of this as container as a service. All I say is, Hey I want a container. here is my image, here is some configurations go create it for me. I'm not thinking about container host. </p>
+  <li> Many PaaS services utilize containers </li>
+  <p> For example if I want to run Linux on an app service plans, it uses containers under the scene </p>
+  </ul>
+  
+  <h3> Orchestration </h3>
+ 
