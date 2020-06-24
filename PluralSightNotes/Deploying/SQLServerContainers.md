@@ -240,8 +240,7 @@ Fruits:
 <img src="https://miro.medium.com/max/1400/1*V1PkVRHFyYImPAskBzlLVQ.png" width="600">
  </p>
 
-
-<p> Kubernetes has master and worker nodes etc. In the demo above, Docker Desktop deployed this for us. If you would deploy it manually, it's quite a lot of work. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service.  </p>
+<p> Azure Kubernetes Services is as it sounds kubernetes running on Microsoft Azure. It's not strictly speaking Kubernetes in the pure sense of the word, it's a Kubernetes implementation. </p>
 
 <h3> Why SQL Server in Containers? </h3>
 <ul>
@@ -252,4 +251,13 @@ Fruits:
   <li> DevOps integration </li>
 </ul>
   
+  <h3> Running SQL Server in a Container and Kuberenetes </h3>
   
+  <p> Key requirements for SQL Server </p>
+  <ul>
+  <li> Persistent Storage: By default a container lives, and when it dies everything disappear. For SQL Server, I cant have all data disapearing if the container fails. So we have to think of some kind of persistent storage. </li>
+  <li> Consistent DNS. A pod as an IP address, but it will change everytime the pod is created. </li>
+  <li> High Availability. Pods are very ephemeral, they come and they go. That doesn't work for SQL Server.</li>
+  </ul>
+
+<p> Kubernetes will ensure our state is maintined. If the container, the pod or the worker node fails, it will recreate it. If we have persistent storage and consistent DNS, and it recreates it, it does not matter.
