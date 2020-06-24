@@ -47,7 +47,10 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 
 
 <h3> Docker </h3>
-<p> Docker is the standard for container implementation for Linux. Note that docker is a container runtime for Linux, Windows has its own one. Docker takes your operating system, and splits it into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs is that they are very heavy weight and that they take up a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. All it really is, is a command line tool. You can choose an application and it will run it in its own space in isolation. So that is what Docker is, its a self contained space for applications to run. </p>
+<p align="center">
+<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=600> 
+ </p>
+<p> Docker is the standard for container implementation for <b>Linux</b>. Note that docker is a container runtime for Linux, Windows has its own one. Docker takes your operating system, and splits it into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs is that they are very heavy weight and that they take up a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. All it really is, is a command line tool. You can choose an application and it will run it in its own space in isolation. So that is what Docker is, its a self contained space for applications to run. </p>
 
 <p> Why should you use docker </p> 
 <ul>
@@ -56,13 +59,11 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 <li> Promotes the usage of microservices </li>
 </ul>
 
-<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500> 
 
-<p> Using a container in Docker. imagen I'm a developer, I'm creating my application, I need a local database, I want to use containers for that, then I want it in production running in Azure. If I'm developing, I want the ability to have those containers locally. Docker Desktop gives me that ability on a Windows or Mac machine. It also gives me Kubernetes (a orchestrator).    </p>
+<h3> Docker Dekstop </h3>
+Docker Desktop is Docker designed to run on Windows 10 or Mac. It also gives access Kubernetes (a orchestrator).    </p>
 
 <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows"> Download Docker Dekstop for Windows </a>
-
-<b> Docker Dekstop </b>
 
 <p> Running SQL Server on Linux: Doing this on docker container for windows, its going to be virtualized. I can't run a Linux container on windows so virtualisation can be used to create that Linux environment. To get started, I need an Image which is going to be used by the container. See powershell code below</p>
 
