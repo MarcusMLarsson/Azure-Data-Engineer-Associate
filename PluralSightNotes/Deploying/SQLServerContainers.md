@@ -235,7 +235,13 @@ Fruits:
 </pre>
 
 <h3> Azure Kubernetes Service </h3>
-<p> Kubernetes has master and worker nodes. In the demo above, Docker Desktop deployed this for me. If I deployed it manually, its quite a lot to it. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service. I'm not deploying Kubernetes, I'm not patching Kubernetes, I'm not scaling the master infrastructure etc. With Azure Kubernetes Services, I get a dedicated master created for my, but I never see it. </p>
+
+<p align="center">
+<img src="https://uditha.files.wordpress.com/2020/01/image_thumb.png?w=439&h=258" width="700">
+ </p>
+
+
+<p> Kubernetes has master and worker nodes etc. In the demo above, Docker Desktop deployed this for us. If you would deploy it manually, it's quite a lot of work. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service.  </p>
 
 <h3> Why SQL Server in Containers? </h3>
 <ul>
