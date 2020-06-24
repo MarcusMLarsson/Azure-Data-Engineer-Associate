@@ -23,5 +23,16 @@
   <li> High availability, if an accident happend, I need to heal it quickly. </li></ul>
 
 <h3> Containers 101 </h3>
+ <p> In traditional virtualization (VMs), we have a physical assets, a server, it has CPU and memory, it has a certain amount of bandwith and storage that we can access. We would install a hypervisor, a type 1 hypervisor runs in a ring -1, so we can still ahve the operating system and kernel running ring -0. It sits underneath any operating system we run. Its not running inside a parent operating system. Then we create VMs, that VM is aside a certain amount of resource, virtual CPU and memory etc. Into that VM, we install a operating system, in that operating system we have various run times, libaries and dlls and than we have an app. We have great isolation between applications but it is fairly heavy, as each VM is an entier operating system. Its heavy in terms of in terms of runnning that os. The os has its own requirement on CPU cycle and memory and disk footprint. It is heavy in terms of management, I have to patch all of those OS instances, I have to worry about security and it takes a while to provision them. </p>
+ 
+ <p> With containers, we move up a level. If I think of traditional virtualization as virtualising the hardware, containers is about virtualising the operating system. Here, we are sharing a a desk os kernel. We create isolated name spaces that are based in images in terms of what is sees for the file system. This gives us a much thinner environment, itäs not running a complete OS for every container. </p>
+ 
+ <p> The layering of images is a key feature of containers. Images are stored in repositiries with versions ensuring immutability and prescriptive deployment. 
  
 <img src="https://miro.medium.com/max/1248/1*ql_47xetzYIEbkx4jeYZug.png">
+
+
+<h3> Docker </h3>
+
+<img src="https://www.google.se/search?q=docker&tbm=isch&hl=en&safe=active&chips=q:docker&bih=506&biw=1015&safe=active&hl=en&ved=2ahUKEwjB4dzToprqAhVdBncKHSjMAPkQ3VZ6BAgBEBU">
+<p> 
