@@ -167,5 +167,27 @@ docker stop fd510b9df468
 docker rm fd510b9df468
 kubectl get pod --namespace-k8s-demo # its still there
 docker ps -a #Note the age
+docker exec ab4821831 uname -a 
+docker exec -it ab4821831 bash
+kubectl delete pod container1 --namespace-k8s-demo
+ # stays gone since it just an object. if node died would also just be gone
   
+#Whole deployment
+kubectl apply -f deployment.yaml --namespace=k8s-demo
+kubectl get pod --namespace=k8s-demo
+kubectl get all --namespace=k8s-demo -o wide
+kubectl get all --all-namespace -o wide
+
+#We don't want to focus on pods and instead abstract with a service
+kubectl apply -f service.yaml --namespace=k8s-demo
+kubectl get svc --namespace=k8s-demo
+
+#Test the resiliency 
+kubectl delete god webapp1-deployment-48123481283 --namespace=k8s-demo
+kubectl get pod --namespace=k8s-demo #deployment gets it running again!
+docker ps -a 
+
+#cleanup
+kubectl delete service webapp1-service --namespace=k8s-demo 
+</pre>
 </pre>
