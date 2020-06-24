@@ -170,7 +170,7 @@ docker ps -a #Note the age
 docker exec ab4821831 uname -a 
 docker exec -it ab4821831 bash
 kubectl delete pod container1 --namespace-k8s-demo
- # stays gone since it just an object. if node died would also just be gone
+#stays gone since it just an object. if node died would also just be gone
   
 #Whole deployment
 kubectl apply -f deployment.yaml --namespace=k8s-demo
