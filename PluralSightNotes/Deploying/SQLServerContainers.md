@@ -129,4 +129,43 @@ docker stop $ContinaerID
   </ul>
   
   <h3> Orchestration </h3>
+ <p> Individually managing 1 or 2 containers on a node is possbile but does not scale. When dealing with a large scale environments orchestration is required around. There are a number of different aspecs you have to think about </p>
+ <ul>
+  <li> Deployment/planning </li>
+  <p> Deployment of the node (the container host), planning etc
+  <li> Scaling </li>
+    <p> If my worker nodes are filling up, I need to add more. 
+  <li> Management</li>
+  <p> If I do have a large scale environment, I may have to update the container host. how do I roll out a new version of the image?</p>
+</ul>
+
+<h3> Kubernetes 101 </h3>
+<img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png">
+<p> While there are a number of container orchestration solutions, Kubernetes has become the standard. This was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still my container runtime on Linux. It is still my tool face. Kubernetes sits on top of Docker to provide the Orchestration. I'm going to run Kubernetes to orchestrate the containers I run on Docker. </p>
+
+<p> Kubernetes enables developers to automate the process of deploying, scaling and managing containerized applications. The fundamental premise behind Kubernetes is that we can enforce what is called "Desired state management". What that means is that im going to feed the cluster services a specific configuration. And it will be up to the cluster service to run that configuration in my infrastructure.   </p>
+
+<p> Kubernets cluster consisft of two types of node. </p>
+<ul>
+  <li> The Kubernetes master runs a number of components that acts as the brain. </li>
+  <li> The Worker nodes run the actual pods (which have 1 or more containers) which are grouped into pools that share the same configuration </li>
+  <li> The workers run a kublet that helps with the scheduling and health checking of pods </li>
+ </ul>
  
+ <h3> Using Kubernets with Docker desktop </h3>
+<pre> kubectl get services
+kubectl get nodes
+
+kubectl create namespace k8s-demo
+kubectl apply -f pod.yaml --namespace-k8s-demo
+
+kubectl get pod --namespace-k8s-demo
+kubectl describe pod <pod>
+docker ps -a
+kubectl get pod container1 --output-yaml --namespace-k8s-demo
+docker stop fd510b9df468
+docker rm fd510b9df468
+kubectl get pod --namespace-k8s-demo # its still there
+docker ps -a #Note the age
+  
+</pre>
