@@ -142,21 +142,11 @@ docker stop $ContinaerID
   <li> Many PaaS services utilize containers </li>
   <p> For example if I want to run Linux on an app service plans, it uses containers under the scene. </p>
   </ul>
-  
-  <h3> Orchestration </h3>
- <p> Individually managing 1 or 2 containers on a node is possbile but does not scale. When dealing with a large scale environments orchestration is required around. There are a number of different aspecs you have to think about </p>
- <ul>
-  <li> Deployment/planning </li>
-  <p> Deployment of the node (the container host), planning etc
-  <li> Scaling </li>
-    <p> If my worker nodes are filling up, I need to add more. 
-  <li> Management</li>
-  <p> If I do have a large scale environment, I may have to update the container host. how do I roll out a new version of the image?</p>
-</ul>
 
-<h3> Kubernetes 101 </h3>
+
+<h3> Kubernetes </h3>
 <img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png">
-<p> While there are a number of container orchestration solutions, Kubernetes has become the standard. This was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still my container runtime on Linux. It is still my tool face. Kubernetes sits on top of Docker to provide the Orchestration. I'm going to run Kubernetes to orchestrate the containers I run on Docker. </p>
+<p> Individually managing 1 or 2 containers on a node is possbile. However, when dealing with a large scale environment, orchestration is generally required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still my container runtime on Linux. It is still my tool face. Kubernetes sits on top of Docker to provide the Orchestration. I'm going to run Kubernetes to orchestrate the containers I run on Docker. </p>
 
 <p> Kubernetes enables developers to automate the process of deploying, scaling and managing containerized applications. The fundamental premise behind Kubernetes is that we can enforce what is called "Desired state management". What that means is that im going to feed the cluster services a specific configuration. And it will be up to the cluster service to run that configuration in my infrastructure.   </p>
 
