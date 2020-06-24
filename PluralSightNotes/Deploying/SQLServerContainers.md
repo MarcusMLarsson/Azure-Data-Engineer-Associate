@@ -58,8 +58,8 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
   <li>Portability </li
 <p> Irrespective of your operating system, you can ship your docker containers to other people and they can easily run it without falling into any dependencies problems. When you normally create a webapplication, you install a bunch of random dependencies on the server. After a while, you will lose track of what you installed on there. If you wanted to sell this webapplication to somebody else someday, alot of problems would arise. In worst case. you might have to sell the server and a lease on the server aswell. The application might be entierly tied to the sever it is on. With docker, you can take this webapplication and contain it to an image and that is essentially the whole application. Than you can redeploy this image on any other server, and duplicate the website functionall.  </p>
 <li> Promotes the usage of microservices </li>
+<p> Imagen setting up an end-to-end stack for a webserver using node express, a database using mongoDB, a messaging system using Redis and an orchestreation tool like Ansible. Alot of issues will appear using all these different components like compatibility with the version of operating system or components requiring differnt versions of dependencies etc. The architecture of the application might change over time. Everytime something change you might have to go to the same process of checking compatibility. This compatibility matrix issue is usally refered to as the matrix from hell.</(p>
 </ul>
-
 
 <h3> Docker Dekstop </h3>
 <p align="center">
@@ -69,7 +69,6 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 <p> Docker Desktop is Docker designed to run on Windows 10 or Mac. It also gives access Kubernetes (a orchestrator). I can't run a Linux container on Windows or Mac so virtualisation is needed to create that Linux environment. To get started, I need an Docker Image which is going to be used by the container. See powershell code below </p>
 
 <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows"> Download Docker Dekstop for Windows </a>
-
 
 <pre>
 
@@ -144,11 +143,11 @@ docker stop $ContinaerID
   </ul>
 
 
-<h3> Kubernetes </h3>
+<h3> Kubernetes (also known as K8s)</h3>
 <img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png">
-<p> Individually managing 1 or 2 containers on a node is possbile. However, when dealing with a large scale environment, orchestration is generally required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still my container runtime on Linux. It is still my tool face. Kubernetes sits on top of Docker to provide the Orchestration. I'm going to run Kubernetes to orchestrate the containers I run on Docker. </p>
+<p> Individually managing 1 or 2 containers on a node is possbile. However, when dealing with a large scale environment, orchestration is generally required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still the container runtime on Linux. It is still the tool face. Kubernetes sits on top of Docker to provide the Orchestration. You run Kubernetes to orchestrate the containers that are created with Docker. </p>
 
-<p> Kubernetes enables developers to automate the process of deploying, scaling and managing containerized applications. The fundamental premise behind Kubernetes is that we can enforce what is called "Desired state management". What that means is that im going to feed the cluster services a specific configuration. And it will be up to the cluster service to run that configuration in my infrastructure.   </p>
+<p>  </p>
 
 <p> Kubernets cluster consisft of two types of node. </p>
 <ul>
