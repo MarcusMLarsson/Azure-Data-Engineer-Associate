@@ -63,7 +63,7 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 
 <h3> Docker Dekstop </h3>
 <p align="center">
-<img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/05/2b432538-f368-4850-a384-01992a9ef0fd.jpg?ssl=1" width=500> 
+<img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/05/2b432538-f368-4850-a384-01992a9ef0fd.jpg?ssl=1" width=800> 
   </p>
 
 <p> Docker Desktop is Docker designed to run on Windows 10 or Mac. It also gives access Kubernetes (a orchestrator). I can't run a Linux container on Windows or Mac so virtualisation is needed to create that Linux environment. To get started, I need an Docker Image which is going to be used by the container. See powershell code below </p>
