@@ -10,14 +10,26 @@
 
 <p> The point about Linux is very important when we start talking about containers because containers historically has been Linux based. Even today, when we are starting to see Windows based containers, it's still Linux that is the primary platform for containers. When we are thinking about SQL Server in a container, its going to be SQL Server running on Linux in a container. </p>
 
+
+<h3> What is a virtual machine </h3>
+<p> A virtual machine is a software that allows us to run an operating system within another operating system. It runs in a window, much like any other program, giving the end user the same experience on a virtual machine as they would have on the host operating system itself. This produces an ideal environment for testing other operating systems including beta releases, accessing virus-infected data, creating operating system backups, and running software or applications on operating systems they weren’t originally intended for. Examples of virtual machine managers are VirtualBox and VMWARE. The virtual machine is sandboxed from the rest of the system, meaning that the software inside a virtual machine can’t escape or tamper with the computer itself. 
+
+Multiple virtual machines can run simultaneously on the same physical computer. For servers, the multiple operating systems run side-by-side with a piece of software called a hypervisor to manage them, while desktop computers typical employ one operating system to run the other operating systems within its program windows. Each virtual machine provides its own virtual hardware, including CPUs, memory, hard drives, network interfaces, and other devices. The virtual hardware is then mapped to the real hardware on the physical machine which saves costs by reducing the need for physical hardware systems along with the associated maintenance costs that go with it, plus reduces power and cooling demand.
+</p>
+
+<h3> What is an image </h3>
+<p> An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template. </p>
+
+
+
 <h3> Database Services in Azure </h3>
 <p> Azure has a large number of database services. </p>
 <ul>
   <li> IaaS: Database software can be deployed to types of compute services like VMs where the customer maintains all management and maintenance responsibility. Those VMs can run Windows or a number of Linux distributions. I can create a VM and than install a database product into that VM. In that IaaS model, I as a customer is responsible for the installation, management, maintenance, backup etc. </li>
-  <li> Paas: There are a large number of PaaS offerings that are databases provided as managed services. The responsibility of management, patching, runtimes etc shifts to Azure.  </li>
+  <li> PaaS: There are a large number of PaaS offerings that are databases provided as managed services. The responsibility of management, patching, runtimes etc shifts to Azure.  </li>
   </ul>
-  
-  <p> Go to the portal, go to compute, under compute you will find SQL Server, templates and images available that has SQL Server and other database offerings, preconfigured and ready to go to run in a VM. </p>
+ 
+  <p> To find IaaS for databases, go to the portal, go to compute, under compute you will find SQL Server, templates and images are available that has SQL Server and other database offerings, preconfigured and ready to run in a VM. </p>
   
 <h3> Critical SQL Server Requirements </h3>
 <p> These most haves conflict in how we think about containers </p>
