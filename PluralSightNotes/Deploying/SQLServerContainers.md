@@ -11,17 +11,6 @@
 <p> The point about Linux is very important when we start talking about containers because containers historically has been Linux based. Even today, when we are starting to see Windows based containers, it's still Linux that is the primary platform for containers. When we are thinking about SQL Server in a container, its going to be SQL Server running on Linux in a container. </p>
 
 
-<h3> What is a virtual machine </h3>
-<p> A virtual machine is a software that allows us to run an operating system within another operating system. It runs in a window, much like any other program, giving the end user the same experience on a virtual machine as they would have on the host operating system itself. This produces an ideal environment for testing other operating systems including beta releases, accessing virus-infected data, creating operating system backups, and running software or applications on operating systems they weren’t originally intended for. Examples of virtual machine managers are VirtualBox and VMWARE. The virtual machine is sandboxed from the rest of the system, meaning that the software inside a virtual machine can’t escape or tamper with the computer itself. 
-
-Multiple virtual machines can run simultaneously on the same physical computer. For servers, the multiple operating systems run side-by-side with a piece of software called a hypervisor to manage them, while desktop computers typical employ one operating system to run the other operating systems within its program windows. Each virtual machine provides its own virtual hardware, including CPUs, memory, hard drives, network interfaces, and other devices. The virtual hardware is then mapped to the real hardware on the physical machine which saves costs by reducing the need for physical hardware systems along with the associated maintenance costs that go with it, plus reduces power and cooling demand.
-</p>
-
-<h3> What is an image </h3>
-<p> An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template. </p>
-
-
-
 <h3> Database Services in Azure </h3>
 <p> Azure has a large number of database services. </p>
 <ul>
@@ -32,26 +21,41 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
   <p> To find IaaS for databases, go to the portal, go to compute, under compute you will find SQL Server, templates and images are available that has SQL Server and other database offerings, preconfigured and ready to run in a VM. </p>
   
 <h3> Critical SQL Server Requirements </h3>
-<p> These most haves conflict in how we think about containers </p>
+
 <ul>
-  <li> Durable state, the state is critical, I can not lose my data. </li>
+  <li> Durable state, the state is critical, I can't lose my data. </li>
   <li> Needs consistent network access (DNS/IP). Application cant change name and IP etc. </li>
   <li> High availability, if an accident happend, I need to heal it quickly. </li></ul>
 
-<h3> Containers 101 </h3>
- <p> In traditional virtualization (VMs), we have a physical assets, a server, it has CPU and memory, it has a certain amount of bandwith and storage that we can access. We would install a hypervisor, a type 1 hypervisor runs in a ring -1, so we can still ahve the operating system and kernel running ring -0. It sits underneath any operating system we run. Its not running inside a parent operating system. Then we create VMs, that VM is aside a certain amount of resource, virtual CPU and memory etc. Into that VM, we install a operating system, in that operating system we have various run times, libaries and dlls and than we have an app. We have great isolation between applications but it is fairly heavy, as each VM is an entier operating system. Its heavy in terms of in terms of runnning that os. The os has its own requirement on CPU cycle and memory and disk footprint. It is heavy in terms of management, I have to patch all of those OS instances, I have to worry about security and it takes a while to provision them. </p>
- 
- <p> With containers, we move up a level. If I think of traditional virtualization as virtualising the hardware, containers is about virtualising the operating system. Here, we are sharing a a desk os kernel. We create isolated name spaces that are based in images in terms of what is sees for the file system. This gives us a much thinner environment, itäs not running a complete OS for every container. </p>
- 
- <p> The layering of images is a key feature of containers. Images are stored in repositiries with versions ensuring immutability and prescriptive deployment. 
- 
+<p> Most of these critical SQL Server requirements are in direct conflict in how we think about containers. </p>
+
+
+<h3> What is a virtual machine </h3>
+<p> A virtual machine is a software that allows us to run an operating system within another operating system. It runs in a window, much like any other program, giving the end user the same experience on a virtual machine as they would have on the host operating system itself. This produces an ideal environment for testing other operating systems including beta releases, accessing virus-infected data, creating operating system backups, and running software or applications on operating systems they weren’t originally intended for. Examples of virtual machine managers are VirtualBox and VMWARE. The virtual machine is sandboxed from the rest of the system, meaning that the software inside a virtual machine can’t escape or tamper with the computer itself. 
+
+Multiple virtual machines can run simultaneously on the same physical computer. For servers, the multiple operating systems run side-by-side with a piece of software called a hypervisor to manage them, while desktop computers typical employ one operating system to run the other operating systems within its program windows. A hypervisors only has one goal. To help you carve up or divide your servers resources into multiple sources. Each virtual machine provides its own virtual hardware, including CPUs, memory, hard drives, network interfaces, and other devices. The virtual hardware is then mapped to the real hardware on the physical machine which saves costs by reducing the need for physical hardware systems along with the associated maintenance costs that go with it, plus reduces power and cooling demand. 
+</p>
+
+<h3> What is an image </h3>
+<p> An image is a virtual hard disk (.vhd) file that is used as a template for creating a virtual machine. An image is a template because it doesn’t have the specific settings that a configured virtual machine has, such as the computer name and user account settings. If you want to create multiple virtual machines that are set up the same way, you can capture an image of a configured virtual machine and use that image as a template. </p>
+
+
+
+
+
+
+
+<h3> What is a container?</h3>
+
+<p> A container takes us back before virtualization. Now, we are going to install one operating system on the entire server. One operating system gets access to everything our server has to offer. If we think of traditional virtualization as virtualising the hardware, containers is about virtualising the operating system.  This gives us a much thinner environment (not as heavy) as it not running a complete OS for every container. Another way of saying this, is that a container is a sandbox for a process (an operating system has multiple processes). Containers can run different operating systems, has its own CPU, memeroy, network and are lightweight. </p>
+
 <img src="https://miro.medium.com/max/1248/1*ql_47xetzYIEbkx4jeYZug.png">
 
 
 <h3> Docker </h3>
 <p> Docker is the standard for containers, in terms of isolating (the container implementation) for Linux. It's a container runtime for Linux, Windows has its own one. </p>
 
-<p> Docker takes your operating system, and spltis it into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs it is very ehavy weight and it takes a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. Docker is more on the application level. All it really is, is a command line tool. You can choose an application and it will run it in its own space. So that is what Docker is, its a self contained space for applications to run </p>.
+<p> Docker takes your operating system, and splitsit into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs it is very ehavy weight and it takes a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. Docker is more on the application level. All it really is, is a command line tool. You can choose an application and it will run it in its own space. So that is what Docker is, its a self contained space for applications to run </p>.
 
 <b> Why should you use docker </b>
 <b> Portability </b>
