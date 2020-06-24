@@ -2,7 +2,11 @@
 <h1> Deploying SQL Server Containers in Azure </h1>
 
 <h3> SQL Server Fundamentals </h3>
-<p> SQL Server is a relational database management system (RDBMS) from Microsoft (released 1987). SQL Server utilizes a table with a defined schema that is comprised of columns and rows. T-SQL is primarily used to interact with the database. There are a number of versions of SQL server available. SQL Server is one of the leading relational databases in the market. SQL Server 2017 and above are available on both Windows and Linux. </p>
+<ul>
+  <li> SQL Server is a relational database management system (RDBMS) from <b>Microsoft</b> (the entire database architecture and not a language). SQL Server utilizes a table with a defined schema that is comprised of columns and rows. </li>
+<li> T-SQL is the proprietary form of SQL used by Microsoft SQL Server (the language). It includes special functions like cast, convert, date(), etc. that are not part of the ANSI standard. </li>
+<li> There are a number of versions of SQL server available.  SQL Server 2017 and above are available on both Windows and Linux. </li>
+  </ul>
 
 <p> The point about Linux is very important when we start talking about containers because containers historically has been Linux based. Even today, when we are starting to see Windows based containers, it's still Linux that is the primary platform for containers. When we are thinking about SQL Server in a container, its going to be SQL Server running on Linux in a container. </p>
 
