@@ -1,5 +1,5 @@
 
-<h3> Deploying SQL Server Containers in Azure </h3>
+<h1> Deploying SQL Server Containers in Azure </h1>
 
 <h3> SQL Server Fundamentals </h3>
 <p> SQL Server is a relational database management system (RDBMS) from Microsoft (released 1987). SQL Server utilizes a table with a defined schema that is comprised of columns and rows. T-SQL is primarily used to interact with the database. There are a number of versions of SQL server available. SQL Server is one of the leading relational databases in the market. SQL Server 2017 and above are available on both Windows and Linux. </p>
