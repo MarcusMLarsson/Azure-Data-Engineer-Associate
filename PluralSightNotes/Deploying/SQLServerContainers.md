@@ -53,3 +53,50 @@
 <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows"> Download Docker Dekstop for Windows </a>
 
 <b> Docker Dekstop </b>
+
+<p> Running SQL Server on Linux: Doing this on docker container for windows, its going to be virtualized. I can't run a Linux container on windows so virtualisation can be used to create that Linux environment. To get started, I need an Image which is going to be used by the container. See powershell code below</p>
+
+<pre>
+
+#Pull down certain image
+docker pull ubuntu:latest
+
+#list all the images
+#we are going to have alot of images as we are running kubernetes
+docker images
+
+#Create a container
+#the container has a job, in this case the container will echo "hello world"
+docker run ubunto echo "hello world"
+
+#See running containers
+docker ps
+
+#See all containers
+#the container has a job, they are commonly used with microservices, if I want it to continue to run forever, then the job that I give it has to be instructing it to keep going (like a webserver). It's not like a VM, when you create it and it just keep running. For a container, when the job is finsihed it will exit. 
+docker ps -a
+
+#Run interactively (could also -d for it to be detached)
+#I can now peak inside the container
+docker run -it ubuntu bash
+
+#Have a name
+docker run -name UbuntuContinaer -it ubuntu bash
+
+#Remove containers
+docker rm 3692e8685c77 (container ID)
+
+#Remove all not running on Linux
+docker rm $(docker ps -a -q -f status=exited)
+
+#Remove all on PowerShell
+docker rm @(docker ps -a -q -f status=exited)
+
+#Start existing 
+docker ps -a 
+$ContainerId = xxxxxx
+docker start $ContainerID
+docker exec $ContainerID echo "hello john"
+docker exec -it $ContainerID bash
+docker stop $ContinaerID
+
