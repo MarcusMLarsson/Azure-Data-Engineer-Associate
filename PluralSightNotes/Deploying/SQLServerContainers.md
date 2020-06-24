@@ -20,9 +20,8 @@
 <ul>
   <li> Durable state, the state is critical, I can not lose my data. </li>
   <li> Needs consistent network access (DNS/IP). Application cant change name and IP etc. </li>
-  <li> High availability, if an accident happend, I need to heal it quickly. </li>
-  </ul>
-  
- <h3> Containers 101 </h3>
+  <li> High availability, if an accident happend, I need to heal it quickly. </li></ul>
+
+<h3> Containers 101 </h3>
  
- <img src="https://miro.medium.com/max/1248/1*ql_47xetzYIEbkx4jeYZug.png">
+<img src="https://miro.medium.com/max/1248/1*ql_47xetzYIEbkx4jeYZug.png">
