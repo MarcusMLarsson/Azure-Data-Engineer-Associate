@@ -194,3 +194,15 @@ kubectl delete service webapp1-service --namespace=k8s-demo
 
 <h3> Azure Kubernetes Service </h3>
 <p> Kubernetes has master and worker nodes. In the demo above, Docker Desktop deployed this for me. If I deployed it manually, its quite a lot to it. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service. I'm not deploying Kubernetes, I'm not patching Kubernetes, I'm not scaling the master infrastructure etc. With Azure Kubernetes Services, I get a dedicated master created for my, but I never see it. </p>
+
+<h3> Why SQL Server in Containers? </h3>
+<ul>
+  <li> Ease of use, development testing. It is very easy to grab an image and create a container from it. With a SQL image, you don't need to install SQL, it's already there. </li>
+  <li> Standardization </li>
+  <li> Portability</li>
+  <li> Migration</li>
+  <li> DevOps integration </li>
+</ul>
+  
+  
+  <li> 
