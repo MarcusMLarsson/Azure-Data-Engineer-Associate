@@ -14,7 +14,7 @@
 <p> Azure has a large number of database services. </p>
 <ul>
   <li> IaaS: Database software can be deployed to types of compute services like VMs where the customer maintains all management and maintenance responsibility. Those VMs can run Windows or a number of Linux distributions. I can create a VM and than install a database product into that VM. In that IaaS model, I as a customer is responsible for the installation, management, maintenance, backup etc. </li>
-  <li> Paas: Large number of PaaS offerings that are databases provided as managed services. The responsibility shifts to Azure. I'm not worrying about patching operating systems or runtimes etc. </li>
+  <li> Paas: There are a large number of PaaS offerings that are databases provided as managed services. The responsibility of management, patching, runtimes etc shifts to Azure.  </li>
   </ul>
   
   <p> Go to the portal, go to compute, under compute you will find SQL Server, templates and images available that has SQL Server and other database offerings, preconfigured and ready to go to run in a VM. </p>
