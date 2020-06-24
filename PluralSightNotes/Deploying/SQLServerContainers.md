@@ -33,6 +33,5 @@
 
 
 <h3> Docker </h3>
-
-<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500>
-<p> 
+<p> Docker is the standard for containers, in terms of isolating (the container implementation) for Linux. It's a container runtime for Linux, Windows has its own one. </p>
+<img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500> 
