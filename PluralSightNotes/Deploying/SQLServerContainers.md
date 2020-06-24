@@ -53,6 +53,15 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
  </p>
 <p> Docker is the standard for container implementation for <b>Linux</b>. Note that docker is a container runtime for Linux, Windows has its own one. Docker takes your operating system, and splits it into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs is that they are very heavy weight and that they take up a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. All it really is, is a command line tool. You can choose an application and it will run it in its own space in isolation. So that is what Docker is, its a self contained space for applications to run. </p>
 
+<p> What is a kernel? </p>
+<p> Every multitasking computer system uses a kernel. The kernel is the thing that manages the CPU resources, the memory resources and the processors. It really is the lowest layer, above the CPU. For example, when you start an app, it is in fact the kernel that starts that app and enables the app to be loaded from the flash to the memory. </p>
+
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/1200px-Kernel_Layout.svg.png" width=500> 
+ </p>
+ 
+ <p> Docker containers share the underlying kernel. Let's say we have a system with Ubunto OS and Docker installed on it. Docker can run any flavor of OS ontop of it as long as they share the same Linux kernel. if the underlying system is Ubuntu, Docker can run a container based on another Linux like Debian. You wont be able to run a windows based container on a docker host with Linux OS on it. For that, you would require Docker on a Windows server. Unlike VM, docker is not meant to run different OS on the same hardware. The main purpose of docker is to containarise application, to ship them and run them. </p>
+
 <p> Why should you use docker </p> 
 <ul>
   <li>Portability </li
