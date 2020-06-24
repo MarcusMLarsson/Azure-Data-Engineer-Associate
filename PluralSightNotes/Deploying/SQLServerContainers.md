@@ -156,17 +156,25 @@ docker stop $ContinaerID
 <p align="center">
 <img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png" width="700">
  </p>
-<p> Individually managing 1 or 2 containers on a node is possbile. However, when dealing with a large scale environment, orchestration is generally required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still the container runtime on Linux. It is still the tool face. Kubernetes sits on top of Docker to provide the Orchestration. You run Kubernetes to orchestrate the containers that are created with Docker. </p>
+<p> Individually managing 1 or 2 containers on a node is possbile. But what if the docker host crashes? and what about if you have a large application with 10,000 containers? When dealing with a large scale environment, orchestration is required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still the container runtime on Linux. It is still the tool face. Kubernetes sits on top of Docker to provide the Orchestration. You run Kubernetes to orchestrate the containers that are created with Docker. </p>
 
-<p>  </p>
+<p> With Kubernetes, using the Kubernetes CLI (known as kubctl), you can run a 1,000 instances of the same application (kubectl run --replicas=1000 my-web-server) with a single command. Kubernetes can scale it up to 2,000 using a single command. Kubernetes can scale automatically on user load. Kubernetes can upgrade the instances with a single command. Kubernets uses docker host to host to host applications in the form of docker containers. It however does not need to be Docker.  </p>
 
-<p> Kubernets cluster consisft of two types of node. </p>
-<ul>
-  <li> The Kubernetes master runs a number of components that acts as the brain. </li>
-  <li> The Worker nodes run the actual pods (which have 1 or more containers) which are grouped into pools that share the same configuration </li>
-  <li> The workers run a kublet that helps with the scheduling and health checking of pods </li>
- </ul>
- 
+<p> Kubernetes cluster consist of a set of nodes. A node is a machine, physical or virtual, on which a Kubernetes software tools are installed. A node is a worker machine and that is where containers will be launched by Kubernetes. We have a cluster, but who is responsible for managing this cluster?  Where is the information about the members of the cluster? How are the nodes monitored, when a node fails how do you move the workload to another worker node? That is where the Master comes in. The master is a node with the Kubernetes control plane components installed. The master watches over the nodes in the cluster and is responbile for the actual orchestration of containers on the worker nodes. 
+  
+  <ul>
+  <li> API Server: Acts like the front end for Kubernetes. All services talk to the API server to interact with the Kubernetes cluster</li>
+  <li> etcd: is a distributed reliable key value stored used by Kubernetes to store all data used to manage the cluster.</li>
+  <li> Scheduler: is responsible for distributing work or containers across multiple nodes. It looks for newley created containers and assigns them to nodes.</li>
+  <li> The controllers: are the brain behind the orchestration. They are responsible for noticing and responding when node containers or endpoints goes down. </li>
+  <li> The container runtime is the underlying software that is used to run containers (in our case Docker).</li>
+    <li> Kublet: is the agent that runs on each node in the cluster. The agent is responsible for making sure that the containers are running on the nodes as expected.</li>
+  </ul>
+
+<p align="center">
+<img src="https://miro.medium.com/max/981/1*HXbT0c4Q5XaiCIp6y3VMvw.png" width="700">
+ </p>
+
  <h3> Using Kubernets with Docker desktop </h3>
 <pre> kubectl get services
 kubectl get nodes
@@ -206,6 +214,8 @@ docker ps -a
 kubectl delete service webapp1-service --namespace=k8s-demo 
 </pre>
 </pre>
+
+<h3> Introduction to YAML </h3>
 
 <h3> Azure Kubernetes Service </h3>
 <p> Kubernetes has master and worker nodes. In the demo above, Docker Desktop deployed this for me. If I deployed it manually, its quite a lot to it. There is configuration around networking, storage, etc. Azure Kubernetes Service provides a managed Kubernetes service. I'm not deploying Kubernetes, I'm not patching Kubernetes, I'm not scaling the master infrastructure etc. With Azure Kubernetes Services, I get a dedicated master created for my, but I never see it. </p>
