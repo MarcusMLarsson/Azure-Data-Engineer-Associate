@@ -42,9 +42,9 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 <h3> What is a container?</h3>
 
 <p> A container takes us back before virtualization. Now, we are going to install one operating system on the entire server. One operating system gets access to everything our server has to offer. If we think of traditional virtualization as virtualising the hardware, containers is about virtualising the operating system.  This gives us a much thinner environment (not as heavy) as it not running a complete OS for every container. Another way of saying this, is that a container is a sandbox for a process (an operating system has multiple processes). Containers can run different operating systems, has its own CPU, memeroy, network and are lightweight. </p>
-
+<p align="center">
 <img src="https://miro.medium.com/max/1248/1*ql_47xetzYIEbkx4jeYZug.png">
-
+</p>
 
 <h3> Docker </h3>
 <p align="center">
@@ -61,12 +61,14 @@ Multiple virtual machines can run simultaneously on the same physical computer. 
 
 
 <h3> Docker Dekstop </h3>
+<p align="center">
 <img src="https://i1.wp.com/www.docker.com/blog/wp-content/uploads/2019/05/2b432538-f368-4850-a384-01992a9ef0fd.jpg?ssl=1">
-Docker Desktop is Docker designed to run on Windows 10 or Mac. It also gives access Kubernetes (a orchestrator).    </p>
+  </p>
+
+<p> Docker Desktop is Docker designed to run on Windows 10 or Mac. It also gives access Kubernetes (a orchestrator). I can't run a Linux container on Windows or Mac so virtualisation is needed to create that Linux environment. To get started, I need an Docker Image which is going to be used by the container. See powershell code below </p>
 
 <a href="https://hub.docker.com/editions/community/docker-ce-desktop-windows"> Download Docker Dekstop for Windows </a>
 
-<p> Running SQL Server on Linux: Doing this on docker container for windows, its going to be virtualized. I can't run a Linux container on windows so virtualisation can be used to create that Linux environment. To get started, I need an Image which is going to be used by the container. See powershell code below</p>
 
 <pre>
 
@@ -119,8 +121,8 @@ docker stop $ContinaerID
 <ul>
   <li> Enable the application to be the prime focus </li>
   <li> The developer can specify what the application needs to run successfully and provides immutability for the execution </li>
-  <li> The operations can easily deploy with cchange control without the need for xomplex runbooks that are often incomplete.</li>
-  <li> Very fast deployment as existing container hosts are leveraged instead of requiring new VMs enabling faster response oto scale requirements </li>
+  <li> The operations can easily deploy with change control without the need for complex runbooks that are often incomplete.</li>
+  <li> Very fast deployment as existing container hosts are leveraged instead of requiring new VMs enabling faster response to scale requirements </li>
   <li> Simpler upgrade patterns </li>
   <li> Portability </li>
   <li> Very thin instances on a shared kernel </li>
@@ -133,9 +135,9 @@ docker stop $ContinaerID
   <p> There are a number of ways to run containers in Azure </p>
   <ul>
   <li> Deploy inside an Azure IaaS VM </li>
-  <p> Make that a container host, manually or something that can create the BMS for me. </p>
+  <p> Make Azure VM the container host. </p>
   <li> Use Azure Container Instances </li>
-  <p> You can think of this as container as a service. All I say is, Hey I want a container. here is my image, here is some configurations go create it for me. I'm not thinking about container host. </p>
+  <p> You can think of this as container as a service. All I say is, Hey I want a container. Here is my image, here is some configurations, go create a container for me. </p>
   <li> Many PaaS services utilize containers </li>
   <p> For example if I want to run Linux on an app service plans, it uses containers under the scene </p>
   </ul>
