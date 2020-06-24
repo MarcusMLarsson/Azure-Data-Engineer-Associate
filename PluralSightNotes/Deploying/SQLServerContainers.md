@@ -35,3 +35,7 @@
 <h3> Docker </h3>
 <p> Docker is the standard for containers, in terms of isolating (the container implementation) for Linux. It's a container runtime for Linux, Windows has its own one. </p>
 <img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500> 
+
+<p> Using a container in Docker. imagen I'm a developer, I'm creating my application, I need a local database, I want to use containers for that, then I want it in production running in Azure. If I'm developing, I want the ability to have those containers locally. Docker Desktop gives me that ability on a Windows or Mac machine. It also gives me Kubernetes (a orchestrator).    </p>
+
+<a src="https://hub.docker.com/editions/community/docker-ce-desktop-windows"> Download Docker Dekstop for Windows </a>
