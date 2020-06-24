@@ -144,7 +144,9 @@ docker stop $ContinaerID
 
 
 <h3> Kubernetes (also known as K8s)</h3>
-<img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png">
+<p align="center">
+<img src="https://miro.medium.com/max/2920/1*UnrkdMdY3XBHOUSx9H-sJw.png" width="500">
+ </p>
 <p> Individually managing 1 or 2 containers on a node is possbile. However, when dealing with a large scale environment, orchestration is generally required. While there are a number of container orchestration solutions, Kubernetes has become the standard. Kubernetes was a Google project, which is now open source. Kubernetes is not replacing Docker. Docker is still the container runtime on Linux. It is still the tool face. Kubernetes sits on top of Docker to provide the Orchestration. You run Kubernetes to orchestrate the containers that are created with Docker. </p>
 
 <p>  </p>
