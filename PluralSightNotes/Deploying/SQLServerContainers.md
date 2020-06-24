@@ -34,6 +34,18 @@
 
 <h3> Docker </h3>
 <p> Docker is the standard for containers, in terms of isolating (the container implementation) for Linux. It's a container runtime for Linux, Windows has its own one. </p>
+
+<p> Docker takes your operating system, and spltis it into many self contained areas, where applications can run in. It is very similar to a VM where people would take a single operating system and divide it into many small operating system, each one thinking they are running on its own system. The problem with VMs it is very ehavy weight and it takes a lot of resources. You dont really want to run multiple VMs on a single system, it just overloads the system. Docker brings this abstraction up one level. Docker is more on the application level. All it really is, is a command line tool. You can choose an application and it will run it in its own space. So that is what Docker is, its a self contained space for applications to run </p>.
+
+<b> Why should you use docker </b>
+<b> Portability </b>
+<p> Irrespective of your operating system, you can ship your docker containers to other people and they can easily run it without falling into any dependencies trap. When you normally create a webapplication, you install a bunch of random dependencies on the server. After a while, you will lose track of what you installed on there. If you have a webbsite with a bunch of software and tools on a certain machine, if you wanted to sell this webbsite to somebody else how would you do that? You had to sell the server and a lease on the server aswell. The website or application is entierly tied to the sever it is on. With docker, you can take this website and contain it to an image and that is essentially the whole application. Than you can redeploy this image on any other server, and dupplicate the website functionall.  </p>
+
+<b> Promotes the usage of microservices </b>
+
+
+<pre> Docker run flask </pre>
+
 <img src="https://www.aldakur.net/wp-content/uploads/2017/03/docker-logo-1024x914.png" width=500> 
 
 <p> Using a container in Docker. imagen I'm a developer, I'm creating my application, I need a local database, I want to use containers for that, then I want it in production running in Azure. If I'm developing, I want the ability to have those containers locally. Docker Desktop gives me that ability on a Windows or Mac machine. It also gives me Kubernetes (a orchestrator).    </p>
