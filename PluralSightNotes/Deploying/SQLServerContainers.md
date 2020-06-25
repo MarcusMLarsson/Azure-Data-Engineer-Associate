@@ -285,6 +285,8 @@ docker ps
 # Azuer Data Studio can connect locally to 1433 which will map to the container as we map 1433 to 1433
 SELECT @SERVERNAME, @@VERSION
   
+</pre>  
+  
 <h3> Deploying SQL Server to Azure Kubernetes Service (AKS) </h3>
 
 <ul>
