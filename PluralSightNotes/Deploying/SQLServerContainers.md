@@ -260,4 +260,38 @@ Fruits:
   <li> High Availability. Pods are very ephemeral, they come and they go. That doesn't work for SQL Server.</li>
   </ul>
 
-<p> Kubernetes will ensure our state is maintined. If the container, the pod or the worker node fails, it will recreate it. If we have persistent storage and consistent DNS, and it recreates it, it does not matter.
+<p> Kubernetes will ensure our state is maintined. If the container, the pod or the worker node fails, it will recreate it. If we have persistent storage and consistent DNS, and it recreates it, it does not matter. </p>
+
+<h3> SQL Server Images </h3>
+<p> We don't upgrade a SQL Server Image, we create a new container with a newer image. SQL Server 2017 images are based on Ubunto. For SQL Server 2019 images, they are based on Ubunto and Red Hat Enterprise Linux (Rhel). The images are available on <a href="https://hub.docker.com/">Docker Hub</a>. <p>
+  
+  <pre> docker pull mcr.microsoft.com/mssql/serve </pre>
+  
+  <p> Custom SQL Server Images <p>
+<a href="https://github.com/microsoft/mssql-docker/tree/master/linux/preview/examples/mssql-customize"> mssql-customize </a>
+  
+  <h3> Deploying SQL Server in Docker </h3>
+<pre> docker pull mcr.microsoft.com/mssql/server
+docker images
+docker history mcr.microsoft.com/mssql/server
+
+#Run SQL Server locally
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Britney123"   #environment variables, accept EULA=end user agreement, set a sa password
+  -p 1433:1433 --name mySqlContainer 
+  -d mcr.microsoft.com/mssql/server
+  
+docker ps
+
+# Azuer Data Studio can connect locally to 1433 which will map to the container as we map 1433 to 1433
+SELECT @SERVERNAME, @@VERSION
+  
+<h3> Deploying SQL Server to Azure Kubernetes Service (AKS) </h3>
+
+<ul>
+  <li> Create a storage </li>
+  <li> Create a secret </li>
+  <li> Create a deployment </li>
+  <li> Deploying </li>
+  <li> Test the connectivity </li>
+  <li> Test the resiliency </li>
+</ul>
