@@ -7,6 +7,7 @@
 <p> Monitoring is critical to ensure the security, healt and performance of the data. If there are some undetected storage issues, systems may be at risk and performance problems like long delays or excess CPU utilization might follow. It will be difficult to diagnose what is causing the problem, if that storage issue is undetected. Monitoring provides insight into many aspects of storage including performance, it's good to create a performance baseline when I create the solution. Overtime I can compare if the health of the data is degrading. Am I seing any spikes and unexpected errors? This may also include monitoring the end client experiance. </p>
 
 <h3> Types of Montioring Data in Azure </h3>
+<img src="https://www.systemcenterautomation.com/wp-content/uploads/2020/01/azure_monitor_twitter.png">
 <ul>
  Each service may have different types of monitoring data available, but they fall into three broad categories:
   <li> Metrics: Might give me insight into throughput, capacity, if it was a virtual machine it might be CPU cycles, could be SLA.  </li>
@@ -14,7 +15,7 @@
   <li> Alerts: Alerts are generally  triggered by metrics and logs </li>
   </ul>
   
-  <h3> Azure Montior </h3>
+  <h3> Azure Monitor </h3>
   <p> Azure Montior provides a single source for monitoring of Azure resources. I can think of Azure Monitor as that foundational element providing the first ring of matuirity in the type of insight I want to get about the environment. You might then build on this with for example application insight to get deeper insight into the workings of applications and their health. Azure monitor gives insight into things like
   <ul> 
     <li>Metrics: A metric is insight into the performance. Azure monitor runs in about 1 minute frequency. </li> 
@@ -57,13 +58,14 @@
  <li> Using machine learning and AI to perform analytics against collated signals its getting from your logs, metrics and microsoft security intelligent graph etc</li>
  <li> Cases (the case is the potential threat) are created automatically to collect the associated logs, etc, that have been detected as a threat.
  </ul></p>
- 
- 
- 
- 
+
 <h3> What is SIEM? </h3>
 
 <img src="https://blogvaronis2.wpengine.com/wp-content/uploads/2019/06/siem-process-2.png">
 
 <p> Security Information and Event Management (SIEM) is a software solution that aggregates and analyzes activity from many different resources across your entire IT infrastructure. SIEM collects security data from network devices, servers, domain controllers, and more. SIEM stores, normalizes, aggregates, and applies analytics to that data to discover trends, detect threats, and enable organizations to investigate any alerts. </p>
+
+<h3> Grafana </h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png">
  
+<p> Grafana provides a rich visualization and analytics set of capabilities. It is note exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
