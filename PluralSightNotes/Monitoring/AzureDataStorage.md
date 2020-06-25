@@ -11,10 +11,10 @@
   <li> Alerts: Alerts are generally  triggered by metrics and logs </li>
   </ul>
   
-  <h3> Azure Montior <h3>
+  <h3> Azure Montior </h3>
   <p> Azure Montior provides a single source for monitoring of Azure resources. I can think of Azure Monitor as that foundational element providing the first ring of matuirity in the type of insight I want to get about the environment. You might then build on this with for example application insight to get deeper insight into the workings of applications and their health. Azure monitor gives insight into things like
   <ul> 
     <li>Metrics: A metric is insight into the performance. Azure monitor runs in about 1 minute frequency. </li> 
     <li> Activity (Operations performed within the subscription) and Diagnostic Logs (resource level logs):</li> 
     <li> Alets from different sources including Azure Montior, Log Analytics anad Application insight</li> 
-  </ul></p>
+  </ul>
