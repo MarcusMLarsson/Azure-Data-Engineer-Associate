@@ -89,4 +89,4 @@
 <img src="https://miro.medium.com/max/1078/1*IQ4oFJQaQJGgHS-h0M1fxw.png">
 <p> New Service, which sit ontop of blob storage. At the moment, there is no logs for Azure Data Lage Storage Gen 2. </p>
 
-<p> The log storage service colelcts metrics on a best metric basis. If it can not keep up and its going to interupt storage operations, things will rather get missed from the log. </p>
+<p> The log storage service colelcts metrics on a best metric basis. If it can not keep up and its going to interupt storage operations, things will rather get missed from the log. In other words, there is logs that could be missed. </p>
