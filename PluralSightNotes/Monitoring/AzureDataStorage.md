@@ -116,3 +116,8 @@
 <p> Ambari comes on every cluster, and there is no additional cost. Ambari is a completely open source management platform for provisioning, managing, monitoring and securing Apache Hadoop clusters. Apache Ambari takes the guesswork out of operating Hadoop. Log analytics has some additional cost, you are going to pay for the data ingestion, pay for the amount of data etc. </p>
 
 <h3> Demo: Monitoring with Azure Monitor Metrics and using Ambari </h3>
+
+<h3> Demo: Montioring with Azure Montitor Logs </h3>
+
+<p> Old name of Azure Monitor log is Operations Management Suite. Ambari is perfect when we have one cluster. Log Analytics is good when we have more than one cluster, as we can consolidate a workspace will all analytics. </p>
+
