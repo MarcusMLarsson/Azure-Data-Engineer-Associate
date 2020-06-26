@@ -90,3 +90,29 @@
 <p> New Service, which sit ontop of blob storage. At the moment, there is no logs for Azure Data Lage Storage Gen 2. </p>
 
 <p> The log storage service colelcts metrics on a best metric basis. If it can not keep up and its going to interupt storage operations, things will rather get missed from the log. In other words, there is logs that could be missed. </p>
+
+<h3> Querying classic storage logs </h3>
+
+<p> How to query the classic storage logs. There is no built-in analysis with the classic logs. The files from $log can be read by a solution and processed, e.g. a SIEM. Integration to Log Analytics is possible through custom solutions. </p>
+
+
+<h3> Azure Monitor Metrics </h3>
+<p> Azure Storage has migrated to Azure Monitor-based metrics. This also applies to ADLS Gen2. This means we are not going to use the classic metrics (or alerts).
+
+
+<h3> What is HDInsight? </h3>
+
+<img src="https://apifriends.com/wp-content/uploads/2018/05/HDInsightsDetails.png">
+
+<p> HDInsight is the Azure managed offering providing a cloud distribution of Hadoop. There are a number of different open source framework available with HDInsight, including Apache Hadoop, Spark and Kafka. It's primarily an analytics platform for large amounts of data.  </p>
+
+<p> Monitoring for HDInsight requires three areas to be considered. </p>
+<ul>
+ <li> Cluster health and availability </li>
+ <li> Resource utilization and performance</li>
+ <li> Job status and logs</li>
+</ul>
+
+<p> Ambari comes on every cluster, and there is no additional cost. Ambari is a completely open source management platform for provisioning, managing, monitoring and securing Apache Hadoop clusters. Apache Ambari takes the guesswork out of operating Hadoop. Log analytics has some additional cost, you are going to pay for the data ingestion, pay for the amount of data etc. </p>
+
+<h3> Demo: Monitoring with Azure Monitor Metrics and using Ambari </h3>
