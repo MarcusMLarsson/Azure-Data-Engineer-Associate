@@ -69,3 +69,24 @@
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png">
  
 <p> Grafana provides a rich visualization and analytics set of capabilities. It is note exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
+
+
+<h3> Azure Storage Logs </h3>
+
+<p> Many services integrate tightly with Azure Monitor. This is not the case with Azure Storage, which uses classic logs. Classig logs write information to the $log container of the storage account BLOB service. These logs are enabled per service level. They include metric options at different granularities. And the data retention can be configured. The logs (classic) are hidden in the portal but are available from the API and Azure Storage Explorer. </p>
+
+
+<h3> Azure Storage Explorer </h3>
+<img src="https://dashboard.snapcraft.io/site_media/appmedia/2019/11/storage-explorer.png">
+
+<a href="https://azure.microsoft.com/en-us/features/storage-explorer/"> Download Azure Storage Explorer </a>
+
+<p> Upload, download, and manage Azure blobs, files, queues, and tables, as well as Azure Cosmos DB and Azure Data Lake Storage entities. Easily access virtual machine disks, and work with either Azure Resource Manager or classic storage accounts. Manage and configure cross-origin resource sharing rules. </p>
+
+
+<h3> Azure Data Lake Storage Gen 2 </h3>
+
+<img src="https://miro.medium.com/max/1078/1*IQ4oFJQaQJGgHS-h0M1fxw.png">
+<p> New Service, which sit ontop of blob storage. At the moment, there is no logs for Azure Data Lage Storage Gen 2. </p>
+
+<p> The log storage service colelcts metrics on a best metric basis. If it can not keep up and its going to interupt storage operations, things will rather get missed from the log. </p>
