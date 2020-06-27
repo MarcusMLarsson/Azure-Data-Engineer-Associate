@@ -43,10 +43,28 @@
   
   <h3> Diagnostic log targets </h3>
   <p> There may be one or more type of logs and metrics per resource type. These diagnostic inforamtion can be sent to a combiantion of three possible targets. Metrics are always availabile with the Azure Monitor view. But the logs we are talking about, there is not native way to interact with those via the Azure Portal. I need to send them to some service that can consume those logs and give us a way to interact with them. There might be for some services multiple places I need to configure the diagnostic log settings. For example, in an Azure SQL Database, go to Diagnostic settings under monitoring. Then you can configure by adding a new diagnostic setting. In the diagnostic setting, you can send it to either 
+    </p>
 <ul>
   <li> Archive to a storage account </li>
   <li> Stream to an event hub </li>
   <li> Send to log analytics </li>
   </ul>
-  </p>
   <p> if the database is part of a elastic pool, this elastic pool has it owns diagnostic settings. For pool level information you need to send somewhere aswell. Same options are included as before </p>
+  
+<h3> Implementing Monitoring for Azure SQL Database and Azure Synapse Analytcis </h3>
+<p> Benefits of PaaS Database </p>
+<ul>
+  <li> Automated backups </li>
+  <li> Built-in resiliency options </li>
+  <li> Evergreen (always new)</li>
+  <li> Increased scalability and agility </li>
+  <li> Auto-tuning of indexes </li>
+  <li> Better monitoring </li>
+</ul>
+
+<ul> 
+  Azure SQL DAtabase deployment types
+  <li> Single Database </li>
+  <li> Elastic Pool </li>
+  <li> Managed instance </li>
+  </ul>
