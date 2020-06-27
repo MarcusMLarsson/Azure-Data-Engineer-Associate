@@ -62,9 +62,23 @@
   <li> Better monitoring </li>
 </ul>
 
+<p> Azure SQL Database deployment types </p>
 <ul> 
-  Azure SQL DAtabase deployment types
   <li> Single Database </li>
   <li> Elastic Pool </li>
   <li> Managed instance </li>
   </ul>
+
+
+<h3> Monitoring Plan of Attack </h3>
+<ul>
+<li> Start int he portal, if we can get the answer here it is the most simple solution </li>
+<li> After that move to advanced tools </li>
+</ul>
+
+<h3> SQL Diagnostic Settings </h3>
+<ul>
+  <li> For Elastic Pool and Manage instance there are diagnostic at the pool/managed instance level that can be enabled </li>
+  <li> For single database, database in elstic pool and instance database there are diagnostics that are enabled per database </li>
+  </ul>
+  
