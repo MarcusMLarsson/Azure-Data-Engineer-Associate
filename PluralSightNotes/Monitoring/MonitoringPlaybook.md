@@ -27,7 +27,7 @@
   <li> Azure subscriptions/tenant </li>
   <li> Azure resources </li>
   <li> Guest componetns such as OS and applications </li>
-  
+  </ul>
   
   <h3> Azure Monitor </h3>
  
@@ -37,7 +37,7 @@
   <li> Metrics </li>
   <li> Activity (directly accessed to Azure Monitor) and Diagnostic Logs (integrate with Azure Monitor Logs to view the content)  </li>
   <li> Alerts: from different sources including Azure Monitor, Log Analytics and Application insight (not covered in this course)</p>
-  
+  </ul>
   
   <p> Azure Monitor Logs integrates log analytics capabilities. In Azure Monitor, select logs. The view is now going to shift into that of log analytics. Any logs that you sent to the log analaytics workspace you can now query from within here with KQL queries. </p> 
   
