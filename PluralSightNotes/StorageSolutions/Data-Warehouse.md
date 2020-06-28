@@ -493,7 +493,20 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li> Workload management </li>
 	<p> Workload management includes the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
 	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
- 
+	
+<h3> Polybase </h3>
+<p> The fastest way to load data into Synapse Analytics is to use Polybase. It lets you read data from external resources using T-SQL.
+<ul> 
+<li> Step 1: Convert your data into structured text files, such as CSV or Parquet, and put the files in either Blob Storage or Data lake Storage </li>
+	<li> Step 2:</li>
+	<pre> CREATE EXTERNAL DATA SOURCE
+		CREATE EXTERNAL FILE FORMAT
+		CREATE EXTERNAL TABLE
+	</pre>
+	<li> Step 3: Load the data into a stagin table in Synapse Analytics </li>
+	<li> Step 4: Insert the data into production tables </li>
+	
+<p> When you are loading data into staging tables, you should use a round-robin distribution method. </p>
   ---
 <h3> Notes </h3>
 
