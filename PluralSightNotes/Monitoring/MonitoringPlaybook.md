@@ -125,6 +125,9 @@
   <p> Http 429, number of requests exceeded capacity.
   
   
-  
-  
+  <h3> Logs for Cosmos DB </h3>
+  <ul>
+  <li> Like most Azure resources, the diagnostic settings enables log and metrics to be sent to the normal targets. </li>
+  <li> Activities such as key interaction is written to the Activity log </li>
+  </ul>
   
