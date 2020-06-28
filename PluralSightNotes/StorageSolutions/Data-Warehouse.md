@@ -1,6 +1,10 @@
 
 <h1> Implementing a Cloud Data Warehouse in Microsoft Azure Synapse Analytics </h1>
 
+<img src="https://i.udemycdn.com/course/750x422/2912128_bad0.jpg">
+
+
+
 <ul> 
 <b> What is a Data Warehouse?  </b>
 <li> Data warehousing is a technology that aggregates structured data from one or more sources so that it can be compared and analyzed </li>
