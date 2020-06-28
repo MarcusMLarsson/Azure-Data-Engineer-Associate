@@ -25,3 +25,11 @@
   <p> Azure Data Factory Analytics (Preview). Go to market place, search Azure Data Factory. </p>
   
   <h3> Implementing HDInsight Monitoring </h3>
+<p> Types of HDInsight Cluster: Batch processes (we care about the jobs), streaming (we care about quanitity), interactive queries (we care about queries). </p>
+<ul>
+  <li> Batch jobs (for example Spark) </li>
+  <li> Streaming (for example kafka) </li>
+  <li> Interactive Query (SQLLite)</li>
+  </ul>
+  
+  <p> Monitoring HDINsight: For each cluster we have a monitor solution.</p>
