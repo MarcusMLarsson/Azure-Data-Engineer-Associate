@@ -32,4 +32,4 @@
   <li> Interactive Query (SQLLite)</li>
   </ul>
   
-  <p> Monitoring HDINsight: For each cluster we have a monitor solution.</p>
+  <p> Monitoring HDINsight: For each cluster we have a monitor solution or we can jump into Embari</p>
