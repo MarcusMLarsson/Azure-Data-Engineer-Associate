@@ -25,8 +25,7 @@
 <li> Data partitioning allows a table, index, or index-organized table to be subdivided into smaller pieces, where each piece of such a database object is called a partition.</li>
 
 
-
----
+<hr>
 
 <h3> Understanding Azure Synapse Analytics </h3>
 
