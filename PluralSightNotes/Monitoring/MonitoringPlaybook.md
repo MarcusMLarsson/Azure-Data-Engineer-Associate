@@ -81,4 +81,50 @@
   <li> For Elastic Pool and Manage instance there are diagnostic at the pool/managed instance level that can be enabled </li>
   <li> For single database, database in elstic pool and instance database there are diagnostics that are enabled per database </li>
   </ul>
+  <p>
+  
+  <h3> Monitoring SQL Performance </h3>
+  <ul>
+  <li> Azure SQL Intelligent Insight provides continuous feedback on SQL performance using AI to help detect and resolve performance challanges </li>
+  <li> Azure SQL Analytics (search market place and install) is monitoring solution for Log Analytics which provides advanced cloud monitoring for multiple databases </li>
+  <li>
+    
+<h3> Monitoring Query Performance </h3>
+<ul>
+  <li> Most interactions with SQL Database will be via various types of queries </li>
+  <li> Insight into the queries can provide guidance to tune the queries and the database </li>
+  <li> Tuning the application is critical </li>
+  <li> Azure SQL Database provides two tools to aid with query performance (Query performance Insight & SQL Database Advisor) </li>
+  </ul>
+  
+ 
+<h3> Azure Cosmos DB State of the Union </h3>
+<ul>
+  <li> Azure Cosmos DB was built as a cloud database </li>
+  <li> It is probably the purest form of a managed database </li>
+  <li> Nearly all aspects are automatically tuned and optimized </li>
+  <li> There are metrics available, however these are all via Azure Monitor </li>
+  <li> The biggest use of metrics is to optimize partitioning and to identify request unit exhaustion </li>
+  <li> Useful metadata is also returned as part of each operation </li>
+</ul>
+
+<p> Data explorer, look at request units </p>
+
+
+<h3> Metrics for Cosmos DB </h3>
+<ul>
+  <li> Cosmos DB supports a number of models </li>
+  <li> There are a set of core, standard metrics which can be view through Azure Monitor </li>
+  <li> Some metrics vary depending on the type of model </li>
+  <li> Cosmos DB Metrics view has a number of tabs highlighting and visualizing metrics related to different areas </li>
+  </ul>
+  
+  <p> Within a container in Cosmos DB, we have items. In this case we will focus on documents, but it can be another type of container. When we create the container, we specify a partition key. The partition key could be a name, a a region (some element within the JSON document). Let's say we pick name. Partition Set 1 will be Clark, Partition Set 2 will be Bruce, Partition Set 3 will be Barry. The dataset is now distributed across physical nodes that can then be used to perfrom queries on them. The goal is to spread the dataset over the physical nodes so we can distribute the workload. It's very important to get this partition key correct. </p>
+  
+  
+  <p> Http 429, number of requests exceeded capacity.
+  
+  
+  
+  
   
