@@ -41,3 +41,23 @@
 	<li> <b>Set an Alert with Pause a data warehouse database as the condition and Email/SMS/Push/Voice as action. </b></li>
 	<li> Select the Notify button when pausing a data warehouse database </li>
 </ul>
+
+
+
+<pre> What happends when a data warehouse is deleted?</pre>
+<ul>
+	<li> <b>It is irreversible.</b></li>
+	<li> The data is kept in storage for 21 days.</li>
+	<li> The data is saved but the compute node is turned off.</li>
+	<li> A data warehouse cannot be deleted. </li>
+</ul>
+
+
+
+<pre> What account type is preferred when loading a large amount of data into a data warehouse?</pre>
+<ul>
+	<li> The main database administrator account</li>
+	<li> An account assigned to a higher-level resource group that can use more memory</li>
+	<li> An account assinged to a higher-level resource group that can use more storage</li>
+	<li> All accounts are the same when loading data </li>
+</ul>
