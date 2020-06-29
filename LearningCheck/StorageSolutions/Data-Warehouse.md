@@ -57,7 +57,16 @@
 <pre> What account type is preferred when loading a large amount of data into a data warehouse?</pre>
 <ul>
 	<li> The main database administrator account</li>
-	<li> An account assigned to a higher-level resource group that can use more memory</li>
+	<li> <b>An account assigned to a higher-level resource group that can use more memory</b></li>
 	<li> An account assinged to a higher-level resource group that can use more storage</li>
 	<li> All accounts are the same when loading data </li>
+</ul>
+
+
+<pre> What is the main purpose of Microsoft Azure Synapse Analytics (Formally known as SWL DW?)</pre>
+<ul>
+	<li> It protects data traffic from database to cloud</li>
+	<li> It stores both on-premises or cloud resource data</li>
+	<li> It merges all the Azure data resources into one shared space</li>
+	<li> it stores data in different environments. </li>
 </ul>
