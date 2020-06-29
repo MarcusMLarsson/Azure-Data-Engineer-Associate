@@ -75,7 +75,7 @@
 
 <pre> For managed instance, which authentication option can you use instead of Windows authentication?</pre>
 <ul>
-	<li> <b> c(AAD) authentication <b/></li>
+	<li> <b> (AAD) authentication </b></li>
 	<li> Transport Layer Security</li>
 	<li> Managed Identities (MSI) </li>
 	<li> Database logins </li>
