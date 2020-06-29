@@ -67,6 +67,24 @@
 <ul>
 	<li> It protects data traffic from database to cloud</li>
 	<li> It stores both on-premises or cloud resource data</li>
-	<li> It merges all the Azure data resources into one shared space</li>
+	<li> <b>It merges all the Azure data resources into one shared space </b></li>
 	<li> it stores data in different environments. </li>
+</ul>
+
+
+
+<pre> Why is it important to know how to pause an SQL data warehouse when not in use?</pre>
+<ul>
+	<li> <b>So you will not be charged for compute, but will still have to pay for storage </b></li>
+	<li> So you won't be charged anything</li>
+	<li> The data warehouse can overheat without pausing </li>
+</ul>
+
+
+<pre> What is the essential strategy of using Massive parallel Processing in SQL Data Warehouse</pre>
+<ul>
+	<li> To bring all data to the compute node and then transfer that data back after processing</li>
+	<li> To quickly respond to transactional requests to the database</li>
+	<li> <b>To process data in 60 distributions at the same time </b></li>
+	<li> To increase the transfer rates of data coming into the processing algorithms </li>
 </ul>
