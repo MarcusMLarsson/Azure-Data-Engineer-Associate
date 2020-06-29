@@ -75,7 +75,7 @@
 
 <pre> For managed instance, which authentication option can you use instead of Windows authentication?</pre>
 <ul>
-	<li> <b> c (AAD) authentication </></li>
+	<li> <b> c(AAD) authentication <b/></li>
 	<li> Transport Layer Security</li>
 	<li> Managed Identities (MSI) </li>
 	<li> Database logins </li>
@@ -99,14 +99,6 @@
 	<li> Configure long-term backup retention (LTR) backups for your instnace </li>
 </ul>
 
-
-<pre> Which scheduling technologies are availabile to Azure SQL Database single database and elastic pools?</pre>
-<ul>
-	<li> SQL Agent Jobs</li>
-	<li> Elastic Database Jobs and SQL Agent Jobs</li>
-	<li> Azure Automation runbooks for manually scheduling jobs</li>
-	<li> Elastic Database jobs </li>
-</ul>
 
 <pre> You must make sure only the members' data updates from the Hub and the Hub is intact. Which sync direction would you choose?</pre>
 <ul>
