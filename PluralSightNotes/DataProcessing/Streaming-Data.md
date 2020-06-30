@@ -44,7 +44,6 @@ FROM Input
 GROUP BY HoppingWindows(second, 10, 5)   // first argument is unit of time, second is the size of the window, the third is the hopping size (overlaps by 5 seconds)
 </pre>
 
-<pre>
 <p> Sliding window: Size are fixed, but I'm only getting new windows if new events are happening. 
 <pre>
 SELECT COUNT()
