@@ -53,8 +53,6 @@
  <b> Data Masking </b>
  <p> Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.</p>
  
-
-
  <b> SQL Data Sync </b>
 <p> SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud. Data Sync is based around the concept of a sync group. A sync group is a group of databases that you want to synchronize. Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the hub database. The rest of the databases are member databases. Sync occurs only between the hub and individual members. 
 <ul>
@@ -67,11 +65,29 @@
 
 </p>
 
+<b> Backups </b>
+<p> Azuer SQL Database automatically creates database backups (Azure SQL Automated Backups) that are kept between 7 and 35 days. 
+ <ul>
+  <li> Full backup: Backs up the whole database (taken every week) </li>
+  <li> Differential backup: Captures only the data that has changed since the last full backup (taken every 12 hours)</li>
+  <li> Transaction log backup: Records all of the committed and uncommited transactions (taken every 5-10m) </li>
+   </ul>
+
+
 <b> Data base migration service </b>
 <p> 
 Azure Database Migration Service is a tool that helps you simplify, guide, and automate your database migration to Azure. Easily migrate your data, schema, and objects from multiple sources to the cloud at scale.
  </p>
 
+<b> Scheduling jobs Azure SQL Database </b>
+
+<p> Jobs can be periodically exectued aginst one or many databases to run T-SQL queries and perform maintenance tasks. You can use this jobs to run afer hours. You can use them for collect data and for data movements. 
+ 
+ <b> Elastic Database jobs </b>
+ <p> Exectues custom jobs on one or many Azuer SQL Databases (in parallel). Provides the ability tyo run one or more T-SQL scripts in paralllel, across many databases on a schedule or on-demand. Elastic jobs are available for single and pooled instances. Elastic Job Components. Job Agent (clean empty existing database, the job definition and execution history will be saved inside the job database). The job agent execute jobs on the target (individual database, SQL Server, Elastic Pool, Data Warehouse). If your job has an output, you can confige an output database and the job agent will write out the output into the output database. </p>
+ 
+ <b> SQL Agent Jobs </b>
+ <p> Can be used for managed instance. job step (A job is a set of one or many steps that should be exectued) => Schedule (when the job should be executed) => Notification (define rules that will be used to notify operators via emails once the job complets).  </p>
 
 <hr>
 
