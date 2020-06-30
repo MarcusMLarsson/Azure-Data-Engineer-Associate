@@ -41,11 +41,11 @@
 <h3>Azure Event Grid</h3>
 <ul>
  <li>Sources, Topics, Subscriptions, Handlers, Use Cases in Architecture.</li>
-</h3>
+</ul>
 
 <h3> Azure IoT Hub </h3>
 <ul>
- <li>Use Cases in Architecture. </li>
+<li>Use Cases in Architecture. </li>
 </ul>
 
 <h3>Azure Cosmos DB </h3>
