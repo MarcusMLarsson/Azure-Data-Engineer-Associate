@@ -18,6 +18,7 @@
  <p> Fast IO and high availability requirements, local SSD storage, Combines Compute / Storag </p>
   <li> Hyperscale </li>
  <p>  Supports up to 100 TB of data, ensure 99.99% availability</p>
+</ul>
 
 <b> Purchasing models </b>
 <ul>
