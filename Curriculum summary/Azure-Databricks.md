@@ -193,3 +193,27 @@ SELECT * FROM CUSTOMER;
 returns SaXX Jack xxxx
 
 </pre>
+
+<p> Azure Stream Analytics </p>
+
+Input => Azure Stream Analytics => Output
+
+
+<ul>
+ <li> Define Source </li>
+ <li> Define Output </li>
+ <li> Define Job SQL Query </li>
+</ul>
+
+<b> Azure Stream Analytics on IoT Edge </b>
+<p> Low latency</p>
+<p> An Azure Stream Analytics job consists of an input, query, and an output. </p>
+
+<ul>
+ <li> Create an Azure Blob Storage container</li>
+ <li> Create a Stream analtyics job with edge hsoting.</Li>'
+  <li> Configure the Azure Blob Straoge container as save lcoation for the job definition.</Li>
+    <li> Set up an IoT Edge environment on the IoT device and add a Stream Analytics module</Li>
+      <li>Configure routes in IoT Edge</Li>
+ </ul>
+
