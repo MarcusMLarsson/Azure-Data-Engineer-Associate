@@ -67,10 +67,11 @@
 
 </p>
 
+<b> Data base migration service </b>
+<p> 
+Azure Database Migration Service is a tool that helps you simplify, guide, and automate your database migration to Azure. Easily migrate your data, schema, and objects from multiple sources to the cloud at scale.
+ </p>
 
-<li>On-Prem to Azure (Data Sync, DMS, etc). </li>
-
-</ul>
 
 <hr>
 
