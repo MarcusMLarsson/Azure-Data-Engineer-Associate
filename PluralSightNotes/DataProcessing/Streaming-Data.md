@@ -42,14 +42,16 @@ windows are overlapping.
 SELECT COUNT()
 FROM Input
 GROUP BY HoppingWindows(second, 10, 5)   // first argument is unit of time, second is the size of the window, the third is the hopping size (overlaps by 5 seconds)
-<pre>
+</pre>
 
+<pre>
 <p> Sliding window: Size are fixed, but I'm only getting new windows if new events are happening. 
 <pre>
 SELECT COUNT()
 FROM Input
 GROUP BY SlidingWindow(second, 10)
 </pre>
+
 
 <p> Session window: Are not fixed size and the windows might not overlap? Session window only created a new event is created (no window in moments of silence). </p>
 <pre>
