@@ -36,11 +36,12 @@
 
 <h3>Azure Event Hubs </h3>
 <ul>
-<li>Use Cases in Architecture, Terminology, Availability, Consistency, Scalability. </l>
+<li>Use Cases in Architecture, Terminology, Availability, Consistency, Scalability. 
+ </ul>
 
 <h3>Azure Event Grid</h3>
 <ul>
- <li>Sources, Topics, Subscriptions, Handlers, Use Cases in Architecture.</li>
+<li> Sources, Topics, Subscriptions, Handlers, Use Cases in Architecture.</li>
 </ul>
 
 <h3> Azure IoT Hub </h3>
