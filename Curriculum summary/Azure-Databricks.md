@@ -8,56 +8,76 @@
 <li>Firewall Rules & Virtual Networks.</li>
 </ul>
 
+<hr>
+
 <h3>Azure SQL Data Warehouse </h3>
 <ul>
 <li>Distributions, Partitioning, Resource Classes, Polybase, External Tables, CTAS, Performance Monitoring (DMVs), Authentication & Security, etc. </li>
 </ul>
+
+<hr>
 
 <h3>Azure Stream Analytics </h3>
 <ul> 
  <Li>Cloud vs Edge, Inputs, Outputs, UDAs, UDFs, Window Functions, Stream vs Reference, Partitioning, Performance, Scaling. </li>
 </ul>
 
-
+<hr>
 <h3>Azure Data Factory </h3>
 <ul>
 <li>Pipelines & Activities, Datasets, Linked Services, Integration Runtimes, Triggers, Authoring/Monitoring Experience. </li>
  </ul>
+
+<hr>
 
 <h3>Azure Storage</h3>
 <ul>
  <li>Blobs vs ADLS Gen2, Data Redundancy, Security, Performance Tiers, Storage Lifecycle, Migration. </li>
 </ul>
 
+<hr>
+
 <h3>Azure Key Vault</h3>
 <ul>
  <li>Keys, Secrets, Certs, and Access Policies. </li>
 </ul>
+
+<hr>
 
 <h3>Azure Event Hubs </h3>
 <ul>
 <li>Use Cases in Architecture, Terminology, Availability, Consistency, Scalability. 
  </ul>
 
+<hr>
+
 <h3>Azure Event Grid</h3>
 <ul>
 <li> Sources, Topics, Subscriptions, Handlers, Use Cases in Architecture.</li>
 </ul>
+
+<hr>
 
 <h3> Azure IoT Hub </h3>
 <ul>
 <li>Use Cases in Architecture. </li>
 </ul>
 
+<hr>
+
 <h3>Azure Cosmos DB </h3>
 <ul>
  <li>Use Cases for APIs, Consistency Levels, Distribution, Partitioning.</li>
 </ul>
 
+<hr>
+
 <h3>Azure Databricks</h3>
 <ul>
 <li>Use Cases in Architecture, Clusters, Secrets, Connecting to Data Sources, Performance Metrics.</li>
 </ul>
+
+<hr>
 
 <h3>Azure Monitor </h3>
 <ul>
