@@ -217,3 +217,11 @@ Input => Azure Stream Analytics => Output
       <li>Configure routes in IoT Edge</Li>
  </ul>
 
+<b> Azure Data Factory, native itnegration runtime mode, Express Route?
+ 
+ What is Azure Data Box Disk? What is Azure Data Box Heavy?
+ 
+ 
+ <p> Steps for polybase to load into Azure Data Warehouse </p>
+ <p> Polybase to laod data from a prquet file stored in Azure blob Strage in a table namded ...)
+
