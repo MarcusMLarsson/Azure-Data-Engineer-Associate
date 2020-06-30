@@ -164,3 +164,32 @@ Azure Database Migration Service is a tool that helps you simplify, guide, and a
 <ul>
  <li>Application, Alerts, Log Analytics. </li>
 </ul>
+
+
+<hr>
+
+<b> Dynamic Data Masking </b>
+
+
+<p> Dynamic data masking (DDM) limits sensitive data exposure by masking it to non-privileged users.
+
+<ul>
+ <li> Default(), for string XXXX, for numeric 0, for date and datetime 0:00:00, for binary 0 </li>
+ <li> PARTIAL(), masking method that exposes first and last but adds a custom padding string </li>
+ <li> RANDOM(), a random masking function</li>
+</ul> 
+</p>
+
+<pre>
+CREATE TABLE Customer (GiveName varchar(100) MASKED WITH (FUNCTION = 'partial(2, "XX", 0)') NULL,
+SurName varchar(100) NOT NULL,
+Phone varchar(12) MASKED WITH (FUNCTION = 'default()')
+);
+
+INSERT Customer (GivenName, SurName, Phone) VALUES ('Sammy', 'Jack', '555.111.2222');
+
+SELECT * FROM CUSTOMER;
+
+returns SaXX Jack xxxx
+
+</pre>
