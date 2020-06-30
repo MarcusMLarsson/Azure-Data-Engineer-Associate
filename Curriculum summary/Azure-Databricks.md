@@ -8,7 +8,7 @@
  <p> Collection of Single databases with a shared set of resources such as CPU or memory </p>
   <li> Manage Instance </li>
  <p>  Easy migration of on-premis databases </p>
-
+</ul>
 
 <b> Service Tiers </b>
 <ul>
@@ -46,10 +46,10 @@
 <b> Alwasy Encrypted </b>
 <p> Always Encrypted is a feature designed to protect sensitive data, stored in Azure SQL Database or SQL Server databases from access by database administrators (e.g. the members of the SQL Server sysadmin or db_owner roles), administrators of machines hosting SQL Server instances,), and Azure SQL Database (cloud) administrators. Always Encrypted leverages client-side encryption: a database driver inside an application transparently encrypts data, before sending the data to the database. Similarly, the driver decrypts encrypted data retrieved in query results.  </p>
 
-<b> Transparent Data Encryption </b
+<b> Transparent Data Encryption </b>
  <p> TDE is intended to add a layer of security to protect data at rest from offline access to raw files or backups, common scenarios include datacenter theft or unsecured disposal of hardware or media such as disk drives and backup tapes. </p>
  
- <b> Data Masking </b
+ <b> Data Masking </b>
  <p> Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.</p>
  
 
