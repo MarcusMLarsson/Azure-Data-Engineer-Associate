@@ -46,7 +46,7 @@
 <h3> Azure IoT Hub </h3>
 <ul>
  <li>Use Cases in Architecture. </li>
- </ul>
+</ul>
 
 <h3>Azure Cosmos DB </h3>
 <ul>
