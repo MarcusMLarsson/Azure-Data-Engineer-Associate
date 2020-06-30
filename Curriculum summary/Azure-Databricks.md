@@ -62,6 +62,9 @@
  <li>  The member databases can be either databases in Azure SQL Database or in instances of SQL Server. </li>
  <li>  The Sync Database contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned. </li>
 </ul>
+
+<p>The Sync Direction can be bi-directional or can flow in only one direction. That is, the Sync Direction can be Hub to Member, or Member to Hub, or both.  The Sync Interval describes how often synchronization occurs. SQL Data sync may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.</p>
+
 </p>
 
 
