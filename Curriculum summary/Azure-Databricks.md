@@ -26,7 +26,7 @@
  <p>  DTUs are based on a blended measure of CPU, memory, reads, and writes.  </p>
   <li> vCore</li>
  <p> Gives you the option to choose between generations of hardware, number of cores, memory and storage size</p>
-
+</ul>
 
 <b> Monitor using Dynamic Management Views (DMVs) </b>
 <p> DMVs are a great tool to help troubleshoot performance related issues. All queries executed on SQL pool are logged to sys.dm_pdw_exec_requests. This DMV contains the last 10,000 queries executed. The request_id uniquely identifies each query and is the primary key for this DMV.
