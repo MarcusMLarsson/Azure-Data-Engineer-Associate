@@ -114,7 +114,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
   <p> <ul>
 	
 <li> First of all, the data in transit is always encrypted using Transport Layer Security (TLS). TLS is a protocol for securing information between the client and the server. It is used in the HTTPS protocol, and TLS is what the S stands for in HTTPS. </li> 
-<li> Also transparent data encryption is available, which encrypts the raw files, such as database files and backup files on Azure servers, this way your data is protected from offline access, incase the database files are compromised. </li>
+<li>Transparent Data Encryption (often abbreviated to TDE) is a technology employed by Microsoft, IBM and Oracle to encrypt database files. TDE offers encryption at file level. TDE solves the problem of protecting data at rest, encrypting databases both on the hard drive and consequently on backup media. It does not protect data in transit nor data in use. </li>
 <li> Dynamic data masking protects sensitive data (credit card numbers, sallaries) by masking it for non-priviledged users. Any non-priviledged user trying to query this data will see the masked version of the data. </li>
 <li> Always Encrypted protects data from high privileged, unauthorized users such as database admins. </li>
 <li> Finally, all the encryptions keys are stored in Azure Key Vault and are protected from unauthorized access.  </li>
