@@ -135,9 +135,6 @@ Imagen we only have Azure SQL Database Single Database option available to us an
   
 <p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
   
-<p> <b> Transparent Data Encryption:</b> TDE is used to protect data at rest. Master Key is stored in an external storage (outside the database called keystore)</p>
-
-
 <p> <b> SQL Server and Database Encryption Keys:</b> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
 to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
 
