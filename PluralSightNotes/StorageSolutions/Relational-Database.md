@@ -98,7 +98,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <b>Different Service tiers</b>
 <p>
 	<li>General purpose / standard: is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
-	<li>Business Critical / Premium: For applications requiring low-latency, 99,99% SLA, 1.2 ms storage latency.  </li>
+	<li>Business Critical / Premium: For applications requiring low-latency, 99,995% SLA, 1.2 ms storage latency.  </li>
 	<li>Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
 </ul> 
     
