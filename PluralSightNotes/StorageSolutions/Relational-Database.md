@@ -122,6 +122,35 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  </ul>
  <hr>
  
+ 
+<b> Configuring Data Backup </b>
+
+<p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
+
+<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. 
+<ul>	
+	<li> Full backup (taken every week): Azure backs up the entire database. </li>
+	<li> Differential back up (taken every 12 hours): which captures only the data that has changed since the last full backup. </li>
+	<li> Transaction log back up (Taken every 5-10 minutes): Records of all the committed and uncommitted transactions. </li>
+</ul>
+
+<p> These backups are stored in Azure read-access geo-redundant (RA-GRS) standard blob storage by default. This means your backup are stored in two seperate regions (?), with the second region being a read only region. All backups are automatically encrypted at rest using Transparent Data Encryption (TDE), blob torage is also protected.  </p>
+
+<p> In turn of retention period, there are two types of backups. Point in time (7-35 days), you can use this backup to retore your database to an exact point in time. This is because all three type of backups, full backup, differential and transaction logs are keept. You might need to keep your backup for more than 35 days for compliance reasons. In that case, you can use long-term retention (up to 10 years). You can't disable point in time backups, you can only configure the retention period which is between 7-35 days. All Azure SQL databases (single, pooled, managed instance) have a default backup retention period of 7 days. If you delete a database, Azure SQL Database will keep the backups in the same way it would for an online database. LTR is not yet available for databases in Managed Instances. Instead you can use SQL Agent jobs to schedule copy-only database backups as an alternative to LTR (beyond 35 days). </p>
+
+<p> Usage of backups. You can restore an existing database to a point-in-time in the past. You can restore a deleted datbase to the time it was delete. You can restore a database to another geographical region. Note, if you delete an Azure SQL server, all elastic pools and databases that belong to that server are also deleted and cannot be restored. If you delete the parent logical server there is no way to restore. Restore time is impacted by size of the database, amount of activity that needs to be replayed, what service tier, network bandwidth, number of transaction etc. Might take several hours. </p>
+
+
+<b> Role Based Access Control</b>
+
+<p> Roles>
+<ul>
+	<li>Owner: Full access to resources in Azure and can delegate access to other users.</li>
+	<li>Contributor: Full Access to resources in Azure, but cannot delegate control.</li>
+	<li>Reader: Can only view resources in Azure </li>
+	<li>User access administrator: Granted permission to manage access to Azure resources </li>
+</ul>
+ 
   <h3> Notes </h3>
   
 <p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
@@ -177,23 +206,6 @@ system database.
 <p> Provisioning an Azure SQL Database managed. Already prepared an Azure SQL Database Managed Instance since the provisioning can take hours. </p>
 
 <p> The first step is to create a virtual machinea and the next step is to connect to the virtual machine using RDP (Remote Desktop Protocol). Third step is to run SQL Server Management Studio from within the virtual machine and connect to the managed instance.</p>
-
-<b> Configuring Data Backup </b>
-
-<p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
-
-<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. 
-<ul>	
-	<li> Full backup (taken every week): Azure backs up the entire database. </li>
-	<li> Differential back up (taken every 12 hours): which captures only the data that has changed since the last full backup. </li>
-	<li> Transaction log back up (Taken every 5-10 minutes): Records of all the committed and uncommitted transactions. </li>
-</ul>
-
-<p> These backups are stored in Azure read-access geo-redundant (RA-GRS) standard blob storage by default. This means your backup are stored in two seperate regions (?), with the second region being a read only region. All backups are automatically encrypted at rest using Transparent Data Encryption (TDE), blob torage is also protected.  </p>
-
-<p> In turn of retention period, there are two types of backups. Point in time (7-35 days), you can use this backup to retore your database to an exact point in time. This is because all three type of backups, full backup, differential and transaction logs are keept. You might need to keep your backup for more than 35 days for compliance reasons. In that case, you can use long-term retention (up to 10 years). You can't disable point in time backups, you can only configure the retention period which is between 7-35 days. All Azure SQL databases (single, pooled, managed instance) have a default backup retention period of 7 days. If you delete a database, Azure SQL Database will keep the backups in the same way it would for an online database. LTR is not yet available for databases in Managed Instances. Instead you can use SQL Agent jobs to schedule copy-only database backups as an alternative to LTR (beyond 35 days). </p>
-
-<p> Usage of backups. You can restore an existing database to a point-in-time in the past. You can restore a deleted datbase to the time it was delete. You can restore a database to another geographical region. Note, if you delete an Azure SQL server, all elastic pools and databases that belong to that server are also deleted and cannot be restored. If you delete the parent logical server there is no way to restore. Restore time is impacted by size of the database, amount of activity that needs to be replayed, what service tier, network bandwidth, number of transaction etc. Might take several hours. </p>
 
 <b> Demo: restoring an Azure SQL instance </b>
 <p> Configure backup period: SQL database => click on server name => click on manage backups (under settings) => configure retention. Restore Database: => Sql databases => Restore => The restore will create a new database (you can't overwrite). Restore deleted databases: Under settings click on deleted databases </p>
