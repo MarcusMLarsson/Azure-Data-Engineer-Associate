@@ -169,6 +169,27 @@ Elastic job components
 	<li> <b>Notification</b>: Define rules that will be used to notify operators via emails once the job completes</li>
  </ul>
  <b> SQL Sync </b>
+
+
+<p> With SQL Data Sync you can synchronize data bi-directionally across multiple SQL databases and instances. 
+This might be useful if you want to sync your on-premises and Azure SQL databases etc or sync globally distributed applications. </p> 
+
+<p>Components </p>
+<ul>
+<li> Sync group is a group of databases that you want to syncrhonize. </li>
+<li> Define one of the databases in the sync group as the Hub database </li>
+<li> The rest of the databases are member databases </li>
+<li> The sync occurs only between the Hub and individual members </li>
+</uk>
+
+<p>Sync Group </p>
+<ul>
+<li> The sync schema describes which data is being syncrhonized (certain table or columns) </li>
+<li> The sync direction can be bi-directional or can flow in only one direction </li>
+<li> You can trigger the sync interval process manual or automatically. The Sync interval describes how oftne the syncrhonization occurs </li>
+<li>  The conflic resolution policy is the group level policy, which can be Hub wins or Member wins </li>
+</ul>
+ 
  
  
  <hr>
