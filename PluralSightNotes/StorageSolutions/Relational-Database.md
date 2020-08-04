@@ -139,7 +139,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 
 
 <b> Role Based Access Control </b>
- <p> Roles </p>
+<p> Azure role-based access control (Azure RBAC) is a system that provides fine-grained access management of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Some of the most common rules are the following. </p>
 <ul>
 	<li>Owner: Full access to resources in Azure and can delegate access to other users.</li>
 	<li>Contributor: Full Access to resources in Azure, but cannot delegate control.</li>
