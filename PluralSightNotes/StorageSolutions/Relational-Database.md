@@ -170,7 +170,6 @@ Elastic job components
  </ul>
  <b> SQL Sync </b>
 
-
 <p> With SQL Data Sync you can synchronize data bi-directionally across multiple SQL databases and instances. 
 This might be useful if you want to sync your on-premises and Azure SQL databases etc or sync globally distributed applications. </p> 
 
@@ -180,7 +179,7 @@ This might be useful if you want to sync your on-premises and Azure SQL database
 <li> Define one of the databases in the sync group as the Hub database </li>
 <li> The rest of the databases are member databases </li>
 <li> The sync occurs only between the Hub and individual members </li>
-</uk>
+</ul>
 
 <p>Sync Group </p>
 <ul>
