@@ -33,9 +33,14 @@ for log files. You can configure Azure Stream Analytics to write output into Azu
 <p> <b>Time Windowing</b>: Time is the most import variable in any live streaming system. Each data event has a timestamp
 which is equal to what time it was when the data was ingested. There is a need to perform an operation on events 
 falling in the same time window (e.g. COUNT). An easy method is needed to find these subset of data events.
-Azure Stream Analytics achieves this through windows. There are 4 different Stream Analytics windows: Tumbling
-Window, Hopping Window, Sliding Window, Session Window. Tumbling Window: The size is fixed and there is no
-overlapping between windows. </p>
+Azure Stream Analytics achieves this through windows. There are 4 different Stream Analytics windows </p>
+<ul>
+  <li>Tumbling Window </li>
+  <li> Hopping Window </li>
+  <li>Sliding Window </li>
+  <li>Session Window </li>
+  <li>Tumbling Window </li>
+</ul>
 
 <pre> SELECT COUNT()
 FROM input
