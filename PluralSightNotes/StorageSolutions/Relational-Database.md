@@ -147,6 +147,22 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li>User access administrator: Granted permission to manage access to Azure resources </li>
 </ul>
  
+ <b> SQL Elastic database job </b>
+Elastic database job executes custom jobs on one or many Azure databases in an interval.
+
+Elastic job components 
+<ul>
+<li> Elastic Job Agent </li>
+<li> Job database (S0 required), is used for defining jobs and to store agent metadata, logs, results etc </li>
+<li> Target group (databases, warehouses, pools etc) </li>
+<li> Optionally you can have an output database (if the job creates an output) </li>
+</ul>
+	
+	
+	
+ <b> SQL agent job </b>
+ <b> SQL Sync </b>
+ 
  
  <hr>
 
