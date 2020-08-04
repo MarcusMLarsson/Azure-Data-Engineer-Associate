@@ -151,7 +151,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  <hr>
 
  
- <h3> Demo: Provisioning an Azure SQL Database single database </h3>
+ <b> Demo: Provisioning an Azure SQL Database single database </b>
  <p> <b> <i> The demo section can't be followed by only using my notes </b> </i></p>
  <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
 <pre> CREATE LOGIN appuser
