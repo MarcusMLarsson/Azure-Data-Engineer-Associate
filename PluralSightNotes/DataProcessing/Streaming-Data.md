@@ -18,14 +18,14 @@ also need to make sure that your output storage has high bandwidth. </p>
 </ul>
 
 <p> Azure Stream Analytics is a fully managed, real-time analytics service designed to process fast moving streams
-of data. Azure Stream Analytics jobs can accept
-streaming data from three different inputs. <ul>
-  <li>The first on is Event Hubs. Any application can be configured
-to send events to Azure Event Hubs. For example, you might have an application which monitors stock prices.
-This application can be configured to send stock prices in a specific interval, e.g. every one second, sent to Event
-    Hubs and inturn ingested to Azure Stream Analytics. </li>
+of data. Azure Stream Analytics jobs can accept streaming data from three different inputs. <ul>
+  <li>The first on is Event Hubs.  Azure Event Hubs is a cloud services that can ingest large amounts of data and process or store that data for business insights.  
+    It is designed for high throughput data streaming scenarios where customers may send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your stream and is integrated into the big data and analytics services of Azure including Databricks, Stream Analytics, ADLS, and HDInsight. With features like Event Hubs Capture and Auto-Inflate, this service is designed to support your big data apps and solutions.</li>
   <li> IoT Hub is another streaming input type which can be used with
-Azure Stream Analytics. Azure IoT Hub is an event ingestion service, which is highly optimized for IoT scenarios.
+Azure Stream Analytics. An Azure IoT Hub contains an Event Hub and hence essentially is an Event Hub plus additional features. An important additional feature is that an Event Hub can only receive messages, whereas an IoT Hub additionally can also send messages to individual devices. 
+    
+    
+    Azure IoT Hub is an event ingestion service, which is highly optimized for IoT scenarios.
 You can have drones, or robots, send events to IoT hub which inturn will be ingested into Azure Stream Analytics. </li>
 <li> Finally Azure Blob Store can be used as a source to ingest data into Azure Stream Analytics. This option is great
 for log files. You can configure Azure Stream Analytics to write output into Azure Blobs, Data Lake Gen 2, Azure SQL
