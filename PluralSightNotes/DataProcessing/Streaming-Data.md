@@ -19,7 +19,7 @@ also need to make sure that your output storage has high bandwidth. </p>
 
 <p> Azure Stream Analytics is a fully managed, real-time analytics service designed to process fast moving streams
 of data. Azure Stream Analytics jobs can accept
-streaming data from three different imput times. <ul>
+streaming data from three different inputs. <ul>
   <li>The first on is Event Hubs. Any application can be configured
 to send events to Azure Event Hubs. For example, you might have an application which monitors stock prices.
 This application can be configured to send stock prices in a specific interval, e.g. every one second, sent to Event
