@@ -161,6 +161,13 @@ Elastic job components
 	
 	
  <b> SQL agent job </b>
+ <p> While SQL elastic database jobs covers single and pooled instances, SQL agent job is designed for manage instances. </p>
+ <p> SQL Agent job components </p>
+ <ul>
+	<li> A <b>Job step</b>: is a set of one or many stetps that should be executed</li>
+	<li> <b>Schedule</b>: when the job should be executed</li>
+	<li> <b>Notification</b>: Define rules that will be used to notify operators via emails once the job completes</li>
+ </ul>
  <b> SQL Sync </b>
  
  
@@ -407,8 +414,7 @@ user credentials of my hub database. In the next step I need to configure the me
 server). In the last step of our wizard, we need to choose which tables we want to be synced. We also need to allow 
 Azure services and resources to access this server for all databases (same place as firewall settings)
 	
-	
-	<h3> Notes </h3>
+<h3> Notes </h3>
   
 <p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
   
