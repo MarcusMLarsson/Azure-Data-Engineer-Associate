@@ -4,7 +4,6 @@
 ---
 
 
-
 <h3> Azure SQL Database (Paas) vs SQL Server on Azure VM (Iaas) </h3>
 
 <p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (Paas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
@@ -120,8 +119,6 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <li> Finally, all the encryptions keys are stored in Azure Key Vault and are protected from unauthorized access.  </li>
  </ul>
  </ul>
- <hr>
- 
  
 <b> Configuring Data Backup </b>
 
@@ -149,6 +146,9 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li>Reader: Can only view resources in Azure </li>
 	<li>User access administrator: Granted permission to manage access to Azure resources </li>
 </ul>
+ 
+ 
+ <hr>
  
  
 <h3> Notes </h3>
