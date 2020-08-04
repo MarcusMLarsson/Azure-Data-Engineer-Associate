@@ -141,9 +141,8 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <p> Usage of backups. You can restore an existing database to a point-in-time in the past. You can restore a deleted datbase to the time it was delete. You can restore a database to another geographical region. Note, if you delete an Azure SQL server, all elastic pools and databases that belong to that server are also deleted and cannot be restored. If you delete the parent logical server there is no way to restore. Restore time is impacted by size of the database, amount of activity that needs to be replayed, what service tier, network bandwidth, number of transaction etc. Might take several hours. </p>
 
 
-<b> Role Based Access Control</b>
-
-<p> Roles>
+<b> Role Based Access Control </b>
+ Roles
 <ul>
 	<li>Owner: Full access to resources in Azure and can delegate access to other users.</li>
 	<li>Contributor: Full Access to resources in Azure, but cannot delegate control.</li>
@@ -151,7 +150,8 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li>User access administrator: Granted permission to manage access to Azure resources </li>
 </ul>
  
-  <h3> Notes </h3>
+ 
+<h3> Notes </h3>
   
 <p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
   
