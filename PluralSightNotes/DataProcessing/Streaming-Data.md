@@ -72,9 +72,9 @@ FROM Input
 GROUP BY SessionWindow(second, 5, 10)
 </pre>
 
-<p> Demo: Provision a new Azure Stream Analytics instance. Process blob storage input. </p>
+<b> Demo: Provision a new Azure Stream Analytics instance. Process blob storage input. </b>
 
-<p> Configure Azure Stream Analytics with Event Hub and Blob Storage Inputs </p>
+<b> Configure Azure Stream Analytics with Event Hub and Blob Storage Inputs </b>
 
 <p> Azure Stream Analytics Input types. A data stream is an ongoing sequence of events over time. At least one data stream input is needed for a stream analytics job.
 Azure Event Hubs, Azure IoT Hub, Azure Blob storage. Azure Event Hubs (you can confiugre any application to send data to Azure Even Hub). Azure IoT Hub (Highly optimized for IoT).
@@ -83,10 +83,10 @@ change or changes very slowly, such as metadata lookups. Azure Stream Analytics 
 meta data information about the object you are going to process in your reference data. Imagen you are accepting live events from a few devices. Each event comming from a device contains an device id. 
 You can store meta data for all your devices in a refrence data input. This data can include device capacity, name and model. Add reference input in inputs. </p>
 
-<p> Provisioning an Event Hubs instance, Create a .Net application to send telemetry data to Azure Event Hubs. </p>
+<b> Provisioning an Event Hubs instance, Create a .Net application to send telemetry data to Azure Event Hubs. </b>
 
 
-<p> Query data using Azure Stream Analytics </p>
+<b> Query data using Azure Stream Analytics </b>
 
 <p> Which data formats are supported as input data streams? CSV, JSON, Avro. Apache Avro is a data serialization framework, you can use this format to send data over the wire. Apache Avro was developed
 within Apche's Hadoop project. And Hadoop have native support for apache Avro. Avro uses JSON for defining its schema (is it int, datetime, string etc). The main part of the data (data body) is
@@ -99,7 +99,7 @@ Azure Stream Analytics Query Language (90% similar to T-SQL). </p>
 <p> Event time vs Arrival Time: Event time is when the event take place. Arrival time is the Event time plus the small delay that it takes for the data to be ingested via Event Hub/IoT Hub/Blob Storage. The arrival time
 is used as the timestamp. Arrival time for Event Hubs and Iot Hub events is when the event was received. Arrival time for Blob storage events is the last modified time. </p> 
 
-<p> Demo: Stream Analytics Query Language </p>
+<b> Demo: Stream Analytics Query Language </b>
 
 <p> Azure Stream Analytics and Power BI integration. You can use Power BI to visualse output of Azure Stream Analytics. Demo: Visualize Azure Stream Analytics in Power BI </p>
 
