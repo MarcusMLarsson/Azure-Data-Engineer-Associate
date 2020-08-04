@@ -142,7 +142,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 
 
 <b> Role Based Access Control </b>
- Roles
+ <p> Roles </p>
 <ul>
 	<li>Owner: Full access to resources in Azure and can delegate access to other users.</li>
 	<li>Contributor: Full Access to resources in Azure, but cannot delegate control.</li>
