@@ -258,6 +258,7 @@ This might be useful if you want to sync your on-premises and Azure SQL database
 	<li> Both hub and sync databases must be Azure SQL database (not on-premise) </li>
 	<li> Both hub and sync databases should be in the same region </li>
 	<li> The member databases can be either SQL databases, on-premises SQL server databases, or SQL Server instances on Azure VMs </li>
+	<li> If you are using an on premises database as a member database, you must install and configure a local sync agent </li>
 </ul>
 
 <b> Demo: Creating and running an Elastic Database Job </b>
