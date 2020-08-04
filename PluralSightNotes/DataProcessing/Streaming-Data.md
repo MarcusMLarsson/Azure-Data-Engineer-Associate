@@ -39,16 +39,17 @@ Azure Stream Analytics achieves this through windows. There are 4 different Stre
   <li> Hopping Window </li>
   <li>Sliding Window </li>
   <li>Session Window </li>
-  <li>Tumbling Window </li>
 </ul>
+
+<b> Tumbling Window: are a series of fixed-sized, non-overlapping and contiguous time intervals. </b>
 
 <pre> SELECT COUNT()
 FROM input
 GROUP BY TumblingWindow(second,5) 
 </pre>
 
-<p> Hopping Window: Similar to a tumbling window, the size of the window is fixed. The difference is that the
-windows are overlapping. 
+<b> Hopping Window: Similar to a tumbling window, the size of the window is fixed. The difference is that the
+windows are overlapping. </b>
 
 <pre>
 SELECT COUNT()
@@ -56,7 +57,7 @@ FROM Input
 GROUP BY HoppingWindows(second, 10, 5)   // first argument is unit of time, second is the size of the window, the third is the hopping size (overlaps by 5 seconds)
 </pre>
 
-<p> Sliding window: Size are fixed, but I'm only getting new windows if new events are happening. 
+<b> Sliding window: Size are fixed, but I'm only getting new windows if new events are happening. </b>
 <pre>
 SELECT COUNT()
 FROM Input
@@ -64,7 +65,7 @@ GROUP BY SlidingWindow(second, 10)
 </pre>
 
 
-<p> Session window: Are not fixed size and the windows might not overlap? Session window only created a new event is created (no window in moments of silence). </p>
+<b> Session window: Are not fixed size and the windows might not overlap. Session window only created if a new event is created (no window in moments of silence). </b>
 <pre>
 SELECT COUNT()
 FROM Input
