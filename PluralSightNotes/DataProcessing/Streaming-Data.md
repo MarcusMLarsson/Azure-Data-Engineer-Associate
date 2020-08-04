@@ -15,6 +15,7 @@ also need to make sure that your output storage has high bandwidth. </p>
   <li> Azure Functions </li>
   <li> Azure WebJobs </li>
   <li> Azure Stream Analytics (main focus). </li> 
+</ul>
 
 <p> Azure Stream Analytics is a fully managed, real-time analytics service designed to process fast moving streams
 of data. First you need to provision an Azure Stream Analytics Jobs. Azure Stream Analytics jobs can accept
