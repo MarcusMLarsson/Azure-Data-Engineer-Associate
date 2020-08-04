@@ -21,19 +21,16 @@ also need to make sure that your output storage has high bandwidth. </p>
 of data. Azure Stream Analytics jobs can accept streaming data from three different inputs. <ul>
   <li>The first on is Event Hubs.  Azure Event Hubs is a cloud services that can ingest large amounts of data and process or store that data for business insights.  
     It is designed for high throughput data streaming scenarios where customers may send billions of requests per day. Event Hubs uses a partitioned consumer model to scale out your stream and is integrated into the big data and analytics services of Azure including Databricks, Stream Analytics, ADLS, and HDInsight. With features like Event Hubs Capture and Auto-Inflate, this service is designed to support your big data apps and solutions.</li>
-  <li> IoT Hub is another streaming input type which can be used with
-Azure Stream Analytics. An Azure IoT Hub contains an Event Hub and hence essentially is an Event Hub plus additional features. An important additional feature is that an Event Hub can only receive messages, whereas an IoT Hub additionally can also send messages to individual devices. 
-    
-    
-    Azure IoT Hub is an event ingestion service, which is highly optimized for IoT scenarios.
-You can have drones, or robots, send events to IoT hub which inturn will be ingested into Azure Stream Analytics. </li>
+  <li>  Azure IoT Hub is an event ingestion service, which is highly optimized for IoT scenarios.
+You can have drones, or robots, send events to IoT hub which inturn will be ingested into Azure Stream Analytics. IoT Hub is another streaming input type which can be used with Azure Stream Analytics. An Azure IoT Hub contains an Event Hub and hence essentially is an Event Hub plus additional features. An important additional feature is that an Event Hub can only receive messages, whereas an IoT Hub additionally can also send messages to individual devices. 
+  </li>
 <li> Finally Azure Blob Store can be used as a source to ingest data into Azure Stream Analytics. This option is great
 for log files. You can configure Azure Stream Analytics to write output into Azure Blobs, Data Lake Gen 2, Azure SQL
   Database & DW, Event Hubs and Power BI. </li>
   </ul>
 
 
-<p> Time Windowing: Time is the most import variable in any live streaming system. Each data event has a timestamp
+<p> <b>Time Windowing</b>: Time is the most import variable in any live streaming system. Each data event has a timestamp
 which is equal to what time it was when the data was ingested. There is a need to perform an operation on events 
 falling in the same time window (e.g. COUNT). An easy method is needed to find these subset of data events.
 Azure Stream Analytics achieves this through windows. There are 4 different Stream Analytics windows: Tumbling
