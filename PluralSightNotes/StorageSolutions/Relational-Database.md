@@ -14,7 +14,7 @@
 </ul>
 
 
-<h3> SQL Server on Azure VMs (IaaS)
+<h3> SQL Server on Azure VMs (IaaS) </h3>
 
 <p>SQL Server on Azure VMs is an Infrastructure-as-a-Service (IaaS) offering and allows you to run SQL Server inside a fully-managed VM in Azure. This is a good option for migrating on-premises SQL Server databases and applications without any database change. The SQL Server installed on the VM is identical to the SQL Server you have installed on-premises. Also, the IaaS option gives you full control over the database engine. You could control the timing of maintenance and patching of your database engine. You could also pause or stop the virtual machine whenever you don't need the SQL database (to save some costs).  </p>
 
