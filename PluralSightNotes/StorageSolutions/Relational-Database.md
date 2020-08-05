@@ -54,10 +54,9 @@
 
 
 <h3> Azure SQL Database </h3>
-<p align="center"><img src="https://www.ebecs.com/wp-content/uploads/Azure-SQL-Database-graphic.png" width="800"></p>
-
-<ul>
   <p> There are 3 Azure SQL Database deployment options</p>
+<p align="center"><img src="https://www.ebecs.com/wp-content/uploads/Azure-SQL-Database-graphic.png" width="800"></p>
+<ul>
   <li> Single database: Isolated database that is perfect for applications that need a single data source</li>
   <li> Elastic pool: Collection of Single databases with a shared set of resources such as CPU or memory</li>
   <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
@@ -82,8 +81,13 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 </p> By moving to Azure SQL Database you can reduce the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
 
 <h3> How are resources assigned to various deployment options to Azure database? </h3>
-<p> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
-   
+<p>
+<ul>
+	<li> In a single database, each database gets its own guaranteed compute, memory and storage. </li>
+<li>In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. </li> 
+	<li> In managed instance each instance has its guaranteed resources. </li>
+  
+</p>
 <h3>Resource purchasing models </h3>
 <p> 
 <ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
@@ -105,9 +109,10 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<p> <li>First you choose deployment options (single database, elastic pool, managed instance) </li>
 	<li>Then you choose purchasing models (DTU-based, vCore-based) </li>
 	<li>Then you choose Service tiers (general purpose/standard, business critical/premium, hyperscale). </li> </p>
-</ul>
-<ul>
+</ul
+	>
 <h3>Different Service tiers</h3>
+<ul>
 <p>
 	<li>General purpose / standard: is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
 	<li>Business Critical / Premium: For applications requiring low-latency, 99,995% SLA, 1.2 ms storage latency.  </li>
@@ -163,87 +168,31 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  <h3> SQL Elastic database job </h3>
 Elastic database job executes custom jobs on one or many Azure databases in an interval.
 
-Elastic job components 
-<ul>
-<li> Elastic Job Agent </li>
-<li> Job database (S0 required), is used for defining jobs and to store agent metadata, logs, results etc </li>
-<li> Target group (databases, warehouses, pools etc) </li>
-<li> Optionally you can have an output database (if the job creates an output) </li>
-</ul>
-	
-	
-	
- <h3> SQL agent job </h3>
- <p> While SQL elastic database jobs covers single and pooled instances, SQL agent job is designed for manage instances. </p>
- <p> SQL Agent job components </p>
- <ul>
-	<li> A <b>Job step</b>: is a set of one or many stetps that should be executed</li>
-	<li> <b>Schedule</b>: when the job should be executed</li>
-	<li> <b>Notification</b>: Define rules that will be used to notify operators via emails once the job completes</li>
- </ul>
- <b> SQL Sync </b>
+<p> Elastic jobs are available for single and pooled instances. Agent jobs can be used for Managed Instance. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
 
-<p> With SQL Data Sync you can synchronize data bi-directionally across multiple SQL databases and instances. 
-This might be useful if you want to sync your on-premises and Azure SQL databases etc or sync globally distributed applications. </p> 
 
-<p>Components </p>
 <ul>
-<li> Sync group is a group of databases that you want to syncrhonize. </li>
-<li> Define one of the databases in the sync group as the Hub database </li>
-<li> The rest of the databases are member databases </li>
-<li> The sync occurs only between the Hub and individual members </li>
+  <p> Elastic Job Components </p>
+  <li> Job Agent </li>
+  <p> Is the Azure resource for creating, running and managing jobs. Requires an existing clean SQL database (job Database). The Elastic job agent is free, but you will pay for the resources used as part of the execution</p>
+  <li> Job Database (s0 required)</li>
+  <p> The Job database is used for defining jobs and tracking the status and history of job executions. The job database is also used to store agent metadata, logs, results, job definitions, and contains many useful stored procedures. </p>
+  <li> Target Group </li>
+  <p> You can have Azure SQL Database logical server </p>
+  <li> Job </li>
+  <p> </p>
 </ul>
 
-<h3>Sync Group </h3>
-<ul>
-<li> The sync schema describes which data is being syncrhonized (certain table or columns) </li>
-<li> The sync direction can be bi-directional or can flow in only one direction </li>
-<li> You can trigger the sync interval process manual or automatically. The Sync interval describes how oftne the syncrhonization occurs </li>
-<li>  The conflic resolution policy is the group level policy, which can be Hub wins or Member wins </li>
+	
+<h3> Scheduling technologies in Azure SQL Database </h3>
+<ul> 
+	<li> Elastic Database Jobs </li>
+	<li>SQL Agent Jobs. </li>
+	<li> Azure Automation (runbooks) </li>
+	<li> Azure Functions </li>
+	<li> Azure Logic Apps </li>
+	<li> Azure Scheduler </li>
 </ul>
- 
- 
- 
- <hr>
-
- 
- <b> Demo: Provisioning an Azure SQL Database single database </b>
- <p> <b> <i> The demo section can't be followed by only using my notes </b> </i></p>
- <p> We managed to connect to this Azure SQL Database using the administrator user. Using the database administrator user with a full set of permissions might not be a good idea. Because this user have administrator access over the database, so it's not wise to give this username and password to any client. The right approach would be to create a few database users and provide my client applications with those users. Click on Security => Logins => let's go ahead and create a new login. RIght click, new login =>
-<pre> CREATE LOGIN appuser
-          WITH PASSWORD ='12345xwqsxws'
-      GO </pre> </p>
- <p> Now let's create a user which uses this login. Click on Security, right click on user and click on new user. 
-<pre> CREATE USER user01
-          FOR LOGIN appuser
-      GO </pre></p>
-<p> This user will have no permission. Let's add user to the dbowner role (See options, Roles => Database Roles) for the single one database. </p>     
-<pre> EXEC sp_addrolemember N'db_owner', N'user01'
-      GO
-</pre>
-<p> Now connect with new user  </p>
-
-<p> <b>Demo: Provisioning Azure SQL Elastic Pools </b></p>
-<p> Create multiple Azure SQL Database Single Databases and than add them to a new elastic pool. We only need one server. Create a resource => SQL Elastic database pool => Create. Place Elastic pool inside same resource group. Which logical server do I want to put my elastic pool in? When you have created the resource you are ready to add the databases to the pool. Let's click on configure. Here you can change the amoungt of resources you assigne to the elastic pool. Let's click on databases, here you have the option to create databases which will be added to the pool. Let's choose the databases and click apply. Now it should say Elastic General Purpose for the pricing tier. </p>
-
-<p> Scaling: Could be single database or elastic pool. Click on database => Pricing tier </p>
-  
-<p> Provisioning an Azure SQL Database managed. Already prepared an Azure SQL Database Managed Instance since the provisioning can take hours. </p>
-
-<p> The first step is to create a virtual machinea and the next step is to connect to the virtual machine using RDP (Remote Desktop Protocol). Third step is to run SQL Server Management Studio from within the virtual machine and connect to the managed instance.</p>
-
-<b> Demo: restoring an Azure SQL instance </b>
-<p> Configure backup period: SQL database => click on server name => click on manage backups (under settings) => configure retention. Restore Database: => Sql databases => Restore => The restore will create a new database (you can't overwrite). Restore deleted databases: Under settings click on deleted databases </p>
-
-<p> LTR backups: Database => Configure retention => How long would I like to keep the weekly backup... </p>
-
-<p> Configure Elastic Database jobs </p>
-
-<p> Scheduling technologies in Azure SQL Database: Elastic Database Jobs, SQL Agent Jobs. Database Scheduled jobs can be periodically executed against one or many databases to run T-SQL quereis and perform maintenance tasks. A few use cases are for management task to run after hours (for example you can deploy schema changes or credentials management, you can also use them to update or load data from Azure Blob storage, collect query results from a set of databases in an on-going basis, rebuild indexes to imrpove query performance) collect data for reporting (aggregate data from a collection of Azure SQL databases into a single destination, execute long-running data pro data processing queries across a large set of databases), data movements (replicate changes made in your databases to other databases, load data from or to your databases using SQL Server Integration Services (SSIS) </p>
-
-<p> Scheduling technologies in Azure: Azure Automation (runbooks), Azure Functions (using timer trigger), Azure Logic Apps, Azure Scheduler, Elastic Database jobs and SQL Agent Jobs. </p>
-
-<p> Elastic Database Job is a native Azure SQL Database service that executes custom jobs on one or many Azure SQL Databases, in an interval. This concept is very similar to SQL server jobs.  </p>
 
 <ul> 
   <p> SQL agent : Elastic job</p>
@@ -252,152 +201,7 @@ This might be useful if you want to sync your on-premises and Azure SQL database
   <li> : Portal, Azure Resource Manager, PowerShell, T-SQL </li>
 </ul>
 
-<p> Elastic jobs are available for single and pooled instances. Agent jobs can be used for Managed Instance. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
-
-<ul>
-  <p> Elastic Job Components </p>
-  <li> Job Agent </li>
-  <p> Is the Azure resource for creating, running and managing jobs. Requires an existing clean SQL database (job Database). The Elastic job agent is free, but you will pay for the resources used as part of the execution</p>
-  <li> Job Database</li>
-  <p> The Job database is used for defining jobs and tracking the status and history of job executions. The job database is also used to store agent metadata, logs, results, job definitions, and contains many useful stored procedures. </p>
-  <li> Target Group </li>
-  <p> You can have Azure SQL Database logical server </p>
-  <li> Job </li>
-  <p> </p>
-</ul>
-
-<p> Data Sync Overview </p>
-<ul>
-	<li> Both hub and sync databases must be Azure SQL database (not on-premise) </li>
-	<li> Both hub and sync databases should be in the same region </li>
-	<li> The member databases can be either SQL databases, on-premises SQL server databases, or SQL Server instances on Azure VMs </li>
-	<li> If you are using an on premises database as a member database, you must install and configure a local sync agent </li>
-</ul>
-
-<b> Demo: Creating and running an Elastic Database Job </b>
-
-<p> Create two databases, the first one is the job database and the second one is the target database which we will run a job against. Click on SQL Databases, Click on add, the database should be clean and empty (database has to be S0,
-standard) Next step is to create a target database (put them in the same resource group). Create a new logical server for the target database, point the job to the logical server that is hosting the target database (?). The target database can both be empty and populated, and it can be any user database. Login to Microsoft SQL Server Management Studio; and login to the job datbase (requried to whitelist your ip address). Now let's go ahead and create and elastic job agen,
- choose an empty database as our job database. Let's connect to our job database again and see if anything has changed. We now have a bunch of stored procedures created. All these database objects are needed by elastic job agents, so it can run jobs against the target database.
-
-<b> Demo: Creating and running an Elastic Database Job </b>
-<p> In our scenario we are going to run job against a single database. This will be done with the help of t-SQL. In this case we need to configure 3 databases, the job db, the master db, the target server and the target db. However, if you
- are running your job against multiple database you need to follow this step on every target database. To get started, open SSMS. The first step is to create a few credentials in the job database. The elastic job agent is going to use
-credentials to run commands against the target database. Click jobdb01 and new query. In the first step we need to create a master create and to specifiy a password. And then we need to create two identities. The first identity will be
-used to execute the job on the target database. The second credential will be used to connect to the target master db. 
-
-<pre> 
-REATE MASTER KEY ENCRYPTION BY PASSWORD='Britney123';
-
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
-	SECRET = 'Britney123';
-GO
-
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
-	SECRET = 'Britney123';
-GO
-
-------------------
-
-EXEC jobs.sp_add_target_group 'ServerGroup1'
-
-EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
-@target_type = 'SqlServer',
-@refresh_credential_name='mymastercred',
-@server_name='mlatargetserver.database.windows.net'
-
-
---------------
-
-EXEC jobs.sp_add_job @job_name='CreateTableTest', @description='Crete Table Test' 
-
-EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
-@command=N'IF NOT EXISTS (SELECT * FROM sys.tables
-			WHERE object_id = object_id(''Test''))
-CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name='myjobcred',
-@target_group_name='ServerGroup1'
-
-EXEC jobs.sp_start_job 'CreateTableTest'
-
-SELECT * FROM jobs.job_executions
-WHERE is_active = 1 AND job_name = 'CreateTableTest'
-ORDER BY start_time DESC
-GO
-
-EXEC jobs.sp_stop_job ''
-</pre>
-
-<p> configure master database on server </p>
-
-<pre> CREATE LOGIN mastercred WITH PASSWORD ='Britney123'
-CREATE USER mastercred FROM LOGIN mastercred
-
-CREATE LOGIN jobcred WITH PASSWORD ='Britney123' </pre>
-
-<p> In the last step, we need to go ahead and configure all the target databases. In our case, only one database. </p>
-
-<pre> CREATE USER jobcred FROM LOGIN jobcred
-
-GRANT ALTER ON SCHEMA::dbo TO jobcred
-GRANT CREATE TABLE TO jobcred </pre>
-
-REATE MASTER KEY ENCRYPTION BY PASSWORD='Britney123';
-
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
-	SECRET = 'Britney123';
-GO
-
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
-	SECRET = 'Britney123';
-GO
-
-------------------
-
-EXEC jobs.sp_add_target_group 'ServerGroup1'
-
-EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
-@target_type = 'SqlServer',
-@refresh_credential_name='mymastercred',
-@server_name='mlatargetserver.database.windows.net'
-
-
---------------
-
-EXEC jobs.sp_add_job @job_name='CreateTableTest', @description='Crete Table Test' 
-
-EXEC jobs.sp_add_jobstep @job_name='CreateTableTest',
-@command=N'IF NOT EXISTS (SELECT * FROM sys.tables
-			WHERE object_id = object_id(''Test''))
-CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name='myjobcred',
-@target_group_name='ServerGroup1'
-
-EXEC jobs.sp_start_job 'CreateTableTest'
-
-SELECT * FROM jobs.job_executions
-WHERE is_active = 1 AND job_name = 'CreateTableTest'
-ORDER BY start_time DESC
-GO
-
-EXEC jobs.sp_stop_job ''
-</pre>
-
-<p> configure master database on server </p>
-
-<pre> CREATE LOGIN mastercred WITH PASSWORD ='Britney123'
-CREATE USER mastercred FROM LOGIN mastercred
-
-CREATE LOGIN jobcred WITH PASSWORD ='Britney123' </pre>
-
-<p> In the last step, we need to go ahead and configure all the target databases. In our case, only one database. </p>
-
-<pre> CREATE USER jobcred FROM LOGIN jobcred
-
-GRANT ALTER ON SCHEMA::dbo TO jobcred
-GRANT CREATE TABLE TO jobcred </pre>
+<p>Database Scheduled jobs can be periodically executed against one or many databases to run T-SQL quereis and perform maintenance tasks. A few use cases are for management task to run after hours (for example you can deploy schema changes or credentials management, you can also use them to update or load data from Azure Blob storage, collect query results from a set of databases in an on-going basis, rebuild indexes to imrpove query performance) collect data for reporting (aggregate data from a collection of Azure SQL databases into a single destination, execute long-running data pro data processing queries across a large set of databases), data movements (replicate changes made in your databases to other databases, load data from or to your databases using SQL Server Integration Services (SSIS) </p>
 
 <p> Configure SQL Agent Jobs </p>
 
@@ -414,7 +218,64 @@ In schedueles you can add scheduels.. Fill in everything. To run manually right 
 need to configre the database mail: Click on Management folder,  rightclik on database mail and choose Configure Database Mail. Next => Configure a mail account (go with the first option), Create a new e-mail profile and specify its
 SMTP accounts (Send email from printer, scanner, or app. If you are using SSL (Secure Sockets Layer) firewall needs to open port 587. Go to Network Security group. Click on outbound security rules and make sure the outgoing port 587 is
  allowed. Name your profile AzureManagedInstance_dbmail_profile. You can right-click on the Database Mail and send a test email. Now let's configure our agent to send notificaitons. Before doing that, I need to define an operator. An operator could be a database administrator who needs to be notified on agent jobs. Right click on Operators and click new operator. Now letäs dubbelclick on Jobs, click on notifcaiton and click on e-mail, and choose other operator from the
-dropdown. </p>
+dropdown. </p>	
+		
+		
+		
+ <h3> SQL agent job </h3>
+ <p> While SQL elastic database jobs covers single and pooled instances, SQL agent job is designed for manage instances. </p>
+ <p> SQL Agent job components </p>
+ <ul>
+	<li> A <b>Job step</b>: is a set of one or many stetps that should be executed</li>
+	<li> <b>Schedule</b>: when the job should be executed</li>
+	<li> <b>Notification</b>: Define rules that will be used to notify operators via emails once the job completes</li>
+ </ul>
+ <h3> SQL Sync </h3>
+
+<p> With SQL Data Sync you can synchronize data bi-directionally across multiple SQL databases and instances. 
+This might be useful if you want to sync your on-premises and Azure SQL databases etc or sync globally distributed applications. </p> 
+
+
+
+<b>Components </b>
+<ul>
+<li> Sync group is a group of databases that you want to syncrhonize. </li>
+<li> Define one of the databases in the sync group as the Hub database </li>
+<li> The rest of the databases are member databases </li>
+<li> The sync occurs only between the Hub and individual members </li>
+</ul>
+
+<b>Sync Group </b>
+<ul>
+<li> The sync schema describes which data is being syncrhonized (certain table or columns) </li>
+<li> The sync direction can be bi-directional or can flow in only one direction </li>
+<li> You can trigger the sync interval process manual or automatically. The Sync interval describes how oftne the syncrhonization occurs </li>
+<li>  The conflic resolution policy is the group level policy, which can be Hub wins or Member wins </li>
+</ul>
+ 
+ <p> Data Sync Overview </p>
+<ul>
+	<li> Both hub and sync databases must be Azure SQL database (not on-premise) </li>
+	<li> Both hub and sync databases should be in the same region </li>
+	<li> The member databases can be either SQL databases, on-premises SQL server databases, or SQL Server instances on Azure VMs </li>
+	<li> If you are using an on premises database as a member database, you must install and configure a local sync agent </li>
+</ul>
+ 
+ <hr>
+
+ 
+ <b> Demo: Provisioning an Azure SQL Database single database </b>
+<p> <b>Demo: Provisioning Azure SQL Elastic Pools </b></p>
+<b> Demo: restoring an Azure SQL instance </b>
+
+
+
+
+<b> Demo: Creating and running an Elastic Database Job </b>
+
+
+
+
 
 ---
 
