@@ -163,7 +163,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 
 <ul> 
 	<li> <b> Elastic Database Jobs </b></li>
-	<li> <b>SQL Agent Jobs. </b></li>
+	<li> <b>SQL Agent Jobs </b></li>
 	<li> Azure Automation (runbooks) </li>
 	<li> Azure Functions </li>
 	<li> Azure Logic Apps </li>
@@ -171,49 +171,22 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 </ul>
 
  <h3> SQL Elastic database job </h3>
-Elastic database job executes custom jobs on one or many Azure databases in an interval.Elastic jobs are available for single and pooled instances. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
+Elastic database job executes custom jobs on one or many Azure databases in an interval. Elastic jobs are available for <b>single and pooled instances</b>. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. </p>
 
 
 <ul>
   <p> Elastic Job Components </p>
   <li> Job Agent </li>
-  <p> Is the Azure resource for creating, running and managing jobs. Requires an existing clean SQL database (job Database). The Elastic job agent is free, but you will pay for the resources used as part of the execution</p>
+  <p> Is the Azure resource for creating, running and managing jobs. The Elastic job agent is free, but you will pay for the resources used as part of the execution</p>
   <li> Job Database (s0 required)</li>
   <p> The Job database is used for defining jobs and tracking the status and history of job executions. The job database is also used to store agent metadata, logs, results, job definitions, and contains many useful stored procedures. </p>
   <li> Target Group </li>
-  <p> You can have Azure SQL Database logical server </p>
-  <li> Job </li>
-  <p> </p>
 </ul>
 
 
-<ul> 
-  <p> SQL agent : Elastic job</p>
-  <li> Any individual database in the same SQL Server instance as the SQL agent : Targets can be in different SQL Database servers, subscriptions, and/or regions</li>
-  <li> T-SQL, SQL Server Management Studio (SSMS) : Single databases, data warehouses, pool, SQL Server, or shardmap</li>
-  <li> : Portal, Azure Resource Manager, PowerShell, T-SQL </li>
-</ul>
 
-<p> Configure SQL Agent Jobs </p>
-
-<p> Agent jobs can be used for Managed Instance.  Introducing SQL Agent jobs for managed instaces (you can use Elastic Database Jobs). SQL Agent Jobs are series of T-SQL scripts to run against your database. SQL Agent jobs can be used to run administrative tasks, one or more
-times, these jobs can be monitored for success or failure. A job can run on one local server or on multiple remote servers. A job is an internal database engine component that is executed within the managed instance service. SQL Agent jobs are not available for single and pooled instances, use Elastic jobs for those instances. The are three job components to SQL Agent Jobs. Job step, a job is a set of one or many steps that should be executed. Schedule, when the job should be executed. Notification, define rules that will be used to notify operators via emails once the job completes. A job step is a sequences of actions that SQL Agent should execute. For each job step, you can define retry strategy and action when the step succeeds or fails. There are several job step types you can choose from. For example, T-SQL OS command, PowerShell, SSIS. You can also use replication steps to publish changes to other databases. The schedule specifies when
-a job runs, it could be very day or every other day etc. Multiple jobs can run on the same schedule, multiple scheduels can apply to the same jobs. You can also schedule a job to execute whenever the managed instance is restarted.
-A job can run on time or under recurring schedule. SQL Agent jobs enable you to get notifications when the job finishes successfully or fail. You can receive notifcation via email. SQL Agent settings are read only, procedure
-sp_set_agent_properties is not supported. Disabling Agent is currently not supported in Managed Instance, SQL Agent is always running. Pager, NetSend and alters are not supported (only emails). </p>
-
-<b> Create a SQL Agent job in a managed instance </b>
-
-<p> Create an Azure SQL Database Managed Instance and a VM (use as a Jumpbox). We are going to use the JumpBox virtual machine to connect to our Managed Instance and create an SQL agent job. Connect => Download the RDP (Remote Dekstop). Inside the VM open SSMS and connect to the instance. Scroll down, and expandSQL Server Agent, click on jobs. Right click, click new job. Click on general and add description. Click on Steps, New, Step Name, Target Database (Database)....
-In schedueles you can add scheduels.. Fill in everything. To run manually right click on job, and pick start job. Now let's go a head and configure email registration for our job (each thime job runs, email trigger). Before we do this we
-need to configre the database mail: Click on Management folder,  rightclik on database mail and choose Configure Database Mail. Next => Configure a mail account (go with the first option), Create a new e-mail profile and specify its
-SMTP accounts (Send email from printer, scanner, or app. If you are using SSL (Secure Sockets Layer) firewall needs to open port 587. Go to Network Security group. Click on outbound security rules and make sure the outgoing port 587 is
- allowed. Name your profile AzureManagedInstance_dbmail_profile. You can right-click on the Database Mail and send a test email. Now let's configure our agent to send notificaitons. Before doing that, I need to define an operator. An operator could be a database administrator who needs to be notified on agent jobs. Right click on Operators and click new operator. Now letäs dubbelclick on Jobs, click on notifcaiton and click on e-mail, and choose other operator from the
-dropdown. </p>	
-		
-		
-		
  <h3> SQL agent job </h3>
+ <p> SQL Agent jobs can be used for Managed Instance. 
  <p> While SQL elastic database jobs covers single and pooled instances, SQL agent job is designed for manage instances. </p>
  <p> SQL Agent job components </p>
  <ul>
@@ -221,14 +194,19 @@ dropdown. </p>
 	<li> <b>Schedule</b>: when the job should be executed</li>
 	<li> <b>Notification</b>: Define rules that will be used to notify operators via emails once the job completes</li>
  </ul>
- <h3> SQL Sync </h3>
+ 
+ 
+ 
+ <h3> SQL Data Sync </h3>
 
-<p> With SQL Data Sync you can synchronize data bi-directionally across multiple SQL databases and instances. 
-This might be useful if you want to sync your on-premises and Azure SQL databases etc or sync globally distributed applications. </p> 
+
+<p> Do you need to sync data between multiple databases? SQL Data Sync is an Azure SQL Database service that lets you syncrhonize the data bi-directionally across multiple SQL databases and SQL Server instances. Data sync is useful
+when data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Why would you like to have multiple databases with the same schema etc? One of the scenarios is a hybrid data syncrhonization (sync you
+on-premises and Azure SQL databases). Also distributed applications can benefit from this scenario (you can have separate different workloads across multiple identical databases. You can easily sync databases in regions around the world. Do <b> not </b> use Data sync for disaster recovery (use Azure geo-redundant backups). Also if you need multiple versions of the same database and you will only
+write to one of these databases you should not go with SQL Data Sync, you can use read-only replicas instead. SQL Data Sync is not that good for ETL, use Azure Data Factory or SSIS instead. Its also not a migration tool (use Azure Database Migration Service instead). 
 
 
-
-<b>Components </b>
+<b>SQL Sync building blocks </b>
 <ul>
 <li> Sync group is a group of databases that you want to syncrhonize. </li>
 <li> Define one of the databases in the sync group as the Hub database </li>
@@ -236,13 +214,18 @@ This might be useful if you want to sync your on-premises and Azure SQL database
 <li> The sync occurs only between the Hub and individual members </li>
 </ul>
 
-<b>Sync Group </b>
-<ul>
-<li> The sync schema describes which data is being syncrhonized (certain table or columns) </li>
-<li> The sync direction can be bi-directional or can flow in only one direction </li>
-<li> You can trigger the sync interval process manual or automatically. The Sync interval describes how oftne the syncrhonization occurs </li>
-<li>  The conflic resolution policy is the group level policy, which can be Hub wins or Member wins </li>
-</ul>
+Let's take alook at the Data Sync building blocks. A Sync Group is a group of databases that you want to synchronize. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases.
+The Sync occures only between the Hub and individual members. The Sync Schema describes which data is being synchronized. The Sync Direction can be bi-directional or can flow in only one direction (if I go with bi-directional any update I
+do in Hub effect the members and vice versa) in directon (only from hub to members). The Sync Interval describes how often synchronization occurs. And finally, each time you merge data between databases you need to think about the Conflic Resolution Policy. The Conflic Resolution Policy in a Data Sync, specifies what should be done incase an conflict happends between the hub database and member databases. You can make the Hub Data overwrite Member database or
+versa. The Hub database needs to be an Azure SQL Database (you can not have SQL Server on premise as a Hub). A Sync database is created automatically by Azure, and keeps the meta data for your Sync job. To recap: Both the Hub and
+the Sync database must be an Azure SQL Database. Both Hub and Sync databases should be in the same region. The member databases can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances
+on Azure VMs. If you're using an on-premiseds database as a member database, you must install and configure a local sync agent. Since Data Sync is triggered-based, transactional consistency is not guaranteed. Microsoft
+guarantees that all changes are made eventually, and that Data Sync does not cause data loss. 
+
+<p> There are a few requirements for Data Sync. Each table must have a primary key. Don't change the value of the primary key in any row. Snapshot isolation must be enabled. A table cannot have an identity column that is not the primary
+key. Tables with same name but different schema are not supported. Columns with User Defined Data Types are not supported. Currently, Azure SQL DAta Sync does not support Azure SQL Database Managed Instance. </p>
+ 
+
  
  <p> Data Sync Overview </p>
 <ul>
@@ -258,80 +241,5 @@ This might be useful if you want to sync your on-premises and Azure SQL database
  <b> Demo: Provisioning an Azure SQL Database single database </b>
 <p> <b>Demo: Provisioning Azure SQL Elastic Pools </b></p>
 <b> Demo: restoring an Azure SQL instance </b>
-
-
-
-
 <b> Demo: Creating and running an Elastic Database Job </b>
 
-
-
-
-
----
-
-<p> Managing Data Synchronization between Azure and SQL Server On-premises</p>
-
-<p> Do you need to sync data between multiple databases? SQL Data Sync is an Azure SQL Database service that lets you syncrhonize the data bi-directionally across multiple SQL databases and SQL Server instances. Data sync is useful
-when data needs to be kept up-to-date across several Azure SQL databases or SQL Server databases. Why would you like to have multiple databases with the same schema etc? One of the scenarios is a hybrid data syncrhonization (sync you
-on-premises and Azure SQL databases). Also distributed applications can benefit from this scenario (you can have separate different workloads across multiple identical databases. This scenario also works good for globally distributed 
-applications. You can easily sync databases in regions around the world. Do <b> not </b> use Data sync for disaster recovery (use Azure geo-redundant backups). Also if you need multiple versions of the same database and you will only
-write to one of these databases you should not go with SQL Data Sync, you can use read-only replicas instead. SQL Data Sync is not that good for ETL, use Azure Data Factory or SSIS instead. Its also not a migration tool (use Azure Database Migration Service instead. 
-
-Let's take alook at the Data Sync building blocks. A Sync Group is a group of databases that you want to synchronize. You define one of the databases in the sync group as the Hub Database. The rest of the databases are member databases.
-The Sync occures only between the Hub and individual members. The Sync Schema describes which data is being synchronized. The Sync Direction can be bi-directional or can flow in only one direction (if I go with bi-directional any update I
-do in Hub effect the members and vice versa) in directon (only from hub to members). The Sync Interval describes how often synchronization occurs. And finally, each time you merge data between databases you need to think about
-the Conflic Resolution Policy. The Conflic Resolution Policy in a Data Sync, specifies what should be done incase an conflict happends between the hub database and member databases. You can make the Hub Data overwrite Member database or
-versa. The Hub database needs to be an Azure SQL Database (you can not have SQL Server on premise as a Hub). A Sync database is created automatically by Azure, and keeps the meta data for your Sync job. To recap: Both the Hub and
-the Sync database must be an Azure SQL Database. Both Hub and Sync databases should be in the same region. The member databases can be either SQL Databases, on-premises SQL Server databases, or SQL Server instances
-on Azure VMs. If you're using an on-premiseds database as a member database, you must install and configure a local sync agent. Since Data Sync is triggerr-based, transactional consistency is not guaranteed. Microsoft
-guarantees that all changes are made eventually, and that Data Sync does not cause data loss. Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking.
-These change tracking activities have an impact on your database workload. It's important to asses your service tier and upgrade if needed. </p>
-
-<p> There are a few requirements for Data Sync. Each table must have a primary key. Don't change the value of the primary key in any row. Snapshot isolation must be enabled. A table cannot have an identity column that is not the primary
-key. Tables with same name but different schema are not supported. Columns with User Defined Data Types are not supported. Currently, Azure SQL DAta Sync does not support Azure SQL Database Managed Instance. </p>
-
-<b> Setting up SQL Data Sync between two Azure SQL Database single instance </b>
-
-<p> Start with creating an Hub database (use standard db, and sample data). Let's also create a member database (let's use same RG, configure with DTU model, use sample database so schema is same?). Now click on the hub database
-and make sure client ip is added to the server firewall. Do the same thing for the member database. Now let's start SSMS and connect to our hub database. Let's update a row in the customer table, after that we will run Data Sync
-(which checks for change tracking, update, insert, etc) and make sure this update is reflected in the member database.
-
-<pre> UPDATE SalesLT.Customer SET FirstName = 'Reza', LastName = 'Salehi' WHERE CustomerID = 1 </pre>
-
-<p> Now let's go back tu Azure portal and setup Data Sync. Make sure you are in the hub database, scroll down, click
-on sync to other databases, click on new sync group, crete a new database for the sync metadata database, while 
-configuring make sure we pick the same logical server as the hub database (not a requirement, the only requirement is for the databases to be in same region). You have the option to setup automatic sync, so right after your data sync
-is created it is going to start synchronizing based on the schedule you provide. Conflic resolution (Hub win / member win) what happends when a conflict happends. After deployment of the Sync Group is finished, I need to put the
-user credentials of my hub database. In the next step I need to configure the member database (choose same logical
-server). In the last step of our wizard, we need to choose which tables we want to be synced. We also need to allow 
-Azure services and resources to access this server for all databases (same place as firewall settings)
-	
-<h3> Notes </h3>
-  
-<p> A <b>communication protocal</b> is a system of rule that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity. The Hypertext Transfer Protocol (HTTP) is example of a common protocol. Protocals are to communcations what programming languages are to computations.</b> 
-  
-<p> <b>Remote Desktop Protocol</b> is a proprietary protocol (a communications protocol owned by a single organization or individual) developed by Microsoft, which provides an user with a graphical interface to connect to another computer over a network connection. </p>
-  
- <p> 
-	<b>Virtual Networking</b>: is primary used for cloud. A virtual network is software based. It is part of a LAN (local era network) or WAN (Wide area network, multiple LANs connected together that spans a large geographical region) that has been sactioned off. Virtual networks can have their own security, encryption, login credentials etc. The physical underlay is the physical infrastructure, physical computers, physical routers, physical switches. Using this physical infrastructure with some specific software enables the virtual network (also called the overlay). </p>
-
-  <p>   <b> vCPUs (virtual CPUs), Physical CPUs, Cores </b>: It's from the server we receive compute power. Your primary compute power is from the processor (we also have RAM and cache). A quad processing server, within this server there are 4 physical CPUs. In more modern times, we also have a cores within that physical CPU. Let's say we have 4 cores within the CPU chip. Within those cores, typically in a cloud environment, we put vCPUs. x Cores = x vCPU.</p>
-  
-<p> Let's say you want to buy an intel core i7 8 core CPU. In this case, that CPU would have 4 physical cores and 4 more virtual cores (total 8 logical cores). The 4 physical cores has hyper threading, each core can accepts two threads (this is how you get extra cores).    </p>
-  
-<p> <b> SQL Server and Database Encryption Keys:</b> SQL Server uses encryption keys to help secure data, credentials and connection information that is stored in a server database. SQL Server has two kinds of keys, symmetric and asymmetric. Symmetric keys use the same password
-to encrypt and decrypt data. Asymmetric keys use one password to encrypt data (called the public key) and another to decrypt data (called the private key).
-
-SQL Server has two primary applications for keys: a service master key (SMK) generated on and for a SQL Server instance, and a database master key (DMK) used for a database.
-
-The Service Master Key is the root of the SQL Server encryption hierarchy. The SMK is automatically generated the first time the SQL Server instance is started and is used to encrypt a linked server password, credentials, and the
-database master key. The SMK is encrypted by using the local machine key using the Windows Data Protection API (DPAIP). TThe service master key can only be decrypted by the service account under which it was created or by
-principal that has access to the machine's credentials.
-
-The database master key is a symmetric key that is used to protect the private keys of certificates and asymmetric keys that are present in the database. It can also be used to encrypt data, but it has length limitations that make
-it less practical for data than using a symmetric key. To enable the automatic decryption of the database master key, a copy of the key is encrypted by using the SMK. It is stored in both the database where it is used and in the master
-system database. 
-
-<p> 
-<b> SQL Server Change Tracking (CT):</b> SSQL Server Change Tracking, also known as CT, is a lightweight tracking mechanism, introduced the first time in SQL Server 2008, that can be used to track the DML (Data Manipulation Language, insert, update, delete) changes peformed in SQL Server database tables. SQL Change Tracking can be configured in all SQL Server editions, including the free Express edition. </p>
