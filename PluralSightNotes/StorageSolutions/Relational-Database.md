@@ -54,6 +54,7 @@
 
 
 <h3> Azure SQL Database </h3>
+<p align="center"><img src="https://hybriddbablog.files.wordpress.com/2019/01/differences-between-azure-databases.png?w=656"></p>
 
 <ul>
   <p> There are 3 Azure SQL Database deployment options</p>
