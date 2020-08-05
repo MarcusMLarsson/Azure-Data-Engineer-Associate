@@ -134,13 +134,13 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 
 <p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
 
-<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. </p>
+<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. 
 <ul>	
 	<li> Full backup (taken every week): Azure backs up the entire database. </li>
 	<li> Differential back up (taken every 12 hours): which captures only the data that has changed since the last full backup. </li>
 	<li> Transaction log back up (Taken every 5-10 minutes): Records of all the committed and uncommitted transactions. </li>
 </ul>
-
+</p>
 <p> These backups are stored in Azure read-access geo-redundant (RA-GRS) standard blob storage by default. This means your backup are stored in two seperate regions (?), with the second region being a read only region. All backups are automatically encrypted at rest using Transparent Data Encryption (TDE), blob torage is also protected.  </p>
 
 <p> In turn of retention period, there are two types of backups. Point in time (7-35 days), you can use this backup to retore your database to an exact point in time. This is because all three type of backups, full backup, differential and transaction logs are keept. You might need to keep your backup for more than 35 days for compliance reasons. In that case, you can use long-term retention (up to 10 years). You can't disable point in time backups, you can only configure the retention period which is between 7-35 days. All Azure SQL databases (single, pooled, managed instance) have a default backup retention period of 7 days. If you delete a database, Azure SQL Database will keep the backups in the same way it would for an online database. LTR is not yet available for databases in Managed Instances. Instead you can use SQL Agent jobs to schedule copy-only database backups as an alternative to LTR (beyond 35 days). </p>
