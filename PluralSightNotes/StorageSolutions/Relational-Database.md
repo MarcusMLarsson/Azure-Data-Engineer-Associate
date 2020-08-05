@@ -157,10 +157,21 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li>User access administrator: Granted permission to manage access to Azure resources </li>
 </ul>
  
- <h3> SQL Elastic database job </h3>
-Elastic database job executes custom jobs on one or many Azure databases in an interval.
+<h3> Scheduling technologies in Azure SQL Database </h3>
 
-<p> Elastic jobs are available for single and pooled instances. Agent jobs can be used for Managed Instance. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
+<p>Database Scheduled jobs can be periodically executed against one or many databases to run T-SQL quereis and perform maintenance tasks. A few use cases are for management task to run after hours. for example you can deploy schema changes or credentials management, you can also use them to update or load data from Azure Blob storage, collect query results from a set of databases in an on-going basis, rebuild indexes to improve query performance, collect data for reporting, load data from or to your databases using SQL Server Integration Services (SSIS) etc. Below the scheduling technologies for Azure are listed</p>
+
+<ul> 
+	<li> <b> Elastic Database Jobs </b></li>
+	<li> <b>SQL Agent Jobs. </b></li>
+	<li> Azure Automation (runbooks) </li>
+	<li> Azure Functions </li>
+	<li> Azure Logic Apps </li>
+	<li> Azure Scheduler </li>
+</ul>
+
+ <h3> SQL Elastic database job </h3>
+Elastic database job executes custom jobs on one or many Azure databases in an interval.Elastic jobs are available for single and pooled instances. In other words, elastic jobs are not available for managed instance at the time. Elastic database jobs provide the ability to run one or more T-SQL scripts in parallel, across many databases, on a schedule or on demand. Elastic database can target single and pooled databases, also SQL Server and shardmap are supported. Let's take a look at elastic job components. The first component is the elastic job agent. This is the process responsible to execute the job against the target database. To be able to create a job agent you should have an clean,empty and existing database. Which will be configured as a job database. The job defenitions and execution history will be saved inside the job database. After you have defined the job, the agent will execute the job on the targets. In the target group you can have individual databases, SQL Server, Elastic Pool, Data Warehouse as part of your target group. The status and job execution will be saved inside the job database (a unique database to the job agent?). If your job has an output, you can configure an output database and the job agent is going to write the job output into the output database. </p>
 
 
 <ul>
@@ -175,16 +186,6 @@ Elastic database job executes custom jobs on one or many Azure databases in an i
   <p> </p>
 </ul>
 
-	
-<h3> Scheduling technologies in Azure SQL Database </h3>
-<ul> 
-	<li> Elastic Database Jobs </li>
-	<li>SQL Agent Jobs. </li>
-	<li> Azure Automation (runbooks) </li>
-	<li> Azure Functions </li>
-	<li> Azure Logic Apps </li>
-	<li> Azure Scheduler </li>
-</ul>
 
 <ul> 
   <p> SQL agent : Elastic job</p>
@@ -193,11 +194,9 @@ Elastic database job executes custom jobs on one or many Azure databases in an i
   <li> : Portal, Azure Resource Manager, PowerShell, T-SQL </li>
 </ul>
 
-<p>Database Scheduled jobs can be periodically executed against one or many databases to run T-SQL quereis and perform maintenance tasks. A few use cases are for management task to run after hours (for example you can deploy schema changes or credentials management, you can also use them to update or load data from Azure Blob storage, collect query results from a set of databases in an on-going basis, rebuild indexes to imrpove query performance) collect data for reporting (aggregate data from a collection of Azure SQL databases into a single destination, execute long-running data pro data processing queries across a large set of databases), data movements (replicate changes made in your databases to other databases, load data from or to your databases using SQL Server Integration Services (SSIS) </p>
-
 <p> Configure SQL Agent Jobs </p>
 
-<p> Introducing SQL Agent jobs for managed instaces (you can use Elastic Database Jobs). SQL Agent Jobs are series of T-SQL scripts to run against your database. SQL Agent jobs can be used to run administrative tasks, one or more
+<p> Agent jobs can be used for Managed Instance.  Introducing SQL Agent jobs for managed instaces (you can use Elastic Database Jobs). SQL Agent Jobs are series of T-SQL scripts to run against your database. SQL Agent jobs can be used to run administrative tasks, one or more
 times, these jobs can be monitored for success or failure. A job can run on one local server or on multiple remote servers. A job is an internal database engine component that is executed within the managed instance service. SQL Agent jobs are not available for single and pooled instances, use Elastic jobs for those instances. The are three job components to SQL Agent Jobs. Job step, a job is a set of one or many steps that should be executed. Schedule, when the job should be executed. Notification, define rules that will be used to notify operators via emails once the job completes. A job step is a sequences of actions that SQL Agent should execute. For each job step, you can define retry strategy and action when the step succeeds or fails. There are several job step types you can choose from. For example, T-SQL OS command, PowerShell, SSIS. You can also use replication steps to publish changes to other databases. The schedule specifies when
 a job runs, it could be very day or every other day etc. Multiple jobs can run on the same schedule, multiple scheduels can apply to the same jobs. You can also schedule a job to execute whenever the managed instance is restarted.
 A job can run on time or under recurring schedule. SQL Agent jobs enable you to get notifications when the job finishes successfully or fail. You can receive notifcation via email. SQL Agent settings are read only, procedure
