@@ -1,15 +1,7 @@
 
 <h1> Implementing a Relational Database in Microsoft Azure SQL Database </h1>
 <p align="center"><img src="https://azurecomcdn.azureedge.net/cvt-44b6d935a36108a6094b09447175fe8029569450b1147a48cc44fbed5496ce82/images/page/services/sql-database/index/image-value-prop-1.png" width="1000"></p>
-<p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (Paas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
-
-
- <style>
-      .img-container {
-        text-align: center;
-        display: block;
-      }
-    </style>
+<p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (Paas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. H  </p>
 
 <h3> IaaS vs PaaS vs SaaS </h3>
 <p align="center"><img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png"></p>
