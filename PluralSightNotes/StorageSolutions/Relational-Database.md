@@ -4,7 +4,7 @@
 <p>  Azure gives you two options to run SQL server-based workloads. The first option, which is the main focus of this course, is Azure SQL Database (Paas). The other option is to provision a SQL Server installation on an Azure virtual machine. This is a SQL Server inside a fully managed virtual machine in Azure. You still don't need to worry about the physical machine. However, it's still a virtual machine so you need to manage the instance of SQL Server manually. How do you choose between the two? Do you want to manually manage your database engine, apply patches, take backups, or delegate these operations to Azure?  </p>
 
 <h3> IaaS vs PaaS vs SaaS </h3>
-<center><img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png"></center>
+<center><img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png" style="text-align: center"></center>
 <ul>
 	<li> Infrastructure as a service: IaaS delivers cloud computing infrastructure, including servers, network and storage, through virtualization technology (virtual machines). </li>
 	<li> Platform as a service: PaaS allows businesses to design and create applications that are built into the PaaS with special software components. </li>
