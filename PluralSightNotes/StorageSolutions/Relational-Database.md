@@ -23,6 +23,9 @@
 <h3> Azure SQL Database (PaaS)  </h3>
 <p>Azure SQL Database is a relational database-as-a-service (PaaS) hosted in Azure, this is a platform-as-a-service (PaaS) offering. The database has additional features that are not availaible in SQL Server, such as built-in high availability, intelligence, and management. Pay-as-you-go with options to scale up or out for greater power (with no interruption). Has multiple deployment options and service tiers. </p>
 
+<h3>SQL Server on Azure VMs (IaaS) vs  Azure SQL Database (PaaS) </h3>
+
+
 <b> Benefits </b>
 
 | SQL Server on VM        | Azure SQL Database       |
