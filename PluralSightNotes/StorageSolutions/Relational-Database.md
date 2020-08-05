@@ -56,14 +56,14 @@
   <li> Managed instance: A set of databases that can be used together, easy migration of on-premis databases</li>
 </ul>
 
-<b> Understanding Elastic pool</b> 
+<h3> Understanding Elastic pool</h3>
  <p> Elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources as a set price. Elastic pools enables developers to optimize the price performance for a group of databases within a prediscribed budget. Using Elastic pools prevents over-provisioning or under-provisioning of resources. Elastic pool is not for every scenario however. The pools are well suited for multiple databases with specific utilization patterns. This pattern is low average utilization with infrequent utilization spikes. </p> 
 
 <p>
 Imagen we only have Azure SQL Database Single Database option available to us and we have 4 databases. We do know that each of these databases needs 20 DTUs (20,20,20,20 => 80 DTUs). Another scenario is when we have 4 other databases (10,40,40,20 => 110 DTUs) and two of these databases needs 40 DTUs for a short time at the peak of its usage. However, you don't know the exact time when the usage will peak. Having only Azure Database Single Instance we need to provision 110 DTUs for all these 4 databases, to accomidate database #2 & #3. We are overprovisioning since the databases only needs 40 DTUs for a short time. So now let's see how Azure SQL Database Elastic Pools can help in this scenario. The first thing you will do, is to create an elastic pool. You will than put all the 4 databases into this pool. You will assign a set amount of resources to the elastic pool (let's say 80 eDTUs). All these databases are going to share the resources.  </p>
   
 
-<b> Understanding Azure SQL Database Managed Instance</b>
+<h3> Understanding Azure SQL Database Managed Instance</h3>
 <p> The third deployment option is Managed Instance. Managed instances are a set of databases that can be used together and allows easy migration of on-premises databases. Managed instance is a deployment option of Azure SQL Database, providing near 100% compatibility with the latest SQL Server on-premises. This allows the existing SQL Server customer to lift and shift their on-premises applications with minimal changes. This deployment option provides a native virtual network implementation. Managed instance preserves all PaaS capabilities that reduces management overhead. The managed instance deployment option targets user scenarios with mass database migration from on-premises or IaaS database. </p>
 
 <b> Migrate options </b>
@@ -71,11 +71,14 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <ul> <li>Back up and restor, which creates backup files and places them in Azure Blob Storage. Than these backups can be stored into a manged instace using T-SQL RESTORE command. </li>
 <li>The other option is to use Azure Data Migration Service (ADMS). This is a fully managed service enabling easy migrations from SQL Server databases to Azure Data platforms, including Azure SQL database. Managed Instance also offers different service tiers.</li> </ul></p>
 
-   <p><b>Why move to Azure SQL Database</b>: By moving to Azure SQL Database you can reduce the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+<h3> Why move to Azure SQL Database </h3>
+</p> By moving to Azure SQL Database you can reduce the amount of time needed for admin. For many businesses, moving to a cloud service is about offloading complexity of administration. You can continue to administer your database, but no need to manage the DB Enginge, OS, or hardware. You can manage logins, index, and query tuning, auditing security and high availability. </p>
+
+<h3> How are resources assigned to various deployment options to Azure database? </h3>
+<p> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
    
-   <p> <b>How are resources assigned to various deployment options to Azure database?:</b> In a single database, each database gets its own guaranteed compute, memory and storage. In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. In managed instance each instance has its guaranteed resources. </p>
-   
-   <p> <b>Resource purchasing models</b>: 
+<h3>Resource purchasing models </h3>
+<p> 
 <ul>	<li> <b>DTU-based</b> (guarantess a certain level of compute, storage and I/O resources). You assign a bundle of resources to the Azure SQL database, you can not adjust individual resources such as compute and memory. </li>
 	<li>	The other purchasing model is the <b>vCore-based</b> purchasing model. This purchasing model gives you the option to choose between generations of hardware, number of cores, memory and storage size. </li></ul></p>
    
@@ -90,21 +93,21 @@ Imagen we only have Azure SQL Database Single Database option available to us an
     
   <p> If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based model might reduce your costs. You can convert to vCore-based model by using your API of choice or by using the Azure portal, with no downtime. Azure SQL Database managed instance only supports vCore-based purchasing model. </p>
   
-  <b> Options for Azure SQL Database </b>
+<h3> Options for Azure SQL Database </h3>
   <ul>
 	<p> <li>First you choose deployment options (single database, elastic pool, managed instance) </li>
 	<li>Then you choose purchasing models (DTU-based, vCore-based) </li>
 	<li>Then you choose Service tiers (general purpose/standard, business critical/premium, hyperscale). </li> </p>
 </ul>
 <ul>
-<b>Different Service tiers</b>
+<h3>Different Service tiers</h3>
 <p>
 	<li>General purpose / standard: is designed for most generic workloads, 99,99% SLA, 5-10 ms storage latency. </li>
 	<li>Business Critical / Premium: For applications requiring low-latency, 99,995% SLA, 1.2 ms storage latency.  </li>
 	<li>Hyperscale: Is primarly intended for customers who have large databases, up to 100 TB (vCore only). </li> </p>
 </ul> 
     
-<p> <b>Securing Azure SQL Database </b></p>
+<h3>Securing Azure SQL Database </h3>
 <ul>
 	<li> Network security </li>
  <p> Your Azure SQL Database instance is managed by logical Azure SQL Server. You can defined firewall rules on these server. This way you can grant access to databases based on the originating IP address of each request. Also, Azure SQL Database firewall enables you to only accept requests originated from subnets inside the virtual network. </p> 
@@ -123,7 +126,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  </ul>
  </ul>
  
-<b> Configuring Data Backup </b>
+<h3> Configuring Data Backup </h3>
 
 <p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
 
@@ -141,7 +144,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 <p> Usage of backups. You can restore an existing database to a point-in-time in the past. You can restore a deleted datbase to the time it was delete. You can restore a database to another geographical region. Note, if you delete an Azure SQL server, all elastic pools and databases that belong to that server are also deleted and cannot be restored. If you delete the parent logical server there is no way to restore. Restore time is impacted by size of the database, amount of activity that needs to be replayed, what service tier, network bandwidth, number of transaction etc. Might take several hours. </p>
 
 
-<b> Role Based Access Control </b>
+<h3> Role Based Access Control </h3>
 <p> Azure role-based access control (Azure RBAC) is a system that provides fine-grained access management of Azure resources. Using Azure RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs. Some of the most common rules are the following. </p>
 <ul>
 	<li>Owner: Full access to resources in Azure and can delegate access to other users.</li>
@@ -150,7 +153,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li>User access administrator: Granted permission to manage access to Azure resources </li>
 </ul>
  
- <b> SQL Elastic database job </b>
+ <h3> SQL Elastic database job </h3>
 Elastic database job executes custom jobs on one or many Azure databases in an interval.
 
 Elastic job components 
@@ -163,7 +166,7 @@ Elastic job components
 	
 	
 	
- <b> SQL agent job </b>
+ <h3> SQL agent job </h3>
  <p> While SQL elastic database jobs covers single and pooled instances, SQL agent job is designed for manage instances. </p>
  <p> SQL Agent job components </p>
  <ul>
@@ -184,7 +187,7 @@ This might be useful if you want to sync your on-premises and Azure SQL database
 <li> The sync occurs only between the Hub and individual members </li>
 </ul>
 
-<p>Sync Group </p>
+<h3>Sync Group </h3>
 <ul>
 <li> The sync schema describes which data is being syncrhonized (certain table or columns) </li>
 <li> The sync direction can be bi-directional or can flow in only one direction </li>
