@@ -77,7 +77,13 @@ GROUP BY SessionWindow(second, 5, 10)
 <b> Configure Azure Stream Analytics with Event Hub and Blob Storage Inputs </b>
 
 <p> Azure Stream Analytics Input types. A data stream is an ongoing sequence of events over time. At least one data stream input is needed for a stream analytics job.
-Azure Event Hubs, Azure IoT Hub, Azure Blob storage. Azure Event Hubs (you can confiugre any application to send data to Azure Even Hub). Azure IoT Hub (Highly optimized for IoT).
+<ul>
+  <li> Azure Event Hubs </li>
+  <li> Azure IoT Hub </li>
+  <li> Azure Blob storage </li>
+ </ul>
+ 
+<p> Azure Event Hubs (you can confiugre any application to send data to Azure Even Hub). Azure IoT Hub (Highly optimized for IoT).
 Azure Blob storage (bulk data such as log files). The second type of data you can use with Azure Stream Analytics is reference data input. Think of reference data input as data which does not
 change or changes very slowly, such as metadata lookups. Azure Stream Analytics can accept reference data from two different input type. Azure Blob Storage and Azure SQL Database. You can store
 meta data information about the object you are going to process in your reference data. Imagen you are accepting live events from a few devices. Each event comming from a device contains an device id. 
