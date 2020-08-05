@@ -12,7 +12,7 @@
     </style>
 
 <h3> IaaS vs PaaS vs SaaS </h3>
-<p align="center"><img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png"></p>
+<p align="center"><img src="https://blogs.bmc.com/wp-content/uploads/2017/09/saas-vs-paas-vs-iaas-810x754.png" width="1000"></p>
 <ul>
 	<li> Infrastructure as a service: IaaS delivers cloud computing infrastructure, including servers, network and storage, through virtualization technology (virtual machines). </li>
 	<li> Platform as a service: PaaS allows businesses to design and create applications that are built into the PaaS with special software components. </li>
