@@ -78,7 +78,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 	<li> In a single database, each database gets its own guaranteed compute, memory and storage. </li>
 <li>In the elastic pool, there is a fixed amount of resources that will be shared by all databases in the pool. </li> 
 	<li> In managed instance each instance has its guaranteed resources. </li>
-  
+</ul>
 </p>
 <h3>Resource purchasing models </h3>
 <p> 
