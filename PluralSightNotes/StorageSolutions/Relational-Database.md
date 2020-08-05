@@ -134,7 +134,7 @@ Imagen we only have Azure SQL Database Single Database option available to us an
 
 <p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
 
-<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. 
+<p> Azure SQL Database automatically creates the database backups that are kept between 7-35 days. </p>
 <ul>	
 	<li> Full backup (taken every week): Azure backs up the entire database. </li>
 	<li> Differential back up (taken every 12 hours): which captures only the data that has changed since the last full backup. </li>
