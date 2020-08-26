@@ -66,11 +66,10 @@
  <li> Geo-redundant storage</li>
  <p> copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical 
  <li> Read-access geo-redudant storage</li>
- <p> copied over different countries, only read acccess</p>
+ <p> Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. However, that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. When you enable read access to the secondary region, your data is available to be read at all times, including in a situation where the primary region becomes unavailable.</p>
   <li>Geo-zone-redundant storage</li>
  <p> copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region.s </p>
  <li>Read-access geo-zone-redundant storage</li>
- <p> Read-access for different zones
  </ul>
 
  <h3> Azure Cosmos DB </h3>
