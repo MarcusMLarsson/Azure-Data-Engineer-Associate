@@ -54,6 +54,24 @@
  <li><b> CORS (Cross-Origin Resource Sharing) for browser clients </b>  </li>
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
+ 
+ 
+  <b> Azure Storage redundancy </b>
+  <p> Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures. </p>
+  <ul>
+ <li> Locally redundant storage (LRS) </li>
+ <p> copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable.  </p>
+ <li> Zone redundant storage</li>
+ <p> copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region. With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends using ZRS in the primary region for scenarios that require consistency, durability, and high availability. We also recommend using ZRS if you want to restrict an application to replicate data only within a country or region because of data governance requirements. However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected. For protection against regional disasters, Microsoft recommends using geo-zone-redundant storage   </p>
+ <li> Geo-redundant storage</li>
+ <p> copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical 
+ <li> Read-access geo-redudant storage</li>
+ <p> copied over different countries, only read acccess</p>
+  <li>Geo-zone-redundant storage</li>
+ <p> copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region.s </p>
+ <li>Read-access geo-zone-redundant storage</li>
+ <p> Read-access for different zones
+ </ul>
 
  <h3> Azure Cosmos DB </h3>
  <ul>
