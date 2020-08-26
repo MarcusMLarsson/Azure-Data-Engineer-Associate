@@ -158,7 +158,7 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
  <p> See previous demo </p>
  <li> Estimate the throughput needed for your workload (you can change this later) </li>
  <p> Throughput can be provisioned on both collection & database. You can choose database-level throughput if not sure. Throughput is measured in Request Units (RUs) / second. RU is an abstraction of physical resources (Memory, CPU, IOPs). The concept of RUs is very similar to the concept of DTUs in Azure SQL Database.  </p>
- <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item icreases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
+ <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item increases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
  
  <li> Pick an optimal partition key for your data (can't be changed if you don't recreate the collection)</li>
  <p> Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of the application. Follow best practices to avoid "hot" partitions. Choose a partition key so your data is divided equally.</p>
