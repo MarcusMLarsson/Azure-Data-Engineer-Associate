@@ -21,7 +21,7 @@
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
 
-<h3> Azure Storage Account </h3>
+<h3> <a href="http://www.sigops.org/s/conferences/sosp/2011/current/2011-Cascais/11-calder-online.pdf"> Azure Storage Account</a></h3>
 <li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
 <li> Notice that, a storage account is not a NoSQL service or a database, its a container for various file and storage services</li>
 <li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
