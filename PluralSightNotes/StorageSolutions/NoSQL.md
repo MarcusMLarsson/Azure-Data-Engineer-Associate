@@ -154,7 +154,7 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 <ul> 
  <p> Let's take alook at the pre-migrating steps before migrating your data. 
 </p>
- <li> Create an Azure Cosmos AB account </li>
+ <li> Create an Azure Cosmos DB account </li>
  <p> See previous demo </p>
  <li> Estimate the throughput needed for your workload (you can change this later) </li>
  <p> Throughput can be provisioned on both collection & database. You can choose database-level throughput if not sure. Throughput is measured in Request Units (RUs) / second. RU is an abstraction of physical resources (Memory, CPU, IOPs). The concept of RUs is very similar to the concept of DTUs in Azure SQL Database.  </p>
