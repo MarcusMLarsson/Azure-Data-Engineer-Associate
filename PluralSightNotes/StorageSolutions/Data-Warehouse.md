@@ -506,21 +506,8 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 	<li> Step 4: Insert the data into production tables </li>
 	
 <p> When you are loading data into staging tables, you should use a round-robin distribution method. </p>
-  ---
+<hr>
 <h3> Notes </h3>
-
- 
- <b> Resource Group </b>
- <p> Resource groups (RG) in Azure is an approach to group a collection of assets in logical groups for automatic provisioning, monitoring, and access control, and for more effective management of their costs. One benefit of using RGs in Azure is grouping related resources that belong to an application together, as they share an unified lifecycle from creation to usage and finally, de-provisioning. The underlying technology that powers resource groups is the Azure Resource Manager (ARM). ARM was built by Microsoft in response to the shortcomings of the old Azure Service Manager (ASM) technology that powered the old Azure management portal. </p> 
-
-<b> Database vs Data warehouse </b>
-<p> Database is a structured place to store data. A data warehouse is a form of database. Rather than to soak in data, a data warehouse is designed to produce data for analysis. That is, a database is designed to record while a data warehouse is designed to analyize. A data warehouse is usually normalized etc. </p>
-
-<b> Computing  </b>
-<p> Computing is any activity that uses computers to manage, process and communicate information. </p>
-
-<b> Processing</b>
-<p> Processing is the actual execution of instructions or the instance. </p>
 
 <b> Cache </b>
 <p> CPU Cache: The CPU Cache is the CPUs internal memory. It's job is to store copy of data from RAM which is waiting to be used by the CPU. Basically what the CPU Cache does, is that it holds common data that it thinks the CPU will access. CPU always check cache memory first. A computer have two different types of memory. Dynamic RAM and SRAM (used in CPU Cache). SRAM does not have to be constantly refreshed. Much faster than DRAM but more expensive. 
@@ -528,28 +515,8 @@ SELECT * FROM sys.dm_pdw_exec_requests;
 Browser Cache: A way to make website faster for you when your browsing the internet. When you visit the website, it basically downloads a copy of the website and stores it on your harddrive. Next time you load website it goes really fast. 
  </p>
 
-
 <b> Ports & IP Addressing </b>
 <p> Together IP and port number is called the socket. IP adress are used to identify what computer we are sending to or from and the port represents what application or service we are sending to and from. If you are using windows open command and type netstat -a -b -n (with admin privelage) to find port numbers. Common port numbers: HTTP 80, FTP (File transfer) 20 </p> 
 
 <b> Firewall </b>
 <p> A Firewall is a system that is designed to prevent unauthorized access to enter a private network by filtering information that comes in from the internet. A Firewall blocks unwanted traffic and permits wanted traffic. Firewall => Router => Computer. A Firewall works by filtering the incomming network data and determines by its rules if its allowed to enter a network. These rules are customizable and determined by the network administrator. Generally Firewalls allow data to go out.  </p>
-
-<b> SQL Server Management Studio(SSMS)</b>
-<p> Integrated environment for managing any SQL infrastructure, from SQL Server to Azure SQL Database </p>
-
-
-<b> System databases in SQL Server </b>
-<p>
-<ul>
-  <li> <b> master </b> keeps and manages all system level information. Such as system configuration, logins, linked servers, credentials etc. Take master data backup because if it becomes corrupted/deleted you won't be able to start SQL server. </li>
-  <li> <b> model </b> The model database acts as a template for all the databases. The template is used in the creation of any new user-database created in this instance (store procedures, database configurations etc) </li>
-  <li> <b> msdb </b> SQL Server agent information is managed by msdb. Will hold backup, log_shipping. </li>
-  <li> <b> tempdb </b> holds temporary data, tables like locally temporary tables.</li>
-  <li> <b> resource </b> not accessable by the user </li>
-  <li> <b> distribution </b> not accessable by the user </li>
-</ul>
-</p>
-
-<b> Collation</b>
-<p> It's important to pick the right collation when you are installing SQL server. When you store something in a database, you use characters (abc$*). What a collation does, it decides how to organize these variables (ABCabc123). An example of a collation is UTF8_unicode_ci (case insensitive). ASCII (American Standard Code for Interchange, American standard). </p>
