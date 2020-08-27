@@ -96,21 +96,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 </p>
 
 <p> Creating a table with to many partitions can hurt performance under some circumstances (10 to a few hundred is resonable). For clustered columnstore tables, it is important to consider how many rows belong to each partions. Keep in mind that before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases. 
- 
- 
-<b> Tuning and Optimizing a Data Warehouse in Microsoft Azure Synapse Analytics </b>
-
-<ul>
-	<li> Backing up a Data warehouse </li>
-	<p> Snapshots offers a time when your database was at a certain level, so you can restore to that level. The backup will consist of many files, since SQL Data Warehouse is distributed (exists in alot of different places). Automatic restore points are taken several times a day <b> assuming your data warehouse is not paused </b>. Overview => New Restore Point (to create your own restore point). </p>
-	<li> Restoring a Data warehouse</li> 
-	<p>Restor points are deleted after 7 days and are not be available when DW is paused. To restore go to "Over" (next to scale) </p>
-	<li> Managing cost of a Data warehouse </li>
-	<p> The pricing page is available at Microsoft website. The cost depends on how the storage cost and the computing cost. </p>
-	<li> Workload management </li>
-	<p> Workload management includes the process of loading data, running analysis, reporting, exporting and managing the data in the data warehouse. Workload classification includes when you assign users to a role that has a corresponding resource class. We do this with <pre> CREATE WORKLOAD CLASSIFIER </pre></p> 
-	<p> Workload importance: low, below_normal, normal, above_normal, high. A request with higher importance will be run before a request with lower importance. </p>
-	
+ 	
 <h3> Polybase </h3>
 <p> The fastest way to load data into Synapse Analytics is to use Polybase. It lets you read data from external resources using T-SQL.
 <ul> 
