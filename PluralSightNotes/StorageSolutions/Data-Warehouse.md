@@ -96,24 +96,8 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 </p>
 
 <p> Creating a table with to many partitions can hurt performance under some circumstances (10 to a few hundred is resonable). For clustered columnstore tables, it is important to consider how many rows belong to each partions. Keep in mind that before partitions are created, SQL Data Warehouse already divides each table into 60 distributed databases. 
-  
-
- <b> Examining Configuration Options for an SQL Pool in Azure Synapse Analytics</b>
- <p> In this section we are going to examine configuration options for the data warehouse.  </p>
  
- <ul>
-	<li><b> Scale </b> Here we can scale the system (will be more expensive). </li>
-	<li> <b> Activity log </b>: Here you find the log files. A log file is a file that records either events that occur in an operating system or other software runs (to query log information use KQL). </li>
-	<li> <b> Tags </b>: All resources in Azure can recieve a tag. A tag is a descriptive charactarization that you put on any kind of resource so you can search by category. If you have certain clients that are responsible for paying for certain resources, then that would be an example of the use of a tag.</li>
-	<li> <b> Geo-backup policy</b>: Here you see Azures policy for backing up data information. On Gen2 backup is taken care off. </li>
-		<li> <b> Connecting strings</b>: Use the connection string if you need to load or connect to data from different applications </li>
-	<li> <b> Export template</b>: Alot of resources in Azure are available thru a template. With export templates you can recreate the resources from scratch (using Azure Resource Manager) and have all the configurations from your original resource. </li>
-	<li> <b> View Streaming analytics </b>: We can monitor streaming jobs, e.g. a collection of data comming from IoT devices streaming into our data warehouse. </li>
-	<li> <b> Load data </b>: Here you find <b> Azure Data Factory </b> which allows you to store and integrate your information into your data warehouse. </li>
-	<li> <b> Query editor </b>: We can connect to the database and run queries inside here without using SQL server management studio. </li>
-</ul>
-
-
+ 
 <b> Tuning and Optimizing a Data Warehouse in Microsoft Azure Synapse Analytics </b>
 
 <ul>
@@ -140,6 +124,7 @@ To shard data into a hash-distributed table, SQL Analytics uses a hash function 
 	<li> Step 4: Insert the data into production tables </li>
 	
 <p> When you are loading data into staging tables, you should use a round-robin distribution method. </p>
+
 <hr>
 <h3> Notes </h3>
 
