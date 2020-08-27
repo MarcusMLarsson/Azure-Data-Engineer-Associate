@@ -4,13 +4,18 @@
 
 <p> <b> Understanding Hybrid Data Systems </b></p>
 
+<b> What is a Hybrid system? </b>
 <p> Hybrid is an architecture that invloves components on-premises and components in the cloud. When switching to 
 hybrid solution (seperating aspect of computing data) its critical to understand attributes and requirements (things
 like latency). How does my application access the data? </p>
 
+<b> When to use a Hybrid System? </b>
+<p> You might want to move part of your solution to the cloud. The cloud can provide consumption-based billing, scalability/agility/service, geographically availability, operational simplification etc. However, some organisations are not allowed to push certain data to the cloud etc. Then a hybrid solution might be a better choice </p>  
 
-<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service.
-By default most services are accessed via an internet facing endpoint (via encrypted data). </p>
+<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service. By default most services are accessed via an internet facing endpoint (via encrypted data). </p>
+
+<b> Options for Hybrid Data Systems </b>
+<p> VPN or private peering over ExpressRoute can be utilized. </p>
 
 <p><b> Implementing Hybrid Data Systems </p></b>
 
