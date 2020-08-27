@@ -249,18 +249,9 @@ You can upload files to the Data Lake with the RESTful API or the DistCp tool. S
 
 <h3> Notes </h3>
 
-<b> Instance </b>
-<p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
-
-<b> Azure Container Instance </b>
-<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources.</p>
 
 <b> Provisioning </b>
 <p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. </p> 
-
-
-<b> Wide column store </b>
-<p> A wide column store is a type of NoSQL database. It uses tables, rows, and columns, but unlike a relational database, the names and format of the columns can vary from row to row in the same table. A wide column store can be interpreted as a two-dimensional key-value store. </p>
 
 <b> HTTP Headers </b>
 <p> When you type a url in your address bar, your browser sends an HTTP request and it may look like this </p>
@@ -310,40 +301,11 @@ Vary: Accept-Encoding, Cookie, User-Agent
 
 <p>A car is a class, different cars has different features, cars with similar features can be grouped as objects (car with this color, how takes this many passanges, can reach this speed). An instance is a specific object created from a particular class. </p>
 
-
-<b> Latency </b>
-<p> It is an expression of how much time it takes for a packet of data to get from one designated point to another. Latency depends on the speed of the transmission medium (e.g., copper wire, optical fiber or radio waves) and the delays in the transmission by devices along the way (e.g., routers and modems).	
-
-Latency is the amount of time a message takes to traverse a system.
-
-In a computer network, it is an expression of how much time it takes for a packet of data to get from one designated point to another. It is sometimes measured as the time required for a packet to be returned to its sender.
-
-Latency depends on the speed of the transmission medium (e.g., copper wire, optical fiber or radio waves) and the delays in the transmission by devices along the way (e.g., routers and modems). A low latency indicates a high network efficiency.
-
-Latency and throughput are the two most fundamental measures of network performance. They are closely related, but whereas latency measures the amount of time between the start of an action and its completion, throughput is the total number of such actions that occur in a given amount of time. </p>
+<b> Azure Container Instance </b>
+<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources.</p>
 
 <b> Containers </b>
 <p>Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. With a container framework, you specify the dependencies that your code needs, and let the framework handle the legwork of managing different execution environments. Docker is the defacto standard for containers, and there is substantial tooling built around Docker. </p>
 
 <b> REST api </b>
 <p> Representational state transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the Internet. REST determines how the API looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their API. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL. REST or RESTful API design (Representational State Transfer) is designed to take advantage of existing protocols. While REST can be used over nearly any protocol, it usually takes advantage of HTTP when used for Web APIs. This means that developers do not need to install libraries or additional software in order to take advantage of a REST API design.</p>
- 
- <b> Latency </b>
- <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
- 
- <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
-
-
-<b>Setup LocalDB server using sqllocaldb (Microsoft SQL Server Management Studio</b>
-
-<a href="https://www.youtube.com/playlist?list=PLWsYJ2ygHmWgGDLIGe0w5nA5QyMDB3-OU"> Youtube playlisy </a>
-
-<pre> sqllocaldb
-
-sqllocaldb info
-
-sqllocaldb create "LocalDBDemo" </pre>
-
-<p> Servername: (LocalDb)\LocalDBDemo
- Authentication: Windows Authentication
- </p> 
