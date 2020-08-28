@@ -222,26 +222,7 @@ Durable meanign that they are written to disc and replicated. As a result, no si
 that data go away. Topics can store data from days to multiple years, topics can be relative small
 or enormous. </p>
 
-<p>
-Back when databases ruled the world, there was kind of a trend to build a one gigant program that
-uses one big database all by itself. These things grew to where they were difficulte to change
-and difficute think about. Now the trend is to write lots and lots of small programs, each
-one of which is small enough to version and change all on its own. These programs can talk to each
-other thrue Kafka topics. So each one of these services can consume a message from a Kafka topic
-and produce that message off to another Kafka topic that lives in another service. Now its possible 
-to perform real time analysis (streaming) on these topics. In contrast to running a batch service
-over night. </p>
-
-<p>
-Kafka connect is a tool that helps to connect to ifferent systems. You want to collect data from different
-systems and get the data to be written into a topic. You want to transform a topic into
-a different fileformat for an external legacy system. Kafta connect is also an echo system of 
-connectors. There are dussins, even 100 connectors out there in the world, some of them are open source,
-some of them are commercials but they are these little plugable models that you can deploy to get the
-integration done. You deloy them, you configure them, you don't write code to do this reading and
-wrinting from the database. Kafta connect does that integration to those external systems. </p>
-  
-  
+   
  <b> HDInsight </b>
   <p>
 In Azure, HDInsight is the platform for hosting Kafka. 
