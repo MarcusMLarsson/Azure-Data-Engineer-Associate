@@ -73,11 +73,11 @@ is done, the magic takes over. All of the data in the terabite file is combined 
 The reducer runs on different keys.</p> 
   
   
-  <b> Hadoop Eco System </b>
+<b> Hadoop Eco System </b>
   
-  <img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
+<img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/10/HADOOP-ECOSYSTEM-Edureka.png">
   
-  <p> You use Apache Kafka to ingest data, and store the it in HDFS. You do the analytics with Apache Spark and as a backend for the display you store data in Apache HBase.
+<p> You use Apache Kafka to ingest data, and store the it in HDFS. You do the analytics with Apache Spark and as a backend for the display you store data in Apache HBase.
 
 To have a working system you also need YARN for resource management. You also need Zookeeper, a configuration management service to use Kafka and HBase </p>
   
@@ -165,101 +165,7 @@ System) where Blob Service usually are. Go to access control (IAM) and give our 
 Go add role assignment, use built in Storage Blob Data Contributor. Assign access to User 
 assigned managed identity. Let's go to HDInsight tab and press add... Continue demo. </p>
 
-<b> PolyBase </b>
-<p>
-PolyBase is a Microsoft technology to open up the ability of Azure SQL Data Warehouse to access 
-external data while still giving you the ability to use transct-SQL. PolyBase means you can get
-data from different sources like Azure Blob storage, Azure Data Lake Storage (Hadoop). You can be in
-your data warehouse and you can create an external table which pulls data from for example a
-Hadoop cluster and you can bring in the data. It provides a higher degree of cross-platform
-compatibility. </p>
-
-<p> <b>Demo</b>: Use the polly based feature to create an external table from data that resides from outside
-the warehouse. We can now work with this data from within the Data Warehouse as nativley as these
-external tables were permentaly appart of the Data Warehouse. </p>
-
-<p> <b>Data Analysis Options</b>: Excel, in the Azure cloud you got Azure Analysis Services (cloud based 
-variant of SSAS), Power BI. </p>
-
-<p> <b>Demo</b>: Azure Data Factory, Code-free data integration solution, informerly we can call it
-cloud bases SSIS. You use Azure Data Factory to build pipelines (hybid ETL and ELT) with a visual
-design surface. There is over 80 pre-built connectors to differet data sources. 
-
-In this demo we will use Azue Data Factory to perform a copy activity, we are going to take the
-dbo.weather table in SSMS and we are going to place it in our Data Lake Storage Gen2.
-
-
-<p> Azure Data Factory Integration: ? </p>
-
-<p> Combine HDInsight with Hive to do a batch processing job. We are going to download our
-dataset (CSV), populate it into our HDInsight cluster, Transform the data using Hive, Create a table
-in an Azure SQL Database, and than export the processed data to Azure SQL Database using scoop. </p>
-
-<p> Databricks: is a hosted Apache Spark environment. Databricks is not originally Microsoft, but 
-Microsoft worked with the Databricks team to create Azure Databricks (microsofts hosted value). This
-mean you have native compatibility with other Azure products. Demo: Create a Spark HDInsight cluster, 
-we will ingest csv data, create a notebook, and than we query the result. </p>
-
-<p> Developing Batch ProcessingSolutions with Azure Databricks </p>
-
-<p> Databricks is a hosted Apache Spark environment and  Azure databricks are Microsofts hosted Databricks environment (Azure Databricks is not the same as Databricks). We are still using most of
-Apacahe Hadoop tools, but rather than using the original MapReduce algorithm, we are using Spark. And Spark is known to be super fast, because it does it distributed data processing in-memory. 
-The problem with doing Databricks in an on-premis enviornment is that you have the capex of purchasing the clusters host. Doing this in the cloud, gives us cloud compute and cloud scale.
-Azure Databricks added value: Auto scale the cluster and place the database cluster in any region. Multio-modal notebook model (programmer can look at code, business people can look at charts).
-Built in machine learning libaries, and full Azure integration (RBAC, Azure AD, Tie-in with other Azure resource). 
-
-<ul>
-
-<p> Demo: We are going to do a ETL job with Azure Databricks. We are going to ingest unstructured data (log files, csv files, media). We are going to Databricks ingest that data into a
-reposityory (really ELT not ETL), than using Databricks to perform some transformation on the data, and than load it to Azure SQL Data Warehouse. </p>
-
-
-<p> Let's look at stream processing with Azure Databricks. An Azure Event hub is a hosted PaaS solution for high-volume data streaming and event ingestion. Event hub can receive and process
-millions of events per second. The idea is that we can than take the streams out of Event Hub and ingest them selectivlty into Data Lake Storage Gen2. Azure Event Hub forms the "front door" to Azure
-event pipelines. </p>
-
-<p> Demo: We are taking data out of twitter feed and an Azure Event Hub is going to catch that telemetry. </p>
-
-
-<p> Azure Batch: a hosted way to do MPP with VMs. </p>
-
-
-<p> Open source python CLI that Microsoft publishes called the Azure Distributed Data Engineering Toolkit (aztk). It allows you to provision on-demand Spark clusters. This is not Databricks, this is more
-of the traditional Hadoop/Spark/HDInsight cluster. You can also programatically submit Spark job. Builtatop Azure Batch. Employes (BYO) Docker containers. Low-priority VMs offer 80% discount. 
-
-
-
----
-
-
-
-
-<h1> Notes </h1>
-
-<p> <b>Data Structures </b>
- <ul>
-<li> Structured data (SQL table, data is fully modeled, each entity (table) is sorted into a number
-  of columns, and relationships among tables are explicitly defined. </li>
-<li>Semi-structured data (JSON, XML), JSON is same as key value pair, for XML you have the possibility
-for a schema. </li>
-<li>Unstructured data (CSV, PNG, EXE (blob)). </li>
-</ul>
-
-<p> For a Data Warehouse, the datas purpose is defined (structured and highly transformed). For a
-Data Lake the datas purpose is not yet determined. 
-<ul> 
-<li> ETL (Extract, transform load. Data is transformed in flight between source and destination. Does not scale particulary well.</li> 
-<li> ELT (Extract, load, transform). Data is transformed after it is extracted (Azure usually uses ELT as its a great fit
-  for the cloud given limitless compute and storage resources). </li>
-</ul>
-
-| Azure SQL Database       | Azure SQL Data Warehouse      |
-| ------------- |:-------------:|
-| OLTP (Online transaction processing)/CRUD (CREATE READ UPDATE DELETE)    | OLAP(Online analytical processing)/querying and reporting  |
-| SMP    |  MPP      |
-| Vertical scale | Horizontal scale      |
-| No polybase | Polybase       |
-
+<hr>
 <p> Virtual Machine (VM): Operating systems are software that are able to control the physical
 component of a computer. A VM is another type of software that allow us to run more operating systems
 within an operating system. Examples are VirtualBox and vmware. </p>
