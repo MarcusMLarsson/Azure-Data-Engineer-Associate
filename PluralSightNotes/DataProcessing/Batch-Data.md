@@ -171,6 +171,12 @@ component of a computer. A VM is another type of software that allow us to run m
 within an operating system. Examples are VirtualBox and vmware. </p>
 
 <p> 
+In memory processing: is an emerging technology for processing of data stored in an in-memory database.
+Older systems has been based on disk storage but these are increasingly regarded as inadequate to meet
+BI needs. Because stored data is accessed much more quickly when it is placed in RAM, in-memory 
+processing allows data to be analysed in real time, enabling faster reporting. <p>
+  
+<p>
 Everything in a computers memory, takes the form of the basic units called bits, or binary digits.
 Each of these are stored in a memory cell, that can switch between two states (0 & 1). Files of 
 programs consists of millions of these bits, all processed in the CPU (act as computers brains). As
@@ -183,42 +189,5 @@ the name Random Access Memory, RAM). The most common type of ram is Dynamic RAM 
 called Dynamic because it only holds charges dynamically, before they leak away. Even it low latency,
 is to slow for modern CPUs, so there is also a small high-speed internal memory cache (made from static
 RAM). SRAM is the fastest memory and the most expensive. RAM and cache can only hold data as long
-as they are powered. For data to remain while the device is turned off, it must be transfered to a long term storage device, which comes in three major types (Magnetic storage, ...)
-
-In memory processing: is an emerging technology for processing of data stored in an in-memory database.
-Older systems has been based on disk storage but these are increasingly regarded as inadequate to meet
-BI needs. Because stored data is accessed much more quickly when it is placed in RAM, in-memory 
-processing allows data to be analysed in real time, enabling faster reporting. <br> <br>
-
-With the hitherto prevalent disk-based technolgoy, data is loaded to the computer's hard drive in the
-form of multiple tables and multi-dimensonal structures against which queries are run. Disk-based
-technologies are relational database management systems (RDMS), often based on the
-SQL language. To improve query performance, multidimensonal databases or OLAP cubes are constructed.
-Designing a cube is an elaborate and lengthy process, and changing the cubeäs structure to adapt
-to dynamically changing business needs may be cumbersome. Cubes are pre-populated with data to answer
-specific queries and altough they increase performance, they are still not suitable for answering
-ad-hoc queries. <br> <br> Reading data from the hard disk is much slower (possibly hundreds of times)
-when compared to reading the same data from RAM. Memory processing can be accomplished via traditional
-databases such as Microsoft SQL Server of via NoSQL offerings. With in-memory databases is initially
-loaded into memory RAM instead of hard disks. </p>
-
-<p> Semiconductur: Sillicone is insulating at room temperatur but conducts electricity when it's very
-hot. It's a semiconductor who's conductivity change based on the environment. This special ability make
-semicondcuturs the perfect brain for electronic devices. Circuits of small semiconductor switches,
-called transistors, are at the heart of computer chips, and enable them to do math and run programs. </p> 
-
-
-<p> <b>The Four V's of Big Data </b>
-<ul> 
-  <li>Volume (the flow of data, size matrix like Peta bites or Exa bites) </li>
-<li>Velocity (Processing frequency, what is your tollerance for latency)</li>
-<li> Data Variety (is your data structured, semi-structured or unstructured)</li>
-<li>Veraciy (Data trustworthiness, Noise, bias). </li></ul> </p>
-
-</p>
-<b>To make a storage account a datalake (enable the hierachical namespace) storage gen2 account:</b>
-Notice under services, instead of Blob Storage its now called Data Lake Gen2 file system. So from
-now on this storage account is going to be a datalake store with HDFS compatible file systems. Select
-that service and collect a file system. If we go into the file system we get a prompt that let's use
-Azure Storage Explorer. </p>
+as they are powered. For data to remain while the device is turned off, it must be transfered to a long term storage device, which comes in three major types (Magnetic storage, ...)</p>
 
