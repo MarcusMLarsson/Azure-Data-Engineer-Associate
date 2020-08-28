@@ -166,6 +166,7 @@ Go add role assignment, use built in Storage Blob Data Contributor. Assign acces
 assigned managed identity. Let's go to HDInsight tab and press add... Continue demo. </p>
 
 <hr>
+<b> Notes </b>
 <p> Virtual Machine (VM): Operating systems are software that are able to control the physical
 component of a computer. A VM is another type of software that allow us to run more operating systems
 within an operating system. Examples are VirtualBox and vmware. </p>
