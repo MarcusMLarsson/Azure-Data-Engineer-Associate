@@ -68,7 +68,7 @@
 <h3> Grafana </h3>
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png">
  
-<p> Grafana provides a rich visualization and analytics set of capabilities. It is note exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
+<p> Grafana provides a rich visualization and analytics set of capabilities. It is not exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
 
 
 <h3> Azure Storage Logs </h3>
