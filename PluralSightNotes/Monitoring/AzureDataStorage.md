@@ -11,7 +11,7 @@
 <ul>
  Each service may have different types of monitoring data available, but they fall into three broad categories:
   <li> Metrics: Might give me insight into throughput, capacity, if it was a virtual machine it might be CPU cycles, could be SLA.  </li>
-   <li> Logs: These will vary between services, for example SQL server will ahve ah uge number of possible logs. </li>
+   <li> Logs: These will vary between services, for example SQL server will have a huge number of possible logs. </li>
   <li> Alerts: Alerts are generally  triggered by metrics and logs </li>
   </ul>
   
