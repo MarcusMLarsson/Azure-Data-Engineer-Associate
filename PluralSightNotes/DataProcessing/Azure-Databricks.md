@@ -51,6 +51,29 @@ using UI, CLI or Workspace API. Folders hold everything within the workspace (li
 three folders; Workspace, Shared and Users. Workspace is a special root folder for all of your assets, the Shared folder is for 
 sharing objects across your organization. The user folder is for each user. </p>
 
+<p> <b> Secret Scopes</b>:  Secret Scope in Databrikcs is a secure storage and logical container for sensitive information for application. Storing access keys or credentials in your code is bad practise in terms of secuirty. With secrete scopes, you get access to dbutils.secrets libary which allows you to get your secrets in a secure name.</p>
+
+<pre> Bad practise:
+val storageAccountName = "mystorageaccount"
+val containerName = "demo"
+val accessKey = "fuiqweXSNAeuyn8wqehd78"
+
+spark.conf.set("fs.azure.account.key." + storageAccountName + ".blob.core.windows.net", blobAccessKey)
+</pre>
+
+<pre>
+Good Practise:
+val storageAccountName = "mystorageaccount"
+val containerName = "demo"
+val accessKey = dbutils.secrets.get(scope = "myblob", key = "accessKey")
+
+spark.conf.set("fs.azure.account.key" + storageaccountName + ".blob.core.windows.net", blobAccessKey)
+</pre>
+
+Each databricks environment has a secret scope. Within that scope, you can contain secrets. You can manage secret scopes with an internal database within databricks
+or Azure Key Vault. Using the internal databricks backend, you have to use the Databricks CLI. Using Azure Key Vault backend, you can use the Workspace, CLI or the Azure Portal. The secret access permissions are MANAGE (change, write, read secret scope), WRITE (read and write), READ (read).
+
+
 <p> <b>Demo: Creating an Azure Databricks workspace </p></b>
 
 <p> Search for Databricks, Add (new workspace), pricing tier: standard allows you to secure with Azure AD, while premium allows
