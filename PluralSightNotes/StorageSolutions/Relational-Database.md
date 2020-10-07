@@ -135,6 +135,8 @@ Imagen we only have Azure SQL Database Single Database option available to us an
  </ul>
  </ul>
  
+ <h3> Row level security </h3>
+ 
 <h3> Configuring Data Backup </h3>
 
 <p> Azure SQL Database takes automatic back-up and stores them. If you previously worked with Microsoft SQL Server you probably know that we have three kind of back-ups: Full, differential, and transaction log backups. </p>
