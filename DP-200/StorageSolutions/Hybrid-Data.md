@@ -4,21 +4,26 @@
 
 <p> <b> Understanding Hybrid Data Systems </b></p>
 
+<b> What is a Hybrid system? </b>
 <p> Hybrid is an architecture that invloves components on-premises and components in the cloud. When switching to 
 hybrid solution (seperating aspect of computing data) its critical to understand attributes and requirements (things
 like latency). How does my application access the data? </p>
 
+<b> When to use a Hybrid System? </b>
+<p> You might want to move part of your solution to the cloud. The cloud can provide consumption-based billing, scalability/agility/service, geographically availability, operational simplification etc. However, some organisations are not allowed to push certain data to the cloud etc. Then a hybrid solution might be a better choice </p>  
 
-<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service.
-By default most services are accessed via an internet facing endpoint (via encrypted data). </p>
+<p>Connectivity: For a hybrid solution there needs to be a communcation between on-premises and the cloud service. By default most services are accessed via an internet facing endpoint (via encrypted data). </p>
+
+<b> Options for Hybrid Data Systems </b>
+<p> VPN or private peering over ExpressRoute can be utilized. </p>
 
 <p><b> Implementing Hybrid Data Systems </p></b>
 
-<p> All resources in Azure are deployed into a subscription. With PaaS services are also deployed to a region. I typically collect things together in a resource group that has an common lifecycle (run together, de-provisioned together etc).In production, you should not be creating resources in the portal. You want to be using a JSON template (might be
-created as part of DevOps pipeline, ARM). Before you click create when using the portal you can download a template for automation (basis or hints for creating ARM?). There are few locations between on-premises to services on Azure: 
+<b> Selecting connectivity </b>
+<p> There are few locations between on-premises to services on Azure: 
 Internet, S2S VPN, ExpressRoute Private/Microsoft peering. Most hybrid solutions will leverage ExpressRoute and if not
-VNet-based Microsoft peering will be required. This is because of the quality of the connection, because of the
-end-to-end service level agreement, consistent latency. </p>
+VNet-based Microsoft peering will be required. This is because of the quality of the connection, the
+end-to-end service level agreement and consistent latency. </p>
 
 <p> If using a SAN (Storage Area Network) solution there is not a native replication to Azure (you can't store your
 machine inside of Azure center). However, some vendors have partnership to enable replication to Microsoft network edge sites that can be accessed with low latency from VNets. </p>

@@ -1,295 +1,227 @@
-<h1> Implementing an Azure Databricks Environment in Microsoft Azure </h1>
+<h3>Azure SQL Database </h3>
 
-<p> <b>What is Azure Databricks?</b> It's a scalable apache spark based analytics platform that is optimized for Azure. Designed in
-collaboration with the founders of Apache Spark, Azure Databricks provides streamline workflow in an interactive workspace that
-enables collaboration between your data scienties, your data engineers etc. </p>
-
-<img src="https://miro.medium.com/max/800/1*qn2gItW3lIvbDtrKlQgtww.jpeg">
-
-<ul> 
-<li> Ingest: Kafka, Event Hub, IoT Hub </li>
-<li> Store: Blobs, Data Lake </li>
-<li> Prep & Train: Databricks (Machine Learning) </li>
-<li> Model & Serve: Cosmos DB, SQL Database, SQL Data Warehouse </li>
-<li> Intelligence: Analytical Dashboards, predictive apps </li>
+<b> PaaS offerings </b>
+<ul>
+ <li> Single Database </li>
+ <p> Isolated database that is perfect for applications that need a single data source </p>
+  <li> Elastic Pools </li>
+ <p> Collection of Single databases with a shared set of resources such as CPU or memory </p>
+  <li> Manage Instance </li>
+ <p>  Easy migration of on-premis databases </p>
 </ul>
 
-<b> Apache Spark </b>
-<p> Apache Spark is an open-source distributed general-purpose cluster-computing framework. Spark provides an interface from
-programming entire clusters with implicit data parallelism and fault tolerance. The purpose of Apache Spark is to process
-large amount of data and Spark is suitable for batching and streaming processing. Spark was created to address the limitations to MapReduce, by doing processing in-memory, reducing the number of steps in a job, and by reusing data across multiple parallel operations. With Spark, only one-step is needed where data is read into memory, operations performed, and the results written back—resulting in a much faster execution. Spark also reuses data by using an in-memory cache to greatly speed up machine learning algorithms that repeatedly call a function on the same dataset. Data re-use is accomplished through the creation of DataFrames, an abstraction over Resilient Distributed Dataset (RDD), which is a collection of objects that is cached in memory, and reused in multiple Spark operations. This dramatically lowers the latency making Spark multiple times faster than MapReduce, especially when doing machine learning, and interactive analytics. </p> 
+<b> Service Tiers </b>
+<ul>
+ <li> General Purpose </li>
+ <p>  IO and basic availability requirements, Reliability of Azure Blob storage, separte compute and storage, 1 replica, no read-scal,  99.99% HA SLA  </p>
+  <li> Business Critical </li>
+ <p> Fast IO and high availability requirements, local SSD storage, Combines Compute / Storag </p>
+  <li> Hyperscale </li>
+ <p>  Supports up to 100 TB of data, ensure 99.99% availability</p>
+</ul>
 
-<img src="https://d1.awsstatic.com/Data%20Lake/what-is-apache-spark.b3a3099296936df595d9a7d3610f1a77ff0749df.PNG">
+<b> Purchasing models </b>
+<ul>
+ <li> DTU (Database Throughput Unit)  </li>
+ <p>  DTUs are based on a blended measure of CPU, memory, reads, and writes.  </p>
+  <li> vCore</li>
+ <p> Gives you the option to choose between generations of hardware, number of cores, memory and storage size</p>
+</ul>
 
-<p> Azure Databricks comprises the complete set of Apache Spark open source technology capabilities. 
+<b> Monitor using Dynamic Management Views (DMVs) </b>
+<p> DMVs are a great tool to help troubleshoot performance related issues. All queries executed on SQL pool are logged to sys.dm_pdw_exec_requests. This DMV contains the last 10,000 queries executed. The request_id uniquely identifies each query and is the primary key for this DMV.
+
+<b> Performance Recommendations </b>
+<p> You can use the Azure portal to find performance recommendations that can optimize performance of your database in Azure SQL Database or to correct some issue identified in your workload. The Performance recommendation page in the Azure portal enables you to find the top recommendations based on their potential impact. Recommendations are sorted by their potential impact on performance into the following categories, high, medium and low. It is possible to apply individual recommendations. You can also set your database to implment recommendations automatically (auto tuning) </p>
+
+<b> Query performance insight </b>
+<p> Query Performance Insight provides intelligent query analysis for single and pooled databases. It helps identify the top resource consuming and long-running queries in your workload. Review top CPU consuming queries, view individual query details. </p>
+
+
+<b> Geo replica</b>
+<p> Active geo-replication is an Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a server in the same or different data center (region). </p>
+
+<b> Failover Groups</b>
+<p>  Are similar to geo replica but are for differt things. Automatic failover. Can fail over multiple databases simultaneously. Failover groups are supported for managed instance, which is not the case for Geo replciation.  </p>
+
+<b> Alwasy Encrypted </b>
+<p> Always Encrypted is a feature designed to protect sensitive data, stored in Azure SQL Database or SQL Server databases from access by database administrators (e.g. the members of the SQL Server sysadmin or db_owner roles), administrators of machines hosting SQL Server instances,), and Azure SQL Database (cloud) administrators. Always Encrypted leverages client-side encryption: a database driver inside an application transparently encrypts data, before sending the data to the database. Similarly, the driver decrypts encrypted data retrieved in query results.  </p>
+
+<b> Transparent Data Encryption </b>
+ <p> TDE is intended to add a layer of security to protect data at rest from offline access to raw files or backups, common scenarios include datacenter theft or unsecured disposal of hardware or media such as disk drives and backup tapes. </p>
+ 
+ <b> Data Masking </b>
+ <p> Dynamic data masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It’s a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed.</p>
+ 
+ <b> SQL Data Sync </b>
+<p> SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple databases, both on-premises and in the cloud. Data Sync is based around the concept of a sync group. A sync group is a group of databases that you want to synchronize. Data Sync uses a hub and spoke topology to synchronize data. You define one of the databases in the sync group as the hub database. The rest of the databases are member databases. Sync occurs only between the hub and individual members. 
+<ul>
+ <li> The Hub Database must be an Azure SQL Database. </li>
+ <li>  The member databases can be either databases in Azure SQL Database or in instances of SQL Server. </li>
+ <li>  The Sync Database contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned. </li>
+</ul>
+
+<p>The Sync Direction can be bi-directional or can flow in only one direction. That is, the Sync Direction can be Hub to Member, or Member to Hub, or both.  The Sync Interval describes how often synchronization occurs. SQL Data sync may appeal to customers who are considering moving to the cloud and would like to put some of their application in Azure.</p>
+
+</p>
+
+<b> Backups </b>
+<p> Azuer SQL Database automatically creates database backups (Azure SQL Automated Backups) that are kept between 7 and 35 days. 
  <ul>
-<li> Spark SQL is the Spark module for working with structured data within Azure Databricks. A Dataframe is a distributed collection of data organized into name columns. It's conceptionally equivalent to a table or a dataframe in Python. </li>
-<li> Than we have streaming support, which provides real time data processing and analysis for analytic and interactive applications. It integrate with things like HDFS, flume and Apache Kafka. </li> 
-<li> Next, we have the MLLib (Machine Learning libary), which consist of common learning algorithms for classification,
-  regression etc. </li>
-<li>Next, we have the GraphX, which provides graphs and graphs computation for a broad scope of use cases.</li>
-   <li>Last we have the Spark core API (includes support for R, SQL, Python, Scala, Java).</li></p></ul>
-   
-   
-<b> Spark vs Hadoop </b>
-
-<img src="https://raw.githubusercontent.com/andkret/Cookbook/master/images/Table-Hadoop-and-Spark.jpg">
-
-<p> Hadoop is used to store data in the Hadoop Distributed File System (HDFS). It can analyse the stored data with MapReduce and manage resources with YARN. However, Hadoop is more than just storage, analytics and resource management. There's a whole eco system of tools around the Hadoop core. Compared to Hadoop, Spark is "just" an analytics framework. It has no storage capability. Although it has a standalone resource management, you usually don't use that feature. </b>
-
-<b> Working with Azure Databricks </b>
-<p>When working with Azure Databricks you need to understand a few components. First are the collaborative Workspaces that
-contain all of your assets. Than you have Apache Clusters, these do the heavy lifting of your analysis work. Next, we have the
-Notebooks which provides a collaborative space for traning and preparing your data and creating your data pipelines. We have
-Tables which provide datastructures in your work spaces and last are the jobs for scheduling jobs in your work spaces. Now let's take
-alook at these by their own. </p>
-
-<p> <b>Workspace</b>: A workspace is an environment for assesing all of your Azure Databricks assets. It organizes notebooks, libaries,
-dashboards, and experiments into folders. By default the workspace and all it content is available to all the user who have
-access to the workspace. Each user however have their private folder which is note shared. You can create and manage workspaces
-using UI, CLI or Workspace API. Folders hold everything within the workspace (like a folder on your local computer). There exist
-three folders; Workspace, Shared and Users. Workspace is a special root folder for all of your assets, the Shared folder is for 
-sharing objects across your organization. The user folder is for each user. </p>
-
-<p> <b>Demo: Creating an Azure Databricks workspace </p></b>
-
-<p> Search for Databricks, Add (new workspace), pricing tier: standard allows you to secure with Azure AD, while premium allows
-Role-based access control (RBAC). Create, Launch workspace, click on user profile, admin console, add user. You can also use 
-groups, for example create a group for data science etc. 
-
-<b>Create Workspace</b>: Workspace, Workspace, create, folder. Right click folder and modify permission. 
-
-<b> Demo: Getting started with the Databricks CLI </b>
-
-<p>We will be using Azure Cloud Shell, a webb based CLI for accessing Azure.
-You can also setup the CLI locally. CLI stands for command-line interface. First, I need to generate a new token for my user to able access
-my workspacing using the databricks cli. Copy the token, and go into https://shell.azure.com. Let's create an virtual environment for
-my Data Bricks CLI to live in. </p>
-
-<pre>
-virtualenv -p /user/bin/python2.7
-
-I want to enter that virtual environment
-
-source databrickscli/bin/activate
-
-I want to install Data Bricks CLI into my virtual environment.
-
-pip install databricks-cli
-
-The next thing is to configure the virtual environment to go to the workspace
-
-databricks confgiure --token
-
-Copy URL
-
-databricks -h
-</pre>
-
-<p> <b>Demo: Working with Spark clusters </p></b>
-
-<p> Go down to the common task, and click new cluster or go over to the cluster icon. Click create cluster. Leave enable autoscaling,
-it will automatically scale the minimum and maximum number of nodes based on loads. For worker type, you can choose a number off different
-virtual machines. For the type of driver, you can pick the same as a worker. This is how you create a cluster with the UI. </p>
-
-<p> <b>How to create a cluster with the shell</b>
-
-<pre>
-source databrickscli/bin/activate
-
-Take alook at a json file to build out our cluster
-
-code ./clouddrive/demo/intro/bd-cl02.json
-
-databricks clusters create --json-file ./clouddrive/demo/intro/bd-cl02.json
-
-databricks clusters list
-</pre> 
-
-<p> <b>Notebooks</b>: Web-based interface, combine code, visualization and text that are all organized in cells. Often production level notebooks
-will be run as a job, once tweaking of code is complete. Notebooks will be the foundation for building pipelines within Azure Databricks. Supports
-Python, Scala, Markdown and HTML. </p>
-
-<p> <b>Demo: Working with Notebooks in Azure Databricks </p> </b>
-
-<p> Import notebook by rightclicking on Workspace. Notebook has .ipynb file format (iPythonJupyterNotebook). In the left top corner we can attach a cluster. % means other code than Python (or what we opened the notebook in), %md for instance means markdown, %% bash (cell magic, will be exectued in a bash shell), try %lsmagic</p>
-
-<p> <b>Working with Azure Databricks Tables</b>: is a collection of structured data. Tables are equivalent of Apache Spark dataframes. In Spark a dataframe is a distributed collection of data organized inte name columns. Same as dataframe in Python and R. But it comes with much richer optimizations under the hood. This means you can cache, filter and perform any operation supported by dataframes on your tables.
-
-<a href="https://wesmckinney.com/blog/apache-arrow-pandas-internals/"> Pandas & Apache </a>
-
-<p> <b>Demo: Working with tables </p> </b>
-<p> Import the notebook, attach to cluster, create a spark table </p> 
-
-<p> A job is a way of running a notebook on a scheduled basis. You can create and run jobs using the UI, CLI or API. Similary, you can monitor job
-run results in the UI / CLI / API aswell. One thing to note is that the number of jobs in a workspace is limited to 1000. To create a job, 
-simply go down to jobs, click on create jobs, you can create the job based one of the notebooks. Click edit beside schedule to schedule the job.
-If we take a look at the cluster we can edit that aswell. The recommendation from Apache Spark is to use a new cluster for your production 
-level jobs, or the jobs that are important to complete. You can click run now to test the job. </p>
-
-<p> To do this with the Azure Cloud Shell </p>
-
-<pre> 
-databricks jobs list
-
-databricks jobs get --job-id 4
-
-code ./clouddrive/demo/intro/bd-job01.json 
-
-databricks jobs create --json-file clouddrive/demo/intro/bd-job01.json
-
-databricks jobs run-now --job-id 7
-</pre>
-
-<p> <b>Performing ETL (Extract, Transform, Load) Operations with Azure Databricks</b> </p>
-<p> ETL (Extract Transform, Load) is a datapipeline used to collect data from various source, transform that data according to business rules
-and load it into a destination data store. This makes way for your intelligente applications to access the transformed data they need, in the
-format that they need it. In the ETL model, data is stored raw in different types of storage (e.g. Azure Blob Storage, Azure Data Lake Storage
-, Hadoop Storage). Since you don't want to change the raw data, and it's often more data than its needed for the end consumer application, you
-are going to extract it from it store, for the transform process. The process of extracting comes out of notebook calls requesting the data
-that they need. This allows the process to be schedueled and interactive. And because Azure Data Bricks lives in Azure, you have easy access
-to all of your storage, native and securly. Once the data is extracted, transformation can begin. Transformation in Azure Data Bricks involves
-processing the raw data into predictions and insight. A transformation activity, executes in the Azure Data Bricks Apache Cluster, driven by Azure Data
-Bricks notebooks and jobs. The data transformations that takes place usually involves filtering, cleaning, joining, removing duplicates etc. Once 
-the data is transformed, the data is put into a database service for use by the consuming applications. Options include Azure SQL Warehouse, Cosmos DB, Azure SQL Server etc.
-
-<p> <b>Demo</b>: Open up Data Bricks workspace. Go and create a cluster that is going to be used by the
-notebook. Go into the workspace and import a couple of notebooks. Workspace, import, browse...
-Bring in the audience notebook and add in the clean-audiance notebook (replace the placeholders).
-Attach the notebook to the cluster. First thing is that we are going to mount a file system in
-Azure Data Lake Storage Gen2 account. Now we are going to start the process of ETL and to start to
-ingest data. This is going to download downloading a JSON file from github, putting it to a temporary
-directory, than we are going copy that JSON file into our Azure Data Lake Storage. </p>
-
-<pre>%sh wget -P /tmp
-https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/
-small_radio_json.json
-
-shell comand
-</pre>
+  <li> Full backup: Backs up the whole database (taken every week) </li>
+  <li> Differential backup: Captures only the data that has changed since the last full backup (taken every 12 hours)</li>
+  <li> Transaction log backup: Records all of the committed and uncommited transactions (taken every 5-10m) </li>
+   </ul>
 
 
-<p> <b>Batch Scoring of Apache Spark ML Models With Azure Databricks</b> </p>
+<b> Data base migration service </b>
+<p> 
+Azure Database Migration Service is a tool that helps you simplify, guide, and automate your database migration to Azure. Easily migrate your data, schema, and objects from multiple sources to the cloud at scale.
+ </p>
 
-<p> Batch scroing involves a scheduled application of a ML model on a dataset to provide predictions.
-This can be done using a Spark job in Azure Data Bricks. In Azure Databricks, the best way to 
-implement batch scoring is by using notebooks to build a batch scoring pipeline. A batch scoring
-pipeline allows you to produce and run ML Models against data in a control and scheduled manner.
-Multiple notebooks are used to complete each step of the process. 
+<b> Scheduling jobs Azure SQL Database </b>
 
-<b> Demo: Batch scoring of Spark machine learning models on Azure Databricks </b>
+<p> Jobs can be periodically exectued aginst one or many databases to run T-SQL queries and perform maintenance tasks. You can use this jobs to run afer hours. You can use them for collect data and for data movements. 
+ 
+ <b> Elastic Database jobs </b>
+ <p> Exectues custom jobs on one or many Azuer SQL Databases (in parallel). Provides the ability tyo run one or more T-SQL scripts in paralllel, across many databases on a schedule or on-demand. Elastic jobs are available for single and pooled instances. Elastic Job Components. Job Agent (clean empty existing database, the job definition and execution history will be saved inside the job database). The job agent execute jobs on the target (individual database, SQL Server, Elastic Pool, Data Warehouse). If your job has an output, you can confige an output database and the job agent will write out the output into the output database. </p>
+ 
+ <b> SQL Agent Jobs </b>
+ <p> Can be used for managed instance. job step (A job is a set of one or many steps that should be exectued) => Schedule (when the job should be executed) => Notification (define rules that will be used to notify operators via emails once the job complets).  </p>
 
-<pre>cd clouddrive .... 
+<hr>
 
-git clone ... </pre>
-
-<p> Demo includes building a batch scoring pipeline on Azure Data Bricks to predict machine
-component faileur. This demo has 10 notebooks. Do the demo... </p>
-
-
-<b> Streaming HDInsight Kafka Data into Azure Databricks </b>
-
-<p> Apache Kafka is a distributed streaming platform. What exactly does that mean? A streaming platform has three key capabilities:
-
-<ul> <li> Publish and subscribe to streams of records, similar to a message queue or enterprise messaging system. </li>
-<li>Store streams of records in a fault-tolerant durable way. </li>
-<li>Process streams of records as they occur. </li> </ul>
-
-Kafka is generally used for two broad classes of applications:
+<h3>Azure SQL Data Warehouse </h3>
 <ul>
-    <li> Building real-time streaming data pipelines that reliably get data between systems or applications </li>
-     <li>Building real-time streaming applications that transform or react to the streams of data </li>
+<li>Distributions, Partitioning, Resource Classes, Polybase, External Tables, CTAS, Performance Monitoring (DMVs), Authentication & Security, etc. </li>
 </ul>
-To understand how Kafka does these things, let's dive in and explore Kafka's capabilities from the bottom up.
 
-First a few concepts:
+<hr>
+
+<h3>Azure Stream Analytics </h3>
+<ul> 
+ <Li>Cloud vs Edge, Inputs, Outputs, UDAs, UDFs, Window Functions, Stream vs Reference, Partitioning, Performance, Scaling. </li>
+</ul>
+
+<hr>
+<h3>Azure Data Factory </h3>
 <ul>
-    <li>Kafka is run as a cluster on one or more servers that can span multiple datacenters.</li>
- <li>The Kafka cluster stores streams of records in categories called <b>topics</b>.</li>
-    <li>Each record consists of a key, a value, and a timestamp. </li></ul>   
-<p> In Kafka, the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older versions. </p>    
-  <img src="https://i.ytimg.com/vi/k-7lz6Ex354/maxresdefault.jpg">
-  
-  
-  <p>
-For a long time, we have written programs that store information in databases. Databases think in
-things (cards, people etc), but Kafka thinks in events (events have an description of what happend
-at that time). The primary idea is that an event is an indication in time that the thing took place.
-It's not easy to store events in databases, instead we use logs. A log is just a order sequence 
-of the events. Apache Kafka is a system to managing these logs, using a fairly standard historical 
-terms it calls them topics. A topic is just an order collection of events stored in a durable way.
-Durable meanign that they are written to disc and replicated. As a result, no single hardware faileur can make
-that data go away. Topics can store data from days to multiple years, topics can be relative small
-or enormous. </p>
+<li>Pipelines & Activities, Datasets, Linked Services, Integration Runtimes, Triggers, Authoring/Monitoring Experience. </li>
+ </ul>
 
-<p>
-Back when databases ruled the world, there was kind of a trend to build a one gigant program that
-uses one big database all by itself. These things grew to where they were difficulte to change
-and difficute think about. Now the trend is to write lots and lots of small programs, each
-one of which is small enough to version and change all on its own. These programs can talk to each
-other thrue Kafka topics. So each one of these services can consume a message from a Kafka topic
-and produce that message off to another Kafka topic that lives in another service. Now its possible 
-to perform real time analysis (streaming) on these topics. In contrast to running a batch service
-over night. </p>
+<hr>
 
-<p>
-Kafka connect is a tool that helps to connect to ifferent systems. You want to collect data from different
-systems and get the data to be written into a topic. You want to transform a topic into
-a different fileformat for an external legacy system. Kafta connect is also an echo system of 
-connectors. There are dussins, even 100 connectors out there in the world, some of them are open source,
-some of them are commercials but they are these little plugable models that you can deploy to get the
-integration done. You deloy them, you configure them, you don't write code to do this reading and
-wrinting from the database. Kafta connect does that integration to those external systems. </p>
-  
-  
- <b> HDInsight </b>
-  <p>
-In Azure, HDInsight is the platform for hosting Kafka. 
- You can use many open source frameworks such as Hadoop, Apache Spark and Apache Kafka and more
-with HDInsight. The general setup from streaming with Kafka is quit simple. Producers send 
-records (events) to clusters were they are stored as topics. A topic is just a write-ahead log where
-the producers append records. Within the clusters, topics are assigned to the partitions that can
-be replicated for fault tollerance across the clusters. In the case of Azure, Kafka topics reside in 
-HDInsight cluster. These records, based on a key-value pairs, are available for consumers to use. 
-Consumers are going to subscripe to the topics they need and receive changes in real time as event
-producers send more data into Kafka. All communication between producers and consumers happens
-by Kafka brokers running in the cluster.  </p>
+<h3>Azure Storage</h3>
+<ul>
+ <li>Blobs vs ADLS Gen2, Data Redundancy, Security, Performance Tiers, Storage Lifecycle, Migration. </li>
+</ul>
+
+<hr>
+
+<h3>Azure Key Vault</h3>
+<ul>
+ <li>Keys, Secrets, Certs, and Access Policies. </li>
+</ul>
+
+<hr>
+
+<h3>Azure Event Hubs </h3>
+<ul>
+<li>Use Cases in Architecture, Terminology, Availability, Consistency, Scalability. 
+ </ul>
+
+<hr>
+
+<h3>Azure Event Grid</h3>
+<ul>
+<li> Sources, Topics, Subscriptions, Handlers, Use Cases in Architecture.</li>
+</ul>
+
+<hr>
+
+<h3> Azure IoT Hub </h3>
+<ul>
+<li>Use Cases in Architecture. </li>
+</ul>
+
+<hr>
+
+<h3>Azure Cosmos DB </h3>
+<ul>
+ <li>Use Cases for APIs, Consistency Levels, Distribution, Partitioning.</li>
+</ul>
+
+<hr>
+
+<h3>Azure Databricks</h3>
+<ul>
+<li>Use Cases in Architecture, Clusters, Secrets, Connecting to Data Sources, Performance Metrics.</li>
+</ul>
+
+<hr>
+
+<h3>Azure Monitor </h3>
+<ul>
+ <li>Application, Alerts, Log Analytics. </li>
+</ul>
 
 
-<p> <b>Demo: Streaming Data Scenario</b> </p>
-<p> Store data in Kafka topic and consuming a subset of the data into Azure Databricks. These involves
-a number of steps. We are going to install the required components for HDInsight. We are going to build
-and configure HDInsight with Kafka. We are going to build an Azure Databricks workspace and cluster.
-We are going to implement virtual network pearing between the two clustersand than we kick off event
-production and consumption stream using Databricks notebook. </p>
+<hr>
+
+<b> Dynamic Data Masking </b>
 
 
-<p> <b>Virtual Network peering</b> </p>
+<p> Dynamic data masking (DDM) limits sensitive data exposure by masking it to non-privileged users.
 
-<p> Often times, resources in Azure are deployed to different virtual networks based on the needs
-of the services. These networks are isolated by design. For those occations when you need to
-virtual networks to be connected, and the resources need to communication, Azure Virtual Netwoork
-Peering is here to help. With peering, services in different Virtual Networks (or vNets) communicate
-with each other via highbandwith, low latency, Azure fiber backbones. In our streaming scenario, 
-setting up Virtual Netwowrk Peering between Kafka HDInsight and Azure Databricks is going to eastblish
-this private communication network and allow streaming to happend. This is done by configuring each
-side of the peer network. While Azure allows Network Peering across network (known as global vnet 
-peering) we are using same region for our demo. Do the demo. </p>
+<ul>
+ <li> Default(), for string XXXX, for numeric 0, for date and datetime 0:00:00, for binary 0 </li>
+ <li> PARTIAL(), masking method that exposes first and last but adds a custom padding string </li>
+ <li> RANDOM(), a random masking function</li>
+</ul> 
+</p>
 
-<p> Once connected to Kafka on HDInsight via peered Vnet, Azure Databricks using connectors built into
-the Spark platform makes the connection needed to establish the streaming process. The best place
-to do this in Azure is to use Azure Notebooks. For basic streaming, a notebook for producing events
-will be created. This establishes the flow of data from outside sources into Kafka and placed into
-topics for consumption. Another notebook will be created to consum the topic desired from Kafka brokers
-within the cluster and bring the data into Azure Databricks. From there, data scienties can do whatever
-they need with the data. Do the demo!! </p>
+<pre>
+CREATE TABLE Customer (GiveName varchar(100) MASKED WITH (FUNCTION = 'partial(2, "XX", 0)') NULL,
+SurName varchar(100) NOT NULL,
+Phone varchar(12) MASKED WITH (FUNCTION = 'default()')
+);
 
----
+INSERT Customer (GivenName, SurName, Phone) VALUES ('Sammy', 'Jack', '555.111.2222');
 
-<h1> Notes </h1>
+SELECT * FROM CUSTOMER;
 
-<p> Terminal vs Bash vs Command line (CLI) vs Prompt. </p>
+returns SaXX Jack xxxx
 
-<p> The terminal (short for terminal emulator) is the program that is floating on your screen. Bash is the language that run
-in most terminal emulators. If you want to know what language you are running, you can type in echo $0. CLI is a emulator for a
-specific language? </p>
+</pre>
+
+<p> Azure Stream Analytics </p>
+
+Input => Azure Stream Analytics => Output
+
+
+<ul>
+ <li> Define Source </li>
+ <li> Define Output </li>
+ <li> Define Job SQL Query </li>
+</ul>
+
+<b> Azure Stream Analytics on IoT Edge </b>
+<p> Low latency</p>
+<p> An Azure Stream Analytics job consists of an input, query, and an output. </p>
+
+<ul>
+ <li> Create an Azure Blob Storage container</li>
+ <li> Create a Stream analtyics job with edge hsoting.</Li>'
+  <li> Configure the Azure Blob Straoge container as save lcoation for the job definition.</Li>
+    <li> Set up an IoT Edge environment on the IoT device and add a Stream Analytics module</Li>
+      <li>Configure routes in IoT Edge</Li>
+ </ul>
+
+<b> Azure Data Factory, native itnegration runtime mode, Express Route?
+ 
+ What is Azure Data Box Disk? What is Azure Data Box Heavy?
+ 
+ 
+ <p> Steps for polybase to load into Azure Data Warehouse </p>
+ <p> Polybase to laod data from a prquet file stored in Azure blob Strage in a table namded ...)
+

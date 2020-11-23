@@ -2,7 +2,7 @@
 <p><b> What is NoSQL and why use it?  </b></p>
 <ul> 
 <li> NoSQL is any database that store data which is not in tabular relationships (not schema dependent). </li>
-<li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and require consistency) </li>
+<li> Mainly about horizontal scalability, availability, price and agile development (in contrary relational databases are designed to run on a single serie in order to maintaine the integrity of the table mappings and requires consistency) </li>
 <li> NoSQL databases are designed to handle unstructured data (such as texts, social media posts, photos, videos, email) </li>
 </ul>
 
@@ -21,7 +21,7 @@
  <li> PaaS (Platform as a Service): Azure manages the underlying infrastructure for you. We will only talk about PaaS in this course.</li>
 </ul>
 
-<h3> Azure Storage Account </h3>
+<h3> <a href="http://www.sigops.org/s/conferences/sosp/2011/current/2011-Cascais/11-calder-online.pdf"> Azure Storage Account</a></h3>
 <li> A storage account is an cloud repository for data (Blob, File, Queue, Table) </li>
 <li> Notice that, a storage account is not a NoSQL service or a database, its a container for various file and storage services</li>
 <li>A storage account is just to store data. A database does not only store data, but makes the data easily accessible to users, for example with queries</li>
@@ -54,6 +54,23 @@
  <li><b> CORS (Cross-Origin Resource Sharing) for browser clients </b>  </li>
  <p> <b> CORS </b> is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. You can allow origins, methods and headers, when calling the Azure Table Storage API that return JSON data to be processed by the JavaScript client. </p>
  </ul>
+ 
+ 
+  <b> Azure Storage redundancy </b>
+  <p> Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets the Service-Level Agreement (SLA) for Azure Storage even in the face of failures. </p>
+  <ul>
+ <li> Locally redundant storage (LRS) </li>
+ <p> copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability. LRS protects your data against server rack and drive failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable.  </p>
+ <li> Zone redundant storage</li>
+ <p> copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region. With ZRS, your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends using ZRS in the primary region for scenarios that require consistency, durability, and high availability. We also recommend using ZRS if you want to restrict an application to replicate data only within a country or region because of data governance requirements. However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected. For protection against regional disasters, Microsoft recommends using geo-zone-redundant storage   </p>
+ <li> Geo-redundant storage</li>
+ <p> copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical 
+ <li> Read-access geo-redudant storage</li>
+ <p> Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. However, that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. When you enable read access to the secondary region, your data is available to be read at all times, including in a situation where the primary region becomes unavailable.</p>
+  <li>Geo-zone-redundant storage</li>
+ <p> copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region.s </p>
+ <li>Read-access geo-zone-redundant storage</li>
+ </ul>
 
  <h3> Azure Cosmos DB </h3>
  <ul>
@@ -76,7 +93,7 @@
  <li> Nearest region is identified without any configuration changes. </li>
  <li> When a new region is added or removed, the connection string stays the same. </li>
  </ul> 
-<p> Imagine you have two regions for your Cosmos DB account, one instance in West US and another instance in East US. You have created two versions of your web application and deployed on to an app service in West US and another app service in the East US region so your users can experience the least amount of latency. Now let's see what happends when there is a request for your application. You must probably have a traffic manager accepting the requests from the clients. The traffic managers knows the location of the client. In this case, the request is originated from Los Angeles, so the traffic manager is going to redirect the request to the app service located in the West US region, and my app service is using a connection string to connect to the Cosmos DB. So the question is, how does my app service know to which instance of Cosmos DB it should connect to; West US or East US? Because we don't have different connection strings for West US Cosmos DB and East US Cosmos DB. The answer is that the <b> multi-homing API </b> sovles this problem. The multi-homing API is going to figure out which instance of Cosmos DB is closest to my app service and redirect the data request to that instance, and this is the idea behind the multi-homing API </p>
+
 
  <b> Time-to-live</b>
  <p> With time-to-live (TTL) you can set an expire date on some of your objects saved into the database. You don't need to clean up your database and delete when the time has come. You can set the expiry time on Cosmos DB data items; the setting is called TTL and is set in seconds. Cosmos DB will automatically remove the items after this time period, since the last modififed time. </p>
@@ -137,11 +154,11 @@ What score do the observer get? 700 or 750? The observer is not suppose to see t
 <ul> 
  <p> Let's take alook at the pre-migrating steps before migrating your data. 
 </p>
- <li> Create an Azure Cosmos AB account </li>
+ <li> Create an Azure Cosmos DB account </li>
  <p> See previous demo </p>
  <li> Estimate the throughput needed for your workload (you can change this later) </li>
  <p> Throughput can be provisioned on both collection & database. You can choose database-level throughput if not sure. Throughput is measured in Request Units (RUs) / second. RU is an abstraction of physical resources (Memory, CPU, IOPs). The concept of RUs is very similar to the concept of DTUs in Azure SQL Database.  </p>
- <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item icreases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
+ <p> Key factors affecting needed RUs (Memory, CPU, IOPS), The size of an item effects the number of RUs consumed to read/write the item. The number of RUs consumed to write an item increases as the item property count increases. The frequency of CRUD (create, read, update, delete). The complexity of queries (query pattern). Azure has a capacity calculator which can help you estimate throughput. </p>
  
  <li> Pick an optimal partition key for your data (can't be changed if you don't recreate the collection)</li>
  <p> Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of the application. Follow best practices to avoid "hot" partitions. Choose a partition key so your data is divided equally.</p>
@@ -176,7 +193,7 @@ Finally, you can use the LINQ (.NET SDK) syntax. To do so, you need to install t
 
 <b> Working with Azure Cosmos DB - Gremlin (graph) API. </b>
 
-<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model? Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, sinnce there is no dependency on a schema or constrained data model. </p>
+<p> What are the graph data model components and what are uses cases in the real world? Azure Cosmos DB Gremlin API can be used as a graph data base. What is a graph data model? Real world data is naturally connected. Traditional data modelling focuses on entities not relationships. For many applications, there's need to model both entities and relationships. A graph database persists relationships in the storage layer. This leads to highley efficient graph retrieval operations. Graph data models are included within the NoSQL or non-relational category, since there is no dependency on a schema or constrained data model. </p>
 
 <p> A property graph is a structure that's composed of vertices (circle) and edges (connections). Both vertex and edge can have properties. Vertices are discrete entities such as a person, a place or an event. Edges are relationships between vertices. Finally we have properties. These are information about the vertices e.g. name or age. Real world applications of a graph data model are social networks, recommendation engines, geospatial, IoT. </p>
 
@@ -232,18 +249,9 @@ You can upload files to the Data Lake with the RESTful API or the DistCp tool. S
 
 <h3> Notes </h3>
 
-<b> Instance </b>
-<p> In object-oriented programming (OOP) an "instance" is synonymous with "object". The creation of an instance is called instantiation </p> 
-
-<b> Azure Container Instance </b>
-<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources.</p>
 
 <b> Provisioning </b>
 <p> Provisioning is the enterprise-wide configuration, deployment and management of multiple types of IT system resources. </p> 
-
-
-<b> Wide column store </b>
-<p> A wide column store is a type of NoSQL database. It uses tables, rows, and columns, but unlike a relational database, the names and format of the columns can vary from row to row in the same table. A wide column store can be interpreted as a two-dimensional key-value store. </p>
 
 <b> HTTP Headers </b>
 <p> When you type a url in your address bar, your browser sends an HTTP request and it may look like this </p>
@@ -293,389 +301,11 @@ Vary: Accept-Encoding, Cookie, User-Agent
 
 <p>A car is a class, different cars has different features, cars with similar features can be grouped as objects (car with this color, how takes this many passanges, can reach this speed). An instance is a specific object created from a particular class. </p>
 
-
-<b> Latency </b>
-<p> It is an expression of how much time it takes for a packet of data to get from one designated point to another. Latency depends on the speed of the transmission medium (e.g., copper wire, optical fiber or radio waves) and the delays in the transmission by devices along the way (e.g., routers and modems).	
-
-Latency is the amount of time a message takes to traverse a system.
-
-In a computer network, it is an expression of how much time it takes for a packet of data to get from one designated point to another. It is sometimes measured as the time required for a packet to be returned to its sender.
-
-Latency depends on the speed of the transmission medium (e.g., copper wire, optical fiber or radio waves) and the delays in the transmission by devices along the way (e.g., routers and modems). A low latency indicates a high network efficiency.
-
-Latency and throughput are the two most fundamental measures of network performance. They are closely related, but whereas latency measures the amount of time between the start of an action and its completion, throughput is the total number of such actions that occur in a given amount of time. </p>
+<b> Azure Container Instance </b>
+<p> Azure Container Instances is a service that enables a developer to deploy containers on the Microsoft Azure public cloud without having to provision or manage any underlying infrastructure. The service -- which supports both Linux and Windows containers -- eliminates the need for a developer to provision virtual machines, or implement a container orchestration platform, such as Kubernetes, to deploy and run containers. Instead, with Azure Container Instances (ACI), an organization can spin up a new container via the Azure portal or command-line interface (CLI), and Microsoft automatically provisions and scales the underlying compute resources.</p>
 
 <b> Containers </b>
 <p>Having code and scripts that only work on your machine is no longer sustainable. You need to be able to share your work and have other teams be able to repeat your results. The idea of a container is that it is an isolated environment in which you can set up the dependencies that you need in order to perform a task. Containers are an alternative to virtual machines, which are a great solution to isolation, but require substantial overhead. With a container framework, you specify the dependencies that your code needs, and let the framework handle the legwork of managing different execution environments. Docker is the defacto standard for containers, and there is substantial tooling built around Docker. </p>
 
 <b> REST api </b>
 <p> Representational state transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. Web services that conform to the REST architectural style, called RESTful Web services, provide interoperability between computer systems on the Internet. REST determines how the API looks like. It stands for “Representational State Transfer”. It is a set of rules that developers follow when they create their API. One of these rules states that you should be able to get a piece of data (called a resource) when you link to a specific URL. REST or RESTful API design (Representational State Transfer) is designed to take advantage of existing protocols. While REST can be used over nearly any protocol, it usually takes advantage of HTTP when used for Web APIs. This means that developers do not need to install libraries or additional software in order to take advantage of a REST API design.</p>
- 
- <b> Latency </b>
- <p> Latency is a networking term to describe the total time it takes a data packet to travel from one node to another.  </p>
- 
- <p> data latency is the time between the creation of data in a source system and the exact time at which the same data is available for end users on the business intelligence platform.</p>
-
-
-<b>Setup LocalDB server using sqllocaldb (Microsoft SQL Server Management Studio</b>
-
-<a href="https://www.youtube.com/playlist?list=PLWsYJ2ygHmWgGDLIGe0w5nA5QyMDB3-OU"> Youtube playlisy </a>
-
-<pre> sqllocaldb
-
-sqllocaldb info
-
-sqllocaldb create "LocalDBDemo" </pre>
-
-<p> Servername: (LocalDb)\LocalDBDemo
- Authentication: Windows Authentication
- </p> 
-
-
-<hr> 
-
-<h3> Demo </h3>
-<b> <i>The demo section can't be followed by only using my notes </b></i> 
-
-<p> Start by provisioning an Azure storage account. => More services => Storage => Storage Accounts. Account kind: StorageV2 (normally used). Locally redundant storage is the cheapest one. Cool is for archiving, choose hot. After creating a storage account you can choose 4 different storage types under the storage account umbrella. </p>
-
-<p> Let's provision a CosmosDB. More services => Databases => CosmosDB. Leave API as core SQL</p>
-
-<b> Demo: Provisioning Table Storage in the Azure Portal </b>
- <ul>
- <li> We are going to provision (configuration, deployment and management) a storage account in the Azure Portal. We will also configure security. More services => Storage accounts => Add. Account kind: StorageV2 (general purpose v2). Choose locally-redundant storage (LRS) for replication. </li>
- <li> Go to resource => Access keys (under settings). I can define if the token is going to be used as a Blob/File/queque/table storage. I can allow user permissions (can they read, write, delete, add, update etc). You can put a time frame on SAS token.</li>
- <li> Generate SAS and connection string (generates a token, a connection string), url for choosen storage type (blob/file/table/queue) </li>
- <li> Encryption: Option to use your own key stored in Azure Key Vault for encryption </li>
- <li> Firewalls and virtual networks: By default all the services within all virtual networks can access my storage account. You can change that by specifying a few selected virtual networks (selected networks). Here I can whitelist IPs which are allowed to access my storage account or even access existing virtual network or create a new virtual network and assign it to my storage account.</li>
- <li> CORS (cross-origin request): Here you can specify CORS for Blob, File, Queues and Tables separately. Imagine you have a client JavaScript application on domain name x, you should come here and whitelist that domain here. Server-side client can make requests directly to this storage account. You can also whitelist HTTP headers or verbs.</li>
- </ul>
- 
-<b> Demo: Working with Azure Storage Explorer</b>
-<p> 
- 
- 
-There are two different options (desktop version and the online version) to work with <b> Azure Storage Explorer </b>. We will be using the online version of the Storage Explorer (preview) in this demo. In Azure Storage Explorer I have the option to create a blob, file, queue or tables storage. Let's start with creating a Table Storage add a new entity to the table. RowKey and PartionKey are created automatically. Remember, that RowKey, PartionKey and TIMESTAMP are three properties which are system properties and mandatory for every entity. The TIMESTAMP will be managed by Azure, so you don't need to worry about that. However, it's your responsibility to provide the value for PartionKey and RowKey. It's also your responsibility to choose the right PartitionKey so your data is divided into appropriate size. Now when the system properties are defined, press add property. Press insert  </p>
-
-<b> Demo: Working with Azure Table Storage .NET SDK (Software development kit)</b>
-<p><a href="https://github.com/Azure/azure-sdk-for-net">Azure SDK for .NET </a></p>
-<p><a href="https://github.com/Azure/azure-sdk-for-python"> Azure SDK for Python </a></p>
- <p> We are going to write a small .NET application which connects to this storage account and reads an entity from our existing table. First, let's take a look at our data. => Storage Explorer => Tables. Start a console application in Visual Studio. Download WindowsAzure.Storage NuGet package. Grab the connection string under Access keys.    </p>
- 
-<pre>using Microsoft.WindowsAzure.Storage;                  <i> //importing package from SDK </i>
-using Microsoft.WindowsAzure.Storage.Table;             
-
-namespace AzureStorageSDK                                   <i> //namespaces are used to organize classes </i>             
-{
-    class Program                                           <i> //A class is a blueprint for creating objects </i> 
-    {                                                            
-      static void Main(string[] args)    <i> // Void returns nothing, static means that there's only one (don't belong to an object) </i>                         
-        {
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=namestorageaccount;AccountKey=lYMyjeY0YFvEKIdy/IRJyLwxKQWTEi7y0VZFLGV9rHVxDDcKfGKmF9uM4YGOTXAhNRj+g5SCEXN6NXyxDBRGEA==;EndpointSuffix=core.windows.net";
-
-           <i> // A connection string includes the authorization information required for your application to access data in an Azure   Storage account </i> 
-
-            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-            
-           <i> // CloudStorageAccount is a class, account is an object, storageConnectingString represents our storage credentials </i>
-           <i> // Parse is a method which parses a connection string and returns a CloudStorageAccount created from the connectiong string. </i>
-          CloudStorageAccount </a> </i>
-
-            CloudTableClient serviceClient = account.CreateCloudTableClient();       
-           <i> // CloudTableClient is a class, serviceClient is an object </i>
-
-            CloudTable table = serviceClient.GetTableReference("TableTest");
-
-            var opperation = TableOperation.Retrieve<TableTest>("Sweden", "1");
-
-            var jobResult = table.ExecuteAsync(opperation);
-
-            var entity = jobResult.Result;
-        }
-    }
-}
-</pre>
-
-<pre>using Microsoft.WindowsAzure.Storage.Table;
-
-namespace AzureStorageSDK                 <i> // namespace are used to organize classes </i>
-{
-    internal class TableTest : TableEntity       <i> // Class TableTest is inheriting from TableEntity </i>
-    {
-
-        public TableTest()
-        {
-
-        }
-
-        public TableTest(string pk, string rk)
-        {
-            PartitionKey = pk;
-            RowKey = rk;
-        }
-
-
-        public string Name { get; set; }
-
-        public string Email { get; set; }
-
-        public string Phone { get; set; }
-    }
-}</pre>
-
-
-<b> Demo: Provisioning a new Cosmos DB instance, Containers, and TTL </b>
- <p> Let's start with creating an Cosmos DB. Go tomore Services => Cosmos Db. Overview => Add container. Remember an Cosmos DB is the management unit for a group of containers. You have the option to create a new database or use an existing database within this Azure Cosmos DB account. Name the container, People and pick /City as partinione key. Add a new item (we will use JSON format). When you click save, "_rid", "_self", "_etag":, "_attachments", "_ts" are added automatically.</p>
-   
- <b> Demo: Cosmos DB Security </b>
- <p>
-If I only need the clients to be able to see the data, but not to update the data,  you can give them Read-only keys (not Read-write keys). Under Firewall and virtual networks you can whitelist by selecting selected networks. CORS (cross-origin resource sharing) is an HTTP feture that enables a web application running under one domain to acces resource in another domain.</p>
-
- <b> Working with Azure Cosmos DB - SQL (Core) API </b>
- 
- <p> Review: An Azure Cosmos container is the unit of scalability for throughput and storage. The container items and the throughput are distributed across a set of logical partitions. Logical partitions are created based on partition keys. An Azure Cosmos container can scale elastically. </p> 
- 
- <ul>
- <p> Container name for different APIs </p>
- <li> <b> SQL API:</b> Collection</li>
- <li> <b>Table API:</b> Table</li>
- <li> <b>MongoDB API:</b> Collection</li>
- <li> <b>Cassandra API:</b> Table</li>
- <li> <b>Gremlin API:</b> Graph</li>
- </ul>
- <br>
- 
- <p> Use Data Explorer: Azure Cosmos DB SQL API supports querying JSON items using SQL.
-<pre>
-"firstname": "Marcus",
-"lastname": "Larsson,
-"email": "mla@mail.se",
-"address": { 
-    "streetAdress": "Gatan",
-    "city": "Stockholm",
-    "country": "Sweden",
-},
-"phone": "+46703 ....."
-</pre>
-
-<pre>
-SELECT *
-FROM People as p
-WHERE p.lastname = "Marcus"
-</pre>
-
-<p> You can also query nested properties </p>
-<pre>
-SELECT *
-FROM People as p
-WHERE p.address.city = "Stockholm"
-</pre>
-
-<p> I can select fields of my items into new JSON objects</p>
-
-<pre>
-SELECT {"Name":p.id, "City":p.address.city} AS Person
-FROM People AS p
-WHERE p.address.city = "Gothenburg"
-</pre>
-
-<b> Demo: Working with Data Explorer, Partition Keys, and Unique Constraints </b>
-
-<p> Create CosmosDB => Create container => add items </p>
-
-<pre>
-{
-    "id": "1000",
-    "name" : "Reza",
-    "email" : "reza@test.com",
-    "city" : "Toronto"
-}
-</pre> 
-
-<pre>
-{
-    "id": "1001",
-    "name": "John",
-    "email": "John@test.com",
-    "city": "Boston",
-}
-</pre>
-
-<b> Demo: Using Azure Cosmos DB Data Migration Tool </b>
-
-<p> Let's import some data from another data source to Azure Cosmos DB. I already have an Azure SQL database instance with some sample data in it. Let's go ahead and check it out. </p>
-
-<p> Create a SQL server & Database in Azure. Populate it with data with the help of the pre-compiled binary.
-
-<a href = "https://aka.ms/csdmtool"> pre-compiled binary </a>
-
-<b> Demo: Working with the Azure Cosmos DB Client Library 3.x for .NET </b>
-
-<pre>using System;
-using System.Collections.Generic;
-using Microsoft.Azure.Cosmos;
-
-namespace ConsoleApp1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            CosmosClient cosmosClient;                
-            Database database;
-            Container container;
-
-            cosmosClient = new CosmosClient("AccountEndpoint=https://mlacosmos.documents.azure.com:443/;AccountKey=x73LhWDOWB4zDSoMUlqQUaJHWpB2cSURpnm1DyXvtl79hXlsuHNYJDIVggnnngE4O5mHnw8D9Uj5mcM22PGH4A==;");                 // Create a cosmosClient object by passing connection string
-            database = cosmosClient.GetDatabase("db01");             // Using the cosmosClient object, create a database object (getting a refrence to the database)  
-            container = database.GetContainer("Items");               // Access the container I need inside this database.   
-
-            var sqlQueryText = "SELECT * FROM dbo.Product";          // Sql query
-            QueryDefinition queryDefinition = new QueryDefinition(sqlQueryText);          // create object queryDefinition with the help of QueryDefinition class (pass query to a constructor)
-            FeedIterator<Product> queryResultSetIterator = container.GetItemQueryIterator<Product>(queryDefinition);   // create object queryResultSetIterator (create a query result iterator)
-
-            List<Product> redProducts = new List<Product>();                   // an empty list of the product object that I'm going to fetch
-
-
-            while (queryResultSetIterator.HasMoreResults)  // as long as we have data to fetch =>
-            {
-                FeedResponse<Product> currentResultSet = queryResultSetIterator.ReadNextAsync().Result;  // => it is going to fetch the data =>
-                foreach(Product product in currentResultSet)
-                {
-                    redProducts.Add(product);                                 // => add them to the result list =>
-                    Console.WriteLine("\tRead {0}\n", product.ProductNumber); // => and also put the product console into the consol
-                }
-
-            }
-        }
-    }
-}
-</pre>
-
-<pre> 
-namespace ConsoleApp1
-{
-    internal class Product
-    {
-
-        public int ProductID { get; set; }
-        
-        public string Name { get; set;  }
-
-        public string ProductNumber { get; set; }
-
-        public Category Category { get; set; }
-
-    }
-
-    public class Category
-    {
-        public int CategoryId { get; set; }
-    }
-
-}
-
-</pre>
-
-
-<hr>
-
-
-<b> Demo: Create a sample MongoDB database in MongoDB Atlas </b>
-<p> MongoDB Atlas: Create free tier (M0 Sandbox). Click on three dots, load sample dataset. Define a database user. Under security, click on database access, click on add new user, and create a new user. Download Studio 3T mongoDB client  </p>
-
-<pre> 
-using MongoDB.Driver;
-using System;
-
-namespace MongoDBAPI
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            IMongoCollection<Company> companiesCollection;
-
-            MongoClient client = new MongoClient("mongodb+srv://marcuslarsson:Britney123@cluster0-rmtx6.azure.mongodb.net/test?retryWrites=true&w=majority"); 
-
-            // Create an instance of MongoClient object using MongoDB connection string to this constructure.
-
-            var database = client.GetDatabase("sample_training"); // get a reference to the database that we are going to work with. 
-
-            companiesCollection = database.GetCollection<Company>("companies"); //name of the collection
-
-            var myCompanies = companiesCollection.Find<Company>(company => company.founded_year > 2000).Limit(100).ToList();
-
-
-            foreach (var company in myCompanies)
-            {
-                Console.WriteLine($"{company.name} founded in { company.founded_year}.");
-                    
-            }
-
-            Console.WriteLine("press a key to exit ...");
-            Console.ReadKey();
-        }
-    }
-}
-
-</pre>
-
-<pre>
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace MongoDBAPI
-{
-    internal class Company
-    {
-
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string id { get; set; }
-
-        public int founded_year { get; set; }
-
-        public string name { get; set; }
-
-        public string homepage_url { get; set; }
-    }
-}
-</pre>
-
-<hr>
-
-<p> Demo: Provisioning a Cosmos DB Table API instance. </p>
-
-<pre>
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Table;
-
-namespace TableAPI
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-
-            string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=mlacosmosdb;AccountKey=3DUoTtcwo7whnUkawB7DuejVEL7HWkCwR3Y2erou891Caa6O0Fd2sQimMBPgrXAaCUDIA3DOwKTClRjvUzHhWw==;TableEndpoint=https://mlacosmosdb.table.cosmos.azure.com:443/;";
-
-
-            CloudStorageAccount account = CloudStorageAccount.Parse(storageConnectionString);
-
-            CloudTableClient serviceClient = account.CreateCloudTableClient();
-
-            CloudTable table = serviceClient.GetTableReference("people");
-
-            var opperation = TableOperation.Retrieve<Person>("canada", "1");
-
-
-            var jobResult = table.ExecuteAsync(opperation);
-
-
-            var entity = jobResult.Result;
-        }
-    }
-}
-
-</pre>

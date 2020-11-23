@@ -11,7 +11,7 @@
 <ul>
  Each service may have different types of monitoring data available, but they fall into three broad categories:
   <li> Metrics: Might give me insight into throughput, capacity, if it was a virtual machine it might be CPU cycles, could be SLA.  </li>
-   <li> Logs: These will vary between services, for example SQL server will ahve ah uge number of possible logs. </li>
+   <li> Logs: These will vary between services, for example SQL server will have a huge number of possible logs. </li>
   <li> Alerts: Alerts are generally  triggered by metrics and logs </li>
   </ul>
   
@@ -68,7 +68,7 @@
 <h3> Grafana </h3>
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png">
  
-<p> Grafana provides a rich visualization and analytics set of capabilities. It is note exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
+<p> Grafana provides a rich visualization and analytics set of capabilities. It is not exclusive to Azure, but has a plugin available for Azure Monitor to enable integration.  </p>
 
 
 <h3> Azure Storage Logs </h3>
