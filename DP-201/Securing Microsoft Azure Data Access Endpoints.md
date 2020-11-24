@@ -33,3 +33,6 @@ For each rule, you can specify source and destination, port, and protocol.</p>
 
 <h3> Microsoft Peering </h3>
 <p> ExpressRoute provides a private link between a customer network and the Microsoft WAN  </p>
+
+<h3> NAT (network adress translation) gateway </h3>
+<p> </p>
