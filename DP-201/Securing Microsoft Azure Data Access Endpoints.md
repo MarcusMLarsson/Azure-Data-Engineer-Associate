@@ -27,3 +27,9 @@ For each rule, you can specify source and destination, port, and protocol.</p>
 
 <h3> Azure private link </h3>
 <p> Azure private link enables private endpoints to be created in Vnets. The private endpoint uses an IP address from the target Vnet. </p>
+
+<h3> Network Virtual Appliance (NVA) </h3>
+<p> VMs that perform specific network functions such as Firewall, Router, VPN, WAN optimization. </p>
+
+<h3> Microsoft Peering </h3>
+<p> ExpressRoute provides a private link between a customer network and the Microsoft WAN  </p>
