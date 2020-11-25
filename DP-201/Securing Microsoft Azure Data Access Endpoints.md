@@ -42,7 +42,7 @@ For each rule, you can specify source and destination, port, and protocol.</p>
   
   
 
-<h3> What is a rotuer </h3>
+<h3> What is a Router </h3>
 <p> A router is used to connect multipl computers together to a network
 
 <h3> What is a firewall </h3>
