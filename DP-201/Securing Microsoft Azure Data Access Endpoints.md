@@ -6,12 +6,6 @@
 <p> VNet enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, 
 the internet, and on-premises networks. It is a representation of your own network in the cloud</p>
 
-
-
-<h3> Service endpoints </h3>
-<p> Resources like VMs are stored in a Vnet. The internet is outside this virtual network but by default the resources (e.g. VMs) have a public facing endpoint (protected
-by a stateful firewall).  </p>
-
 <h3> Virtual Network Injection</h3>
 <p> One approach to limit access to services, is to deploy the service into an Azure Vnet. </p>
 
