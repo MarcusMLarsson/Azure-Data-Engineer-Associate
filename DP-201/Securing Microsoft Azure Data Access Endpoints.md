@@ -35,4 +35,15 @@ For each rule, you can specify source and destination, port, and protocol.</p>
 <p> ExpressRoute provides a private link between a customer network and the Microsoft WAN  </p>
 
 <h3> NAT (network adress translation) gateway </h3>
-<p> </p>
+<p> IPv4 ran out of space, so how are we still all looking at the internet? - NAT has the answe</p>
+
+<h3> What is a Gateway </h3>
+<p> A gateway is a node that connects two networks with different transmissions protocols together </p>
+  
+  
+
+<h3> What is a rotuer </h3>
+<p> A router is used to connect multipl computers together to a network
+
+<h3> What is a firewall </h3>
+<p> A firewall is designed to prevent unauthorized access from entering a private network. It blocks unwanted traffic and permits wanted traffic. </p>
