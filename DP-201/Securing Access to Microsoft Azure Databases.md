@@ -15,3 +15,7 @@ GRANT select on OBJECT::Justice Roaster to diana
 GRANT select on SCHEMA::Justice Roaster to diana
 GRANT revoke on SCHEMA::Justice Roaster to diana
 </pre>
+
+<h3> Resource token CosmosDB </h3>
+<p> A token broker service would be responsible for authenticating requesting applications that are allowed to get tokens for a requested user.
+The broker would than create a short-lived token using the master key the application can use. </p>
