@@ -26,7 +26,23 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
   
   
  <h3> Shared access signatures </h3>
+ <p> A shared access signature can be used for secure access. The signature represents a key that is added to the Azure service endpoint. With a SAS, you have granular control over how a client can access your data. For example
+
+<ul>
+ <li> What resources the client may access. </li>
+ <li> What permissions they have to those resources. </li>
+ <li> How long the SAS is valid. </li>
+</ul>
+
+ <p> Azure Storage supports three types of shared access signatures: </p>
+  <ul>
+  <li> Service SAS: A service SAS is secured with the storage account key. A service SAS delegates access to a resource in only one of the Azure Storage services: Blob storage, Queue storage, Table storage, or Azure Files.</li>
+  <li> Account SAS: An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services.</li>
+ <li> User delegation SAS: A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only. To create a user delegation SAS, you must first request a user delegation key, which is then used to sign the SAS. </li>
+  </ul>
  
+
+</p>
  
  
  <h3> Azure Storage Access Keys </h3>
@@ -63,12 +79,3 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
   <h3> Storage Account keyes</h3>
   <p> Two different keys. Provide super access </p>
   
-  <h3> Types Shared Access Signature </h3>
-  <ul>
-  <li> Service SAS: Provides access to a specific resource, in one of the storage services. For example, a container, a blob or a file</li>
-  <li> Account SAS: Provides access to one or more services. Specific operations can be granted for that serivce and the right for the service content</li>
-  </ul>
-  
- <p> A SAS token for access to a container, directory, or blob may be secured by using either Azure AD credentials or an account key. A SAS secured with Azure AD credentials is called a user delegation SAS </p>
- 
- <p> To create a user delegation SAS, you must first request a user delegation key, which is then used to sign the SAS. </p>
