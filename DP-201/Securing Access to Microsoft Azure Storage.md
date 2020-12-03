@@ -4,7 +4,7 @@
 
 <h3> Secure access options </h3>
 
-<p>  In order for secure access to take place, authentication and authorization has to be applied. Different options for secure access includes
+<p>  In order to securly access Azure Storage, some kind of authentication and authorization process has to be applied. Different options for secure access includes
  <ul>
    <li> Azure Active Directory (Azure AD)</li>
    <li> Shared access signatures </li>
