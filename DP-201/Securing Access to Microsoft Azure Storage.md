@@ -1,6 +1,6 @@
 <h1> Securing Access to Microsoft Azure Storage </h1>
 
-<p> Azure Data Lake Gen2 can also included in this list as it's built on top of blob storage. This document will discuss how to access Azure storage services in a secure way. </p>
+<p> This document will discuss how to access Azure storage services in a secure way. </p>
 
 <h3> Secure access options </h3>
 
