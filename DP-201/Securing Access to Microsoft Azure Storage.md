@@ -58,12 +58,19 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
  
  <p> To use service principal authentication, follow these steps. </p>
  
-<ul>
- <lu> Register an application entity in Azure Active Directory (Azure AD) by following the steps in Register your application with an Azure AD tenant. Make note of the following values, which you use to define the linked service:, Application ID, Application key, Tenant ID. </lu>
- <lu> Grant the service principal proper permission using ACL </lu>
- </ul>
+<ol>
+ <li> Register an application entity in Azure Active Directory (Azure AD) by following the steps in Register your application with an Azure AD tenant. Make note of the following values, which you use to define the linked service:, Application ID, Application key, Tenant ID. </lu>
+ <li> Grant the service principal proper permission using ACL </li>
+ </ol>
 
   <li> Managed identities for Azure resources authentication</li>
+  
+ <p> A data factory can be associated with a managed identity for Azure resources, which represents this specific data factory. You can directly use this managed identity for Data Lake Storage Gen2 authentication, similar to using your own service principal. It allows this designated factory to access and copy data to or from your Data Lake Storage Gen2. To use managed identities for Azure resource authentication, follow these steps.</p>
+  <ol> 
+ <li> Retrieve the Data Factory managed identity information by copying the value of the managed identity object ID generated along with your factory.</li>
+ <li> Grant the managed identity proper permission using ACL</li>
+ 
+ </ol>
    <li> Account key authentication</li>
 </ul>
   </p>
