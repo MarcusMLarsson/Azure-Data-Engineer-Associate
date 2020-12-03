@@ -77,34 +77,12 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
 </ul>
   </p>
 
-<h3> Secure Access to Azure Storage Account </h3>
-<p> 
-  The Azure Storage Account connector supports the following authentication types. 
-<ul>
-  <li> </li>
-  <li></li>
-  <li> </li>
-</ul>
-  </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <h3> RBAC</h3>
-<p> Can be applied to Subscription, Resource group or at Resource level. If I apply at the Subscription level it will be inherited down </p>
-<p> Blobs and Queues supports RBAC within the resource </p>
+<p> Azure role-based access control (Azure RBAC) is a system that provides fine-grained access management of Azure resources. RBAC can be applied to Subscription, Resource group or at Resource level. If RBAC is applied at the Subscription level it will be inherited down. Blobs and Queues supports RBAC within the resource </p>
 
-<h3> ACL </h3>
+<h3> Access control list </h3>
+<p> Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). You can associate a security principal with an access level for files and directories. These associations are captured in an access control list (ACL). Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, An ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.</p>
 <ul>
   <p> Types of permissions </p>
   <li>4: Read</li>
