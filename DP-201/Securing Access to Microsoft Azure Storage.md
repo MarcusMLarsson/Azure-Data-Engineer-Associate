@@ -32,6 +32,8 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
  <li> What resources the client may access. </li>
  <li> What permissions they have to those resources. </li>
  <li> How long the SAS is valid. </li>
+ <li> Protocal that is allowed: HTTP / HTTPS </li>
+ <li> IP that is allowed</li>
 </ul>
 
  <p> Azure Storage supports three types of shared access signatures: </p>
