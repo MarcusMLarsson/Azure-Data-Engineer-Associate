@@ -62,6 +62,7 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
  <li> Register an application entity in Azure Active Directory (Azure AD) by following the steps in Register your application with an Azure AD tenant. Make note of the following values, which you use to define the linked service:, Application ID, Application key, Tenant ID. </lu>
  <li> Grant the service principal proper permission using ACL </li>
  </ol>
+ <br>
 
   <li> Managed identities for Azure resources authentication</li>
   
@@ -71,6 +72,7 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
  <li> Grant the managed identity proper permission using ACL</li>
  
  </ol>
+ <br>
    <li> Account key authentication</li>
 </ul>
   </p>
