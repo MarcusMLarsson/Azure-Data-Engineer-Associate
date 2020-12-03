@@ -1,12 +1,61 @@
+<h1> Securing Access to Microsoft Azure Storage </h1>
 
-<h3> Type of security principals  </h3> 
-<p> A security principal is an object in Azure AD </p>
+<p> Azure storage includes
+  <ul>
+    <li>blob storage </li>
+    <li> file storage </li>
+    <li> table storage </li>
+    <li> file storage </li>
+</ul>
+<p> Azure Data Lake Gen2 can also included in this list as it's built on top of blob storage. This document will discuss how to access these storage services in a secure way. </p>
+
+<h3> Secure access options </h3>
+
+<p>  In order for secure access to take place, authentication and authorization has to be applied. Different options for secure access includes
+ <ul>
+   <li> Azure Active Directory (Azure AD)</li>
+   <li> Shared access signatures </li>
+   <li> Azure Storage Access Keys </li>
+   </ul>
+ </p>
+  
+
+<h3> Azure Active Directory </h3>
+  <p>  
+Azure AD is Microsoft's cloud-based identity and authentication service. A security principal is an object in Azure AD
+  
+ <h3> Type of security principals  </h3> 
 <ul>
   <li>User </li>
   <li>Groups (contains users and might also contain other things)</li>
-  <li>Service principal (typically used by an application. The service principal is created when register an application with Azure AD)</li>
-  <li>Managed identity (Similar to Service principal, used for services running in azure that is going to access other services in aure)</li>
+  <li>Service principal (typically used by an application. The service principal is created when an application is registered with Azure AD)</li>
+  <li>Managed identity (Similar to service principal, used for services running in azure that is going to access other services in aure)</li>
 </ul>
+</p>
+  
+  
+ <h3> Shared access signatures </h3>
+ 
+ 
+ 
+ <h3> Azure Storage Access Keys </h3>
+
+
+<h3> Azure Data Lake Storage Gen 2 </h3>
+<p> 
+  The Azure Data Lake Storage Gen2 connector supports the following authentication types. 
+<ul>
+  <li> Account key authentication</li>
+  <li> Service principal authentication</li>
+  <li> Managed identities for Azure resources authentication</li>
+</ul>
+  </p>
+
+
+
+
+
+
 
 <h3> RBAC</h3>
 <p> Can be applied to Subscription, Resource group or at Resource level. If I apply at the Subscription level it will be inherited down </p>
