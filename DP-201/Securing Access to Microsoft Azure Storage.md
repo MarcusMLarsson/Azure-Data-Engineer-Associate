@@ -42,23 +42,48 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
   <li> Account SAS: An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services.</li>
  <li> User delegation SAS: A user delegation SAS is secured with Azure Active Directory (Azure AD) credentials and also by the permissions specified for the SAS. A user delegation SAS applies to Blob storage only. To create a user delegation SAS, you must first request a user delegation key, which is then used to sign the SAS. </li>
   </ul>
- 
 
 </p>
  
- 
  <h3> Azure Storage Access Keys </h3>
 
+<p> When you create a storage account, Azure generates two 512-bit storage account access keys. These keys provide super access, including the ability to delete the storage account or its content. These keys can be used to authorize access to data in your storage account via Shared Key authorization.Microsoft recommends that you use Azure Key Vault to manage your access keys, and that you regularly rotate and regenerate your keys. Using Azure Key Vault makes it easy to rotate your keys without interruption to your applications. You can also manually rotate your keys. </p>
 
-<h3> Azure Data Lake Storage Gen 2 </h3>
+
+<h3> Secure Access to Azure Data Lake Storage Gen 2 </h3>
 <p> 
   The Azure Data Lake Storage Gen2 connector supports the following authentication types. 
 <ul>
-  <li> Account key authentication</li>
   <li> Service principal authentication</li>
+ 
+ <p> To use service principal authentication, follow these steps. </p>
+ 
+<ul>
+ <lu> Register an application entity in Azure Active Directory (Azure AD) by following the steps in Register your application with an Azure AD tenant. Make note of the following values, which you use to define the linked service:, Application ID, Application key, Tenant ID. </lu>
+ <lu> Grant the service principal proper permission using ACL </lu>
+ </ul>
+
   <li> Managed identities for Azure resources authentication</li>
+   <li> Account key authentication</li>
 </ul>
   </p>
+
+<h3> Secure Access to Azure Storage Account </h3>
+<p> 
+  The Azure Storage Account connector supports the following authentication types. 
+<ul>
+  <li> </li>
+  <li></li>
+  <li> </li>
+</ul>
+  </p>
+
+
+
+
+
+
+
 
 
 
@@ -78,6 +103,4 @@ Azure AD is Microsoft's cloud-based identity and authentication service which ca
   <li>1: Execute</li>
   </ul>
   
-  <h3> Storage Account keyes</h3>
-  <p> Two different keys. Provide super access </p>
   
