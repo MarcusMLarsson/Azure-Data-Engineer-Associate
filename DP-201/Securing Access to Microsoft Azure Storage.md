@@ -17,7 +17,7 @@
   <p>  
 Azure AD is Microsoft's cloud-based identity and authentication service. A security principal is an object in Azure AD
   
- <h3> Type of security principals  </h3> 
+ <h4> Type of security principals  </h4> 
 <ul>
   <li>User </li>
   <li>Groups (contains users and might also contain other things)</li>
