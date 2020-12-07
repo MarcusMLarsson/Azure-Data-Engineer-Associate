@@ -9,7 +9,7 @@ such as C#, Java, JavaScript, PowerShell, and Python. You need to pay only for t
 <h3> Hosting plan </h3>
 <p> When you create a function app in Azure, you need to choose a hosting plan for your app. There are three available hosting plans </p>
 <ul>
-<li> Consumption: compute instances are dynamically added or removed based on incomming requests. Pay only when your function is used (consumed)</li>
+<li> Consumption: compute instances are dynamically added or removed based on incomming requests. Pay only when your function is used (consumed). Azure scales out automatically when needed</li>
 <li> Premium: You specify a number of pre-warmed instances that are always online and ready to respond. When the function is run, Azure scales out automatically if needed. 
 You pay for pre-warmed instances and additional use as Azure scale out</li>
 <li> App Service Plan: Run your functions, just like a webb app</li>
