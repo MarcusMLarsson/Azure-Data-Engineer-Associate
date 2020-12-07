@@ -1,4 +1,4 @@
-<h1> Azure Functions
+<h1> Azure Functions </h1>
 <p> Azure Functions is a serverless compute service that lets you run event-triggered code without having to explicitly provision or manage infrastructure.
 In other words, <b>Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud </b>. 
 You can write just the code you need for the problem, without having to worry about a whole application or the infrastructure to run it. 
