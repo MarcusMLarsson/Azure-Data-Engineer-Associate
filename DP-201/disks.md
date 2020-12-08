@@ -16,10 +16,10 @@ With Managed Disks, you are no longer limited by the storage account limits. You
 <p>
 Azure Managed Disks are like physical disks but are virtual and managed by Azure. Azure offers a few types of managed disks </p>
 <ul>
-<li> Ultra Disk</li>
-<li> Premium SSD Managed Disks</li>
-<li> Standard SSD Managed Disks</li>
-<li> Standard HDD Managed Disks </li>
+<li> Ultra Disk: 160,000 IOPS, 2,000 MB/s throughput </li>
+<li> Premium SSD Managed Disks: 20,000 IOPS, 900 MB/s throughput </li>
+<li> Standard SSD Managed Disks: 6,000 IOPS, 750 MB/s throughput </li>
+<li> Standard HDD Managed Disks: 2,000 IOPS, 500 MB/s throughput  </li>
 </ul>
 
 
